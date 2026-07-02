@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outreach Intelligence Platform</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Outreach Intelligence Platform</h1>
+    <p>AI-assisted outreach planning with demo CRM storage and human review.</p>
+    <span class="safe">Demo mode: no real email sending</span>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="/" data-route="/">CRM Workspace</a>
+      <a href="/research-intake" data-route="/research-intake">Research Intake</a>
+      <a href="/organization-discovery" data-route="/organization-discovery">Organization Discovery</a>
+      <a href="/integrations" data-route="/integrations">Integrations</a>
+      <a href="/data-tools" data-route="/data-tools">Data Tools</a>
+      <a href="/analytics" data-route="/analytics">Analytics</a>
+      <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
+      <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
+      <a href="/knowledge-search" data-route="/knowledge-search">Knowledge Search</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="crm-page" class="page">
+      <div class="layout">
+        <section class="panel list-panel">
+          <div class="panel-title-row">
+            <h2>Organizations</h2>
+            <button onclick="loadOrganizations()">Refresh</button>
+          </div>
+          <input id="search" placeholder="Search organizations..." oninput="renderOrganizations()" />
+          <div id="organizations"></div>
+        </section>
+
+        <section class="panel detail-panel">
+          <h2 id="detail-title">Select an organization</h2>
+          <div id="details" class="muted">Choose a target organization to view outreach intelligence.</div>
+
+          <div class="actions">
+            <button onclick="loadSummary()">AI Summary</button>
+            <button onclick="loadOpportunities()">AI Opportunity Analysis</button>
+            <button onclick="loadReadinessAssessment()">AI Readiness Assessment</button>
+            <button onclick="generateNextBestEmail()">Next Best Email</button>
+            <button onclick="loadMeetingBrief()">Meeting Brief</button>
+            <button onclick="loadOutreachRecommendation()">Outreach Recommendation</button>
+          </div>
+
+          <div id="ai-output" class="output"></div>
+
+          <section id="draft-section" class="hidden">
+            <h3>Next Best Email</h3>
+            <div id="email-type-badge" class="email-type-badge"></div>
+            <span id="email-detected-stage" class="email-detected-stage"></span>
+            <p id="email-reason" class="email-reason muted"></p>
+            <div id="email-missing-context" class="missing-context hidden"></div>
+            <label>To</label>
+            <input id="draft-to" />
+            <label>Subject</label>
+            <input id="draft-subject" />
+            <label>Body</label>
+            <textarea id="draft-body" rows="12"></textarea>
+            <div id="email-next-action-section" class="hidden">
+              <label>Suggested Next Action</label>
+              <input id="draft-next-action" readonly />
+              <label>Suggested Follow-up Date</label>
+              <input id="draft-follow-up-date" readonly />
+            </div>
+            <div id="draft-attachments-section">
+              <h4>Attachments</h4>
+              <p class="muted">Attachments are saved locally with this demo draft. No email is sent.</p>
+              <div id="draft-attachment-list"></div>
+              <div class="file-attach-row">
+                <input id="draft-file-input" type="file" multiple onchange="onAttachFilesSelected()" />
+                <button onclick="uploadAttachments()">Attach Files</button>
+              </div>
+            </div>
+            <button onclick="saveDraft()">Save to Demo Outbox</button>
+            <p class="muted">This saves locally only. It does not send email.</p>
+            <details id="email-context-details" class="context-details hidden">
+              <summary>View Context Used</summary>
+              <div id="email-context-used" class="context-used"></div>
+            </details>
+          </section>
+
+          <section class="notes">
+            <h3>Meeting Notes Intelligence</h3>
+            <textarea id="meeting-notes" rows="5" placeholder="Paste rough meeting notes here..."></textarea>
+            <button onclick="summarizeNotes()">Summarize Notes</button>
+            <div id="notes-output" class="output"></div>
+          </section>
+
+          <section id="interaction-history-section" class="hidden">
+            <h3>Interaction History</h3>
+            <button onclick="showAddInteractionForm()">Add Interaction</button>
+
+            <div id="add-interaction-form" class="hidden">
+              <h4>New Interaction</h4>
+              <label for="int-type">Interaction Type</label>
+              <select id="int-type">
+                <option>Meeting</option>
+                <option>Call</option>
+                <option>Email</option>
+                <option>Research Note</option>
+                <option>Follow-up</option>
+                <option>Other</option>
+              </select>
+              <label for="int-date">Date</label>
+              <input id="int-date" type="date" />
+              <label for="int-title">Title</label>
+              <input id="int-title" />
+              <label for="int-notes">Notes</label>
+              <textarea id="int-notes" rows="4"></textarea>
+              <label for="int-outcome">Outcome</label>
+              <textarea id="int-outcome" rows="2"></textarea>
+              <label for="int-next-action">Next Action</label>
+              <input id="int-next-action" />
+              <label for="int-follow-up-date">Follow-up Date</label>
+              <input id="int-follow-up-date" type="date" />
+              <label for="int-tags">Tags (comma separated)</label>
+              <input id="int-tags" />
+              <div class="actions">
+                <button onclick="saveNewInteraction()">Save Interaction</button>
+                <button onclick="hideAddInteractionForm()">Cancel</button>
+              </div>
+            </div>
+
+            <div id="interactions-list"></div>
+          </section>
+
+          <section id="knowledge-summary-section" class="hidden">
+            <h3>Organization Knowledge Summary</h3>
+            <button onclick="loadKnowledgeSummary()">Refresh Knowledge Summary</button>
+            <div id="knowledge-summary-output" class="output"></div>
+          </section>
+
+          <section id="readiness-section" class="hidden">
+            <h3>AI Readiness Assessment</h3>
+            <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
+            <div id="readiness-output" class="output"></div>
+          </section>
+
+          <section id="timeline-section" class="hidden">
+            <h3>Organization Timeline</h3>
+            <button onclick="loadTimeline()">Refresh Timeline</button>
+            <div id="timeline-output" class="output"></div>
+          </section>
+
+          <section id="lessons-section" class="hidden">
+            <h3>Lessons Learned</h3>
+            <button onclick="loadLessons()">Refresh Lessons</button>
+            <div id="lessons-output" class="output"></div>
+          </section>
+
+          <section id="playbook-section" class="hidden">
+            <h3>Playbook Candidates</h3>
+            <button onclick="loadPlaybooks()">Refresh Playbooks</button>
+            <div id="playbook-output" class="output"></div>
+          </section>
+
+          <section id="workflow-opps-section" class="hidden">
+            <h3>Workflow Opportunities</h3>
+            <button onclick="loadWorkflowOpps()">Refresh</button>
+            <div id="workflow-opps-output" class="output"></div>
+          </section>
+
+          <section id="knowledge-sources-section" class="hidden">
+            <h3>Knowledge Sources</h3>
+            <button onclick="loadKnowledgeSources()">Refresh</button>
+            <div id="knowledge-sources-output" class="output"></div>
+          </section>
+
+          <section id="failure-cases-section" class="hidden">
+            <h3>Failure Cases / Exceptions</h3>
+            <button onclick="loadFailureCases()">Refresh</button>
+            <div id="failure-cases-output" class="output"></div>
+          </section>
+
+          <section id="adoption-risk-section" class="hidden">
+            <h3>Adoption Risk Notes</h3>
+            <button onclick="loadAdoptionRisks()">Refresh</button>
+            <div id="adoption-risk-output" class="output"></div>
+          </section>
+
+          <section id="tasks-section" class="hidden">
+            <h3>Follow-up Tasks</h3>
+            <div id="tasks-output"></div>
+          </section>
+        </section>
+
+        <section class="panel outbox-panel">
+          <h2>Demo Outbox</h2>
+          <button onclick="loadOutbox()">Load Outbox</button>
+          <div id="outbox"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="research-intake-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <div class="panel-title-row">
+            <h2>Research Intake</h2>
+            <span class="muted">Manual entry only</span>
+          </div>
+          <form id="research-intake-form" class="intake-form" onsubmit="saveResearchIntake(event)">
+            <label for="intake-organization-name">Organization name</label>
+            <input id="intake-organization-name" required />
+
+            <label for="intake-website">Website</label>
+            <input id="intake-website" placeholder="https://example.org" />
+
+            <label for="intake-general-contact-email">General contact email</label>
+            <input id="intake-general-contact-email" type="email" placeholder="info@example.org" />
+
+            <label for="intake-phone-number">Phone number</label>
+            <input id="intake-phone-number" placeholder="519-555-1234" />
+
+            <label for="intake-organization-type">Organization type</label>
+            <input id="intake-organization-type" />
+
+            <label for="intake-program-area">Program area</label>
+            <input id="intake-program-area" />
+
+            <label for="intake-description">Description</label>
+            <textarea id="intake-description" rows="4"></textarea>
+
+            <label for="intake-why-benefit">Why this organization may benefit from AI literacy or workflow improvement</label>
+            <textarea id="intake-why-benefit" rows="4"></textarea>
+
+            <label for="intake-outreach-angle">Suggested outreach angle</label>
+            <textarea id="intake-outreach-angle" rows="4"></textarea>
+
+            <label for="intake-source-url">Source URL</label>
+            <input id="intake-source-url" placeholder="https://example.org/program" />
+
+            <label for="intake-notes">Notes</label>
+            <textarea id="intake-notes" rows="4"></textarea>
+
+            <div class="actions">
+              <button type="submit">Save to Local CRM</button>
+              <button type="reset">Clear</button>
+            </div>
+            <p class="muted">Use general contact emails only. This does not send email or scrape websites.</p>
+          </form>
+          <div id="intake-result"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="organization-discovery-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel discovery-panel">
+          <div class="panel-title-row">
+            <h2>Organization Discovery</h2>
+            <span class="muted">Human review required</span>
+          </div>
+          <label for="research-theme">Research Theme</label>
+          <div class="discovery-form">
+            <input id="research-theme" placeholder="Example: public AI literacy workshops for community organizations" />
+            <button onclick="discoverOrganizations()">Discover</button>
+          </div>
+          <div id="discovery-results" class="candidate-grid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="integrations-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <div class="panel-title-row">
+            <h2>Integrations</h2>
+            <span class="muted">Read-only architecture overview</span>
+          </div>
+          <p class="muted">
+            The platform is connector-agnostic. AI features use the internal service layer and do not depend directly
+            on Salesforce, Google Drive, Gmail, or any specific external system. The current MVP uses
+            <strong>local demo storage only</strong>. Future connectors could provide organization data, contact data,
+            interaction history, and related documents through the same internal API.
+          </p>
+
+          <h3 class="connector-section-title">Active Local Connector</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-active">
+              <div class="connector-header">
+                <h3>Local Demo CRM</h3>
+                <span class="connector-status status-active">Active</span>
+              </div>
+              <p class="connector-desc">Uses local project data only. Stores organizations, contacts, interactions, AI assessments, drafts, and demo outbox records.</p>
+              <div class="connector-details"><strong>Safety:</strong> No network access. No credentials required. All data stays in the project directory.</div>
+            </article>
+          </div>
+
+          <h3 class="connector-section-title">CRM Connectors</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-stub">
+              <div class="connector-header">
+                <h3>Salesforce</h3>
+                <span class="connector-status status-stub">Future Stub</span>
+              </div>
+              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
+              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
+            </article>
+
+            <article class="connector-card status-stub">
+              <div class="connector-header">
+                <h3>HubSpot CRM</h3>
+                <span class="connector-status status-stub">Future Stub</span>
+              </div>
+              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
+              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
+            </article>
+
+            <article class="connector-card status-stub">
+              <div class="connector-header">
+                <h3>Microsoft Dynamics 365</h3>
+                <span class="connector-status status-stub">Future Stub</span>
+              </div>
+              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
+              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
+            </article>
+          </div>
+
+          <h3 class="connector-section-title">Document / Content Connectors</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-concept">
+              <div class="connector-header">
+                <h3>Google Drive</h3>
+                <span class="connector-status status-concept">Conceptual Future</span>
+              </div>
+              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
+              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+            </article>
+
+            <article class="connector-card status-concept">
+              <div class="connector-header">
+                <h3>Dropbox</h3>
+                <span class="connector-status status-concept">Conceptual Future</span>
+              </div>
+              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
+              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+            </article>
+
+            <article class="connector-card status-concept">
+              <div class="connector-header">
+                <h3>SharePoint / OneDrive</h3>
+                <span class="connector-status status-concept">Conceptual Future</span>
+              </div>
+              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
+              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+            </article>
+
+            <article class="connector-card status-concept">
+              <div class="connector-header">
+                <h3>OpenText Extended ECM</h3>
+                <span class="connector-status status-concept">Conceptual Future</span>
+              </div>
+              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
+              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+            </article>
+          </div>
+
+          <h3 class="connector-section-title">Communication Connectors</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-stub">
+              <div class="connector-header">
+                <h3>Gmail</h3>
+                <span class="connector-status status-stub">Future Stub</span>
+              </div>
+              <p class="connector-desc">Not implemented. No real email sending. Future use should default to draft-only mode with human review required before sending.</p>
+              <div class="connector-details"><strong>Safety:</strong> No OAuth configured. No emails sent. Draft-only when implemented.</div>
+            </article>
+
+            <article class="connector-card status-stub">
+              <div class="connector-header">
+                <h3>Outlook</h3>
+                <span class="connector-status status-stub">Future Stub</span>
+              </div>
+              <p class="connector-desc">Not implemented. No real email sending. Future use should default to draft-only mode with human review required before sending.</p>
+              <div class="connector-details"><strong>Safety:</strong> No OAuth configured. No emails sent. Draft-only when implemented.</div>
+            </article>
+          </div>
+
+
+        </section>
+      </div>
+    </section>
+  </div>
+</section>
+
+<section id="data-tools-page" class="page hidden">
+  <div class="single-page">
+    <section class="panel">
+      <div class="panel-title-row">
+        <h2>Data Import / Export</h2>
+        <span class="muted">Local file import and export only</span>
+      </div>
+      <p class="muted">Import organizations from CSV or export project data to CSV or JSON. No external systems are contacted.</p>
+
+      <h3 class="connector-section-title">CSV Import</h3>
+      <p class="muted">Upload a CSV file with organization records. The <strong>name</strong> field is required. All other fields are optional.</p>
+      <div class="csv-import-row">
+        <input id="csv-file-input" type="file" accept=".csv" />
+        <button onclick="previewCsvImport()">Preview Import</button>
+      </div>
+      <div id="csv-preview" class="output hidden"></div>
+      <div id="csv-import-result" class="output hidden"></div>
+
+      <details class="context-details">
+        <summary>CSV Template &amp; Example</summary>
+        <div class="csv-template">
+          <pre>name,website,contact_name,contact_email,phone_number,organization_type,program_area,description,why_relevant,suggested_outreach_angle,source_url,notes,status
+Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example-arts.org,519-555-1234,Community nonprofit,Arts and culture programming,Local arts council serving the region,Strong community reach and existing programs,Propose AI-assisted program planning workshop,https://example-arts.org/about,Interested in digital skills development,Not Contacted</pre>
+        </div>
+      </details>
+
+      <h3 class="connector-section-title">CSV Export</h3>
+      <p class="muted">Export all organization records as a CSV file.</p>
+      <button onclick="exportCsv()">Export CSV</button>
+
+      <h3 class="connector-section-title">JSON Export</h3>
+      <p class="muted">Export complete project data (organizations, interactions, outbox drafts, attachment metadata) as a JSON file. Attachment file contents are excluded.</p>
+      <button onclick="exportJson()">Export JSON</button>
+    </section>
+  </div>
+</section>
+
+<section id="analytics-page" class="page hidden">
+  <h2>Analytics Dashboard</h2>
+  <p class="muted">Summary of local CRM, research, AI assessment, interaction, and demo outbox data.</p>
+  <div id="analytics-error" class="error hidden"></div>
+  <div id="analytics-loading" class="muted">Loading analytics...</div>
+  <div id="analytics-content"></div>
+</section>
+
+<section id="priority-queue-page" class="page hidden">
+  <h2>Priority Queue</h2>
+  <p class="muted">All organizations ranked by outreach priority score. Recommendations require human review.</p>
+  <div id="priority-queue-error" class="error hidden"></div>
+  <div id="priority-queue-loading" class="muted">Loading priority queue...</div>
+
+  <div id="priority-queue-filters" class="pq-filters">
+    <label>Filter by Priority
+      <select id="pq-filter-priority" onchange="renderPriorityQueue()">
+        <option value="">All</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </label>
+    <label>Filter by Status
+      <select id="pq-filter-status" onchange="renderPriorityQueue()">
+        <option value="">All</option>
+      </select>
+    </label>
+    <label>Filter by Readiness
+      <select id="pq-filter-readiness" onchange="renderPriorityQueue()">
+        <option value="">All</option>
+        <option value="High">High</option>
+        <option value="Moderate">Moderate</option>
+        <option value="Low">Low</option>
+      </select>
+    </label>
+    <label>Filter by Type
+      <select id="pq-filter-type" onchange="renderPriorityQueue()">
+        <option value="">All</option>
+      </select>
+    </label>
+    <label>Sort by
+      <select id="pq-sort-by" onchange="renderPriorityQueue()">
+        <option value="priority_score">Priority Score</option>
+        <option value="name">Name</option>
+        <option value="readiness_score">Readiness Score</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="priority-queue-content"></div>
+</section>
+
+<section id="follow-ups-page" class="page hidden">
+  <h2>Follow-ups</h2>
+  <p class="muted">All follow-up tasks across organizations. Human review required before action.</p>
+  <div id="follow-ups-error" class="error hidden"></div>
+  <div id="follow-ups-loading" class="muted">Loading follow-up tasks...</div>
+
+  <div id="follow-ups-filters" class="fu-filters">
+    <label>Filter by Status
+      <select id="fu-filter-status" onchange="renderFollowUpsPage()">
+        <option value="">All</option>
+        <option value="Open">Open</option>
+        <option value="Completed">Completed</option>
+        <option value="Overdue">Overdue</option>
+        <option value="Due This Week">Due This Week</option>
+      </select>
+    </label>
+    <label>Filter by Priority
+      <select id="fu-filter-priority" onchange="renderFollowUpsPage()">
+        <option value="">All</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+    </label>
+    <label>Organization
+      <select id="fu-filter-org" onchange="renderFollowUpsPage()">
+        <option value="">All</option>
+      </select>
+    </label>
+  </div>
+
+  <div id="follow-ups-content"></div>
+</section>
+
+<section id="knowledge-search-page" class="page hidden">
+  <h2>Knowledge Search</h2>
+  <p class="muted">Search across organizations, interactions, notes, tasks, and drafts. Uses local project data only.</p>
+  <div id="ks-error" class="error hidden"></div>
+
+  <div class="ks-filters">
+    <input id="ks-query" placeholder="Search keyword..." onkeydown="if(event.key==='Enter') doKnowledgeSearch()" />
+    <button onclick="doKnowledgeSearch()">Search</button>
+    <div class="ks-filter-row">
+      <label>Organization
+        <select id="ks-filter-org" onchange="doKnowledgeSearch()">
+          <option value="">All</option>
+        </select>
+      </label>
+      <label>Content Type
+        <select id="ks-filter-type" onchange="doKnowledgeSearch()">
+          <option value="">All</option>
+          <option value="organization">Organizations</option>
+          <option value="interaction">Interactions</option>
+          <option value="task">Tasks</option>
+          <option value="draft">Drafts</option>
+          <option value="lesson">Lessons Learned</option>
+          <option value="insight">Reusable Insights</option>
+          <option value="playbook">Playbook Candidates</option>
+          <option value="workflow-opportunity">Workflow Opportunities</option>
+          <option value="knowledge-source">Knowledge Sources</option>
+          <option value="failure-case">Failure Cases / Exceptions</option>
+          <option value="adoption-risk">Adoption Risk Notes</option>
+        </select>
+      </label>
+    </div>
+  </div>
+
+  <div id="ks-loading" class="muted hidden">Searching...</div>
+  <div id="ks-results"></div>
+  <p id="ks-count" class="muted"></p>
+</section>
+</main>
+
+  <script src="app.js"></script>
+</body>
+</html>

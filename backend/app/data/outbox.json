@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "to": "sarah.chen@wpl.ca",
+    "subject": "Next Steps \u2014 AI Pilot Proposal for Waterloo Public Library",
+    "body": "Hello Sarah Chen,\n\nFollowing up on our discussion about a potential AI literacy pilot for Waterloo Public Library.\n\nBased on our conversation during \"Internal Staff Readiness Check-in\", I have prepared a proposal outline for a small-scale pilot program. The pilot would focus on practical, low-risk applications with clear human oversight.\n\nWould you be available for a brief meeting to walk through the proposal and discuss next steps?\n\nI look forward to your thoughts.\n\nBest regards,\nNobuki Matsui",
+    "organization_id": 1,
+    "status": "Saved to Demo Outbox - Not Sent"
+  },
+  {
+    "id": 2,
+    "to": "info@sustainablewaterlooregion.ca",
+    "subject": "Exploring AI Literacy Support for Sustainable Waterloo Region",
+    "body": "Hello Programs Team,\n\nI am reaching out to explore whether Sustainable Waterloo Region may benefit from practical AI literacy and workflow improvement support.\n\nBased on your organization's profile as a Environmental nonprofit organization:\nSupports organizations with sustainability programs and regional environmental leadership.\n\nA conversation could help identify small, useful opportunities to support your team's work while keeping human review at the center of every decision.\n\nWould you be open to a brief introductory conversation?\n\nBest regards,\nNobuki Matsui",
+    "organization_id": 2,
+    "status": "Saved to Demo Outbox - Not Sent"
+  }
+]

@@ -1,0 +1,449 @@
+{
+  "workflow_opportunities": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "source_interaction_id": 4,
+      "source_interaction_title": "Internal Staff Readiness Check-in",
+      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
+      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+      "pain_point": "No specific pain points documented \u2014 further discussion needed to identify workflow friction.",
+      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
+      "knowledge_sources_needed": [
+        "Volunteer schedules and contact information"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "No specific failure cases documented yet"
+      ],
+      "tags": [
+        "pilot-idea"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:53:12Z",
+      "updated_at": "2026-07-02T19:53:12Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "title": "AI Support: AI-assisted meeting note summarization and action item extraction",
+      "current_process": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+      "pain_point": "Manual documentation is time-consuming and inconsistent across staff members.",
+      "possible_ai_support": "AI-assisted meeting note summarization and action item extraction",
+      "knowledge_sources_needed": [
+        "Meeting notes and minutes",
+        "Reports and program documentation",
+        "Policy and compliance documents",
+        "Spreadsheets or databases with program data"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Key information from meetings is lost or not shared with relevant staff",
+        "Manual data entry errors lead to incorrect reports and rework",
+        "Policy updates are not consistently communicated or applied across the team"
+      ],
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "title": "AI Support: Automated data extraction and report generation from structured inputs",
+      "current_process": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+      "pain_point": "Repetitive data entry tasks consume staff time that could be spent on direct service.",
+      "possible_ai_support": "Automated data extraction and report generation from structured inputs",
+      "knowledge_sources_needed": [
+        "Meeting notes and minutes",
+        "Reports and program documentation",
+        "Policy and compliance documents",
+        "Spreadsheets or databases with program data"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Key information from meetings is lost or not shared with relevant staff",
+        "Manual data entry errors lead to incorrect reports and rework",
+        "Policy updates are not consistently communicated or applied across the team"
+      ],
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
+      "current_process": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
+      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
+      "knowledge_sources_needed": [
+        "Meeting notes and minutes",
+        "Reports and program documentation",
+        "Policy and compliance documents",
+        "Spreadsheets or databases with program data"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Key information from meetings is lost or not shared with relevant staff",
+        "Manual data entry errors lead to incorrect reports and rework",
+        "Policy updates are not consistently communicated or applied across the team"
+      ],
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "title": "AI Support: AI-assisted compliance checking against policy documents",
+      "current_process": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+      "pain_point": "Policy compliance requirements add overhead to every step of the workflow.",
+      "possible_ai_support": "AI-assisted compliance checking against policy documents",
+      "knowledge_sources_needed": [
+        "Meeting notes and minutes",
+        "Reports and program documentation",
+        "Policy and compliance documents",
+        "Spreadsheets or databases with program data"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Key information from meetings is lost or not shared with relevant staff",
+        "Manual data entry errors lead to incorrect reports and rework",
+        "Policy updates are not consistently communicated or applied across the team"
+      ],
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "title": "AI Support: General workflow mapping to identify highest-impact AI insertion points",
+      "current_process": "Staff use a mix of email, shared documents, and in-person meetings to coordinate programs. Documentation practices are informal and vary by staff member.",
+      "pain_point": "No specific pain points documented \u2014 further discussion needed to identify workflow friction.",
+      "possible_ai_support": "General workflow mapping to identify highest-impact AI insertion points",
+      "knowledge_sources_needed": [
+        "Training materials and workshop guides"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "No specific failure cases documented yet"
+      ],
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "status": "Identified",
+      "staff_impact": "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "adoption_risk_level": "Medium",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "Training materials and workshop guides"
+      ],
+      "known_failure_cases": [
+        "No specific failure cases documented yet"
+      ],
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    }
+  ],
+  "knowledge_sources": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Volunteer schedules and contact information",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T19:53:12Z",
+      "updated_at": "2026-07-02T19:53:12Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "source_type": "Past meeting notes",
+      "name": "Meeting notes and minutes",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past meeting notes'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Reports and program documentation",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "source_type": "FAQ documents",
+      "name": "Policy and compliance documents",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'FAQ documents'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Spreadsheets or databases with program data",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Training materials and workshop guides",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    }
+  ],
+  "failure_cases": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "source_interaction_id": 4,
+      "source_interaction_title": "Internal Staff Readiness Check-in",
+      "what_failed": "No specific failure cases documented yet",
+      "why_it_failed": "Interaction notes do not describe past failures or exceptions",
+      "missing_context": "Failure mode analysis has not been conducted",
+      "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
+      "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
+      "tags": [
+        "pilot-idea"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:53:12Z",
+      "updated_at": "2026-07-02T19:53:12Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "what_failed": "Key information from meetings is lost or not shared with relevant staff",
+      "why_it_failed": "No standardized note-taking format or centralized documentation repository",
+      "missing_context": "Meeting notes are stored in personal files or emailed to select individuals",
+      "human_review_required": "Staff need to decide what information is relevant to share and with whom",
+      "suggested_prevention": "Adopt a shared note-taking template and centralized documentation practice with distribution list",
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "what_failed": "Manual data entry errors lead to incorrect reports and rework",
+      "why_it_failed": "No validation checks or automated data entry \u2014 entirely dependent on human accuracy",
+      "missing_context": "No audit trail for data entry \u2014 errors are hard to trace",
+      "human_review_required": "Data quality checks need human judgment to distinguish genuine errors from edge cases",
+      "suggested_prevention": "Introduce input validation, automated data checks, and regular audit reviews",
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "source_interaction_id": 6,
+      "source_interaction_title": "Staff Workflow Review",
+      "what_failed": "Policy updates are not consistently communicated or applied across the team",
+      "why_it_failed": "Policy changes are shared via email and rely on individual awareness",
+      "missing_context": "No centralized policy repository or version control",
+      "human_review_required": "Staff need to interpret how policy changes apply to their specific workflows",
+      "suggested_prevention": "Maintain a centralized policy repository with change notifications and mandatory review checkpoints",
+      "tags": [
+        "documentation",
+        "human-review",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T19:54:42Z",
+      "updated_at": "2026-07-02T19:54:42Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "what_failed": "No specific failure cases documented yet",
+      "why_it_failed": "Interaction notes do not describe past failures or exceptions",
+      "missing_context": "Failure mode analysis has not been conducted",
+      "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
+      "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    }
+  ],
+  "adoption_risk_notes": [
+    {
+      "id": 1,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "risk_type": "Adoption Safeguard",
+      "description": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 2,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "risk_type": "Adoption Safeguard",
+      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 3,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "risk_type": "Staff Concern",
+      "description": "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "severity": "Medium",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 4,
+      "organization_id": 1,
+      "source_interaction_id": 7,
+      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "risk_type": "Evaluation Risk",
+      "description": "Unclear how AI-assisted work would be evaluated against current performance criteria.",
+      "severity": "Medium",
+      "related_staff_role": "Program leads",
+      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
+      "tags": [
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need"
+      ],
+      "created_at": "2026-07-02T20:07:11Z",
+      "updated_at": "2026-07-02T20:07:11Z"
+    }
+  ]
+}

@@ -1,0 +1,449 @@
+[
+  {
+    "summary_id": 2,
+    "interaction_id": 4,
+    "organization_id": 1,
+    "created_at": "2026-07-02T19:53:12Z",
+    "updated_at": "2026-07-02T19:53:12Z",
+    "summary": "Mock AI summary of meeting notes.",
+    "key_discussion_points": [
+      "AI workflow potential discussed",
+      "Documentation challenges identified",
+      "Follow-up timeline agreed upon"
+    ],
+    "decisions": [
+      "Schedule follow-up meeting in two weeks",
+      "Prepare a single pilot proposal for review"
+    ],
+    "action_items": [
+      "Send meeting summary to stakeholders",
+      "Prepare pilot proposal document",
+      "Identify key staff for pilot participation"
+    ],
+    "risks_or_concerns": [
+      "Staff readiness for new tools",
+      "Data privacy considerations",
+      "Change management effort may be underestimated"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Pilot proposals benefit from early staff input",
+        "description": "Involving staff in pilot design early improves buy-in and surfaces practical constraints that would otherwise block adoption later."
+      },
+      {
+        "title": "Staff capacity concerns must be addressed upfront",
+        "description": "Any AI initiative must demonstrate it reduces burden, not adds to it. Frame pilots as time-saving tools from the start."
+      }
+    ],
+    "reusable_insights": [
+      "Organizations that proactively discuss pilots are typically more ready to experiment than those that need to be convinced."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
+      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
+    ],
+    "human_judgment_points": [
+      "All pilot-generated content requires human review before external use \u2014 never send AI-generated output without verification.",
+      "Staff readiness assessment should be conducted by a human program lead, not automated.",
+      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+    ],
+    "knowledge_sharing_opportunities": [
+      "Share pilot proposal template and lessons learned with other organizations exploring similar AI use cases.",
+      "Staff concern patterns observed here may be valuable input for broader adoption readiness research."
+    ],
+    "playbook_candidates": [
+      {
+        "title": "Pilot Proposal Development Process",
+        "when_to_use": "When an organization expresses interest in exploring an AI-assisted workflow pilot during a meeting or call.",
+        "suggested_process": "1. Schedule a scoping meeting within one week. 2. Map current workflow with staff input. 3. Draft a pilot proposal with clear success criteria. 4. Review proposal with organization lead. 5. Refine and confirm pilot scope."
+      }
+    ],
+    "recommended_follow_up": "Share pilot proposal and schedule review meeting.",
+    "suggested_follow_up_date": "2026-07-16",
+    "suggested_next_email_type": "Pilot Proposal Follow-Up",
+    "suggested_tags": [
+      "knowledge-sharing",
+      "pilot-idea",
+      "staff-concern"
+    ],
+    "follow_up_tasks": [
+      {
+        "title": "Prepare pilot proposal document",
+        "description": "Draft and share a pilot proposal based on the discussion.",
+        "due_date": "2026-07-16",
+        "priority": "High",
+        "organization_id": 1,
+        "source_interaction_id": 4
+      },
+      {
+        "title": "Prepare AI literacy workshop materials",
+        "description": "Develop introductory AI literacy materials tailored to the organization's context.",
+        "due_date": "2026-08-01",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 4
+      },
+      {
+        "title": "Assess staff readiness for AI tools",
+        "description": "Conduct a staff readiness assessment to identify training needs and concerns.",
+        "due_date": "2026-07-16",
+        "priority": "High",
+        "organization_id": 1,
+        "source_interaction_id": 4
+      }
+    ],
+    "current_workflow": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+    "workflow_pain_points": [
+      "No specific pain points documented \u2014 further discussion needed to identify workflow friction."
+    ],
+    "repetitive_tasks_identified": [
+      "Scheduling and confirming volunteer shifts"
+    ],
+    "information_or_documents_used": [
+      "Volunteer schedules and contact information"
+    ],
+    "possible_ai_insertion_points": [
+      "AI-assisted scheduling and engagement pattern analysis"
+    ],
+    "required_human_review": [
+      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+      "AI-drafted communications must be approved by a human before sending.",
+      "Staff capacity decisions must be made by program leads, not automated.",
+      "Final decisions on workflow changes require human approval."
+    ],
+    "missing_knowledge_or_data": [
+      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
+      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
+      "Policy and compliance requirements are not documented in accessible formats.",
+      "Staff training needs and digital literacy levels are not fully assessed."
+    ],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "No specific failure cases documented yet",
+        "why": "Interaction notes do not describe past failures or exceptions",
+        "missing_context": "Failure mode analysis has not been conducted",
+        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
+        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
+      }
+    ],
+    "reusable_workflow_insights": [
+      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
+    ],
+    "workflow_tags": [
+      "pilot-idea"
+    ]
+  },
+  {
+    "summary_id": 3,
+    "interaction_id": 6,
+    "organization_id": 1,
+    "created_at": "2026-07-02T19:54:42Z",
+    "updated_at": "2026-07-02T19:54:42Z",
+    "summary": "Mock AI summary of meeting notes.",
+    "key_discussion_points": [
+      "AI workflow potential discussed",
+      "Documentation challenges identified",
+      "Follow-up timeline agreed upon"
+    ],
+    "decisions": [
+      "Schedule follow-up meeting in two weeks",
+      "Prepare a single pilot proposal for review"
+    ],
+    "action_items": [
+      "Send meeting summary to stakeholders",
+      "Prepare pilot proposal document",
+      "Identify key staff for pilot participation"
+    ],
+    "risks_or_concerns": [
+      "Staff readiness for new tools",
+      "Data privacy considerations",
+      "Change management effort may be underestimated"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Documentation pain points reveal automation opportunities",
+        "description": "Staff who spend significant time on manual documentation are the strongest candidates for AI-assisted workflow pilots."
+      }
+    ],
+    "reusable_insights": [
+      "Documentation-heavy workflows are ubiquitous in public-serving organizations and represent a low-barrier entry point for AI assistance."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
+      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
+    ],
+    "human_judgment_points": [
+      "Staff readiness assessment should be conducted by a human program lead, not automated.",
+      "AI-generated documentation summaries must be reviewed and approved by a designated staff member before saving to records.",
+      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+    ],
+    "knowledge_sharing_opportunities": [
+      "Documentation workflow insights from this engagement could inform a cross-organizational best-practice guide."
+    ],
+    "playbook_candidates": [
+      {
+        "title": "Documentation Workflow Assessment",
+        "when_to_use": "When an organization reports spending significant staff time on manual documentation, note-taking, or report generation.",
+        "suggested_process": "1. Conduct a 30-minute workflow mapping session. 2. Identify top 3 documentation pain points. 3. Select one low-risk process for AI assistance. 4. Define human review steps. 5. Run a 2-week pilot with daily check-ins."
+      },
+      {
+        "title": "Pilot Outcome Evaluation Framework",
+        "when_to_use": "When a pilot is underway and the organization needs to track whether it is meeting its goals.",
+        "suggested_process": "1. Define 2-3 measurable success indicators before pilot launch. 2. Collect baseline data on current process. 3. Track weekly progress against indicators. 4. Conduct a mid-pilot review with staff. 5. Document lessons learned and decide on next phase."
+      }
+    ],
+    "recommended_follow_up": "Follow up within one week.",
+    "suggested_follow_up_date": "2026-07-16",
+    "suggested_next_email_type": "General Check-In",
+    "suggested_tags": [
+      "documentation",
+      "evaluation-concern",
+      "human-review",
+      "workflow-improvement"
+    ],
+    "follow_up_tasks": [
+      {
+        "title": "Prepare pilot proposal document",
+        "description": "Draft and share a pilot proposal based on the discussion.",
+        "due_date": "2026-07-16",
+        "priority": "High",
+        "organization_id": 1,
+        "source_interaction_id": 6
+      },
+      {
+        "title": "Review documentation workflow",
+        "description": "Assess current documentation practices and identify areas for AI assistance.",
+        "due_date": "2026-07-23",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 6
+      },
+      {
+        "title": "Schedule follow-up meeting",
+        "description": "Book a follow-up meeting to continue the discussion.",
+        "due_date": "2026-07-16",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 6
+      }
+    ],
+    "current_workflow": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+    "workflow_pain_points": [
+      "Manual documentation is time-consuming and inconsistent across staff members.",
+      "Repetitive data entry tasks consume staff time that could be spent on direct service.",
+      "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
+      "Policy compliance requirements add overhead to every step of the workflow."
+    ],
+    "repetitive_tasks_identified": [
+      "Transcribing or summarizing meeting notes",
+      "Filling out recurring forms or reports",
+      "Data entry from paper or PDF sources into digital systems"
+    ],
+    "information_or_documents_used": [
+      "Meeting notes and minutes",
+      "Reports and program documentation",
+      "Policy and compliance documents",
+      "Spreadsheets or databases with program data"
+    ],
+    "possible_ai_insertion_points": [
+      "AI-assisted meeting note summarization and action item extraction",
+      "Automated data extraction and report generation from structured inputs",
+      "AI-assisted scheduling and engagement pattern analysis",
+      "AI-assisted compliance checking against policy documents"
+    ],
+    "required_human_review": [
+      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+      "AI-drafted communications must be approved by a human before sending.",
+      "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
+      "Staff capacity decisions must be made by program leads, not automated.",
+      "Final decisions on workflow changes require human approval."
+    ],
+    "missing_knowledge_or_data": [
+      "Staff training needs and digital literacy levels are not fully assessed."
+    ],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "Key information from meetings is lost or not shared with relevant staff",
+        "why": "No standardized note-taking format or centralized documentation repository",
+        "missing_context": "Meeting notes are stored in personal files or emailed to select individuals",
+        "human_review_required": "Staff need to decide what information is relevant to share and with whom",
+        "suggested_prevention": "Adopt a shared note-taking template and centralized documentation practice with distribution list"
+      },
+      {
+        "what_failed": "Manual data entry errors lead to incorrect reports and rework",
+        "why": "No validation checks or automated data entry \u2014 entirely dependent on human accuracy",
+        "missing_context": "No audit trail for data entry \u2014 errors are hard to trace",
+        "human_review_required": "Data quality checks need human judgment to distinguish genuine errors from edge cases",
+        "suggested_prevention": "Introduce input validation, automated data checks, and regular audit reviews"
+      },
+      {
+        "what_failed": "Policy updates are not consistently communicated or applied across the team",
+        "why": "Policy changes are shared via email and rely on individual awareness",
+        "missing_context": "No centralized policy repository or version control",
+        "human_review_required": "Staff need to interpret how policy changes apply to their specific workflows",
+        "suggested_prevention": "Maintain a centralized policy repository with change notifications and mandatory review checkpoints"
+      }
+    ],
+    "reusable_workflow_insights": [
+      "Documentation workflows are a universal pain point across organizations and represent the lowest-barrier entry for AI assistance.",
+      "Repetitive administrative tasks are often invisible to leadership \u2014 surfacing their time cost is a powerful motivator for change.",
+      "Policy compliance workflows are high-risk and high-value targets for AI assistance \u2014 but require the most rigorous human oversight.",
+      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
+    ],
+    "workflow_tags": [
+      "documentation",
+      "human-review",
+      "workflow-improvement"
+    ]
+  },
+  {
+    "summary_id": 4,
+    "interaction_id": 7,
+    "organization_id": 1,
+    "created_at": "2026-07-02T20:07:11Z",
+    "updated_at": "2026-07-02T20:07:11Z",
+    "summary": "Mock AI summary of meeting notes.",
+    "key_discussion_points": [
+      "AI workflow potential discussed",
+      "Documentation challenges identified",
+      "Follow-up timeline agreed upon"
+    ],
+    "decisions": [
+      "Schedule follow-up meeting in two weeks",
+      "Prepare a single pilot proposal for review"
+    ],
+    "action_items": [
+      "Send meeting summary to stakeholders",
+      "Prepare pilot proposal document",
+      "Identify key staff for pilot participation"
+    ],
+    "risks_or_concerns": [
+      "Staff readiness for new tools",
+      "Data privacy considerations",
+      "Change management effort may be underestimated"
+    ],
+    "lessons_learned": [
+      {
+        "title": "AI literacy builds confidence before tool adoption",
+        "description": "Introducing AI concepts through workshops before deploying specific tools reduces anxiety and increases voluntary adoption."
+      },
+      {
+        "title": "Staff capacity concerns must be addressed upfront",
+        "description": "Any AI initiative must demonstrate it reduces burden, not adds to it. Frame pilots as time-saving tools from the start."
+      }
+    ],
+    "reusable_insights": [
+      "AI literacy training is most effective when delivered in the context of the learner's actual daily work, not as abstract concepts."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
+      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
+      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
+    ],
+    "human_judgment_points": [
+      "Staff readiness assessment should be conducted by a human program lead, not automated.",
+      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+    ],
+    "knowledge_sharing_opportunities": [
+      "Workshop materials and curriculum could be adapted for other similar organizations."
+    ],
+    "playbook_candidates": [
+      {
+        "title": "AI Literacy Workshop Delivery",
+        "when_to_use": "When an organization requests foundational AI literacy training before committing to specific tool pilots.",
+        "suggested_process": "1. Assess current staff AI awareness through a brief survey. 2. Tailor workshop content to the organization's daily workflows. 3. Deliver a 90-minute interactive session with live demonstrations. 4. Collect feedback and identify pilot interest. 5. Schedule follow-up for interested teams."
+      },
+      {
+        "title": "Pilot Outcome Evaluation Framework",
+        "when_to_use": "When a pilot is underway and the organization needs to track whether it is meeting its goals.",
+        "suggested_process": "1. Define 2-3 measurable success indicators before pilot launch. 2. Collect baseline data on current process. 3. Track weekly progress against indicators. 4. Conduct a mid-pilot review with staff. 5. Document lessons learned and decide on next phase."
+      }
+    ],
+    "recommended_follow_up": "Share workshop outline and confirm logistics.",
+    "suggested_follow_up_date": "2026-07-16",
+    "suggested_next_email_type": "Workshop Planning",
+    "suggested_tags": [
+      "evaluation-concern",
+      "knowledge-sharing",
+      "staff-concern",
+      "training-need"
+    ],
+    "follow_up_tasks": [
+      {
+        "title": "Prepare AI literacy workshop materials",
+        "description": "Develop introductory AI literacy materials tailored to the organization's context.",
+        "due_date": "2026-08-01",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 7
+      },
+      {
+        "title": "Assess staff readiness for AI tools",
+        "description": "Conduct a staff readiness assessment to identify training needs and concerns.",
+        "due_date": "2026-07-16",
+        "priority": "High",
+        "organization_id": 1,
+        "source_interaction_id": 7
+      }
+    ],
+    "current_workflow": "Staff use a mix of email, shared documents, and in-person meetings to coordinate programs. Documentation practices are informal and vary by staff member.",
+    "workflow_pain_points": [
+      "No specific pain points documented \u2014 further discussion needed to identify workflow friction."
+    ],
+    "repetitive_tasks_identified": [
+      "General administrative coordination \u2014 further observation needed"
+    ],
+    "information_or_documents_used": [
+      "Training materials and workshop guides"
+    ],
+    "possible_ai_insertion_points": [
+      "General workflow mapping to identify highest-impact AI insertion points"
+    ],
+    "required_human_review": [
+      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+      "AI-drafted communications must be approved by a human before sending.",
+      "Staff capacity decisions must be made by program leads, not automated.",
+      "Final decisions on workflow changes require human approval."
+    ],
+    "missing_knowledge_or_data": [
+      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
+      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
+      "Policy and compliance requirements are not documented in accessible formats.",
+      "Staff training needs and digital literacy levels are not fully assessed."
+    ],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "No specific failure cases documented yet",
+        "why": "Interaction notes do not describe past failures or exceptions",
+        "missing_context": "Failure mode analysis has not been conducted",
+        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
+        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
+      }
+    ],
+    "reusable_workflow_insights": [
+      "Organizations that invest in staff training are more likely to adopt AI tools successfully, as they already value skill development."
+    ],
+    "workflow_tags": [
+      "knowledge-sharing",
+      "staff-concern",
+      "training-need"
+    ],
+    "staff_concerns": [
+      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation."
+    ],
+    "evaluation_or_recognition_risks": [
+      "Unclear how AI-assisted work would be evaluated against current performance criteria."
+    ],
+    "training_or_followup_needs": [
+      "Organization has expressed interest in AI literacy training \u2014 schedule foundational workshop.",
+      "Staff digital literacy assessment recommended before deploying any AI tool."
+    ],
+    "adoption_safeguards": [
+      "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
+      "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+    ],
+    "human_system_notes": "Staff engagement and capacity are key factors in adoption readiness. Training investment indicates organizational commitment to skill development."
+  }
+]

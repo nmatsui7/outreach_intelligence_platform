@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "organization_id": 1,
+    "interaction_type": "Meeting",
+    "date": "2026-06-10",
+    "title": "Initial AI Literacy Discussion",
+    "notes": "Discussed funding opportunities for the new community program.",
+    "outcome": "Positive \u2014 agreed to explore a small pilot",
+    "next_action": "Draft pilot proposal for senior AI literacy workshop",
+    "follow_up_date": "2026-06-25",
+    "tags": [
+      "AI literacy",
+      "seniors",
+      "pilot"
+    ]
+  },
+  {
+    "id": 2,
+    "organization_id": 1,
+    "interaction_type": "Call",
+    "date": "2026-06-18",
+    "title": "Follow-up Call on Pilot Scope",
+    "notes": "Follow-up call with program coordinator. Discussed scope of the pilot \u2014 6-week program, 2 cohorts, max 12 participants each. Coordinator will identify staff volunteers. Concern raised about technology access for seniors.",
+    "outcome": "Scope agreed, timeline set for September start",
+    "next_action": "Send draft curriculum outline for review",
+    "follow_up_date": "2026-07-02",
+    "tags": [
+      "pilot",
+      "planning",
+      "seniors"
+    ]
+  },
+  {
+    "id": 3,
+    "organization_id": 1,
+    "interaction_type": "Email",
+    "date": "2026-06-22",
+    "title": "Shared Draft Pilot Proposal",
+    "notes": "Sent draft pilot proposal document via email. Includes: program outline, learning objectives, technology requirements, and suggested evaluation framework. Awaiting feedback from branch manager and board.",
+    "outcome": "Proposal under review by branch manager",
+    "next_action": "Follow up on proposal feedback",
+    "follow_up_date": "2026-07-01",
+    "tags": [
+      "proposal",
+      "documentation",
+      "pilot"
+    ]
+  },
+  {
+    "id": 4,
+    "organization_id": 1,
+    "interaction_type": "Meeting",
+    "date": "2026-06-28",
+    "title": "Internal Staff Readiness Check-in",
+    "notes": "Quick check-in with assigned staff volunteers. Two librarians and one program aide have volunteered for the pilot. Staff expressed excitement but also concern about their own AI knowledge gap. Suggested a train-the-trainer session before the program launch.",
+    "outcome": "Train-the-trainer session added to prep timeline",
+    "next_action": "Prepare train-the-trainer materials",
+    "follow_up_date": "2026-07-15",
+    "tags": [
+      "staff training",
+      "internal",
+      "readiness"
+    ]
+  },
+  {
+    "id": 5,
+    "organization_id": 1,
+    "interaction_type": "Meeting",
+    "date": "2026-06-28",
+    "title": "AI pilot discussion",
+    "notes": "Discussed pilot program for digital literacy. Need to schedule follow-up meeting and prepare proposal.",
+    "outcome": "Positive",
+    "next_action": "Send pilot proposal",
+    "follow_up_date": "2026-07-12",
+    "tags": []
+  },
+  {
+    "id": 6,
+    "organization_id": 1,
+    "interaction_type": "Meeting",
+    "date": "2026-07-02",
+    "title": "Staff Workflow Review",
+    "notes": "Staff are spending 10 hours per week on manual documentation of community program outcomes. The repetitive data entry is causing frustration and staff are considering leaving. We discussed how AI could help with automated report generation from structured inputs but emphasized that all AI-generated content would need human review. Staff also mentioned that policy compliance requirements for data privacy add overhead to every step.",
+    "outcome": "Identified documentation workflow as top candidate for AI assistance",
+    "next_action": "Prepare a workflow mapping session",
+    "follow_up_date": "2026-07-16",
+    "tags": [
+      "documentation",
+      "workflow"
+    ]
+  },
+  {
+    "id": 7,
+    "organization_id": 1,
+    "interaction_type": "Meeting",
+    "date": "2026-07-02",
+    "title": "Staff Adoption Concerns Meeting",
+    "notes": "Staff are concerned about AI replacing their jobs. They lack digital literacy training. Evaluation criteria don't account for AI-assisted work. Knowledge sharing between departments is inconsistent.",
+    "outcome": "Identified key staff concerns",
+    "next_action": "Prepare AI literacy workshop",
+    "follow_up_date": "2026-07-16",
+    "tags": [
+      "staff-concern",
+      "training-need"
+    ]
+  }
+]
