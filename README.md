@@ -326,7 +326,7 @@ The app currently includes features that correspond to three internal developmen
 
 ### Workflow Transformation Knowledge
 
-This layer captures structured knowledge about workflows, human systems, and adoption readiness from interactions. It prepares the information needed for future AI adoption planning, but does not generate final adoption plans.
+Interaction-derived knowledge is accumulated in local JSON files. When users add interactions and run AI Note Summary, the app stores structured workflow intelligence such as workflow opportunities, knowledge sources, failure cases, adoption risk notes, lessons learned, reusable insights, and playbook candidates in local JSON-backed data files.
 
 Implemented features include:
 
