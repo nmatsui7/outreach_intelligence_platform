@@ -16,15 +16,15 @@
       <a href="/" data-route="/">CRM Workspace</a>
       <a href="/research-intake" data-route="/research-intake">Research Intake</a>
       <a href="/organization-discovery" data-route="/organization-discovery">Organization Discovery</a>
-      <a href="/integrations" data-route="/integrations">Integrations</a>
-      <a href="/data-tools" data-route="/data-tools">Data Tools</a>
+      <a href="/knowledge-search" data-route="/knowledge-search">Knowledge Search</a>
       <a href="/workflow-opportunities" data-route="/workflow-opportunities">Workflow Opportunities</a>
+      <a href="/demo-outbox" data-route="/demo-outbox">Demo Outbox</a>
       <a href="/analytics" data-route="/analytics">Workflow Insights</a>
+      <a href="/data-tools" data-route="/data-tools">Data Tools</a>
+      <a href="/adoption-principles" data-route="/adoption-principles">Adoption Principles</a>
       <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
       <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
-      <a href="/knowledge-search" data-route="/knowledge-search">Knowledge Search</a>
-      <a href="/demo-outbox" data-route="/demo-outbox">Demo Outbox</a>
-      <a href="/adoption-principles" data-route="/adoption-principles">Adoption Principles</a>
+      <a href="/integrations" data-route="/integrations">Settings</a>
     </nav>
   </header>
 
@@ -438,14 +438,17 @@
       <div class="single-page">
         <section class="panel">
           <div class="panel-title-row">
-            <h2>Integrations</h2>
-            <span class="muted">Read-only architecture overview</span>
+            <h2>Settings</h2>
+            <span class="muted">Local demo configuration</span>
           </div>
           <p class="muted">
-            The platform is connector-agnostic. AI features use the internal service layer and do not depend directly
-            on Salesforce, Google Drive, Gmail, or any specific external system. The current MVP uses
-            <strong>local demo storage only</strong>. Future connectors could provide organization data, contact data,
-            interaction history, and related documents through the same internal API.
+            This page shows local demo configuration, connector stubs, and future integration options.
+            No external systems are connected.
+          </p>
+          <p class="muted" style="margin-top: 8px;">
+            <strong>Safety:</strong> No credentials are stored. No OAuth flow is active. No Salesforce, HubSpot,
+            Gmail, or Google connectors are live. All connectors are local stubs or future placeholders.
+            The app does not send email.
           </p>
 
           <h3 class="connector-section-title">Active Local Connector</h3>

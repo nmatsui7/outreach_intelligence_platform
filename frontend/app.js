@@ -27,7 +27,7 @@ function showError(message) {
 }
 
 function setActivePage(pathname = window.location.pathname) {
-  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/workflow-opportunities", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox", "/adoption-principles"];
+  const known = ["/research-intake", "/organization-discovery", "/knowledge-search", "/workflow-opportunities", "/demo-outbox", "/analytics", "/data-tools", "/adoption-principles", "/priority-queue", "/follow-ups", "/integrations"];
   const route = known.includes(pathname) ? pathname : "/";
   const pageMap = {
     "/": "crm-page",
