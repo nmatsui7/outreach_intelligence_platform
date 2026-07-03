@@ -328,7 +328,7 @@ The app currently includes features that correspond to three internal developmen
 
 This layer captures structured knowledge about workflows, human systems, and adoption readiness from interactions. It prepares the information needed for future AI adoption planning, but does not generate final adoption plans.
 
-Implemented or planned items include:
+Implemented features include:
 
 - Organization Timeline
 - Lessons Learned
@@ -341,8 +341,8 @@ Implemented or planned items include:
 - Failure Case / Exception Tracking
 - Human System / Adoption Risk Notes
 - Workflow Insights analytics
-- Optional Adoption Principles / Method Knowledge
-- Source-aware links back to the interaction or note summary that produced each record
+- Adoption Principles / Method Knowledge
+- Source-aware evidence tracking for interaction-derived records, including source interaction references, evidence counts, and excerpts where available
 
 ## Source-Aware Interaction-Derived Data
 
@@ -634,6 +634,42 @@ get_ai_provider()        ← factory, reads AI_PROVIDER env var
 
 Each provider implements the same method interface. If the LLM fails (timeout, invalid JSON, connection refused, etc.), the error is logged and a safe mock fallback is served — the app never crashes.
 
+### Running With a Local LLM
+
+The app can optionally use a local `llama-server` instance for AI-powered features. This is not required for the default demo; mock mode can run without any local model.
+
+To use local LLM mode, start `llama-server` in one terminal:
+
+```bash
+llama-server \
+  -m /path/to/your/model.gguf \
+  --port 8082 \
+  --ctx-size 8192 \
+  --threads 6
+```
+
+Then start the app in another terminal:
+
+```bash
+cd outreach_intelligence_platform
+source .venv/bin/activate
+uvicorn backend.main:app --host 127.0.0.1 --port 8000
+```
+
+The AI provider is controlled by `.env`:
+
+```text
+AI_PROVIDER=local_llm
+```
+
+To run without a local LLM, use:
+
+```text
+AI_PROVIDER=mock
+```
+
+Mock mode uses local demo responses and does not require OpenAI, Ollama, LM Studio, llama.cpp, or any external AI provider.
+
 ### Local LLM Setup
 
 1. Install [llama.cpp](https://github.com/ggerganov/llama.cpp) and build `llama-server`
@@ -643,18 +679,15 @@ Each provider implements the same method interface. If the LLM fails (timeout, i
 | Variable | Purpose | Example |
 |---|---|---|
 | `AI_PROVIDER` | Set to `local_llm` | `AI_PROVIDER=local_llm` |
-| `LLAMA_BIN` | Path to llama-server binary | `LLAMA_BIN=/opt/homebrew/bin/llama-server` |
-| `MODEL_PATH` | Path to your GGUF model file | `MODEL_PATH=/path/to/model.gguf` |
-| `CHAT_TEMPLATE` | Jinja chat template (optional; relative to project root) | `CHAT_TEMPLATE=gemma4_official.jinja` |
+| `MODEL_PATH` | Path to your GGUF model file | `MODEL_PATH=/path/to/your/model.gguf` |
 | `LLAMA_PORT` | Port for llama-server (default `8082`) | `LLAMA_PORT=8082` |
 | `LLAMA_CTX_SIZE` | Context window size in tokens | `LLAMA_CTX_SIZE=8192` |
 | `LLAMA_THREADS` | CPU threads for inference | `LLAMA_THREADS=6` |
-| `LLAMA_MODEL` | Model name sent in API requests | `LLAMA_MODEL=gemma-4-E4B-it` |
-| `LLAMA_TIMEOUT` | HTTP timeout in seconds for LLM calls | `LLAMA_TIMEOUT=180` |
+| `LLAMA_TIMEOUT` | HTTP timeout in seconds for LLM calls | `LLAMA_TIMEOUT=120` |
 
 **Ports:** FastAPI serves on `:8000`, llama-server listens on `:8082`.
 
-**Auto-start:** When `_is_server_running()` detects no server on `:8082`, `tools/llm.py` auto-starts llama-server with your configured `LLAMA_BIN`, `MODEL_PATH`, and `CHAT_TEMPLATE`. The server stops on process exit.
+**Auto-start:** When `_is_server_running()` detects no server on `:8082`, `tools/llm.py` auto-starts llama-server with your configured `MODEL_PATH` and `CHAT_TEMPLATE`. The server stops on process exit.
 
 **Keep machine-specific paths in `.env` only.** Never commit `.env`. Commit only `.env.example` with placeholder values.
 
@@ -741,12 +774,12 @@ Every generated draft includes:
 - **`.env`** — local-only, never committed. Contains `AI_PROVIDER`, model paths, and port settings specific to your machine.
 - **`.env.example`** — committed template with placeholder values. Copy to `.env` and adjust.
 
-Keep machine-specific paths (`LLAMA_BIN`, `MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/model.gguf`.
+Keep machine-specific paths (`MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/your/model.gguf`.
 
 
-### Phase 4: AI Adoption Planning (Current)
+### AI Adoption Planning
 
-Phase 4 converts the workflow transformation knowledge captured in Phase 3 into practical AI adoption plans for each organization. The platform now generates structured adoption plans with AI Opportunity Catalogs, adoption roadmaps, pilot recommendations, training plans, success metrics, and change-management checklists.
+The AI Adoption Planner uses workflow intelligence captured from organization interactions to generate draft adoption roadmaps, pilot recommendations, change-management checklists, training recommendations, success metrics, and risk summaries.
 
 **Pages added:**
 - **Adoption Planner** (`/adoption-planner`) — organization-level adoption plan with executive summary, opportunity catalog, roadmap, training plan, metrics, and risk mitigation

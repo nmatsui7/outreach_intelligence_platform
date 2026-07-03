@@ -2927,7 +2927,7 @@ function renderPriorityAnalytics(pa) {
   return html;
 }
 
-// ---- Phase 4: Adoption Planner ----
+// ---- Adoption Planner ----
 
 let apCurrentOrgId = null;
 
@@ -3124,7 +3124,7 @@ async function exportAdoptionPlan() {
   }
 }
 
-// ---- Phase 4: Pilot Plans ----
+// ---- Pilot Plans ----
 
 async function loadPilotPlansPage() {
   const sel = document.getElementById("pp-org-select");
@@ -3253,7 +3253,7 @@ async function deletePilotPlan(pilotId, orgId) {
   }
 }
 
-// ---- Phase 4: Success Metrics ----
+// ---- Success Metrics ----
 
 let smOrgData = [];
 
