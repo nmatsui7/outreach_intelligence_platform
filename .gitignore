@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *.backup.json
+.env
 
 ai_note.md
 ai_note2.md

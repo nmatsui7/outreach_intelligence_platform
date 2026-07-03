@@ -862,6 +862,226 @@
       ],
       "created_at": "2026-06-08T13:52:32Z",
       "updated_at": "2026-06-19T13:52:32Z"
+    },
+    {
+      "id": 18,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "canonical_title": "Automated data extraction and report generation from structured inputs",
+      "normalized_key": "automated data extraction report generation structured inputs",
+      "title": "AI Support: Automated data extraction and report generation from structured inputs",
+      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+      "pain_point": "Repetitive data entry tasks consume staff time that could be spent on direct service.",
+      "possible_ai_support": "Automated data extraction and report generation from structured inputs",
+      "knowledge_sources_needed": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "adoption_risk_level": "Low",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "known_failure_cases": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Automated data extraction and report generation from structured inputs"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 19,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "canonical_title": "AI-drafted follow-up emails and outreach templates with human review",
+      "normalized_key": "aidrafted followup emails outreach templates human review",
+      "title": "AI Support: AI-drafted follow-up emails and outreach templates with human review",
+      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+      "pain_point": "Follow-up tracking is ad-hoc \u2014 items are easily missed with no centralized system.",
+      "possible_ai_support": "AI-drafted follow-up emails and outreach templates with human review",
+      "knowledge_sources_needed": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "adoption_risk_level": "Low",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "known_failure_cases": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "AI-drafted follow-up emails and outreach templates with human review"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 20,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "canonical_title": "Automated follow-up reminders and status tracking",
+      "normalized_key": "automated followup reminders status tracking",
+      "title": "AI Support: Automated follow-up reminders and status tracking",
+      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+      "pain_point": "Staff capacity is a recurring constraint \u2014 there is no buffer for process improvement work.",
+      "possible_ai_support": "Automated follow-up reminders and status tracking",
+      "knowledge_sources_needed": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "adoption_risk_level": "Low",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "known_failure_cases": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Automated follow-up reminders and status tracking"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 21,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "canonical_title": "AI-assisted scheduling and engagement pattern analysis",
+      "normalized_key": "aiassisted scheduling engagement pattern analysis",
+      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
+      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
+      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
+      "knowledge_sources_needed": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Staff capacity decisions must be made by program leads, not automated.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "adoption_risk_level": "Low",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "Email correspondence and contact lists",
+        "Training materials and workshop guides"
+      ],
+      "known_failure_cases": [
+        "Follow-ups are missed when staff are absent or overwhelmed",
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "AI-assisted scheduling and engagement pattern analysis"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
     }
   ],
   "knowledge_sources": [
@@ -1072,6 +1292,32 @@
       "normalized_key": "spreadsheet trackers employer contact spreadsheet",
       "evidence_count": 1,
       "last_seen_at": "2026-06-12T13:52:32Z"
+    },
+    {
+      "id": 17,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Email correspondence and contact lists",
+      "normalized_key": "email correspondence contact lists",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 18,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "Training materials and workshop guides",
+      "normalized_key": "training materials workshop guides",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
     }
   ],
   "failure_cases": [
@@ -1302,6 +1548,60 @@
       ],
       "last_seen_at": "2026-06-03T13:52:32Z",
       "normalized_key": "ocr may inaccurately capture handwritten intake notes with important context"
+    },
+    {
+      "id": 9,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "what_failed": "Follow-ups are missed when staff are absent or overwhelmed",
+      "normalized_key": "followups missed staff absent overwhelmed",
+      "why_it_failed": "No centralized tracking system \u2014 relies on individual memory and email inbox",
+      "missing_context": "No automated reminders or shared task list",
+      "human_review_required": "Follow-up assignments need human judgment on priority and timing",
+      "suggested_prevention": "Implement a shared follow-up tracking system with automated reminders and weekly review",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Follow-ups are missed when staff are absent or overwhelmed"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 10,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "what_failed": "Manual data entry errors lead to incorrect reports and rework",
+      "normalized_key": "manual data entry errors lead incorrect reports rework",
+      "why_it_failed": "No validation checks or automated data entry \u2014 entirely dependent on human accuracy",
+      "missing_context": "No audit trail for data entry \u2014 errors are hard to trace",
+      "human_review_required": "Data quality checks need human judgment to distinguish genuine errors from edge cases",
+      "suggested_prevention": "Introduce input validation, automated data checks, and regular audit reviews",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "status": "Identified",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
     }
   ],
   "adoption_risk_notes": [
@@ -1622,6 +1922,110 @@
         "Staff concerned about privacy when recording sensitive youth information in shared or AI-processed systems"
       ],
       "last_seen_at": "2026-07-03T13:52:32Z"
+    },
+    {
+      "id": 13,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "risk_type": "Adoption Safeguard",
+      "description": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
+      "normalized_key": "adoption safeguard staff must consulted any workflow change adoption voluntary humanled",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led."
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 14,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "risk_type": "Adoption Safeguard",
+      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "normalized_key": "adoption safeguard recommendations advisory relationship workflow decisions require human judgment",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 15,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "risk_type": "Staff Concern",
+      "description": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "normalized_key": "staff concern staff already capacity any initiative must demonstrate time savings add overhead",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead."
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
+    },
+    {
+      "id": 16,
+      "organization_id": 1,
+      "source_interaction_ids": [
+        1
+      ],
+      "source_interaction_title": "Digital Literacy Program Planning",
+      "risk_type": "Evaluation Risk",
+      "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
+      "normalized_key": "evaluation risk evaluation recognition risks identified discussion reveal concerns",
+      "severity": "Medium",
+      "related_staff_role": "Program leads",
+      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
+      "tags": [
+        "follow-up",
+        "training-need",
+        "workflow-improvement"
+      ],
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
+      ],
+      "last_seen_at": "2026-07-03T14:23:33Z",
+      "created_at": "2026-07-03T14:23:33Z",
+      "updated_at": "2026-07-03T14:23:33Z"
     }
   ]
 }

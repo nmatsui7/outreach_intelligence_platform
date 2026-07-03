@@ -1,84 +1,5 @@
 [
   {
-    "summary_id": 1,
-    "interaction_id": 1,
-    "organization_id": 1,
-    "created_at": "2026-06-03T13:52:32Z",
-    "updated_at": "2026-06-26T13:52:32Z",
-    "summary": "Summary of Digital Literacy Program Planning at Waterloo Public Library. Key themes identified.",
-    "key_discussion_points": [
-      "Discussed digital literacy program planning",
-      "Reviewed current workflow",
-      "Identified pain points and potential improvements"
-    ],
-    "decisions": [
-      "Identified follow-up email drafting as a potential area for AI support with human review"
-    ],
-    "action_items": [
-      "Map current follow-up email workflow and identify template opportunities"
-    ],
-    "risks_or_concerns": [],
-    "lessons_learned": [
-      {
-        "title": "Templates with human review balance efficiency and quality",
-        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
-      }
-    ],
-    "reusable_insights": [
-      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
-    ],
-    "staff_concerns_or_adoption_concerns": [],
-    "human_judgment_points": [
-      "Human review required for externally visible content"
-    ],
-    "knowledge_sharing_opportunities": [],
-    "playbook_candidates": [
-      {
-        "title": "Follow-up Communication Workflow",
-        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
-        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
-      }
-    ],
-    "recommended_follow_up": "Map current follow-up email workflow and identify template opportunities",
-    "suggested_follow_up_date": "2026-06-17",
-    "suggested_next_email_type": "follow_up",
-    "suggested_tags": [
-      "digital-literacy",
-      "workflow",
-      "follow-up"
-    ],
-    "follow_up_tasks": [],
-    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
-    "workflow_pain_points": [
-      "time-consuming",
-      "repetitive",
-      "manual"
-    ],
-    "repetitive_tasks_identified": [
-      "Email drafting",
-      "Follow-up email composition"
-    ],
-    "information_or_documents_used": [
-      "Template documents",
-      "FAQ documents",
-      "Program calendars"
-    ],
-    "possible_ai_insertion_points": [],
-    "required_human_review": [
-      "All AI-generated content requires human review before external use",
-      "AI-generated content requires human review",
-      "Community context awareness requires human oversight"
-    ],
-    "missing_knowledge_or_data": [],
-    "failure_cases_or_exceptions": [],
-    "reusable_workflow_insights": [],
-    "workflow_tags": [
-      "digital-literacy",
-      "workflow",
-      "follow-up"
-    ]
-  },
-  {
     "summary_id": 2,
     "interaction_id": 2,
     "organization_id": 1,
@@ -1884,5 +1805,68 @@
       "privacy",
       "knowledge-sharing"
     ]
+  },
+  {
+    "summary_id": 29,
+    "interaction_id": 1,
+    "organization_id": 1,
+    "created_at": "2026-07-03T14:59:45Z",
+    "updated_at": "2026-07-03T14:59:45Z",
+    "summary": "The planning session identified significant workflow inefficiencies in the digital literacy program, specifically the manual, time-consuming process of drafting personalized post-workshop follow-up emails. The team also noted challenges with the current searchability of their internal FAQ knowledge base.",
+    "interaction_type": "Meeting",
+    "discussion_points": [
+      "High manual effort required for drafting individual follow-up emails (2-3 hours per workshop cycle).",
+      "Feasibility of using AI-assisted template drafting to reduce communication time.",
+      "The necessity of human review for follow-up messages due to sensitive community context and specific resource referencing.",
+      "Difficulty in searching and retrieving information from the existing FAQ document."
+    ],
+    "decisions": [
+      "Explore the use of AI-assisted template drafting for follow-up communications.",
+      "Maintain a mandatory human review step for all AI-generated follow-up content to ensure contextual accuracy and sensitivity."
+    ],
+    "action_items": [
+      "Investigate and pilot AI tools capable of drafting personalized follow-up email templates.",
+      "Review and restructure the existing FAQ document to improve search functionality and information architecture."
+    ],
+    "risks": [
+      "AI-generated content may lack necessary contextual nuance, leading to inappropriate or insensitive communication if human review is bypassed.",
+      "Implementation of new AI tools may require significant initial training and integration time."
+    ],
+    "lessons": [
+      {
+        "lesson_id": 1,
+        "description": "Repetitive, high-volume communication tasks are prime candidates for automation."
+      },
+      {
+        "lesson_id": 2,
+        "description": "Contextual knowledge and sensitivity require human oversight, even when using advanced automation tools."
+      }
+    ],
+    "insights": [
+      {
+        "insight_id": 1,
+        "description": "The current workflow suffers from a bottleneck in post-workshop communication, consuming valuable staff time."
+      },
+      {
+        "insight_id": 2,
+        "description": "The knowledge base (FAQ) is functional but poorly optimized for retrieval, hindering staff efficiency."
+      }
+    ],
+    "workflow_fields": {
+      "process_area": "Program Administration & Communication",
+      "bottleneck_identified": "Post-Workshop Email Drafting",
+      "tools_in_use": [
+        "Email System",
+        "FAQ Document/Knowledge Base"
+      ],
+      "potential_solution": "AI Template Generation"
+    },
+    "tags": [
+      "Digital Literacy",
+      "Process Automation",
+      "Workflow Optimization",
+      "Knowledge Management"
+    ],
+    "follow_up_recommendation": "Prioritize a Proof-of-Concept (PoC) for AI-assisted email drafting, focusing on a small batch of workshops, while simultaneously initiating a project to migrate the FAQ into a searchable knowledge base platform."
   }
 ]
