@@ -5,6 +5,13 @@ let pendingAttachments = [];
 let currentDraftId = null;
 let discoveryCandidates = [];
 let interactions = [];
+let orgKnowledgeSummary = null;
+let orgWorkflowOpps = [];
+let orgKnowledgeSources = [];
+let orgFailureCases = [];
+let orgAdoptionRisks = [];
+let orgTasks = [];
+let demoOutboxDrafts = [];
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -20,7 +27,7 @@ function showError(message) {
 }
 
 function setActivePage(pathname = window.location.pathname) {
-  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/priority-queue", "/follow-ups", "/knowledge-search"];
+  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox"];
   const route = known.includes(pathname) ? pathname : "/";
   const pageMap = {
     "/": "crm-page",
@@ -32,6 +39,7 @@ function setActivePage(pathname = window.location.pathname) {
     "/priority-queue": "priority-queue-page",
     "/follow-ups": "follow-ups-page",
     "/knowledge-search": "knowledge-search-page",
+    "/demo-outbox": "demo-outbox-page",
   };
 
   Object.values(pageMap).forEach(pageId => {
@@ -43,7 +51,7 @@ function setActivePage(pathname = window.location.pathname) {
   dispatchPage(route);
 }
 
-// ---- Phase 3: Timeline ----
+// ---- Workflow Timeline ----
 
 async function loadTimeline() {
   if (!requireSelected()) return;
@@ -107,7 +115,7 @@ function renderTimeline(events) {
   </div>`;
 }
 
-// ---- Phase 3: Knowledge Search ----
+// ---- Knowledge Search ----
 
 function ksValue(id) {
   return document.getElementById(id).value;
@@ -224,7 +232,7 @@ function renderKnowledgeResults(results, query) {
   </div>`;
 }
 
-// ---- Phase 3: Lessons Learned ----
+// ---- Lessons Learned ----
 
 async function loadLessons() {
   if (!requireSelected()) return;
@@ -254,7 +262,7 @@ async function loadLessons() {
   }
 }
 
-// ---- Phase 3: Playbook Candidates ----
+// ---- Playbook Candidates ----
 
 async function loadPlaybooks() {
   if (!requireSelected()) return;
@@ -288,7 +296,7 @@ async function loadPlaybooks() {
   }
 }
 
-// ---- Phase 3: Workflow Opportunities ----
+// ---- Workflow Opportunities ----
 
 async function loadWorkflowOpps() {
   if (!requireSelected()) return;
@@ -296,8 +304,10 @@ async function loadWorkflowOpps() {
   el.innerHTML = "<p class='muted'>Loading workflow opportunities...</p>";
   try {
     const opps = await api(`/api/organizations/${selectedOrg.id}/workflow-opportunities`);
+    orgWorkflowOpps = opps;
     if (!opps.length) {
       el.innerHTML = '<p class="muted">No workflow opportunities yet. Run AI Note Summary on an interaction to identify opportunities.</p>';
+      renderOrgInsights();
       return;
     }
     el.innerHTML = opps.map(o => `
@@ -322,12 +332,13 @@ async function loadWorkflowOpps() {
         </div>
       </article>
     `).join("");
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
 }
 
-// ---- Phase 3: Knowledge Sources ----
+// ---- Knowledge Sources ----
 
 async function loadKnowledgeSources() {
   if (!requireSelected()) return;
@@ -335,8 +346,10 @@ async function loadKnowledgeSources() {
   el.innerHTML = "<p class='muted'>Loading knowledge sources...</p>";
   try {
     const sources = await api(`/api/organizations/${selectedOrg.id}/knowledge-sources`);
+    orgKnowledgeSources = sources;
     if (!sources.length) {
       el.innerHTML = '<p class="muted">No knowledge sources recorded. Run AI Note Summary on an interaction to identify knowledge sources.</p>';
+      renderOrgInsights();
       return;
     }
     el.innerHTML = sources.map(s => `
@@ -347,12 +360,13 @@ async function loadKnowledgeSources() {
         ${s.location_note ? `<p class="muted">${escapeHtml(s.location_note)}</p>` : ""}
       </div>
     `).join("");
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
 }
 
-// ---- Phase 3: Failure Cases / Exceptions ----
+// ---- Failure Cases / Exceptions ----
 
 async function loadFailureCases() {
   if (!requireSelected()) return;
@@ -360,8 +374,10 @@ async function loadFailureCases() {
   el.innerHTML = "<p class='muted'>Loading failure cases...</p>";
   try {
     const cases = await api(`/api/organizations/${selectedOrg.id}/failure-cases`);
+    orgFailureCases = cases;
     if (!cases.length) {
       el.innerHTML = '<p class="muted">No failure cases recorded. Run AI Note Summary on an interaction to extract failure cases.</p>';
+      renderOrgInsights();
       return;
     }
     el.innerHTML = cases.map(fc => `
@@ -379,12 +395,13 @@ async function loadFailureCases() {
         </div>
       </article>
     `).join("");
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
 }
 
-// ---- Phase 3: Adoption Risk Notes ----
+// ---- Adoption Risk Notes ----
 
 async function loadAdoptionRisks() {
   if (!requireSelected()) return;
@@ -392,8 +409,10 @@ async function loadAdoptionRisks() {
   el.innerHTML = "<p class='muted'>Loading adoption risk notes...</p>";
   try {
     const risks = await api(`/api/organizations/${selectedOrg.id}/adoption-risk-notes`);
+    orgAdoptionRisks = risks;
     if (!risks.length) {
       el.innerHTML = '<p class="muted">No adoption risk notes yet. Run AI Note Summary on an interaction to identify adoption risks.</p>';
+      renderOrgInsights();
       return;
     }
     el.innerHTML = risks.map(ar => `
@@ -411,12 +430,69 @@ async function loadAdoptionRisks() {
         </div>
       </article>
     `).join("");
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
 }
 
-// ---- Phase 3: Knowledge Analytics ----
+function renderOrgInsights() {
+  const el = document.getElementById("org-insights-output");
+  if (!el || !selectedOrg) return;
+
+  const openTasks = orgTasks.filter(t => t.status === "Open");
+  const highRisks = orgAdoptionRisks.filter(r => (r.severity || "").toLowerCase() === "high");
+  const humanReviewOpps = orgWorkflowOpps.filter(o =>
+    (o.human_review_points && o.human_review_points.length) || o.human_review_required
+  );
+  const gaps = [];
+  if (!interactions.length) gaps.push("No interaction history yet.");
+  if (!orgWorkflowOpps.length) gaps.push("No workflow opportunities identified.");
+  if (!orgKnowledgeSources.length) gaps.push("No knowledge sources recorded.");
+  if (!orgFailureCases.length) gaps.push("No failure cases or exceptions recorded.");
+  if (!orgAdoptionRisks.length) gaps.push("No human-system or adoption-risk notes recorded.");
+
+  const summary = orgKnowledgeSummary || {};
+  const discoveryGaps = [
+    ...(summary.repeated_workflow_pain_points && summary.repeated_workflow_pain_points.length ? [] : ["Ask about repeated workflow pain points."]),
+    ...(summary.important_knowledge_sources && summary.important_knowledge_sources.length ? [] : ["Identify internal documents or knowledge references."]),
+    ...(summary.human_review_requirements && summary.human_review_requirements.length ? [] : ["Confirm where human review is required."]),
+    ...(summary.staff_concerns && summary.staff_concerns.length ? [] : ["Ask staff-facing adoption concern questions."]),
+  ];
+
+  el.innerHTML = `
+    <div class="metric-grid org-insight-metrics">
+      <div class="metric-card"><div class="metric-value">${interactions.length}</div><div class="metric-label">Interactions</div></div>
+      <div class="metric-card"><div class="metric-value">${orgWorkflowOpps.length}</div><div class="metric-label">Workflow Opps</div></div>
+      <div class="metric-card"><div class="metric-value">${orgKnowledgeSources.length}</div><div class="metric-label">Knowledge Sources</div></div>
+      <div class="metric-card"><div class="metric-value">${orgFailureCases.length}</div><div class="metric-label">Failure Cases</div></div>
+      <div class="metric-card"><div class="metric-value">${orgAdoptionRisks.length}</div><div class="metric-label">Human-System Notes</div></div>
+      <div class="metric-card"><div class="metric-value">${openTasks.length}</div><div class="metric-label">Open Follow-ups</div></div>
+    </div>
+    <div class="insight-columns">
+      <section>
+        <h4>Counts by Category</h4>
+        <table class="analytics-table">
+          <tbody>
+            <tr><td>Workflow opps requiring human review</td><td class="num">${humanReviewOpps.length}</td></tr>
+            <tr><td>High-severity human-system risks</td><td class="num">${highRisks.length}</td></tr>
+            <tr><td>Open follow-up items</td><td class="num">${openTasks.length}</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h4>Missing Information</h4>
+        ${gaps.length ? `<ul class="analytics-list">${gaps.map(g => `<li>${escapeHtml(g)}</li>`).join("")}</ul>` : `<p class="muted">No major organization-level gaps detected from current structured workflow knowledge.</p>`}
+      </section>
+      <section>
+        <h4>Recommended Discovery Gaps</h4>
+        ${discoveryGaps.length ? `<ul class="analytics-list">${discoveryGaps.map(g => `<li>${escapeHtml(g)}</li>`).join("")}</ul>` : `<p class="muted">Current notes cover the core workflow discovery areas.</p>`}
+      </section>
+    </div>
+  `;
+}
+
+// ---- Workflow Intelligence Analytics ----
 
 function renderOrganizationalKnowledge(knowledge) {
   if (!knowledge) return "";
@@ -424,12 +500,12 @@ function renderOrganizationalKnowledge(knowledge) {
   const tagEntries = Object.entries(knowledge.most_common_tags || {});
   const recentEntries = knowledge.recent_knowledge_activity || [];
 
-  let html = `<section class="analytics-section"><h3>Workflow Transformation Knowledge</h3>`;
+  let html = `<section class="analytics-section"><h3>Workflow Intelligence</h3>`;
 
   html += `<div class="metric-grid">
     <div class="metric-card">
       <div class="metric-value">${knowledge.total_knowledge_items != null ? knowledge.total_knowledge_items : "—"}</div>
-      <div class="metric-label">Total Knowledge Items</div>
+      <div class="metric-label">Total Intelligence Items</div>
     </div>
     <div class="metric-card">
       <div class="metric-value">${knowledge.organizations_with_interaction_history != null ? knowledge.organizations_with_interaction_history : "—"}</div>
@@ -498,7 +574,7 @@ function renderOrganizationalKnowledge(knowledge) {
   }
 
   if (recentEntries.length) {
-    html += `<h4>Recent Knowledge Activity</h4><table class="analytics-table"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody>`;
+    html += `<h4>Recent Intelligence Activity</h4><table class="analytics-table"><thead><tr><th>Date</th><th>Event</th></tr></thead><tbody>`;
     html += recentEntries.map(e =>
       `<tr><td>${escapeHtml(e.date || "")}</td><td>${escapeHtml(e.description || "")}</td></tr>`
     ).join("");
@@ -525,6 +601,9 @@ function dispatchPage(route) {
   }
   if (route === "/knowledge-search") {
     loadKnowledgeSearch();
+  }
+  if (route === "/demo-outbox") {
+    loadDemoOutboxPage();
   }
 }
 
@@ -875,22 +954,74 @@ function orgFieldId(key) {
   return `org-field-${key}`;
 }
 
+function showOrgTab(tabName) {
+  document.querySelectorAll("[data-org-tab]").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.orgTab === tabName);
+  });
+  document.querySelectorAll("#organization-detail-tabs .tab-panel").forEach(panel => {
+    panel.classList.toggle("active", panel.id === `org-tab-${tabName}`);
+  });
+}
+
+function resetOrgDetailState() {
+  orgKnowledgeSummary = null;
+  orgWorkflowOpps = [];
+  orgKnowledgeSources = [];
+  orgFailureCases = [];
+  orgAdoptionRisks = [];
+  orgTasks = [];
+  taskSuggestions = [];
+  document.getElementById("ai-output").textContent = "";
+  document.getElementById("draft-section").classList.add("hidden");
+  document.getElementById("notes-output").innerHTML = "";
+}
+
 function renderOrgDetails(org) {
   const editing = org._editing;
   const v = (key) => org[key] || "";
   const input = (key, type = "text") =>
     `<input id="${orgFieldId(key)}" type="${type}" value="${escapeHtml(v(key))}" />`;
   const text = (key) => escapeHtml(v(key));
+  const latestInteraction = interactions[0];
+  const summary = orgKnowledgeSummary || {};
+  const readinessStatus = v("status") || "Not set";
 
   return `
-    <strong>Category:</strong> ${text("category")}<br>
-    <strong>Website:</strong> ${editing ? input("website", "url") : `<a href="${escapeHtml(v("website"))}" target="_blank" rel="noreferrer">${text("website")}</a>`}<br>
-    <strong>Contact:</strong> ${editing ? input("contact_name") : text("contact_name")}<br>
-    <strong>Email:</strong> ${editing ? input("contact_email", "email") : text("contact_email")}<br>
-    <strong>Phone:</strong> ${editing ? input("phone_number") : (v("phone_number") || "Not available")}<br>
-    <strong>Status:</strong> ${text("status")}<br>
-    <strong>Notes:</strong> ${text("mission_notes")}<br>
-    <strong>Last interaction:</strong> ${text("last_interaction")}<br>
+    <div class="org-overview-grid">
+      <div class="org-profile-card">
+        <h3>Profile</h3>
+        <div><strong>Category:</strong> ${text("category")}</div>
+        <div><strong>Website:</strong> ${editing ? input("website", "url") : `<a href="${escapeHtml(v("website"))}" target="_blank" rel="noreferrer">${text("website")}</a>`}</div>
+        <div><strong>Contact:</strong> ${editing ? input("contact_name") : text("contact_name")}</div>
+        <div><strong>Email:</strong> ${editing ? input("contact_email", "email") : text("contact_email")}</div>
+        <div><strong>Phone:</strong> ${editing ? input("phone_number") : (v("phone_number") || "Not available")}</div>
+        <div><strong>Notes:</strong> ${text("mission_notes")}</div>
+      </div>
+      <div class="org-profile-card">
+        <h3>Readiness & Priority</h3>
+        <div class="overview-indicators">
+          <span class="status">${escapeHtml(readinessStatus)}</span>
+          <span class="status">${orgWorkflowOpps.length} workflow opps</span>
+          <span class="status">${orgAdoptionRisks.length} human-system notes</span>
+        </div>
+        <div><strong>Recommended next step:</strong> ${escapeHtml(summary.recommended_next_step || "Run knowledge summary to populate next step.")}</div>
+        <div><strong>Best candidate workflow:</strong> ${escapeHtml(summary.best_candidate_workflow_for_ai || "Not identified yet.")}</div>
+      </div>
+      <div class="org-profile-card org-profile-card-wide">
+        <h3>Latest Interaction Summary</h3>
+        ${latestInteraction ? `
+          <div><strong>${escapeHtml(latestInteraction.title || "Untitled interaction")}</strong></div>
+          <div class="muted">${escapeHtml(latestInteraction.date || "")} ${escapeHtml(latestInteraction.interaction_type || "")}</div>
+          <div>${escapeHtml(latestInteraction.outcome || latestInteraction.notes || "No notes recorded.")}</div>
+        ` : `<p class="muted">No interactions recorded yet.</p>`}
+      </div>
+      <div class="org-profile-card org-profile-card-wide">
+        <h3>Transformation Summary</h3>
+        <div><strong>Main interests:</strong> ${escapeHtml(summary.main_interests || "Not summarized yet.")}</div>
+        <div><strong>Repeated pain points:</strong> ${renderInlineList(summary.repeated_workflow_pain_points)}</div>
+        <div><strong>Human review requirements:</strong> ${renderInlineList(summary.human_review_requirements)}</div>
+      </div>
+    </div>
     <div class="actions" style="margin-top:8px">
       ${editing
         ? `<button onclick="saveOrgContact()">Save Contact</button><button onclick="cancelOrgEdit()">Cancel</button>`
@@ -900,14 +1031,21 @@ function renderOrgDetails(org) {
   `;
 }
 
+function renderInlineList(items) {
+  if (!items || !items.length) return "None recorded yet.";
+  return items.map(item => `<span class="int-tag">${escapeHtml(item)}</span>`).join(" ");
+}
+
 async function selectOrganization(id) {
   try {
     selectedOrg = await api(`/api/organizations/${id}`);
     selectedOrg._editing = false;
+    resetOrgDetailState();
     document.getElementById("detail-title").textContent = selectedOrg.name;
+    document.getElementById("details-empty").classList.add("hidden");
+    document.getElementById("organization-detail-tabs").classList.remove("hidden");
+    showOrgTab("overview");
     document.getElementById("details").innerHTML = renderOrgDetails(selectedOrg);
-    document.getElementById("ai-output").textContent = "";
-    document.getElementById("draft-section").classList.add("hidden");
     document.getElementById("interaction-history-section").classList.remove("hidden");
     document.getElementById("knowledge-summary-section").classList.remove("hidden");
     document.getElementById("readiness-section").classList.remove("hidden");
@@ -919,15 +1057,19 @@ async function selectOrganization(id) {
     document.getElementById("failure-cases-section").classList.remove("hidden");
     document.getElementById("adoption-risk-section").classList.remove("hidden");
     document.getElementById("tasks-section").classList.remove("hidden");
+    document.getElementById("org-insights-section").classList.remove("hidden");
     await loadInteractions();
     await loadKnowledgeSummary();
     await loadTasksForOrg();
+    await loadTimeline();
     await loadLessons();
     await loadPlaybooks();
     await loadWorkflowOpps();
     await loadKnowledgeSources();
     await loadFailureCases();
     await loadAdoptionRisks();
+    document.getElementById("details").innerHTML = renderOrgDetails(selectedOrg);
+    renderOrgInsights();
   } catch (error) {
     showError(error.message);
   }
@@ -1155,6 +1297,128 @@ function renderAttachmentMeta(meta) {
   `;
 }
 
+const OUTBOX_STATUSES = ["draft", "needs_review", "approved", "sent_manually", "archived"];
+const OUTBOX_DRAFT_TYPES = ["intro_outreach", "follow_up", "thank_you", "meeting_request", "information_request", "custom"];
+
+function labelize(value) {
+  return String(value || "")
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function normalizeDraftType(value) {
+  const mapped = String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+  if (OUTBOX_DRAFT_TYPES.includes(mapped)) return mapped;
+  if (mapped.includes("thank")) return "thank_you";
+  if (mapped.includes("meeting")) return "meeting_request";
+  if (mapped.includes("intro")) return "intro_outreach";
+  if (mapped.includes("info")) return "information_request";
+  if (mapped.includes("follow")) return "follow_up";
+  return "custom";
+}
+
+function outboxStatusOptions(selected) {
+  return OUTBOX_STATUSES.map(status =>
+    `<option value="${status}" ${status === selected ? "selected" : ""}>${labelize(status)}</option>`
+  ).join("");
+}
+
+async function loadDemoOutboxPage() {
+  const errorEl = document.getElementById("demo-outbox-error");
+  const listEl = document.getElementById("demo-outbox-list");
+  if (!listEl) return;
+  errorEl.classList.add("hidden");
+  listEl.innerHTML = "<p class='muted'>Loading demo outbox...</p>";
+  try {
+    demoOutboxDrafts = await api("/api/outbox");
+    renderDemoOutboxPage();
+  } catch (error) {
+    errorEl.textContent = error.message;
+    errorEl.classList.remove("hidden");
+    listEl.innerHTML = "";
+  }
+}
+
+function renderDemoOutboxPage() {
+  const listEl = document.getElementById("demo-outbox-list");
+  if (!listEl) return;
+  const filterEl = document.getElementById("demo-outbox-status-filter");
+  const statusFilter = filterEl ? filterEl.value : "";
+  const rows = demoOutboxDrafts
+    .filter(row => !statusFilter || row.status === statusFilter)
+    .sort((a, b) => String(b.created_at || "").localeCompare(String(a.created_at || "")) || (b.id || 0) - (a.id || 0));
+
+  if (!rows.length) {
+    listEl.innerHTML = "<p class='muted'>No drafts match the current filter.</p>";
+    return;
+  }
+
+  listEl.innerHTML = rows.map(row => {
+    const recipient = row.recipient_name || row.to || row.recipient_email_optional || "Recipient not set";
+    const recipientMeta = [row.recipient_role, row.recipient_email_optional || row.to].filter(Boolean).join(" | ");
+    const createdDate = row.created_at ? row.created_at.slice(0, 10) : "Unknown";
+    return `
+      <article class="demo-draft-card" id="demo-draft-${row.id}">
+        <div class="demo-draft-header">
+          <div>
+            <div class="demo-draft-kicker">Draft #${row.id} | ${escapeHtml(labelize(row.draft_type || "custom"))}</div>
+            <h3>${escapeHtml(row.subject || "Untitled draft")}</h3>
+            <div class="muted">${escapeHtml(row.organization_name || `Org #${row.organization_id}`)} -> ${escapeHtml(recipient)}</div>
+            ${recipientMeta ? `<div class="muted">${escapeHtml(recipientMeta)}</div>` : ""}
+          </div>
+          <span class="status demo-status demo-status-${escapeHtml(row.status)}">${escapeHtml(labelize(row.status))}</span>
+        </div>
+
+        <div class="demo-draft-meta">
+          <span><strong>Created:</strong> ${escapeHtml(createdDate)}</span>
+          <span><strong>Org ID:</strong> ${escapeHtml(row.organization_id)}</span>
+          ${row.source_interaction_id ? `<span><strong>Interaction:</strong> ${escapeHtml(row.source_interaction_id)}</span>` : ""}
+          ${row.source_note_summary_id ? `<span><strong>Summary:</strong> ${escapeHtml(row.source_note_summary_id)}</span>` : ""}
+        </div>
+
+        <details class="demo-draft-preview">
+          <summary>Preview Draft Body</summary>
+          <div class="demo-draft-body">${escapeHtml(row.body || "")}</div>
+        </details>
+
+        <div class="demo-review-grid">
+          <label>
+            Status
+            <select id="demo-status-${row.id}">
+              ${outboxStatusOptions(row.status)}
+            </select>
+          </label>
+          <label>
+            Human Review Notes
+            <textarea id="demo-notes-${row.id}" rows="3" placeholder="Add review notes before manual sending...">${escapeHtml(row.human_review_notes || "")}</textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button onclick="saveDemoOutboxReview(${row.id})">Save Review State</button>
+          <button onclick="navigateTo('/?org=${row.organization_id}')">View Organization</button>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+async function saveDemoOutboxReview(id) {
+  const status = document.getElementById(`demo-status-${id}`).value;
+  const humanReviewNotes = document.getElementById(`demo-notes-${id}`).value;
+  try {
+    const updated = await api(`/api/outbox/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({ status, human_review_notes: humanReviewNotes }),
+    });
+    demoOutboxDrafts = demoOutboxDrafts.map(row => row.id === id ? updated : row);
+    renderDemoOutboxPage();
+    await loadOutbox();
+  } catch (error) {
+    alert(error.message);
+  }
+}
+
 // ---- Data Tools ----
 
 async function previewCsvImport() {
@@ -1247,8 +1511,16 @@ async function saveDraft() {
   const draft = {
     organization_id: selectedOrg.id,
     to: document.getElementById("draft-to").value,
+    recipient_name: selectedOrg.contact_name || "",
+    recipient_role: "",
+    recipient_email_optional: document.getElementById("draft-to").value,
     subject: document.getElementById("draft-subject").value,
     body: document.getElementById("draft-body").value,
+    draft_type: normalizeDraftType(currentDraft && currentDraft.email_type),
+    source_interaction_id: currentDraft && currentDraft.source_interaction_id ? currentDraft.source_interaction_id : null,
+    source_note_summary_id: currentDraft && currentDraft.source_note_summary_id ? currentDraft.source_note_summary_id : null,
+    status: "needs_review",
+    human_review_notes: "",
   };
   try {
     const saved = await api("/api/outbox", { method: "POST", body: JSON.stringify(draft) });
@@ -1256,17 +1528,19 @@ async function saveDraft() {
     if (pendingAttachments.length) {
       await uploadPendingAttachments(saved.id);
     }
-    alert(saved.status);
+    alert("Saved to Demo Outbox for human review. No email was sent.");
     loadOutbox();
+    if (window.location.pathname === "/demo-outbox") loadDemoOutboxPage();
   } catch (error) {
     showError(error.message);
   }
 }
 
 async function loadOutbox() {
+  const el = document.getElementById("outbox");
+  if (!el) return;
   try {
     const rows = await api("/api/outbox");
-    const el = document.getElementById("outbox");
     if (!rows.length) {
       el.innerHTML = "<p class='muted'>No saved drafts yet.</p>";
       return;
@@ -1282,15 +1556,16 @@ async function loadOutbox() {
       return `
         <div class="outbox-item">
           <strong>${escapeHtml(row.subject)}</strong><br>
-          <span class="muted">To: ${escapeHtml(row.to)}</span><br>
-          <span class="status">${escapeHtml(row.status)}</span>
+          <span class="muted">To: ${escapeHtml(row.recipient_email_optional || row.to)}</span><br>
+          <span class="status">${escapeHtml(labelize(row.status))}</span>
+          <button class="btn-small" onclick="navigateTo('/demo-outbox')">Review</button>
           ${attachmentsHtml}
         </div>
       `;
     }));
     el.innerHTML = htmlRows.join("");
   } catch (error) {
-    document.getElementById("outbox").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -1362,7 +1637,9 @@ async function loadInteractions() {
   if (!selectedOrg) return;
   try {
     interactions = await api(`/api/organizations/${selectedOrg.id}/interactions`);
+    interactions.sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
     renderInteractions();
+    renderOrgInsights();
   } catch (error) {
     document.getElementById("interactions-list").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
@@ -1517,6 +1794,7 @@ async function loadKnowledgeSummary() {
   el.innerHTML = "<p class='muted'>Loading knowledge summary...</p>";
   try {
     const data = await api(`/api/organizations/${selectedOrg.id}/knowledge-summary`);
+    orgKnowledgeSummary = data;
     el.innerHTML = `
       <article class="ai-card">
         ${Object.entries(data).map(([key, value]) => renderField(key, value)).join("")}
@@ -1526,6 +1804,7 @@ async function loadKnowledgeSummary() {
         </details>
       </article>
     `;
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
@@ -1718,7 +1997,7 @@ async function loadAnalytics() {
     contentEl.innerHTML = renderAnalytics(data);
   } catch (error) {
     loadingEl.classList.add("hidden");
-    errorEl.textContent = "Failed to load analytics: " + error.message;
+    errorEl.textContent = "Failed to load workflow insights: " + error.message;
     errorEl.classList.remove("hidden");
   }
 }
@@ -2050,7 +2329,9 @@ async function loadTasksForOrg() {
   const el = document.getElementById("tasks-output");
   try {
     const tasks = await api(`/api/tasks?organization_id=${selectedOrg.id}`);
+    orgTasks = tasks;
     renderOrgTasks(tasks);
+    renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
   }
@@ -2243,7 +2524,7 @@ function renderPriorityQueue() {
 }
 
 function renderPriorityAnalytics(pa) {
-  let html = `<section class="analytics-section"><h3>Priority Analytics</h3>`;
+  let html = `<section class="analytics-section"><h3>Priority Insights</h3>`;
 
   const byP = pa.by_priority || {};
   const priorityCards = [
@@ -2291,7 +2572,6 @@ window.addEventListener("popstate", () => setActivePage());
 
 setActivePage();
 loadOrganizations();
-loadOutbox();
 
 // Handle ?org=N from search result links
 selectOrgFromQuery(window.location.href);

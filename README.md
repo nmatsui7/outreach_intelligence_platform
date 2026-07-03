@@ -573,6 +573,10 @@ Copyright © 2026 Nobuki Matsui
 
 This portfolio project is provided for demonstration, learning, and review purposes. Reuse, modification, and distribution are permitted under the terms of the Apache License 2.0.
 
-References
-株式会社AX
-https://youtube.com/@ax_channel?si=jzQT6Rl-OVVY1sdU
+## References
+
+The AI adoption principles used in this portfolio project were informed by notes taken from public videos by 株式会社AX.
+
+株式会社AX YouTube Channel: https://youtube.com/@ax_channel?si=jzQT6Rl-OVVY1sdU
+
+These references were used as learning material for developing the project’s workflow-intelligence concepts, including practical AI adoption, workflow transformation, human review, adoption risks, incentives, and organizational change. This project is independent and is not affiliated with or endorsed by 株式会社AX.

@@ -18,10 +18,11 @@
       <a href="/organization-discovery" data-route="/organization-discovery">Organization Discovery</a>
       <a href="/integrations" data-route="/integrations">Integrations</a>
       <a href="/data-tools" data-route="/data-tools">Data Tools</a>
-      <a href="/analytics" data-route="/analytics">Analytics</a>
+      <a href="/analytics" data-route="/analytics">Workflow Insights</a>
       <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
       <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
       <a href="/knowledge-search" data-route="/knowledge-search">Knowledge Search</a>
+      <a href="/demo-outbox" data-route="/demo-outbox">Demo Outbox</a>
     </nav>
   </header>
 
@@ -39,163 +40,191 @@
 
         <section class="panel detail-panel">
           <h2 id="detail-title">Select an organization</h2>
-          <div id="details" class="muted">Choose a target organization to view outreach intelligence.</div>
+          <div id="details-empty" class="muted">Choose a target organization to view outreach intelligence.</div>
 
-          <div class="actions">
-            <button onclick="loadSummary()">AI Summary</button>
-            <button onclick="loadOpportunities()">AI Opportunity Analysis</button>
-            <button onclick="loadReadinessAssessment()">AI Readiness Assessment</button>
-            <button onclick="generateNextBestEmail()">Next Best Email</button>
-            <button onclick="loadMeetingBrief()">Meeting Brief</button>
-            <button onclick="loadOutreachRecommendation()">Outreach Recommendation</button>
-          </div>
-
-          <div id="ai-output" class="output"></div>
-
-          <section id="draft-section" class="hidden">
-            <h3>Next Best Email</h3>
-            <div id="email-type-badge" class="email-type-badge"></div>
-            <span id="email-detected-stage" class="email-detected-stage"></span>
-            <p id="email-reason" class="email-reason muted"></p>
-            <div id="email-missing-context" class="missing-context hidden"></div>
-            <label>To</label>
-            <input id="draft-to" />
-            <label>Subject</label>
-            <input id="draft-subject" />
-            <label>Body</label>
-            <textarea id="draft-body" rows="12"></textarea>
-            <div id="email-next-action-section" class="hidden">
-              <label>Suggested Next Action</label>
-              <input id="draft-next-action" readonly />
-              <label>Suggested Follow-up Date</label>
-              <input id="draft-follow-up-date" readonly />
+          <div id="organization-detail-tabs" class="org-tabs hidden">
+            <div class="tab-list" role="tablist" aria-label="Organization detail sections">
+              <button class="tab-button active" data-org-tab="overview" onclick="showOrgTab('overview')">Overview</button>
+              <button class="tab-button" data-org-tab="interactions" onclick="showOrgTab('interactions')">Interactions</button>
+              <button class="tab-button" data-org-tab="workflow" onclick="showOrgTab('workflow')">Workflow Opportunities</button>
+              <button class="tab-button" data-org-tab="knowledge" onclick="showOrgTab('knowledge')">Knowledge Sources</button>
+              <button class="tab-button" data-org-tab="failure" onclick="showOrgTab('failure')">Failure Cases</button>
+              <button class="tab-button" data-org-tab="human" onclick="showOrgTab('human')">Human System</button>
+              <button class="tab-button" data-org-tab="insights" onclick="showOrgTab('insights')">Insights</button>
             </div>
-            <div id="draft-attachments-section">
-              <h4>Attachments</h4>
-              <p class="muted">Attachments are saved locally with this demo draft. No email is sent.</p>
-              <div id="draft-attachment-list"></div>
-              <div class="file-attach-row">
-                <input id="draft-file-input" type="file" multiple onchange="onAttachFilesSelected()" />
-                <button onclick="uploadAttachments()">Attach Files</button>
-              </div>
-            </div>
-            <button onclick="saveDraft()">Save to Demo Outbox</button>
-            <p class="muted">This saves locally only. It does not send email.</p>
-            <details id="email-context-details" class="context-details hidden">
-              <summary>View Context Used</summary>
-              <div id="email-context-used" class="context-used"></div>
-            </details>
-          </section>
 
-          <section class="notes">
-            <h3>Meeting Notes Intelligence</h3>
-            <textarea id="meeting-notes" rows="5" placeholder="Paste rough meeting notes here..."></textarea>
-            <button onclick="summarizeNotes()">Summarize Notes</button>
-            <div id="notes-output" class="output"></div>
-          </section>
+            <section id="org-tab-overview" class="tab-panel active">
+              <div id="details"></div>
 
-          <section id="interaction-history-section" class="hidden">
-            <h3>Interaction History</h3>
-            <button onclick="showAddInteractionForm()">Add Interaction</button>
-
-            <div id="add-interaction-form" class="hidden">
-              <h4>New Interaction</h4>
-              <label for="int-type">Interaction Type</label>
-              <select id="int-type">
-                <option>Meeting</option>
-                <option>Call</option>
-                <option>Email</option>
-                <option>Research Note</option>
-                <option>Follow-up</option>
-                <option>Other</option>
-              </select>
-              <label for="int-date">Date</label>
-              <input id="int-date" type="date" />
-              <label for="int-title">Title</label>
-              <input id="int-title" />
-              <label for="int-notes">Notes</label>
-              <textarea id="int-notes" rows="4"></textarea>
-              <label for="int-outcome">Outcome</label>
-              <textarea id="int-outcome" rows="2"></textarea>
-              <label for="int-next-action">Next Action</label>
-              <input id="int-next-action" />
-              <label for="int-follow-up-date">Follow-up Date</label>
-              <input id="int-follow-up-date" type="date" />
-              <label for="int-tags">Tags (comma separated)</label>
-              <input id="int-tags" />
               <div class="actions">
-                <button onclick="saveNewInteraction()">Save Interaction</button>
-                <button onclick="hideAddInteractionForm()">Cancel</button>
+                <button onclick="loadSummary()">AI Summary</button>
+                <button onclick="loadOpportunities()">AI Opportunity Analysis</button>
+                <button onclick="loadReadinessAssessment()">AI Readiness Assessment</button>
+                <button onclick="generateNextBestEmail()">Next Best Email</button>
+                <button onclick="loadMeetingBrief()">Meeting Brief</button>
+                <button onclick="loadOutreachRecommendation()">Outreach Recommendation</button>
               </div>
-            </div>
 
-            <div id="interactions-list"></div>
-          </section>
+              <div id="ai-output" class="output"></div>
 
-          <section id="knowledge-summary-section" class="hidden">
-            <h3>Organization Knowledge Summary</h3>
-            <button onclick="loadKnowledgeSummary()">Refresh Knowledge Summary</button>
-            <div id="knowledge-summary-output" class="output"></div>
-          </section>
+              <section id="draft-section" class="hidden">
+                <h3>Next Best Email</h3>
+                <div id="email-type-badge" class="email-type-badge"></div>
+                <span id="email-detected-stage" class="email-detected-stage"></span>
+                <p id="email-reason" class="email-reason muted"></p>
+                <div id="email-missing-context" class="missing-context hidden"></div>
+                <label>To</label>
+                <input id="draft-to" />
+                <label>Subject</label>
+                <input id="draft-subject" />
+                <label>Body</label>
+                <textarea id="draft-body" rows="12"></textarea>
+                <div id="email-next-action-section" class="hidden">
+                  <label>Suggested Next Action</label>
+                  <input id="draft-next-action" readonly />
+                  <label>Suggested Follow-up Date</label>
+                  <input id="draft-follow-up-date" readonly />
+                </div>
+                <div id="draft-attachments-section">
+                  <h4>Attachments</h4>
+                  <p class="muted">Attachments are saved locally with this demo draft. No email is sent.</p>
+                  <div id="draft-attachment-list"></div>
+                  <div class="file-attach-row">
+                    <input id="draft-file-input" type="file" multiple onchange="onAttachFilesSelected()" />
+                    <button onclick="uploadAttachments()">Attach Files</button>
+                  </div>
+                </div>
+                <button onclick="saveDraft()">Save to Demo Outbox</button>
+                <p class="muted">This saves locally only. It does not send email.</p>
+                <details id="email-context-details" class="context-details hidden">
+                  <summary>View Context Used</summary>
+                  <div id="email-context-used" class="context-used"></div>
+                </details>
+              </section>
 
-          <section id="readiness-section" class="hidden">
-            <h3>AI Readiness Assessment</h3>
-            <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
-            <div id="readiness-output" class="output"></div>
-          </section>
+              <section id="knowledge-summary-section" class="hidden">
+                <h3>Workflow Intelligence Summary</h3>
+                <button onclick="loadKnowledgeSummary()">Refresh Workflow Intelligence</button>
+                <div id="knowledge-summary-output" class="output"></div>
+              </section>
 
-          <section id="timeline-section" class="hidden">
-            <h3>Organization Timeline</h3>
-            <button onclick="loadTimeline()">Refresh Timeline</button>
-            <div id="timeline-output" class="output"></div>
-          </section>
+              <section id="readiness-section" class="hidden">
+                <h3>AI Readiness Assessment</h3>
+                <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
+                <div id="readiness-output" class="output"></div>
+              </section>
 
-          <section id="lessons-section" class="hidden">
-            <h3>Lessons Learned</h3>
-            <button onclick="loadLessons()">Refresh Lessons</button>
-            <div id="lessons-output" class="output"></div>
-          </section>
+              <section id="timeline-section" class="hidden">
+                <h3>Organization Timeline</h3>
+                <button onclick="loadTimeline()">Refresh Timeline</button>
+                <div id="timeline-output" class="output"></div>
+              </section>
+            </section>
 
-          <section id="playbook-section" class="hidden">
-            <h3>Playbook Candidates</h3>
-            <button onclick="loadPlaybooks()">Refresh Playbooks</button>
-            <div id="playbook-output" class="output"></div>
-          </section>
+            <section id="org-tab-interactions" class="tab-panel">
+              <section class="notes">
+                <h3>Meeting Notes Intelligence</h3>
+                <textarea id="meeting-notes" rows="5" placeholder="Paste rough meeting notes here..."></textarea>
+                <button onclick="summarizeNotes()">Summarize Notes</button>
+                <div id="notes-output" class="output"></div>
+              </section>
 
-          <section id="workflow-opps-section" class="hidden">
-            <h3>Workflow Opportunities</h3>
-            <button onclick="loadWorkflowOpps()">Refresh</button>
-            <div id="workflow-opps-output" class="output"></div>
-          </section>
+              <section id="interaction-history-section" class="hidden">
+                <h3>Interaction History</h3>
+                <button onclick="showAddInteractionForm()">Add Interaction</button>
 
-          <section id="knowledge-sources-section" class="hidden">
-            <h3>Knowledge Sources</h3>
-            <button onclick="loadKnowledgeSources()">Refresh</button>
-            <div id="knowledge-sources-output" class="output"></div>
-          </section>
+                <div id="add-interaction-form" class="hidden">
+                  <h4>New Interaction</h4>
+                  <label for="int-type">Interaction Type</label>
+                  <select id="int-type">
+                    <option>Meeting</option>
+                    <option>Call</option>
+                    <option>Email</option>
+                    <option>Research Note</option>
+                    <option>Follow-up</option>
+                    <option>Other</option>
+                  </select>
+                  <label for="int-date">Date</label>
+                  <input id="int-date" type="date" />
+                  <label for="int-title">Title</label>
+                  <input id="int-title" />
+                  <label for="int-notes">Notes</label>
+                  <textarea id="int-notes" rows="4"></textarea>
+                  <label for="int-outcome">Outcome</label>
+                  <textarea id="int-outcome" rows="2"></textarea>
+                  <label for="int-next-action">Next Action</label>
+                  <input id="int-next-action" />
+                  <label for="int-follow-up-date">Follow-up Date</label>
+                  <input id="int-follow-up-date" type="date" />
+                  <label for="int-tags">Tags (comma separated)</label>
+                  <input id="int-tags" />
+                  <div class="actions">
+                    <button onclick="saveNewInteraction()">Save Interaction</button>
+                    <button onclick="hideAddInteractionForm()">Cancel</button>
+                  </div>
+                </div>
 
-          <section id="failure-cases-section" class="hidden">
-            <h3>Failure Cases / Exceptions</h3>
-            <button onclick="loadFailureCases()">Refresh</button>
-            <div id="failure-cases-output" class="output"></div>
-          </section>
+                <div id="interactions-list"></div>
+              </section>
 
-          <section id="adoption-risk-section" class="hidden">
-            <h3>Adoption Risk Notes</h3>
-            <button onclick="loadAdoptionRisks()">Refresh</button>
-            <div id="adoption-risk-output" class="output"></div>
-          </section>
+              <section id="tasks-section" class="hidden">
+                <h3>Follow-up Tasks</h3>
+                <div id="tasks-output"></div>
+              </section>
+            </section>
 
-          <section id="tasks-section" class="hidden">
-            <h3>Follow-up Tasks</h3>
-            <div id="tasks-output"></div>
-          </section>
-        </section>
+            <section id="org-tab-workflow" class="tab-panel">
+              <section id="workflow-opps-section" class="hidden">
+                <h3>Workflow Opportunities</h3>
+                <button onclick="loadWorkflowOpps()">Refresh</button>
+                <div id="workflow-opps-output" class="output"></div>
+              </section>
 
-        <section class="panel outbox-panel">
-          <h2>Demo Outbox</h2>
-          <button onclick="loadOutbox()">Load Outbox</button>
-          <div id="outbox"></div>
+              <section id="lessons-section" class="hidden">
+                <h3>Lessons Learned</h3>
+                <button onclick="loadLessons()">Refresh Lessons</button>
+                <div id="lessons-output" class="output"></div>
+              </section>
+
+              <section id="playbook-section" class="hidden">
+                <h3>Playbook Candidates</h3>
+                <button onclick="loadPlaybooks()">Refresh Playbooks</button>
+                <div id="playbook-output" class="output"></div>
+              </section>
+            </section>
+
+            <section id="org-tab-knowledge" class="tab-panel">
+              <section id="knowledge-sources-section" class="hidden">
+                <h3>Knowledge Sources</h3>
+                <button onclick="loadKnowledgeSources()">Refresh</button>
+                <div id="knowledge-sources-output" class="output"></div>
+              </section>
+            </section>
+
+            <section id="org-tab-failure" class="tab-panel">
+              <section id="failure-cases-section" class="hidden">
+                <h3>Failure Cases / Exceptions</h3>
+                <button onclick="loadFailureCases()">Refresh</button>
+                <div id="failure-cases-output" class="output"></div>
+              </section>
+            </section>
+
+            <section id="org-tab-human" class="tab-panel">
+              <section id="adoption-risk-section" class="hidden">
+                <h3>Human System Notes</h3>
+                <button onclick="loadAdoptionRisks()">Refresh</button>
+                <div id="adoption-risk-output" class="output"></div>
+              </section>
+            </section>
+
+            <section id="org-tab-insights" class="tab-panel">
+              <section id="org-insights-section" class="hidden">
+                <h3>Organization Insights</h3>
+                <button onclick="renderOrgInsights()">Refresh Insights</button>
+                <div id="org-insights-output" class="output"></div>
+              </section>
+            </section>
+          </div>
         </section>
       </div>
     </section>
@@ -248,6 +277,37 @@
             <p class="muted">Use general contact emails only. This does not send email or scrape websites.</p>
           </form>
           <div id="intake-result"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="demo-outbox-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel demo-outbox-panel">
+          <div class="panel-title-row">
+            <h2>Demo Outbox</h2>
+            <button onclick="loadDemoOutboxPage()">Refresh</button>
+          </div>
+          <div class="review-boundary">
+            <strong>Human review queue only.</strong>
+            AI-assisted outreach drafts are stored here for review. This app does not send email; approved drafts must be sent manually outside the app.
+          </div>
+          <p class="muted">Workflow: Organization -> interaction notes -> AI-assisted draft -> Demo Outbox -> human review -> sent manually outside the app.</p>
+
+          <div class="outbox-filters">
+            <label for="demo-outbox-status-filter">Status</label>
+            <select id="demo-outbox-status-filter" onchange="renderDemoOutboxPage()">
+              <option value="">All</option>
+              <option value="draft">Draft</option>
+              <option value="needs_review">Needs Review</option>
+              <option value="approved">Approved</option>
+              <option value="sent_manually">Sent Manually</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+
+          <div id="demo-outbox-error" class="error hidden"></div>
+          <div id="demo-outbox-list"></div>
         </section>
       </div>
     </section>
@@ -430,10 +490,10 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 </section>
 
 <section id="analytics-page" class="page hidden">
-  <h2>Analytics Dashboard</h2>
-  <p class="muted">Summary of local CRM, research, AI assessment, interaction, and demo outbox data.</p>
+  <h2>Workflow Insights</h2>
+  <p class="muted">Summary of local CRM, research, AI assessment, interaction, workflow intelligence, and demo outbox data.</p>
   <div id="analytics-error" class="error hidden"></div>
-  <div id="analytics-loading" class="muted">Loading analytics...</div>
+  <div id="analytics-loading" class="muted">Loading workflow insights...</div>
   <div id="analytics-content"></div>
 </section>
 

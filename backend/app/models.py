@@ -26,6 +26,14 @@ class DraftEmail(BaseModel):
     subject: str
     body: str
     organization_id: int
+    recipient_name: str = ""
+    recipient_role: str = ""
+    recipient_email_optional: str = ""
+    draft_type: str = "follow_up"
+    source_interaction_id: int | None = None
+    source_note_summary_id: int | None = None
+    status: str = "needs_review"
+    human_review_notes: str = ""
 
 
 class OutboxItem(DraftEmail):
@@ -35,6 +43,15 @@ class OutboxItem(DraftEmail):
 
 class StatusUpdate(BaseModel):
     status: str
+
+
+class OutboxUpdate(BaseModel):
+    status: str | None = None
+    human_review_notes: str | None = None
+    recipient_name: str | None = None
+    recipient_role: str | None = None
+    recipient_email_optional: str | None = None
+    draft_type: str | None = None
 
 
 class MeetingNotesRequest(BaseModel):

@@ -15,6 +15,7 @@ try:
         InteractionUpdate,
         MeetingNotesRequest,
         OrgUpdate,
+        OutboxUpdate,
         ResearchApproveRequest,
         ResearchDiscoverRequest,
         ResearchIntakeRequest,
@@ -42,7 +43,7 @@ try:
         get_interactions_for_org,
         update_interaction,
     )
-    from app.services.outbox import read_outbox, save_demo_draft
+    from app.services.outbox import read_outbox, save_demo_draft, update_demo_draft
     from app.services.research_mock import discover_research_candidates
     from app.services.data_tools import (
         export_csv as export_csv_service,
@@ -103,6 +104,7 @@ except ModuleNotFoundError:
         InteractionUpdate,
         MeetingNotesRequest,
         OrgUpdate,
+        OutboxUpdate,
         ResearchApproveRequest,
         ResearchDiscoverRequest,
         ResearchIntakeRequest,
@@ -130,7 +132,7 @@ except ModuleNotFoundError:
         get_interactions_for_org,
         update_interaction,
     )
-    from backend.app.services.outbox import read_outbox, save_demo_draft
+    from backend.app.services.outbox import read_outbox, save_demo_draft, update_demo_draft
     from backend.app.services.research_mock import discover_research_candidates
     from backend.app.services.data_tools import (
         export_csv as export_csv_service,
@@ -334,7 +336,21 @@ def save_to_outbox(payload: DraftEmail):
 
 @app.get("/api/outbox")
 def get_outbox():
-    return read_outbox()
+    rows = read_outbox()
+    for row in rows:
+        org = crm.get_organization(row.get("organization_id"))
+        row["organization_name"] = org.get("name", f"Org #{row.get('organization_id')}") if org else f"Org #{row.get('organization_id')}"
+    return rows
+
+
+@app.patch("/api/outbox/{draft_id}")
+def update_outbox_draft(draft_id: int, payload: OutboxUpdate):
+    updated = update_demo_draft(draft_id, payload.model_dump(exclude_unset=True))
+    if not updated:
+        raise HTTPException(status_code=404, detail="Draft not found")
+    org = crm.get_organization(updated.get("organization_id"))
+    updated["organization_name"] = org.get("name", f"Org #{updated.get('organization_id')}") if org else f"Org #{updated.get('organization_id')}"
+    return updated
 
 
 @app.post("/api/outbox/{draft_id}/attachments")
@@ -829,6 +845,7 @@ INDEX_FILE = FRONTEND_DIR / "index.html"
 @app.get("/priority-queue")
 @app.get("/follow-ups")
 @app.get("/knowledge-search")
+@app.get("/demo-outbox")
 def serve_frontend_page():
     return FileResponse(INDEX_FILE)
 

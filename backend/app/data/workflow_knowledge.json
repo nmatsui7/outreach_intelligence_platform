@@ -213,6 +213,46 @@
       ],
       "created_at": "2026-07-02T20:07:11Z",
       "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 7,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "title": "AI Support: Automated follow-up reminders and status tracking",
+      "current_process": "Staff use a mix of email, shared documents, and in-person meetings to coordinate programs. Documentation practices are informal and vary by staff member.",
+      "pain_point": "Follow-up tracking is ad-hoc \u2014 items are easily missed with no centralized system.",
+      "possible_ai_support": "Automated follow-up reminders and status tracking",
+      "knowledge_sources_needed": [
+        "General organizational documentation \u2014 not yet inventoried"
+      ],
+      "human_review_points": [
+        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+        "AI-drafted communications must be approved by a human before sending.",
+        "Final decisions on workflow changes require human approval."
+      ],
+      "risks_or_exceptions": [
+        "Follow-ups are missed when staff are absent or overwhelmed"
+      ],
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "status": "Identified",
+      "staff_impact": "No specific staff concerns raised \u2014 monitor during next interaction.",
+      "adoption_risk_level": "Low",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "General organizational documentation \u2014 not yet inventoried"
+      ],
+      "known_failure_cases": [
+        "Follow-ups are missed when staff are absent or overwhelmed"
+      ],
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
     }
   ],
   "knowledge_sources": [
@@ -275,6 +315,16 @@
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T20:07:11Z",
       "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 7,
+      "organization_id": 1,
+      "source_type": "Past emails or drafts",
+      "name": "General organizational documentation \u2014 not yet inventoried",
+      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
+      "location_note": "Local \u2014 no external storage accessed",
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
     }
   ],
   "failure_cases": [
@@ -370,6 +420,24 @@
       "status": "Identified",
       "created_at": "2026-07-02T20:07:11Z",
       "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "what_failed": "Follow-ups are missed when staff are absent or overwhelmed",
+      "why_it_failed": "No centralized tracking system \u2014 relies on individual memory and email inbox",
+      "missing_context": "No automated reminders or shared task list",
+      "human_review_required": "Follow-up assignments need human judgment on priority and timing",
+      "suggested_prevention": "Implement a shared follow-up tracking system with automated reminders and weekly review",
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "status": "Identified",
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
     }
   ],
   "adoption_risk_notes": [
@@ -444,6 +512,74 @@
       ],
       "created_at": "2026-07-02T20:07:11Z",
       "updated_at": "2026-07-02T20:07:11Z"
+    },
+    {
+      "id": 5,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "risk_type": "Adoption Safeguard",
+      "description": "Pilots should start with a small, low-risk scope with clear success criteria and human oversight checkpoints.",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "Pilots should start with a small, low-risk scope with clear success criteria and human oversight checkpoints.",
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
+    },
+    {
+      "id": 6,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "risk_type": "Adoption Safeguard",
+      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
+    },
+    {
+      "id": 7,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "risk_type": "Staff Concern",
+      "description": "No specific staff concerns raised \u2014 monitor during next interaction.",
+      "severity": "Low",
+      "related_staff_role": "All staff",
+      "suggested_mitigation": "No specific staff concerns raised \u2014 monitor during next interaction.",
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
+    },
+    {
+      "id": 8,
+      "organization_id": 1,
+      "source_interaction_id": 5,
+      "source_interaction_title": "AI pilot discussion",
+      "risk_type": "Evaluation Risk",
+      "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
+      "severity": "Medium",
+      "related_staff_role": "Program leads",
+      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
+      "tags": [
+        "follow-up",
+        "pilot-idea"
+      ],
+      "created_at": "2026-07-02T22:03:52Z",
+      "updated_at": "2026-07-02T22:03:52Z"
     }
   ]
 }
