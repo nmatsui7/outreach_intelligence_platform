@@ -211,7 +211,7 @@ Demo Outbox = human-reviewed draft queue
 
 ### 10. Adoption Principles / Method Knowledge
 
-The project can store reusable AI adoption principles derived from research notes. These principles guide how future interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future planning inputs.
+The project can store reusable AI adoption principles seeded from initial method knowledge. These principles guide how future interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future planning inputs.
 
 Initial principles include:
 
@@ -435,6 +435,44 @@ Notes:
 - **Field mapping:** The MVP uses a lightweight local data model. Some internal field names differ from user-facing CSV/API labels and are mapped at import/export boundaries. See `backend/app/services/field_mapper.py` for the full mapping table. In short: `organization_type` (external) ↔ `category` (internal), and free-text fields (description, notes, program_area, etc.) are concatenated into `mission_notes` (internal). `program_area` is stored as a separate key on CSV import but embedded in `mission_notes` for Research Intake and Discovery — a known limitation of the lightweight model.
 - **Timestamps:** `created_at` and `updated_at` are automatically set on organization creation and updates by `LocalJsonCRMConnector` (`backend/app/connectors/local_json.py`). Existing records missing these fields are handled gracefully — they appear as empty in exports. A `backfill_timestamps()` helper function is available to assign fallback values (marked `(backfilled)`) to legacy records.
 
+## Loading Demo Data
+
+The project includes a seed script that populates local JSON files with realistic mock demo data for testing.
+
+```bash
+python backend/scripts/seed_demo_data.py
+```
+
+### What the demo data includes
+
+| Data | Count | Details |
+|---|---|---|
+| Organizations | 5 | Waterloo Public Library, Kitchener Community Food Centre, GreenTech Startup Hub, Grand River Arts Collective, Region Youth Employment Network |
+| Interactions | 25 | 5 per organization, varying types (Meeting, Call, Email, Research Note, Follow-up) |
+| AI Summaries | 25 | Pre-generated AI Note Summary results with extracted workflow intelligence |
+| Workflow Opportunities | 17 | Pre-generated with dedup test (3 WPL interactions merged into 1, evidence_count=3) |
+| Knowledge Sources | 16 | FAQ documents, past notes, templates, policies, spreadsheets across all orgs |
+| Failure Cases | 8 | Generic tone, data errors, OCR accuracy, browser automation, privacy boundary issues |
+| Adoption Risk Notes | 12 | Staff concerns, evaluation risks, privacy risks, knowledge gaps |
+| Demo Outbox Drafts | 8 | Statuses: draft, needs_review, approved, sent_manually, archived |
+| Follow-up Tasks | 15 | Mix of open, completed, overdue, high-priority tasks across all orgs |
+
+### Demo scenarios covered
+
+- **Full flow testing**: Organization profile → interactions → AI Note Summary → workflow opportunities → knowledge sources → failure cases → adoption risk notes → Demo Outbox → search and analytics
+- **Human-system risk extraction**: Staff workload concerns, evaluation gaps, privacy concerns, knowledge-sharing gaps, voice/quality concerns
+- **Workflow opportunity extraction**: Follow-up email drafting, volunteer scheduling, donation intake, founder intake, mentor matching, grant reporting, newsletter assembly, workshop follow-up, youth intake transcription
+- **Knowledge source extraction**: FAQ documents, past notes, email templates, program calendars, policy documents, intake forms, Q&A records, grant reports, spreadsheets
+- **Failure case extraction**: Generic tone risk, data errors, OCR inaccuracy, website automation fragility, overpromising services, public vs internal content boundaries
+- **Duplicate handling test**: Waterloo Public Library interactions 1, 2, and 3 describe similar follow-up email pain points using different wording — the dedup system merges them into one opportunity with `evidence_count=3`
+
+### Safety
+
+- **Local mock data only.** No external systems are contacted.
+- **No real customer data.** All organizations, interactions, and notes are fictional.
+- **Contact emails use safe examples** (e.g., `sarah.chen@wpl.ca`, `info@example.org`).
+- **Existing data is backed up** with a `.backup.json` suffix before overwriting.
+
 ## API Endpoints
 
 ```text
@@ -571,7 +609,7 @@ The `derive_status_from_interactions` function is purely rule-based and uses moc
 
 ## Adoption Principles Knowledge Base
 
-The app stores reusable AI adoption principles derived from research notes. These principles help frame how interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future adoption-planning inputs.
+The app includes initial seed information that helps guide workflow intelligence extraction. These principles help frame how interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future adoption-planning inputs. Organization-specific workflow intelligence comes from actual interactions, not from static notes.
 
 The knowledge base is stored in `backend/data/adoption_principles.json` and seeded from `backend/data/adoption_principles_seed.json`. Principles are organized by category and tagged with the workflow areas they apply to.
 

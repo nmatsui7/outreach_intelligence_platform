@@ -8,224 +8,100 @@
     "contact_email": "sarah.chen@wpl.ca",
     "phone_number": "519-555-0147",
     "status": "Meeting Completed",
-    "mission_notes": "Public learning, digital literacy, community programming, and accessible services.",
+    "mission_notes": "Waterloo Public Library serves the community through public learning, digital literacy programs, newcomer support services, and public workshops. Runs multiple branches across Waterloo region with a focus on inclusive access to information and technology.",
     "pain_points": [
-      "Public AI literacy questions",
-      "Workshop planning",
-      "Staff knowledge sharing"
+      "Manual documentation of community program outcomes",
+      "Repetitive follow-up email preparation after workshops",
+      "Inconsistent knowledge sharing between departments",
+      "Limited staff digital literacy for emerging technologies"
     ],
-    "last_interaction": "2026-07-02 \u2014 Staff Workflow Review (Meeting)",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:54:39Z"
+    "last_interaction": "2026-06-26",
+    "program_area": "Public learning, digital literacy, newcomer support, public workshops",
+    "created_at": "2026-04-04T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z"
   },
   {
     "id": 2,
-    "name": "Sustainable Waterloo Region",
-    "category": "Environmental nonprofit",
-    "website": "https://www.sustainablewaterlooregion.ca",
-    "contact_name": "Programs Team",
-    "contact_email": "info@sustainablewaterlooregion.ca",
-    "phone_number": "(519) 555-0198",
-    "status": "Not Contacted",
-    "mission_notes": "Supports organizations with sustainability programs and regional environmental leadership.",
+    "name": "Kitchener Community Food Centre",
+    "category": "Nonprofit / Food security",
+    "website": "https://www.kitchenerfoodcentre.ca",
+    "contact_name": "Maria Santos",
+    "contact_email": "maria.santos@kfc.ca",
+    "phone_number": "519-555-0234",
+    "status": "Draft Ready",
+    "mission_notes": "Kitchener Community Food Centre provides food security programs, community meals, and nutrition education. Operates volunteer-driven food distribution, donation intake, and client support services across Kitchener.",
     "pain_points": [
-      "Partner reporting",
-      "Event follow-up",
-      "Knowledge base organization"
+      "Manual volunteer scheduling and coordination",
+      "Donation intake tracking requires repetitive data entry",
+      "Client communication is handled ad-hoc without templates",
+      "Grant reporting requires manual data compilation from multiple spreadsheets"
     ],
-    "last_interaction": "No previous interaction recorded.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
+    "last_interaction": "2026-06-19",
+    "program_area": "Volunteer coordination, donation intake, client communication, grant reporting",
+    "created_at": "2026-04-09T13:52:32Z",
+    "updated_at": "2026-06-19T13:52:32Z"
   },
   {
     "id": 3,
-    "name": "The Working Centre",
-    "category": "Community and employment support",
-    "website": "https://www.theworkingcentre.org",
-    "contact_name": "General Inquiries",
-    "contact_email": "info@theworkingcentre.org",
-    "phone_number": "519-555-0123",
-    "status": "Not Contacted",
-    "mission_notes": "Community-based employment, skills development, and social support initiatives.",
+    "name": "GreenTech Startup Hub",
+    "category": "Startup support / Innovation hub",
+    "website": "https://www.greentechhub.ca",
+    "contact_name": "James Okonkwo",
+    "contact_email": "james.okonkwo@greentechhub.ca",
+    "phone_number": "519-555-0369",
+    "status": "Research Approved",
+    "mission_notes": "GreenTech Startup Hub supports clean technology startups with mentorship, workspace, and grant navigation. Connects founders with industry mentors and provides programming for early-stage green technology ventures.",
     "pain_points": [
-      "Client information routing",
-      "Workshop preparation",
-      "Resource documentation"
+      "Founder intake information is scattered across forms and emails",
+      "Mentor matching is done manually without structured profiles",
+      "Event follow-up requires individual email tracking",
+      "Grant and resource navigation is time-consuming for each startup"
     ],
-    "last_interaction": "No previous interaction recorded.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
+    "last_interaction": "2026-06-30",
+    "program_area": "Founder intake, mentor matching, event follow-up, grant/resource navigation",
+    "created_at": "2026-05-04T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z"
   },
   {
     "id": 4,
-    "name": "Communitech",
-    "category": "Business and technology support",
-    "website": "https://www.communitech.ca",
-    "contact_name": "General Contact",
-    "contact_email": "info@communitech.ca",
-    "phone_number": "+1 519 555 0165",
-    "status": "Not Contacted",
-    "mission_notes": "Supports technology companies, founders, and innovation programming in Waterloo Region.",
+    "name": "Grand River Arts Collective",
+    "category": "Arts nonprofit / Community programming",
+    "website": "https://www.grandriverarts.ca",
+    "contact_name": "Priya Sharma",
+    "contact_email": "priya.sharma@grandriverarts.ca",
+    "phone_number": "519-555-0456",
+    "status": "Meeting Completed",
+    "mission_notes": "Grand River Arts Collective supports local artists and community arts programming. Coordinates workshops, exhibitions, and public art projects. Operates with a small core team and a large roster of contract artists and volunteers.",
     "pain_points": [
-      "Member onboarding",
-      "Event summaries",
-      "Startup resource navigation"
+      "Workshop scheduling and instructor coordination is manual",
+      "Artist communication uses individual emails without templates",
+      "Grant documentation is scattered across multiple folders",
+      "Newsletter drafting requires significant editing time each month"
     ],
-    "last_interaction": "No previous interaction recorded.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
+    "last_interaction": "2026-06-23",
+    "program_area": "Workshop scheduling, artist communication, grant documentation, newsletter drafting",
+    "created_at": "2026-04-19T13:52:32Z",
+    "updated_at": "2026-06-23T13:52:32Z"
   },
   {
     "id": 5,
-    "name": "Volunteer Waterloo Region",
-    "category": "Volunteer and nonprofit support organization",
-    "website": "https://www.volunteerwr.ca",
-    "contact_name": "General Inquiries",
-    "contact_email": "info@volunteerwr.ca",
-    "phone_number": "519-555-0132 ext. 204",
-    "status": "Not Contacted",
-    "mission_notes": "Volunteer coordination and nonprofit capacity building. Volunteer Waterloo Region works in volunteer coordination and nonprofit capacity building, which may connect to the research theme: Waterloo Region organizations that may benefit from practical AI literacy, workflow efficiency, digital skills, or community education outreach. Suggested outreach angle: Ask whether a small, human-reviewed AI workflow pilot could support program planning, documentation, knowledge access, or follow-up coordination.",
-    "pain_points": [
-      "Program planning",
-      "Documentation support",
-      "Follow-up coordination"
-    ],
-    "last_interaction": "Added from Organization Discovery. Source note: Mock local candidate list for demo review only; not web-scraped.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 6,
-    "name": "Kitchener Public Library",
-    "category": "Public library",
-    "website": "https://www.kpl.org",
-    "contact_name": "General Inquiries",
-    "contact_email": "askkpl@kpl.org",
-    "phone_number": "(519) 555-0178",
-    "status": "Research Approved",
-    "mission_notes": "Digital literacy and community learning. Kitchener Public Library works in digital literacy and community learning, which may connect to the research theme: Waterloo Region organizations that may benefit from practical AI literacy, workflow efficiency, digital skills, or community education outreach. Suggested outreach angle: Ask whether a small, human-reviewed AI workflow pilot could support program planning, documentation, knowledge access, or follow-up coordination.",
-    "pain_points": [
-      "Program planning",
-      "Documentation support",
-      "Follow-up coordination"
-    ],
-    "last_interaction": "Added from Organization Discovery. Source note: Mock local candidate list for demo review only; not web-scraped.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 7,
-    "name": "Test Org Alpha",
-    "category": "Nonprofit",
-    "website": "https://alpha.org",
-    "contact_name": "Alice Smith",
-    "contact_email": "alice@alpha.org",
-    "phone_number": "519-555-1001",
-    "status": "Not Contacted",
-    "mission_notes": "Test org Program area: Community outreach Why relevant: Relevant for AI Suggested outreach angle: Propose workshop Source URL: https://alpha.org/about Notes: Interested",
-    "pain_points": [
-      "Imported via CSV upload",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
-    ],
-    "last_interaction": "Imported from CSV.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 8,
-    "name": "Test Org Beta",
-    "category": "Library",
-    "website": "https://beta.org",
-    "contact_name": "Bob Jones",
-    "contact_email": "bob@beta.org",
-    "phone_number": "519-555-1002",
-    "status": "Draft Ready",
-    "mission_notes": "Test org 2 Program area: Digital literacy Why relevant: Good fit Suggested outreach angle: Discuss pilot Source URL: https://beta.org/about Notes: Follow up",
-    "pain_points": [
-      "Imported via CSV upload",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
-    ],
-    "last_interaction": "Imported from CSV.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 9,
-    "name": "Valid Org Gamma",
-    "category": "Imported",
-    "website": "https://gamma.org",
-    "contact_name": "Charlie",
-    "contact_email": "charlie@gamma.org",
-    "phone_number": "",
-    "status": "Not Contacted",
-    "mission_notes": "Imported via CSV upload.",
-    "pain_points": [
-      "Imported via CSV upload",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
-    ],
-    "last_interaction": "Imported from CSV.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 10,
-    "name": "Field Mapper Test Org",
-    "category": "Community test",
-    "website": "",
-    "contact_name": "General Inquiries",
-    "contact_email": "",
-    "phone_number": "",
+    "name": "Region Youth Employment Network",
+    "category": "Workforce development / Youth services",
+    "website": "https://www.ryen.ca",
+    "contact_name": "Alex Thompson",
+    "contact_email": "alex.thompson@ryen.ca",
+    "phone_number": "519-555-0567",
     "status": "Research Intake",
-    "mission_notes": "Verify field mapper Program area: Testing Notes: Cleanup needed",
+    "mission_notes": "Region Youth Employment Network provides employment services for youth aged 15-29. Offers resume workshops, employer matching, job coaching, and career exploration programs across Waterloo Region.",
     "pain_points": [
-      "AI literacy support",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
+      "Intake notes are handwritten and transcribed manually",
+      "Employer outreach tracking is done in spreadsheets",
+      "Workshop follow-up communications are inconsistent",
+      "Program reporting requires compiling data from multiple sources"
     ],
-    "last_interaction": "Added from manual Research Intake.",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 11,
-    "name": "Round Trip Test Org",
-    "category": "Library",
-    "website": "https://example.com",
-    "contact_name": "Jane Doe",
-    "contact_email": "jane@example.com",
-    "phone_number": "",
-    "status": "Not Contacted",
-    "mission_notes": "Test description Program area: Literacy Why relevant: Test relevance Suggested outreach angle: Test angle Notes: Test notes",
-    "pain_points": [
-      "Imported via CSV upload",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
-    ],
-    "last_interaction": "Imported from CSV.",
-    "program_area": "Literacy",
-    "created_at": "2026-07-02T19:30:34Z (backfilled)",
-    "updated_at": "2026-07-02T19:30:34Z (backfilled)"
-  },
-  {
-    "id": 12,
-    "created_at": "2026-07-02T19:30:34Z",
-    "updated_at": "2026-07-02T19:30:34Z",
-    "name": "Timestamp Test Org",
-    "category": "Test",
-    "website": "",
-    "contact_name": "Test Contact",
-    "contact_email": "",
-    "phone_number": "",
-    "status": "Test Status",
-    "mission_notes": "Added through manual Research Intake.",
-    "pain_points": [
-      "AI literacy support",
-      "Workflow improvement",
-      "Human-reviewed outreach planning"
-    ],
-    "last_interaction": "Added from manual Research Intake."
+    "last_interaction": "2026-06-12",
+    "program_area": "Intake notes, employer outreach, resume workshop follow-up, program reporting",
+    "created_at": "2026-05-19T13:52:32Z",
+    "updated_at": "2026-06-12T13:52:32Z"
   }
 ]

@@ -3,106 +3,404 @@
     "id": 1,
     "organization_id": 1,
     "interaction_type": "Meeting",
-    "date": "2026-06-10",
-    "title": "Initial AI Literacy Discussion",
-    "notes": "Discussed funding opportunities for the new community program.",
-    "outcome": "Positive \u2014 agreed to explore a small pilot",
-    "next_action": "Draft pilot proposal for senior AI literacy workshop",
-    "follow_up_date": "2026-06-25",
+    "date": "2026-06-03",
+    "title": "Digital Literacy Program Planning",
+    "notes": "Planning session for upcoming digital literacy programs this fall. Reviewed program calendar and discussed capacity. Staff spend significant time preparing follow-up emails after each workshop session. The program team manually drafts individual follow-up messages for 20+ participants per workshop, which takes approximately 2-3 hours per workshop cycle. Staff mentioned this is one of the most repetitive parts of their workflow. We discussed whether AI-assisted template drafting could reduce this time, but agreed that human review would be needed because follow-up messages sometimes need to reference sensitive community context or direct participants to specific resources. Staff also noted that they maintain a FAQ document for common digital literacy questions but it is not always easy to search.",
+    "outcome": "Identified follow-up email drafting as a potential area for AI support with human review",
+    "next_action": "Map current follow-up email workflow and identify template opportunities",
+    "follow_up_date": "2026-06-17",
     "tags": [
-      "AI literacy",
-      "seniors",
-      "pilot"
+      "digital-literacy",
+      "workflow",
+      "follow-up"
     ]
   },
   {
     "id": 2,
     "organization_id": 1,
-    "interaction_type": "Call",
-    "date": "2026-06-18",
-    "title": "Follow-up Call on Pilot Scope",
-    "notes": "Follow-up call with program coordinator. Discussed scope of the pilot \u2014 6-week program, 2 cohorts, max 12 participants each. Coordinator will identify staff volunteers. Concern raised about technology access for seniors.",
-    "outcome": "Scope agreed, timeline set for September start",
-    "next_action": "Send draft curriculum outline for review",
-    "follow_up_date": "2026-07-02",
+    "interaction_type": "Meeting",
+    "date": "2026-06-12",
+    "title": "Staff Workflow Pain Points",
+    "notes": "Follow-up discussion with program leads about administrative workload. Post-workshop follow-up messages are repetitive and time-consuming. The team sends variations of the same thank-you message, resource list, and next-session reminder to each participant. Staff would like approved email templates but worry that automated messages may sound too generic and miss the personal connection they have built with participants. Program leads are also concerned about data privacy when using AI tools to draft messages that include participant details. They use a program calendar, past workshop notes, and a participant communication log as their main knowledge sources. Staff also mentioned that experienced program coordinators need to review any external communication before it is sent.",
+    "outcome": "Confirmed follow-up email pain point is a recurring theme across multiple programs",
+    "next_action": "Draft template options with human review checkpoints for review",
+    "follow_up_date": "2026-06-19",
     "tags": [
-      "pilot",
-      "planning",
-      "seniors"
+      "workflow",
+      "follow-up",
+      "staff-concern",
+      "privacy"
     ]
   },
   {
     "id": 3,
     "organization_id": 1,
-    "interaction_type": "Email",
-    "date": "2026-06-22",
-    "title": "Shared Draft Pilot Proposal",
-    "notes": "Sent draft pilot proposal document via email. Includes: program outline, learning objectives, technology requirements, and suggested evaluation framework. Awaiting feedback from branch manager and board.",
-    "outcome": "Proposal under review by branch manager",
-    "next_action": "Follow up on proposal feedback",
-    "follow_up_date": "2026-07-01",
+    "interaction_type": "Follow-up",
+    "date": "2026-06-15",
+    "title": "Follow-up Email Template Review",
+    "notes": "Reviewed examples of current follow-up emails from three different programs. Program follow-up emails could use approved templates and human review before sending. Currently each program coordinator writes their own version from scratch. Even for standard updates like 'next session reminder' or 'program recap', the content varies significantly in tone and completeness. This creates inconsistency for participants who attend multiple programs. Staff agreed that having vetted templates with personalization fields would improve quality and save time, but emphasized that all AI-generated content must be reviewed by the program lead before sending. The team also has a growing library of past workshop notes that could serve as reference material for drafting more contextually accurate follow-ups.",
+    "outcome": "Template approach agreed in principle, human review requirement confirmed",
+    "next_action": "Create three template drafts for pilot testing",
+    "follow_up_date": "2026-06-26",
     "tags": [
-      "proposal",
-      "documentation",
-      "pilot"
+      "follow-up",
+      "templates",
+      "human-review",
+      "documentation"
     ]
   },
   {
     "id": 4,
     "organization_id": 1,
-    "interaction_type": "Meeting",
-    "date": "2026-06-28",
-    "title": "Internal Staff Readiness Check-in",
-    "notes": "Quick check-in with assigned staff volunteers. Two librarians and one program aide have volunteered for the pilot. Staff expressed excitement but also concern about their own AI knowledge gap. Suggested a train-the-trainer session before the program launch.",
-    "outcome": "Train-the-trainer session added to prep timeline",
-    "next_action": "Prepare train-the-trainer materials",
-    "follow_up_date": "2026-07-15",
+    "interaction_type": "Call",
+    "date": "2026-06-21",
+    "title": "Community Partner Outreach Call",
+    "notes": "Called to discuss potential community partnership for digital literacy programs. Partner is interested in co-hosting a workshop series. Discussed scheduling, venue, and audience outreach. Partner wants to ensure content is accessible for newcomers and seniors with varying digital skills. We talked about how past workshop attendance data could help plan appropriate content levels, but this data is currently in a spreadsheet that requires manual analysis. Partner also mentioned they have internal policies about data sharing that would need to be reviewed before any joint program moves forward. Staff are concerned AI could create content mismatched for audience needs without human oversight.",
+    "outcome": "Partnership interest confirmed, need to review data sharing policies",
+    "next_action": "Share draft partnership agreement and schedule initial planning meeting",
+    "follow_up_date": "2026-06-28",
     "tags": [
-      "staff training",
-      "internal",
-      "readiness"
+      "partnership",
+      "outreach",
+      "community"
     ]
   },
   {
     "id": 5,
     "organization_id": 1,
-    "interaction_type": "Meeting",
-    "date": "2026-06-28",
-    "title": "AI pilot discussion",
-    "notes": "Discussed pilot program for digital literacy. Need to schedule follow-up meeting and prepare proposal.",
-    "outcome": "Positive",
-    "next_action": "Send pilot proposal",
-    "follow_up_date": "2026-07-12",
-    "tags": []
+    "interaction_type": "Email",
+    "date": "2026-06-25",
+    "title": "Grant Reporting Requirements",
+    "notes": "Received updated grant reporting requirements from funder. New requirements include detailed outcome metrics and participant demographic data. Current reporting process involves manually pulling data from program registrations, workshop attendance sheets, and follow-up surveys. Program coordinator spends approximately 5 hours per quarter compiling these reports. The data lives in three separate spreadsheets that are not connected. Staff would like a more structured way to capture and report outcomes but are concerned that automation may introduce errors in data transcription. They also need to ensure privacy requirements are met when reporting participant data. Previous grant reports exist in a shared folder and could serve as templates for formatting.",
+    "outcome": "Received new reporting requirements, identified data consolidation need",
+    "next_action": "Audit current data sources and map reporting workflow",
+    "follow_up_date": "2026-06-12",
+    "tags": [
+      "reporting",
+      "grants",
+      "data",
+      "workflow"
+    ]
   },
   {
     "id": 6,
-    "organization_id": 1,
+    "organization_id": 2,
     "interaction_type": "Meeting",
-    "date": "2026-07-02",
-    "title": "Staff Workflow Review",
-    "notes": "Staff are spending 10 hours per week on manual documentation of community program outcomes. The repetitive data entry is causing frustration and staff are considering leaving. We discussed how AI could help with automated report generation from structured inputs but emphasized that all AI-generated content would need human review. Staff also mentioned that policy compliance requirements for data privacy add overhead to every step.",
-    "outcome": "Identified documentation workflow as top candidate for AI assistance",
-    "next_action": "Prepare a workflow mapping session",
-    "follow_up_date": "2026-07-16",
+    "date": "2026-05-29",
+    "title": "Volunteer Coordination Review",
+    "notes": "Reviewed current volunteer coordination process. Volunteer scheduling is managed through a shared spreadsheet with 40+ active volunteers. The coordinator spends 4-6 hours per week on schedule matching, sending individual emails to confirm shifts, and managing last-minute changes. Staff expressed interest in a more automated scheduling system but worry volunteers may find technology changes difficult. There is no centralized volunteer manual - each program area has its own orientation document. Experienced volunteers train new volunteers informally, leading to inconsistent knowledge transfer.",
+    "outcome": "Identified volunteer scheduling as potential area for process improvement",
+    "next_action": "Document current scheduling workflow and volunteer communication patterns",
+    "follow_up_date": "2026-06-12",
     "tags": [
-      "documentation",
+      "volunteer",
+      "scheduling",
       "workflow"
     ]
   },
   {
     "id": 7,
-    "organization_id": 1,
-    "interaction_type": "Meeting",
-    "date": "2026-07-02",
-    "title": "Staff Adoption Concerns Meeting",
-    "notes": "Staff are concerned about AI replacing their jobs. They lack digital literacy training. Evaluation criteria don't account for AI-assisted work. Knowledge sharing between departments is inconsistent.",
-    "outcome": "Identified key staff concerns",
-    "next_action": "Prepare AI literacy workshop",
-    "follow_up_date": "2026-07-16",
+    "organization_id": 2,
+    "interaction_type": "Call",
+    "date": "2026-06-05",
+    "title": "Donation Intake Process Discussion",
+    "notes": "Discussed donation intake process with operations lead. Food donations come from grocery partners, community food drives, and individual donors. Each donation is logged manually into a tracking spreadsheet. Staff estimate 8-10 hours per week is spent on donation data entry and receipt generation. Donors sometimes ask for tax receipts and staff have to look up past donation records manually. Staff are concerned that automating donation tracking may not capture important context about food quality or special handling requirements. They use a food safety policy document and donation intake forms as reference materials.",
+    "outcome": "Donation intake identified as repetitive manual task",
+    "next_action": "Review donation tracking requirements and explore structured input options",
+    "follow_up_date": "2026-06-19",
     "tags": [
-      "staff-concern",
-      "training-need"
+      "donation",
+      "data-entry",
+      "workflow"
+    ]
+  },
+  {
+    "id": 8,
+    "organization_id": 2,
+    "interaction_type": "Email",
+    "date": "2026-06-12",
+    "title": "Client Communication Follow-up",
+    "notes": "Reviewed client communication process. Clients are contacted individually about program availability, food distribution schedules, and special events. There are no standard email templates - each staff member writes their own messages. Staff worry that standardized templates may make communications feel impersonal, particularly for clients in vulnerable situations. The team uses a client intake form and a program calendar as their main reference sources. Staff mentioned that AI-generated communications would need careful human review to ensure they use appropriate language for diverse client needs.",
+    "outcome": "Identified need for flexible communication templates with personalization options",
+    "next_action": "Collect examples of effective client communications for template development",
+    "follow_up_date": "2026-06-23",
+    "tags": [
+      "communication",
+      "templates",
+      "client-services"
+    ]
+  },
+  {
+    "id": 9,
+    "organization_id": 2,
+    "interaction_type": "Research Note",
+    "date": "2026-06-15",
+    "title": "Grant Reporting Requirements Research",
+    "notes": "Researched updated reporting requirements for three active grants. Each funder requires different metrics and reporting formats. Current process involves manually extracting data from donation logs, volunteer hours spreadsheets, and program attendance records. The program manager estimates 6-8 hours per quarter is spent on each grant report. Past grant reports are stored in a shared drive and could serve as reference templates. Staff are concerned that automation might miss important context about program impact that is not captured in structured data fields.",
+    "outcome": "Mapped current reporting data sources and identified gaps",
+    "next_action": "Create standardized data collection template aligned with common grant metrics",
+    "follow_up_date": "2026-06-29",
+    "tags": [
+      "reporting",
+      "grants",
+      "data"
+    ]
+  },
+  {
+    "id": 10,
+    "organization_id": 2,
+    "interaction_type": "Follow-up",
+    "date": "2026-06-19",
+    "title": "Reporting Template Follow-up",
+    "notes": "Followed up on reporting template draft. Staff reviewed a proposed standardized data collection sheet but noted that each grant has unique requirements that may not fit a single template. They suggested creating a core template with funder-specific add-on sections. Staff also expressed that they want practical reporting examples tied to their own programs, not generic training materials. Evaluation criteria for staff performance does not currently account for improved reporting efficiency - staff are evaluated on program outcomes rather than administrative improvements.",
+    "outcome": "Template approach refined, staff training needs identified",
+    "next_action": "Develop core template and two funder-specific add-on sections",
+    "follow_up_date": "2026-07-03",
+    "tags": [
+      "reporting",
+      "templates",
+      "staff-training"
+    ]
+  },
+  {
+    "id": 11,
+    "organization_id": 3,
+    "interaction_type": "Meeting",
+    "date": "2026-06-08",
+    "title": "Founder Intake Process Review",
+    "notes": "Reviewed founder intake process with program coordinator. New founder information comes through a web form, email inquiries, and in-person conversations. The coordinator manually enters information from these sources into a founder tracking spreadsheet. Information is often duplicated or inconsistent across sources. Staff spend 3-4 hours per week reconciling intake information. They use intake forms and past founder records as reference sources. Staff are concerned that AI-assisted intake could miss important nuances about founder readiness or specific challenges.",
+    "outcome": "Founder intake identified as inefficient manual process",
+    "next_action": "Map current intake data flow and identify consolidation opportunities",
+    "follow_up_date": "2026-06-22",
+    "tags": [
+      "intake",
+      "data",
+      "workflow"
+    ]
+  },
+  {
+    "id": 12,
+    "organization_id": 3,
+    "interaction_type": "Call",
+    "date": "2026-06-13",
+    "title": "Mentor Matching Discussion",
+    "notes": "Discussed mentor matching process with hub director. Mentors are matched to founders based on the director's personal knowledge of both parties. There is no structured mentor profile database or matching criteria. When the director is unavailable, matching slows significantly. The team has discussed creating mentor profiles but has not had time to implement. Staff use a mentor interest form and past match records as references. Staff are also unsure how to evaluate whether a mentorship match is successful. There is an FAQ document with common mentor-mentee questions.",
+    "outcome": "Mentor matching process identified as knowledge-dependent and not scalable",
+    "next_action": "Draft mentor profile template and matching criteria framework",
+    "follow_up_date": "2026-06-27",
+    "tags": [
+      "mentoring",
+      "matching",
+      "scalability"
+    ]
+  },
+  {
+    "id": 13,
+    "organization_id": 3,
+    "interaction_type": "Email",
+    "date": "2026-06-18",
+    "title": "Event Follow-up Workflow",
+    "notes": "Reviewed post-event follow-up process. After each event (workshops, networking sessions, demo days), the team sends follow-up emails to attendees. Currently each event requires individual email drafting for 20-100 attendees. The coordinator tracks attendance in a spreadsheet and manually composes messages. Staff expressed frustration that this takes 1-2 days per event. They would like follow-up templates but worry about impersonal messages. Staff also maintain a Q&A record from past events that could inform follow-up content. Experienced staff review all event communications before sending.",
+    "outcome": "Event follow-up identified as high-effort repetitive task",
+    "next_action": "Design event follow-up template with personalization fields and review workflow",
+    "follow_up_date": "2026-07-02",
+    "tags": [
+      "events",
+      "follow-up",
+      "templates"
+    ]
+  },
+  {
+    "id": 14,
+    "organization_id": 3,
+    "interaction_type": "Research Note",
+    "date": "2026-06-23",
+    "title": "Grant Navigation Research",
+    "notes": "Researching how staff currently help founders navigate grant and resource opportunities. The process involves scanning funding websites, checking eligibility criteria, and matching founders to relevant opportunities. One staff member estimates spending 5 hours per week on this research. There is no centralized grant opportunity database. Information about past successful grants is shared informally. Staff have a list of frequently used funding websites but no structured way to track deadlines or eligibility changes. Browser automation could help monitor website updates but may break when site layouts change.",
+    "outcome": "Grant navigation identified as time-intensive research task with no central system",
+    "next_action": "Research grant tracking tools and explore structured opportunity database options",
+    "follow_up_date": "2026-06-09",
+    "tags": [
+      "grants",
+      "research",
+      "navigation"
+    ]
+  },
+  {
+    "id": 15,
+    "organization_id": 3,
+    "interaction_type": "Follow-up",
+    "date": "2026-06-26",
+    "title": "Resource Directory Follow-up",
+    "notes": "Followed up on resource directory project. The hub maintains a list of recommended service providers, funding sources, and community partners. This directory is currently a shared document that is updated irregularly. Staff want a more structured resource directory that is easier to search and update. They also mentioned that when new founders join, staff spend time routing questions to the right person because there is no centralized knowledge base. Staff are open to AI-assisted resource matching but want to ensure recommendations are accurate and up to date. Staff are also worried that AI may overpromise services to founders.",
+    "outcome": "Resource directory and question routing identified as knowledge management gaps",
+    "next_action": "Evaluate resource directory platforms and draft knowledge base structure",
+    "follow_up_date": "2026-06-05",
+    "tags": [
+      "resources",
+      "knowledge-base",
+      "routing"
+    ]
+  },
+  {
+    "id": 16,
+    "organization_id": 4,
+    "interaction_type": "Meeting",
+    "date": "2026-05-24",
+    "title": "Workshop Scheduling Workflow",
+    "notes": "Reviewed workshop scheduling process with program lead. Workshops are scheduled based on artist availability, venue calendar, and seasonal program themes. The current process involves email chains with multiple artists, checking venue availability on a shared calendar, and manually confirming each session. Staff estimate 3-4 hours per workshop series is spent on scheduling coordination alone. Past workshop notes are stored in individual files rather than a central system. Staff are concerned that AI scheduling may not account for artist relationships and preferences that are currently managed through personal knowledge.",
+    "outcome": "Workshop scheduling identified as coordination-heavy manual process",
+    "next_action": "Document current scheduling workflow and identify automation-safe steps",
+    "follow_up_date": "2026-06-07",
+    "tags": [
+      "scheduling",
+      "workshop",
+      "coordination"
+    ]
+  },
+  {
+    "id": 17,
+    "organization_id": 4,
+    "interaction_type": "Call",
+    "date": "2026-05-31",
+    "title": "Artist Communication Review",
+    "notes": "Discussed artist communication patterns with the team. Artist outreach, contract follow-up, and exhibition coordination are all handled through individual emails. There are no standard templates for common communications such as exhibition confirmations, payment notifications, or call-for-submissions responses. The team spends 5-6 hours per week on email communication with approximately 30 active artists. Staff are concerned that templated communications may feel impersonal to artists who value personal relationships. Staff also noted that experienced team members carry most of the relationship knowledge informally and there is no easy way to share this context with newer staff.",
+    "outcome": "Artist communication identified as high-volume task with templating potential",
+    "next_action": "Identify common communication patterns that could use flexible templates",
+    "follow_up_date": "2026-06-14",
+    "tags": [
+      "communication",
+      "artists",
+      "templates"
+    ]
+  },
+  {
+    "id": 18,
+    "organization_id": 4,
+    "interaction_type": "Email",
+    "date": "2026-06-05",
+    "title": "Grant Documentation Process",
+    "notes": "Reviewed grant documentation workflow. Grant applications require narrative descriptions, artist bios, project budgets, and supporting materials. The team reuses content from previous successful grants but each application requires significant rewriting to match new funder priorities. Past grant documents are stored in a shared folder organized by year. Staff waste time searching for the right previous grant to adapt. They estimate 8-10 hours per grant application, with 40% of that time spent on formatting and adapting existing content. Staff are open to AI-assisted drafting but require human review to ensure the narrative aligns with funder priorities and accurately represents the organization.",
+    "outcome": "Grant documentation identified as high-effort recurring task with reusable content",
+    "next_action": "Create grant content library with tagged reusable sections",
+    "follow_up_date": "2026-06-19",
+    "tags": [
+      "grants",
+      "documentation",
+      "content-reuse"
+    ]
+  },
+  {
+    "id": 19,
+    "organization_id": 4,
+    "interaction_type": "Research Note",
+    "date": "2026-06-11",
+    "title": "Newsletter Content Research",
+    "notes": "Researched current newsletter production process. The monthly newsletter includes program updates, artist spotlights, upcoming events, and community news. Content is gathered from multiple staff members via email and compiled by one editor. The editor estimates 6-8 hours per month on content gathering, formatting, and editing. Past newsletters are stored as PDFs and are not easily searchable. Staff are interested in AI-assisted drafting but are concerned the content may sound generic and miss the unique voice of the organization. Human review is required for all externally visible content.",
+    "outcome": "Newsletter production identified as time-intensive with structured content patterns",
+    "next_action": "Map newsletter content categories and identify template opportunities",
+    "follow_up_date": "2026-06-25",
+    "tags": [
+      "newsletter",
+      "content",
+      "editing"
+    ]
+  },
+  {
+    "id": 20,
+    "organization_id": 4,
+    "interaction_type": "Follow-up",
+    "date": "2026-06-17",
+    "title": "Exhibition Coordination Follow-up",
+    "notes": "Followed up on upcoming exhibition coordination. The team manages artist contracts, artwork checklists, installation schedules, promotional materials, and opening event planning. Each exhibition requires approximately 15-20 individual email communications. Several staff noted that exhibition checklists exist but are not consistently used because they are in a shared document that is hard to update collaboratively. Staff also mentioned that past exhibition documentation could serve as valuable reference material for future planning. There is uncertainty about what information should be public vs internal-only when using AI tools to help draft promotional content.",
+    "outcome": "Exhibition coordination identified as communication-heavy with process documentation gaps",
+    "next_action": "Review exhibition checklist and explore collaborative documentation tools",
+    "follow_up_date": "2026-07-01",
+    "tags": [
+      "exhibition",
+      "coordination",
+      "documentation"
+    ]
+  },
+  {
+    "id": 21,
+    "organization_id": 5,
+    "interaction_type": "Meeting",
+    "date": "2026-05-19",
+    "title": "Intake Process Review",
+    "notes": "Reviewed youth intake process with program coordinator. Youth intake information is currently collected on paper forms during initial meetings and then transcribed into a digital spreadsheet by staff. Transcription is time-consuming and prone to errors. Staff spend 2-3 hours per week on data entry alone. The intake form collects employment history, education background, barriers to employment, and support needs. This information is referenced during follow-up sessions but is not easy to search. Staff use intake forms and a case notes binder as reference sources. Staff are concerned that digitizing intake may lose important contextual notes that case workers write in margins.",
+    "outcome": "Intake transcription identified as inefficient manual process with error risk",
+    "next_action": "Explore digital intake options that preserve contextual notes",
+    "follow_up_date": "2026-06-03",
+    "tags": [
+      "intake",
+      "data-entry",
+      "workflow"
+    ]
+  },
+  {
+    "id": 22,
+    "organization_id": 5,
+    "interaction_type": "Call",
+    "date": "2026-05-29",
+    "title": "Employer Outreach Discussion",
+    "notes": "Discussed employer outreach tracking with employment specialist. The team maintains a spreadsheet of employer contacts, past outreach attempts, and placement outcomes. Outreach follow-up is done manually - staff check the spreadsheet and send individual emails. With 50+ active employer relationships, the specialist estimates 3-4 hours per week on follow-up coordination. There is no automated reminder system for check-in dates. Staff are open to AI-assisted reminders and template suggestions but want to maintain personal relationships with employers. Past outreach email templates exist in individual staff email folders but are not shared.",
+    "outcome": "Employer outreach follow-up identified as manual tracking overhead",
+    "next_action": "Design employer outreach tracking system with automated check-in reminders",
+    "follow_up_date": "2026-06-12",
+    "tags": [
+      "employer",
+      "outreach",
+      "tracking"
+    ]
+  },
+  {
+    "id": 23,
+    "organization_id": 5,
+    "interaction_type": "Email",
+    "date": "2026-06-05",
+    "title": "Resume Workshop Follow-up",
+    "notes": "Reviewed post-workshop follow-up process for resume workshops. After each workshop, staff send follow-up emails with resources, next steps, and individual feedback. With 15-20 participants per workshop and multiple workshops per month, this is a significant time commitment. Staff currently compose each email individually. They use past workshop notes and a resource guide as reference materials. Staff are interested in template-assisted follow-ups but emphasize that each participant has unique needs that templates must accommodate. Staff also worry that AI-generated feedback may not be specific enough to be useful for job seekers.",
+    "outcome": "Workshop follow-up identified as high-volume task with template potential and personalization needs",
+    "next_action": "Design workshop follow-up template with structured personalization fields",
+    "follow_up_date": "2026-06-19",
+    "tags": [
+      "workshop",
+      "follow-up",
+      "templates"
+    ]
+  },
+  {
+    "id": 24,
+    "organization_id": 5,
+    "interaction_type": "Research Note",
+    "date": "2026-06-12",
+    "title": "Program Reporting Research",
+    "notes": "Researched current program reporting process. The network reports outcomes to funders quarterly. Data is pulled from intake records, workshop attendance, placement tracking, and follow-up surveys. Each data source is in a different format, and staff spend 4-5 days per quarter compiling and cross-referencing data. Staff have expressed frustration that the current process does not capture the full impact of their work because qualitative outcomes (youth confidence, improved interview skills) are not included in required metrics. Past reports exist in a shared folder. Staff are unsure whether AI could help analyze qualitative notes without losing important context.",
+    "outcome": "Program reporting identified as heavy manual compilation with data integration challenges",
+    "next_action": "Audit data sources and explore integrated reporting approach",
+    "follow_up_date": "2026-06-26",
+    "tags": [
+      "reporting",
+      "data",
+      "workflow"
+    ]
+  },
+  {
+    "id": 25,
+    "organization_id": 5,
+    "interaction_type": "Follow-up",
+    "date": "2026-06-19",
+    "title": "Youth Check-in Follow-up",
+    "notes": "Followed up with case worker about youth check-in process. Youth participants receive regular check-in calls or meetings to track progress toward employment goals. Case notes from these check-ins are entered into a shared document but there is no structured format. Information that could help match youth to opportunities (skills gained, schedule changes, new barriers) may be buried in free-text notes. Staff discussed whether structured check-in templates with standard fields could improve information capture without adding administrative burden. Staff are also concerned about privacy when recording sensitive youth information. Knowledge sharing between case workers is informal and mostly happens during team meetings.",
+    "outcome": "Check-in documentation identified as unstructured with knowledge-sharing gaps",
+    "next_action": "Draft structured check-in template with privacy-aware fields",
+    "follow_up_date": "2026-07-03",
+    "tags": [
+      "check-in",
+      "documentation",
+      "privacy",
+      "knowledge-sharing"
     ]
   }
 ]

@@ -1,747 +1,1888 @@
 [
   {
-    "summary_id": 2,
-    "interaction_id": 4,
+    "summary_id": 1,
+    "interaction_id": 1,
     "organization_id": 1,
-    "created_at": "2026-07-02T19:53:12Z",
-    "updated_at": "2026-07-02T19:53:12Z",
-    "summary": "Mock AI summary of meeting notes.",
+    "created_at": "2026-06-03T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z",
+    "summary": "Summary of Digital Literacy Program Planning at Waterloo Public Library. Key themes identified.",
     "key_discussion_points": [
-      "AI workflow potential discussed",
-      "Documentation challenges identified",
-      "Follow-up timeline agreed upon"
+      "Discussed digital literacy program planning",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
     "decisions": [
-      "Schedule follow-up meeting in two weeks",
-      "Prepare a single pilot proposal for review"
+      "Identified follow-up email drafting as a potential area for AI support with human review"
     ],
     "action_items": [
-      "Send meeting summary to stakeholders",
-      "Prepare pilot proposal document",
-      "Identify key staff for pilot participation"
+      "Map current follow-up email workflow and identify template opportunities"
     ],
-    "risks_or_concerns": [
-      "Staff readiness for new tools",
-      "Data privacy considerations",
-      "Change management effort may be underestimated"
-    ],
+    "risks_or_concerns": [],
     "lessons_learned": [
       {
-        "title": "Pilot proposals benefit from early staff input",
-        "description": "Involving staff in pilot design early improves buy-in and surfaces practical constraints that would otherwise block adoption later."
-      },
-      {
-        "title": "Staff capacity concerns must be addressed upfront",
-        "description": "Any AI initiative must demonstrate it reduces burden, not adds to it. Frame pilots as time-saving tools from the start."
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
       }
     ],
     "reusable_insights": [
-      "Organizations that proactively discuss pilots are typically more ready to experiment than those that need to be convinced."
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
     ],
-    "staff_concerns_or_adoption_concerns": [
-      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
-      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
-      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
-    ],
+    "staff_concerns_or_adoption_concerns": [],
     "human_judgment_points": [
-      "All pilot-generated content requires human review before external use \u2014 never send AI-generated output without verification.",
-      "Staff readiness assessment should be conducted by a human program lead, not automated.",
-      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+      "Human review required for externally visible content"
     ],
-    "knowledge_sharing_opportunities": [
-      "Share pilot proposal template and lessons learned with other organizations exploring similar AI use cases.",
-      "Staff concern patterns observed here may be valuable input for broader adoption readiness research."
-    ],
+    "knowledge_sharing_opportunities": [],
     "playbook_candidates": [
       {
-        "title": "Pilot Proposal Development Process",
-        "when_to_use": "When an organization expresses interest in exploring an AI-assisted workflow pilot during a meeting or call.",
-        "suggested_process": "1. Schedule a scoping meeting within one week. 2. Map current workflow with staff input. 3. Draft a pilot proposal with clear success criteria. 4. Review proposal with organization lead. 5. Refine and confirm pilot scope."
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
       }
     ],
-    "recommended_follow_up": "Share pilot proposal and schedule review meeting.",
-    "suggested_follow_up_date": "2026-07-16",
-    "suggested_next_email_type": "Pilot Proposal Follow-Up",
+    "recommended_follow_up": "Map current follow-up email workflow and identify template opportunities",
+    "suggested_follow_up_date": "2026-06-17",
+    "suggested_next_email_type": "follow_up",
     "suggested_tags": [
-      "knowledge-sharing",
-      "pilot-idea",
-      "staff-concern"
+      "digital-literacy",
+      "workflow",
+      "follow-up"
     ],
-    "follow_up_tasks": [
-      {
-        "title": "Prepare pilot proposal document",
-        "description": "Draft and share a pilot proposal based on the discussion.",
-        "due_date": "2026-07-16",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 4
-      },
-      {
-        "title": "Prepare AI literacy workshop materials",
-        "description": "Develop introductory AI literacy materials tailored to the organization's context.",
-        "due_date": "2026-08-01",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 4
-      },
-      {
-        "title": "Assess staff readiness for AI tools",
-        "description": "Conduct a staff readiness assessment to identify training needs and concerns.",
-        "due_date": "2026-07-16",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 4
-      }
-    ],
-    "current_workflow": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
     "workflow_pain_points": [
-      "No specific pain points documented \u2014 further discussion needed to identify workflow friction."
+      "time-consuming",
+      "repetitive",
+      "manual"
     ],
     "repetitive_tasks_identified": [
-      "Scheduling and confirming volunteer shifts"
+      "Email drafting",
+      "Follow-up email composition"
     ],
     "information_or_documents_used": [
-      "Volunteer schedules and contact information"
+      "Template documents",
+      "FAQ documents",
+      "Program calendars"
     ],
-    "possible_ai_insertion_points": [
-      "AI-assisted scheduling and engagement pattern analysis"
-    ],
+    "possible_ai_insertion_points": [],
     "required_human_review": [
-      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-      "AI-drafted communications must be approved by a human before sending.",
-      "Staff capacity decisions must be made by program leads, not automated.",
-      "Final decisions on workflow changes require human approval."
+      "All AI-generated content requires human review before external use",
+      "AI-generated content requires human review",
+      "Community context awareness requires human oversight"
     ],
-    "missing_knowledge_or_data": [
-      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
-      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
-      "Policy and compliance requirements are not documented in accessible formats.",
-      "Staff training needs and digital literacy levels are not fully assessed."
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "digital-literacy",
+      "workflow",
+      "follow-up"
+    ]
+  },
+  {
+    "summary_id": 2,
+    "interaction_id": 2,
+    "organization_id": 1,
+    "created_at": "2026-06-03T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z",
+    "summary": "Summary of Staff Workflow Pain Points at Waterloo Public Library. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed staff workflow pain points",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
-    "failure_cases_or_exceptions": [
+    "decisions": [
+      "Confirmed follow-up email pain point is a recurring theme across multiple programs"
+    ],
+    "action_items": [
+      "Draft template options with human review checkpoints for review"
+    ],
+    "risks_or_concerns": [
+      "AI-generated content may sound generic",
+      "Staff worry about increased expectations with AI",
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling",
+      "Concern about losing personal connection with AI templates"
+    ],
+    "lessons_learned": [
       {
-        "what_failed": "No specific failure cases documented yet",
-        "why": "Interaction notes do not describe past failures or exceptions",
-        "missing_context": "Failure mode analysis has not been conducted",
-        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      },
+      {
+        "title": "Experienced staff carry undocumented process knowledge",
+        "description": "Key workflow knowledge resides with experienced staff and is not systematically captured or shared."
       }
     ],
-    "reusable_workflow_insights": [
-      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
     ],
+    "staff_concerns_or_adoption_concerns": [
+      "AI-generated content may sound generic",
+      "Staff worry about increased expectations with AI",
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling",
+      "Concern about losing personal connection with AI templates"
+    ],
+    "human_judgment_points": [
+      "Experienced staff judgment required for quality assurance"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Draft template options with human review checkpoints for review",
+    "suggested_follow_up_date": "2026-06-19",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "workflow",
+      "follow-up",
+      "staff-concern",
+      "privacy"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "repetitive"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Template documents",
+      "Past workshop notes",
+      "Approved email templates",
+      "Program calendars"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Privacy and data handling requires human judgment",
+      "Personalized content requires human review for tone and accuracy",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI output may sound too generic",
+        "why": "Template lacks personalization for specific context",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Include personalization fields and human review step"
+      },
+      {
+        "what_failed": "AI may mishandle private or sensitive information",
+        "why": "AI cannot distinguish public vs internal-only information",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Define data handling rules and require human review for privacy-sensitive content"
+      }
+    ],
+    "reusable_workflow_insights": [],
     "workflow_tags": [
-      "pilot-idea"
+      "workflow",
+      "follow-up",
+      "staff-concern",
+      "privacy"
     ]
   },
   {
     "summary_id": 3,
-    "interaction_id": 6,
+    "interaction_id": 3,
     "organization_id": 1,
-    "created_at": "2026-07-02T19:54:42Z",
-    "updated_at": "2026-07-02T19:54:42Z",
-    "summary": "Mock AI summary of meeting notes.",
+    "created_at": "2026-06-03T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z",
+    "summary": "Summary of Follow-up Email Template Review at Waterloo Public Library. Key themes identified.",
     "key_discussion_points": [
-      "AI workflow potential discussed",
-      "Documentation challenges identified",
-      "Follow-up timeline agreed upon"
+      "Discussed follow-up email template review",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
     "decisions": [
-      "Schedule follow-up meeting in two weeks",
-      "Prepare a single pilot proposal for review"
+      "Template approach agreed in principle, human review requirement confirmed"
     ],
     "action_items": [
-      "Send meeting summary to stakeholders",
-      "Prepare pilot proposal document",
-      "Identify key staff for pilot participation"
+      "Create three template drafts for pilot testing"
     ],
-    "risks_or_concerns": [
-      "Staff readiness for new tools",
-      "Data privacy considerations",
-      "Change management effort may be underestimated"
-    ],
+    "risks_or_concerns": [],
     "lessons_learned": [
       {
-        "title": "Documentation pain points reveal automation opportunities",
-        "description": "Staff who spend significant time on manual documentation are the strongest candidates for AI-assisted workflow pilots."
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
       }
     ],
     "reusable_insights": [
-      "Documentation-heavy workflows are ubiquitous in public-serving organizations and represent a low-barrier entry point for AI assistance."
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
     ],
-    "staff_concerns_or_adoption_concerns": [
-      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
-      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
-      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
-    ],
+    "staff_concerns_or_adoption_concerns": [],
     "human_judgment_points": [
-      "Staff readiness assessment should be conducted by a human program lead, not automated.",
-      "AI-generated documentation summaries must be reviewed and approved by a designated staff member before saving to records.",
-      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+      "Human review required for externally visible content"
     ],
-    "knowledge_sharing_opportunities": [
-      "Documentation workflow insights from this engagement could inform a cross-organizational best-practice guide."
-    ],
+    "knowledge_sharing_opportunities": [],
     "playbook_candidates": [
       {
-        "title": "Documentation Workflow Assessment",
-        "when_to_use": "When an organization reports spending significant staff time on manual documentation, note-taking, or report generation.",
-        "suggested_process": "1. Conduct a 30-minute workflow mapping session. 2. Identify top 3 documentation pain points. 3. Select one low-risk process for AI assistance. 4. Define human review steps. 5. Run a 2-week pilot with daily check-ins."
-      },
-      {
-        "title": "Pilot Outcome Evaluation Framework",
-        "when_to_use": "When a pilot is underway and the organization needs to track whether it is meeting its goals.",
-        "suggested_process": "1. Define 2-3 measurable success indicators before pilot launch. 2. Collect baseline data on current process. 3. Track weekly progress against indicators. 4. Conduct a mid-pilot review with staff. 5. Document lessons learned and decide on next phase."
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
       }
     ],
-    "recommended_follow_up": "Follow up within one week.",
-    "suggested_follow_up_date": "2026-07-16",
-    "suggested_next_email_type": "General Check-In",
+    "recommended_follow_up": "Create three template drafts for pilot testing",
+    "suggested_follow_up_date": "2026-06-26",
+    "suggested_next_email_type": "follow_up",
     "suggested_tags": [
-      "documentation",
-      "evaluation-concern",
+      "follow-up",
+      "templates",
       "human-review",
-      "workflow-improvement"
+      "documentation"
     ],
-    "follow_up_tasks": [
-      {
-        "title": "Prepare pilot proposal document",
-        "description": "Draft and share a pilot proposal based on the discussion.",
-        "due_date": "2026-07-16",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 6
-      },
-      {
-        "title": "Review documentation workflow",
-        "description": "Assess current documentation practices and identify areas for AI assistance.",
-        "due_date": "2026-07-23",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 6
-      },
-      {
-        "title": "Schedule follow-up meeting",
-        "description": "Book a follow-up meeting to continue the discussion.",
-        "due_date": "2026-07-16",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 6
-      }
-    ],
-    "current_workflow": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
     "workflow_pain_points": [
-      "Manual documentation is time-consuming and inconsistent across staff members.",
-      "Repetitive data entry tasks consume staff time that could be spent on direct service.",
-      "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
-      "Policy compliance requirements add overhead to every step of the workflow."
+      "time-consuming",
+      "inconsistent"
     ],
     "repetitive_tasks_identified": [
-      "Transcribing or summarizing meeting notes",
-      "Filling out recurring forms or reports",
-      "Data entry from paper or PDF sources into digital systems"
+      "Email drafting",
+      "Follow-up email composition"
     ],
     "information_or_documents_used": [
-      "Meeting notes and minutes",
-      "Reports and program documentation",
-      "Policy and compliance documents",
-      "Spreadsheets or databases with program data"
+      "Template documents",
+      "Past workshop notes"
     ],
-    "possible_ai_insertion_points": [
-      "AI-assisted meeting note summarization and action item extraction",
-      "Automated data extraction and report generation from structured inputs",
-      "AI-assisted scheduling and engagement pattern analysis",
-      "AI-assisted compliance checking against policy documents"
-    ],
+    "possible_ai_insertion_points": [],
     "required_human_review": [
-      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-      "AI-drafted communications must be approved by a human before sending.",
-      "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
-      "Staff capacity decisions must be made by program leads, not automated.",
-      "Final decisions on workflow changes require human approval."
+      "All AI-generated content requires human review before external use",
+      "Personalized content requires human review for tone and accuracy",
+      "AI-generated content requires human review",
+      "Community context awareness requires human oversight"
     ],
-    "missing_knowledge_or_data": [
-      "Staff training needs and digital literacy levels are not fully assessed."
-    ],
-    "failure_cases_or_exceptions": [
-      {
-        "what_failed": "Key information from meetings is lost or not shared with relevant staff",
-        "why": "No standardized note-taking format or centralized documentation repository",
-        "missing_context": "Meeting notes are stored in personal files or emailed to select individuals",
-        "human_review_required": "Staff need to decide what information is relevant to share and with whom",
-        "suggested_prevention": "Adopt a shared note-taking template and centralized documentation practice with distribution list"
-      },
-      {
-        "what_failed": "Manual data entry errors lead to incorrect reports and rework",
-        "why": "No validation checks or automated data entry \u2014 entirely dependent on human accuracy",
-        "missing_context": "No audit trail for data entry \u2014 errors are hard to trace",
-        "human_review_required": "Data quality checks need human judgment to distinguish genuine errors from edge cases",
-        "suggested_prevention": "Introduce input validation, automated data checks, and regular audit reviews"
-      },
-      {
-        "what_failed": "Policy updates are not consistently communicated or applied across the team",
-        "why": "Policy changes are shared via email and rely on individual awareness",
-        "missing_context": "No centralized policy repository or version control",
-        "human_review_required": "Staff need to interpret how policy changes apply to their specific workflows",
-        "suggested_prevention": "Maintain a centralized policy repository with change notifications and mandatory review checkpoints"
-      }
-    ],
-    "reusable_workflow_insights": [
-      "Documentation workflows are a universal pain point across organizations and represent the lowest-barrier entry for AI assistance.",
-      "Repetitive administrative tasks are often invisible to leadership \u2014 surfacing their time cost is a powerful motivator for change.",
-      "Policy compliance workflows are high-risk and high-value targets for AI assistance \u2014 but require the most rigorous human oversight.",
-      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
-    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
     "workflow_tags": [
-      "documentation",
+      "follow-up",
+      "templates",
       "human-review",
-      "workflow-improvement"
+      "documentation"
     ]
   },
   {
     "summary_id": 4,
-    "interaction_id": 7,
+    "interaction_id": 4,
     "organization_id": 1,
-    "created_at": "2026-07-02T20:07:11Z",
-    "updated_at": "2026-07-02T20:07:11Z",
-    "summary": "Mock AI summary of meeting notes.",
+    "created_at": "2026-06-03T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z",
+    "summary": "Summary of Community Partner Outreach Call at Waterloo Public Library. Key themes identified.",
     "key_discussion_points": [
-      "AI workflow potential discussed",
-      "Documentation challenges identified",
-      "Follow-up timeline agreed upon"
+      "Discussed community partner outreach call",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
     "decisions": [
-      "Schedule follow-up meeting in two weeks",
-      "Prepare a single pilot proposal for review"
+      "Partnership interest confirmed, need to review data sharing policies"
     ],
     "action_items": [
-      "Send meeting summary to stakeholders",
-      "Prepare pilot proposal document",
-      "Identify key staff for pilot participation"
+      "Share draft partnership agreement and schedule initial planning meeting"
     ],
     "risks_or_concerns": [
-      "Staff readiness for new tools",
-      "Data privacy considerations",
-      "Change management effort may be underestimated"
+      "Staff expressed concerns about AI impact"
     ],
     "lessons_learned": [
       {
-        "title": "AI literacy builds confidence before tool adoption",
-        "description": "Introducing AI concepts through workshops before deploying specific tools reduces anxiety and increases voluntary adoption."
-      },
-      {
-        "title": "Staff capacity concerns must be addressed upfront",
-        "description": "Any AI initiative must demonstrate it reduces burden, not adds to it. Frame pilots as time-saving tools from the start."
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
       }
     ],
     "reusable_insights": [
-      "AI literacy training is most effective when delivered in the context of the learner's actual daily work, not as abstract concepts."
+      "Manual scheduling coordination is a predictable time sink that can be partially automated."
     ],
     "staff_concerns_or_adoption_concerns": [
-      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation.",
-      "Data privacy and patron confidentiality must be addressed before any pilot begins.",
-      "Change management effort is often underestimated \u2014 budget time for staff transition and training."
+      "Staff expressed concerns about AI impact"
     ],
     "human_judgment_points": [
-      "Staff readiness assessment should be conducted by a human program lead, not automated.",
-      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+      "Human oversight required for sensitive content"
     ],
-    "knowledge_sharing_opportunities": [
-      "Workshop materials and curriculum could be adapted for other similar organizations."
-    ],
-    "playbook_candidates": [
-      {
-        "title": "AI Literacy Workshop Delivery",
-        "when_to_use": "When an organization requests foundational AI literacy training before committing to specific tool pilots.",
-        "suggested_process": "1. Assess current staff AI awareness through a brief survey. 2. Tailor workshop content to the organization's daily workflows. 3. Deliver a 90-minute interactive session with live demonstrations. 4. Collect feedback and identify pilot interest. 5. Schedule follow-up for interested teams."
-      },
-      {
-        "title": "Pilot Outcome Evaluation Framework",
-        "when_to_use": "When a pilot is underway and the organization needs to track whether it is meeting its goals.",
-        "suggested_process": "1. Define 2-3 measurable success indicators before pilot launch. 2. Collect baseline data on current process. 3. Track weekly progress against indicators. 4. Conduct a mid-pilot review with staff. 5. Document lessons learned and decide on next phase."
-      }
-    ],
-    "recommended_follow_up": "Share workshop outline and confirm logistics.",
-    "suggested_follow_up_date": "2026-07-16",
-    "suggested_next_email_type": "Workshop Planning",
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Share draft partnership agreement and schedule initial planning meeting",
+    "suggested_follow_up_date": "2026-06-28",
+    "suggested_next_email_type": "follow_up",
     "suggested_tags": [
-      "evaluation-concern",
-      "knowledge-sharing",
-      "staff-concern",
-      "training-need"
+      "partnership",
+      "outreach",
+      "community"
     ],
-    "follow_up_tasks": [
-      {
-        "title": "Prepare AI literacy workshop materials",
-        "description": "Develop introductory AI literacy materials tailored to the organization's context.",
-        "due_date": "2026-08-01",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 7
-      },
-      {
-        "title": "Assess staff readiness for AI tools",
-        "description": "Conduct a staff readiness assessment to identify training needs and concerns.",
-        "due_date": "2026-07-16",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 7
-      }
-    ],
-    "current_workflow": "Staff use a mix of email, shared documents, and in-person meetings to coordinate programs. Documentation practices are informal and vary by staff member.",
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
     "workflow_pain_points": [
-      "No specific pain points documented \u2014 further discussion needed to identify workflow friction."
+      "manual"
     ],
     "repetitive_tasks_identified": [
-      "General administrative coordination \u2014 further observation needed"
+      "Manual scheduling"
     ],
     "information_or_documents_used": [
-      "Training materials and workshop guides"
+      "Spreadsheet trackers"
     ],
-    "possible_ai_insertion_points": [
-      "General workflow mapping to identify highest-impact AI insertion points"
-    ],
+    "possible_ai_insertion_points": [],
     "required_human_review": [
-      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-      "AI-drafted communications must be approved by a human before sending.",
-      "Staff capacity decisions must be made by program leads, not automated.",
-      "Final decisions on workflow changes require human approval."
+      "AI-generated content requires human review"
     ],
-    "missing_knowledge_or_data": [
-      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
-      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
-      "Policy and compliance requirements are not documented in accessible formats.",
-      "Staff training needs and digital literacy levels are not fully assessed."
-    ],
-    "failure_cases_or_exceptions": [
-      {
-        "what_failed": "No specific failure cases documented yet",
-        "why": "Interaction notes do not describe past failures or exceptions",
-        "missing_context": "Failure mode analysis has not been conducted",
-        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
-      }
-    ],
-    "reusable_workflow_insights": [
-      "Organizations that invest in staff training are more likely to adopt AI tools successfully, as they already value skill development."
-    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
     "workflow_tags": [
-      "knowledge-sharing",
-      "staff-concern",
-      "training-need"
-    ],
-    "staff_concerns": [
-      "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation."
-    ],
-    "evaluation_or_recognition_risks": [
-      "Unclear how AI-assisted work would be evaluated against current performance criteria."
-    ],
-    "training_or_followup_needs": [
-      "Organization has expressed interest in AI literacy training \u2014 schedule foundational workshop.",
-      "Staff digital literacy assessment recommended before deploying any AI tool."
-    ],
-    "adoption_safeguards": [
-      "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
-      "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
-    ],
-    "human_system_notes": "Staff engagement and capacity are key factors in adoption readiness. Training investment indicates organizational commitment to skill development."
+      "partnership",
+      "outreach",
+      "community"
+    ]
   },
   {
     "summary_id": 5,
     "interaction_id": 5,
     "organization_id": 1,
-    "created_at": "2026-07-02T22:03:52Z",
-    "updated_at": "2026-07-02T22:03:52Z",
-    "summary": "Mock AI summary of meeting notes.",
+    "created_at": "2026-06-03T13:52:32Z",
+    "updated_at": "2026-06-26T13:52:32Z",
+    "summary": "Summary of Grant Reporting Requirements at Waterloo Public Library. Key themes identified.",
     "key_discussion_points": [
-      "AI workflow potential discussed",
-      "Documentation challenges identified",
-      "Follow-up timeline agreed upon"
+      "Discussed grant reporting requirements",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
     "decisions": [
-      "Schedule follow-up meeting in two weeks",
-      "Prepare a single pilot proposal for review"
+      "Received new reporting requirements, identified data consolidation need"
     ],
     "action_items": [
-      "Send meeting summary to stakeholders",
-      "Prepare pilot proposal document",
-      "Identify key staff for pilot participation"
+      "Audit current data sources and map reporting workflow"
     ],
     "risks_or_concerns": [
-      "Staff readiness for new tools",
-      "Data privacy considerations",
-      "Change management effort may be underestimated"
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling"
     ],
     "lessons_learned": [
       {
-        "title": "Pilot proposals benefit from early staff input",
-        "description": "Involving staff in pilot design early improves buy-in and surfaces practical constraints that would otherwise block adoption later."
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
       },
       {
-        "title": "AI literacy builds confidence before tool adoption",
-        "description": "Introducing AI concepts through workshops before deploying specific tools reduces anxiety and increases voluntary adoption."
-      },
-      {
-        "title": "Structured follow-up processes improve relationship continuity",
-        "description": "Recording next actions and follow-up dates during meetings prevents relationship drift and ensures consistent outreach."
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
       }
     ],
     "reusable_insights": [
-      "Organizations that proactively discuss pilots are typically more ready to experiment than those that need to be convinced.",
-      "AI literacy training is most effective when delivered in the context of the learner's actual daily work, not as abstract concepts.",
-      "Meeting follow-up consistency is a leading indicator of relationship health \u2014 organizations with structured follow-ups progress faster."
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support.",
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
     ],
     "staff_concerns_or_adoption_concerns": [
-      "No specific adoption concerns raised \u2014 monitor during next interaction."
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling"
     ],
-    "human_judgment_points": [
-      "All pilot-generated content requires human review before external use \u2014 never send AI-generated output without verification.",
-      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
-    ],
-    "knowledge_sharing_opportunities": [
-      "Share pilot proposal template and lessons learned with other organizations exploring similar AI use cases."
-    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
     "playbook_candidates": [
       {
-        "title": "Pilot Proposal Development Process",
-        "when_to_use": "When an organization expresses interest in exploring an AI-assisted workflow pilot during a meeting or call.",
-        "suggested_process": "1. Schedule a scoping meeting within one week. 2. Map current workflow with staff input. 3. Draft a pilot proposal with clear success criteria. 4. Review proposal with organization lead. 5. Refine and confirm pilot scope."
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
       },
       {
-        "title": "Structured Follow-up Protocol",
-        "when_to_use": "When an organization has multiple interactions but lacks a consistent follow-up process, leading to relationship drift.",
-        "suggested_process": "1. After each interaction, record next action and follow-up date within 24 hours. 2. Set a weekly review of pending follow-ups. 3. Send recap emails within 48 hours of each meeting. 4. Track follow-up completion rate monthly."
-      },
-      {
-        "title": "AI Literacy Workshop Delivery",
-        "when_to_use": "When an organization requests foundational AI literacy training before committing to specific tool pilots.",
-        "suggested_process": "1. Assess current staff AI awareness through a brief survey. 2. Tailor workshop content to the organization's daily workflows. 3. Deliver a 90-minute interactive session with live demonstrations. 4. Collect feedback and identify pilot interest. 5. Schedule follow-up for interested teams."
+        "title": "Grant Reporting Pipeline",
+        "when_to_use": "At the end of each reporting period or when grant report is due",
+        "suggested_process": "1. Extract data from program sources 2. Map to funder metrics 3. Draft narrative from structured inputs 4. Human review for context and accuracy 5. Submit"
       }
     ],
-    "recommended_follow_up": "Share pilot proposal and schedule review meeting.",
-    "suggested_follow_up_date": "2026-07-16",
-    "suggested_next_email_type": "Pilot Proposal Follow-Up",
+    "recommended_follow_up": "Audit current data sources and map reporting workflow",
+    "suggested_follow_up_date": "2026-06-12",
+    "suggested_next_email_type": "follow_up",
     "suggested_tags": [
-      "follow-up",
-      "pilot-idea",
-      "training-need"
+      "reporting",
+      "grants",
+      "data",
+      "workflow"
     ],
-    "follow_up_tasks": [
-      {
-        "title": "Prepare pilot proposal document",
-        "description": "Draft and share a pilot proposal based on the discussion.",
-        "due_date": "2026-07-16",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 5
-      },
-      {
-        "title": "Send follow-up summary",
-        "description": "Compile and send a summary of the discussion with agreed next steps.",
-        "due_date": "2026-07-05",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 5
-      },
-      {
-        "title": "Schedule follow-up meeting",
-        "description": "Book a follow-up meeting to continue the discussion.",
-        "due_date": "2026-07-16",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 5
-      }
-    ],
-    "current_workflow": "Staff use a mix of email, shared documents, and in-person meetings to coordinate programs. Documentation practices are informal and vary by staff member.",
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
     "workflow_pain_points": [
-      "Follow-up tracking is ad-hoc \u2014 items are easily missed with no centralized system."
+      "time-consuming",
+      "manual"
     ],
     "repetitive_tasks_identified": [
-      "Preparing meeting agendas and distributing minutes"
+      "Report compilation",
+      "Manual transcription",
+      "Follow-up email composition"
     ],
     "information_or_documents_used": [
-      "General organizational documentation \u2014 not yet inventoried"
+      "Previous grant reports",
+      "Template documents",
+      "Spreadsheet trackers"
     ],
-    "possible_ai_insertion_points": [
-      "Automated follow-up reminders and status tracking"
-    ],
+    "possible_ai_insertion_points": [],
     "required_human_review": [
-      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-      "AI-drafted communications must be approved by a human before sending.",
-      "Final decisions on workflow changes require human approval."
+      "Privacy and data handling requires human judgment"
     ],
-    "missing_knowledge_or_data": [
-      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
-      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
-      "Policy and compliance requirements are not documented in accessible formats.",
-      "Staff training needs and digital literacy levels are not fully assessed."
-    ],
+    "missing_knowledge_or_data": [],
     "failure_cases_or_exceptions": [
       {
-        "what_failed": "Follow-ups are missed when staff are absent or overwhelmed",
-        "why": "No centralized tracking system \u2014 relies on individual memory and email inbox",
-        "missing_context": "No automated reminders or shared task list",
-        "human_review_required": "Follow-up assignments need human judgment on priority and timing",
-        "suggested_prevention": "Implement a shared follow-up tracking system with automated reminders and weekly review"
+        "what_failed": "AI may mishandle private or sensitive information",
+        "why": "AI cannot distinguish public vs internal-only information",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Define data handling rules and require human review for privacy-sensitive content"
       }
     ],
-    "reusable_workflow_insights": [
-      "Follow-up consistency is a leading indicator of relationship health \u2014 simple tracking improvements can yield outsized relationship benefits."
-    ],
+    "reusable_workflow_insights": [],
     "workflow_tags": [
-      "follow-up",
-      "pilot-idea"
+      "reporting",
+      "grants",
+      "data",
+      "workflow"
+    ]
+  },
+  {
+    "summary_id": 6,
+    "interaction_id": 6,
+    "organization_id": 2,
+    "created_at": "2026-06-13T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z",
+    "summary": "Summary of Volunteer Coordination Review at Kitchener Community Food Centre. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed volunteer coordination review",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
-    "staff_concerns": [
-      "No specific staff concerns raised \u2014 monitor during next interaction."
+    "decisions": [
+      "Identified volunteer scheduling as potential area for process improvement"
     ],
-    "evaluation_or_recognition_risks": [
-      "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
+    "action_items": [
+      "Document current scheduling workflow and volunteer communication patterns"
     ],
-    "training_or_followup_needs": [
-      "Pilot participants will need workflow-specific training before launch."
+    "risks_or_concerns": [
+      "Staff worry about increased expectations with AI"
     ],
-    "adoption_safeguards": [
-      "Pilots should start with a small, low-risk scope with clear success criteria and human oversight checkpoints.",
-      "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Experienced staff carry undocumented process knowledge",
+        "description": "Key workflow knowledge resides with experienced staff and is not systematically captured or shared."
+      }
     ],
-    "human_system_notes": "Pilot interest suggests organizational openness to experimentation with appropriate safeguards."
+    "reusable_insights": [
+      "Manual scheduling coordination is a predictable time sink that can be partially automated."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "human_judgment_points": [
+      "Experienced staff judgment required for quality assurance"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Document current scheduling workflow and volunteer communication patterns",
+    "suggested_follow_up_date": "2026-06-12",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "volunteer",
+      "scheduling",
+      "workflow"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "manual",
+      "inconsistent"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Manual scheduling"
+    ],
+    "information_or_documents_used": [
+      "Volunteer manuals",
+      "Spreadsheet trackers"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "volunteer",
+      "scheduling",
+      "workflow"
+    ]
+  },
+  {
+    "summary_id": 7,
+    "interaction_id": 7,
+    "organization_id": 2,
+    "created_at": "2026-06-13T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z",
+    "summary": "Summary of Donation Intake Process Discussion at Kitchener Community Food Centre. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed donation intake process discussion",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Donation intake identified as repetitive manual task"
+    ],
+    "action_items": [
+      "Review donation tracking requirements and explore structured input options"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
+    ],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Review donation tracking requirements and explore structured input options",
+    "suggested_follow_up_date": "2026-06-19",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "donation",
+      "data-entry",
+      "workflow"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "manual"
+    ],
+    "repetitive_tasks_identified": [
+      "Manual data entry"
+    ],
+    "information_or_documents_used": [
+      "Intake forms",
+      "Spreadsheet trackers",
+      "Policy documents"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Community context awareness requires human oversight"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "donation",
+      "data-entry",
+      "workflow"
+    ]
   },
   {
     "summary_id": 8,
-    "interaction_id": 1,
-    "organization_id": 1,
-    "created_at": "2026-07-03T13:23:48Z",
-    "updated_at": "2026-07-03T13:23:48Z",
-    "summary": "Mock AI summary of meeting notes.",
+    "interaction_id": 8,
+    "organization_id": 2,
+    "created_at": "2026-06-13T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z",
+    "summary": "Summary of Client Communication Follow-up at Kitchener Community Food Centre. Key themes identified.",
     "key_discussion_points": [
-      "AI workflow potential discussed",
-      "Documentation challenges identified",
-      "Follow-up timeline agreed upon"
+      "Discussed client communication follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
     "decisions": [
-      "Schedule follow-up meeting in two weeks",
-      "Prepare a single pilot proposal for review"
+      "Identified need for flexible communication templates with personalization options"
     ],
     "action_items": [
-      "Send meeting summary to stakeholders",
-      "Prepare pilot proposal document",
-      "Identify key staff for pilot participation"
+      "Collect examples of effective client communications for template development"
     ],
     "risks_or_concerns": [
-      "Staff readiness for new tools",
-      "Data privacy considerations",
-      "Change management effort may be underestimated"
+      "Staff worry about increased expectations with AI"
     ],
     "lessons_learned": [
       {
-        "title": "Grant-funded initiatives need early alignment on outcomes",
-        "description": "Clear outcome metrics agreed at the start make grant reporting easier and strengthen case for continued funding."
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      }
+    ],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "human_judgment_points": [
+      "Human review required for externally visible content"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Collect examples of effective client communications for template development",
+    "suggested_follow_up_date": "2026-06-23",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "communication",
+      "templates",
+      "client-services"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [],
+    "repetitive_tasks_identified": [
+      "Email drafting"
+    ],
+    "information_or_documents_used": [
+      "Intake forms",
+      "Template documents",
+      "Approved email templates",
+      "Program calendars"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "All AI-generated content requires human review before external use",
+      "Personalized content requires human review for tone and accuracy",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "communication",
+      "templates",
+      "client-services"
+    ]
+  },
+  {
+    "summary_id": 9,
+    "interaction_id": 9,
+    "organization_id": 2,
+    "created_at": "2026-06-13T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z",
+    "summary": "Summary of Grant Reporting Requirements Research at Kitchener Community Food Centre. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed grant reporting requirements research",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Mapped current reporting data sources and identified gaps"
+    ],
+    "action_items": [
+      "Create standardized data collection template aligned with common grant metrics"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
       }
     ],
     "reusable_insights": [
-      "Grant funding conversations are most productive when framed around measurable outcomes rather than technology features."
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
     ],
     "staff_concerns_or_adoption_concerns": [
-      "No specific adoption concerns raised \u2014 monitor during next interaction."
+      "Staff expressed concerns about AI impact"
     ],
-    "human_judgment_points": [
-      "Grant applications and budget justifications must be written or substantially edited by a human grant writer.",
-      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
-    ],
-    "knowledge_sharing_opportunities": [
-      "Initial engagement insights may be useful as a baseline reference for future comparisons."
-    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
     "playbook_candidates": [
       {
-        "title": "Grant-Funded Initiative Scoping",
-        "when_to_use": "When an organization wants to explore AI adoption through grant-funded projects and needs help structuring the proposal.",
-        "suggested_process": "1. Identify the grant program requirements and timeline. 2. Map proposed outcomes to the organization's pain points. 3. Draft measurable success indicators. 4. Outline the pilot timeline with human oversight checkpoints. 5. Review with the organization before submission."
+        "title": "Grant Reporting Pipeline",
+        "when_to_use": "At the end of each reporting period or when grant report is due",
+        "suggested_process": "1. Extract data from program sources 2. Map to funder metrics 3. Draft narrative from structured inputs 4. Human review for context and accuracy 5. Submit"
       }
     ],
-    "recommended_follow_up": "Follow up within one week.",
-    "suggested_follow_up_date": "2026-07-17",
-    "suggested_next_email_type": "General Check-In",
+    "recommended_follow_up": "Create standardized data collection template aligned with common grant metrics",
+    "suggested_follow_up_date": "2026-06-29",
+    "suggested_next_email_type": "follow_up",
     "suggested_tags": [
-      "evaluation-concern"
+      "reporting",
+      "grants",
+      "data"
     ],
-    "follow_up_tasks": [
-      {
-        "title": "Prepare pilot proposal document",
-        "description": "Draft and share a pilot proposal based on the discussion.",
-        "due_date": "2026-07-17",
-        "priority": "High",
-        "organization_id": 1,
-        "source_interaction_id": 1
-      },
-      {
-        "title": "Schedule follow-up meeting",
-        "description": "Book a follow-up meeting to continue the discussion.",
-        "due_date": "2026-07-17",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 1
-      },
-      {
-        "title": "Research grant opportunities",
-        "description": "Identify potential funding sources for AI adoption initiatives.",
-        "due_date": "2026-08-02",
-        "priority": "Medium",
-        "organization_id": 1,
-        "source_interaction_id": 1
-      }
-    ],
-    "current_workflow": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
     "workflow_pain_points": [
-      "Community engagement tracking is fragmented \u2014 no single view of outreach activities."
+      "time-consuming",
+      "manual"
     ],
     "repetitive_tasks_identified": [
-      "General administrative coordination \u2014 further observation needed"
+      "Report compilation"
     ],
     "information_or_documents_used": [
-      "General organizational documentation \u2014 not yet inventoried"
+      "Previous grant reports",
+      "Template documents",
+      "Spreadsheet trackers"
     ],
-    "possible_ai_insertion_points": [
-      "AI-assisted scheduling and engagement pattern analysis"
-    ],
+    "possible_ai_insertion_points": [],
     "required_human_review": [
-      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-      "AI-drafted communications must be approved by a human before sending.",
-      "Final decisions on workflow changes require human approval."
+      "Community context awareness requires human oversight"
     ],
-    "missing_knowledge_or_data": [
-      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
-      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
-      "Policy and compliance requirements are not documented in accessible formats.",
-      "Staff training needs and digital literacy levels are not fully assessed."
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "reporting",
+      "grants",
+      "data"
+    ]
+  },
+  {
+    "summary_id": 10,
+    "interaction_id": 10,
+    "organization_id": 2,
+    "created_at": "2026-06-13T13:52:32Z",
+    "updated_at": "2026-06-30T13:52:32Z",
+    "summary": "Summary of Reporting Template Follow-up at Kitchener Community Food Centre. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed reporting template follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
-    "failure_cases_or_exceptions": [
+    "decisions": [
+      "Template approach refined, staff training needs identified"
+    ],
+    "action_items": [
+      "Develop core template and two funder-specific add-on sections"
+    ],
+    "risks_or_concerns": [
+      "AI-generated content may sound generic"
+    ],
+    "lessons_learned": [
       {
-        "what_failed": "No specific failure cases documented yet",
-        "why": "Interaction notes do not describe past failures or exceptions",
-        "missing_context": "Failure mode analysis has not been conducted",
-        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
       }
     ],
-    "reusable_workflow_insights": [
-      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
+    "reusable_insights": [
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
     ],
+    "staff_concerns_or_adoption_concerns": [
+      "AI-generated content may sound generic"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Grant Reporting Pipeline",
+        "when_to_use": "At the end of each reporting period or when grant report is due",
+        "suggested_process": "1. Extract data from program sources 2. Map to funder metrics 3. Draft narrative from structured inputs 4. Human review for context and accuracy 5. Submit"
+      }
+    ],
+    "recommended_follow_up": "Develop core template and two funder-specific add-on sections",
+    "suggested_follow_up_date": "2026-07-03",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "reporting",
+      "templates",
+      "staff-training"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [],
+    "repetitive_tasks_identified": [
+      "Report compilation"
+    ],
+    "information_or_documents_used": [
+      "Template documents"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI output may sound too generic",
+        "why": "Template lacks personalization for specific context",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Include personalization fields and human review step"
+      }
+    ],
+    "reusable_workflow_insights": [],
     "workflow_tags": [
-      "follow-up"
+      "reporting",
+      "templates",
+      "staff-training"
+    ]
+  },
+  {
+    "summary_id": 11,
+    "interaction_id": 11,
+    "organization_id": 3,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Founder Intake Process Review at GreenTech Startup Hub. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed founder intake process review",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
     ],
-    "staff_concerns": [
-      "No specific staff concerns raised \u2014 monitor during next interaction."
+    "decisions": [
+      "Founder intake identified as inefficient manual process"
     ],
-    "evaluation_or_recognition_risks": [
-      "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
+    "action_items": [
+      "Map current intake data flow and identify consolidation opportunities"
     ],
-    "training_or_followup_needs": [
-      "No specific training needs identified \u2014 monitor as engagement deepens."
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
     ],
-    "adoption_safeguards": [
-      "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
     ],
-    "human_system_notes": "Human system assessment not yet available \u2014 further interaction needed."
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Map current intake data flow and identify consolidation opportunities",
+    "suggested_follow_up_date": "2026-06-22",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "intake",
+      "data",
+      "workflow"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "manual",
+      "inconsistent"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting"
+    ],
+    "information_or_documents_used": [
+      "Intake forms",
+      "Spreadsheet trackers"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "intake",
+      "data",
+      "workflow"
+    ]
+  },
+  {
+    "summary_id": 12,
+    "interaction_id": 12,
+    "organization_id": 3,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Mentor Matching Discussion at GreenTech Startup Hub. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed mentor matching discussion",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Mentor matching process identified as knowledge-dependent and not scalable"
+    ],
+    "action_items": [
+      "Draft mentor profile template and matching criteria framework"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
+    ],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Draft mentor profile template and matching criteria framework",
+    "suggested_follow_up_date": "2026-06-27",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "mentoring",
+      "matching",
+      "scalability"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [],
+    "information_or_documents_used": [
+      "FAQ documents"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Personalized content requires human review for tone and accuracy"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "mentoring",
+      "matching",
+      "scalability"
+    ]
+  },
+  {
+    "summary_id": 13,
+    "interaction_id": 13,
+    "organization_id": 3,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Event Follow-up Workflow at GreenTech Startup Hub. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed event follow-up workflow",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Event follow-up identified as high-effort repetitive task"
+    ],
+    "action_items": [
+      "Design event follow-up template with personalization fields and review workflow"
+    ],
+    "risks_or_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      },
+      {
+        "title": "Experienced staff carry undocumented process knowledge",
+        "description": "Key workflow knowledge resides with experienced staff and is not systematically captured or shared."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "human_judgment_points": [
+      "Experienced staff must review AI outputs before external sharing",
+      "Experienced staff judgment required for quality assurance"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Design event follow-up template with personalization fields and review workflow",
+    "suggested_follow_up_date": "2026-07-02",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "events",
+      "follow-up",
+      "templates"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "manual"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Q&A records",
+      "Template documents",
+      "Spreadsheet trackers"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Personalized content requires human review for tone and accuracy",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "events",
+      "follow-up",
+      "templates"
+    ]
+  },
+  {
+    "summary_id": 14,
+    "interaction_id": 14,
+    "organization_id": 3,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Grant Navigation Research at GreenTech Startup Hub. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed grant navigation research",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Grant navigation identified as time-intensive research task with no central system"
+    ],
+    "action_items": [
+      "Research grant tracking tools and explore structured opportunity database options"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
+    ],
+    "reusable_insights": [
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
+    ],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Research grant tracking tools and explore structured opportunity database options",
+    "suggested_follow_up_date": "2026-06-09",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "grants",
+      "research",
+      "navigation"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [],
+    "information_or_documents_used": [
+      "Public website pages"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI summary may miss eligibility exceptions",
+        "why": "Edge cases may not be documented in training or reference data",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Document eligibility rules explicitly and require human verification for exceptions"
+      }
+    ],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "grants",
+      "research",
+      "navigation"
+    ]
+  },
+  {
+    "summary_id": 15,
+    "interaction_id": 15,
+    "organization_id": 3,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Resource Directory Follow-up at GreenTech Startup Hub. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed resource directory follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Resource directory and question routing identified as knowledge management gaps"
+    ],
+    "action_items": [
+      "Evaluate resource directory platforms and draft knowledge base structure"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Evaluate resource directory platforms and draft knowledge base structure",
+    "suggested_follow_up_date": "2026-06-05",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "resources",
+      "knowledge-base",
+      "routing"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [],
+    "information_or_documents_used": [],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI-generated follow-up may overpromise services",
+        "why": "AI lacks awareness of actual service capacity and eligibility",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Include capacity constraints in AI context and require human review"
+      }
+    ],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "resources",
+      "knowledge-base",
+      "routing"
+    ]
+  },
+  {
+    "summary_id": 16,
+    "interaction_id": 16,
+    "organization_id": 4,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Workshop Scheduling Workflow at Grand River Arts Collective. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed workshop scheduling workflow",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Workshop scheduling identified as coordination-heavy manual process"
+    ],
+    "action_items": [
+      "Document current scheduling workflow and identify automation-safe steps"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [],
+    "reusable_insights": [
+      "Manual scheduling coordination is a predictable time sink that can be partially automated."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Document current scheduling workflow and identify automation-safe steps",
+    "suggested_follow_up_date": "2026-06-07",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "scheduling",
+      "workshop",
+      "coordination"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "manual"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Manual scheduling"
+    ],
+    "information_or_documents_used": [
+      "Past workshop notes",
+      "Program calendars"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Personalized content requires human review for tone and accuracy",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "scheduling",
+      "workshop",
+      "coordination"
+    ]
+  },
+  {
+    "summary_id": 17,
+    "interaction_id": 17,
+    "organization_id": 4,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Artist Communication Review at Grand River Arts Collective. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed artist communication review",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Artist communication identified as high-volume task with templating potential"
+    ],
+    "action_items": [
+      "Identify common communication patterns that could use flexible templates"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      },
+      {
+        "title": "Experienced staff carry undocumented process knowledge",
+        "description": "Key workflow knowledge resides with experienced staff and is not systematically captured or shared."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [
+      "Experienced staff judgment required for quality assurance"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Identify common communication patterns that could use flexible templates",
+    "suggested_follow_up_date": "2026-06-14",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "communication",
+      "artists",
+      "templates"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Template documents"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Community context awareness requires human oversight",
+      "Personalized content requires human review for tone and accuracy"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "communication",
+      "artists",
+      "templates"
+    ]
+  },
+  {
+    "summary_id": 18,
+    "interaction_id": 18,
+    "organization_id": 4,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Grant Documentation Process at Grand River Arts Collective. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed grant documentation process",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Grant documentation identified as high-effort recurring task with reusable content"
+    ],
+    "action_items": [
+      "Create grant content library with tagged reusable sections"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [],
+    "reusable_insights": [
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
+    ],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [
+      "Human review required for externally visible content"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Create grant content library with tagged reusable sections",
+    "suggested_follow_up_date": "2026-06-19",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "grants",
+      "documentation",
+      "content-reuse"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [],
+    "information_or_documents_used": [
+      "Previous grant reports"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "All AI-generated content requires human review before external use",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "grants",
+      "documentation",
+      "content-reuse"
+    ]
+  },
+  {
+    "summary_id": 19,
+    "interaction_id": 19,
+    "organization_id": 4,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Newsletter Content Research at Grand River Arts Collective. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed newsletter content research",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Newsletter production identified as time-intensive with structured content patterns"
+    ],
+    "action_items": [
+      "Map newsletter content categories and identify template opportunities"
+    ],
+    "risks_or_concerns": [
+      "AI-generated content may sound generic",
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [
+      "AI-generated content may sound generic",
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [
+      "Human review required for externally visible content"
+    ],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Map newsletter content categories and identify template opportunities",
+    "suggested_follow_up_date": "2026-06-25",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "newsletter",
+      "content",
+      "editing"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting"
+    ],
+    "information_or_documents_used": [],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "All AI-generated content requires human review before external use",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI output may sound too generic",
+        "why": "Template lacks personalization for specific context",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Include personalization fields and human review step"
+      }
+    ],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "newsletter",
+      "content",
+      "editing"
+    ]
+  },
+  {
+    "summary_id": 20,
+    "interaction_id": 20,
+    "organization_id": 4,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Exhibition Coordination Follow-up at Grand River Arts Collective. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed exhibition coordination follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Exhibition coordination identified as communication-heavy with process documentation gaps"
+    ],
+    "action_items": [
+      "Review exhibition checklist and explore collaborative documentation tools"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Review exhibition checklist and explore collaborative documentation tools",
+    "suggested_follow_up_date": "2026-07-01",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "exhibition",
+      "coordination",
+      "documentation"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [],
+    "repetitive_tasks_identified": [
+      "Email drafting"
+    ],
+    "information_or_documents_used": [],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "exhibition",
+      "coordination",
+      "documentation"
+    ]
+  },
+  {
+    "summary_id": 21,
+    "interaction_id": 21,
+    "organization_id": 5,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Intake Process Review at Region Youth Employment Network. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed intake process review",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Intake transcription identified as inefficient manual process with error risk"
+    ],
+    "action_items": [
+      "Explore digital intake options that preserve contextual notes"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Explore digital intake options that preserve contextual notes",
+    "suggested_follow_up_date": "2026-06-03",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "intake",
+      "data-entry",
+      "workflow"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [
+      "Manual transcription",
+      "Manual data entry",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Intake forms",
+      "Spreadsheet trackers"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Community context awareness requires human oversight",
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "intake",
+      "data-entry",
+      "workflow"
+    ]
+  },
+  {
+    "summary_id": 22,
+    "interaction_id": 22,
+    "organization_id": 5,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Employer Outreach Discussion at Region Youth Employment Network. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed employer outreach discussion",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Employer outreach follow-up identified as manual tracking overhead"
+    ],
+    "action_items": [
+      "Design employer outreach tracking system with automated check-in reminders"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      },
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
+    ],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Design employer outreach tracking system with automated check-in reminders",
+    "suggested_follow_up_date": "2026-06-12",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "employer",
+      "outreach",
+      "tracking"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming",
+      "manual"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Template documents",
+      "Approved email templates",
+      "Spreadsheet trackers"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Personalized content requires human review for tone and accuracy"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "employer",
+      "outreach",
+      "tracking"
+    ]
+  },
+  {
+    "summary_id": 23,
+    "interaction_id": 23,
+    "organization_id": 5,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Resume Workshop Follow-up at Region Youth Employment Network. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed resume workshop follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Workshop follow-up identified as high-volume task with template potential and personalization needs"
+    ],
+    "action_items": [
+      "Design workshop follow-up template with structured personalization fields"
+    ],
+    "risks_or_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff worry about increased expectations with AI"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      }
+    ],
+    "recommended_follow_up": "Design workshop follow-up template with structured personalization fields",
+    "suggested_follow_up_date": "2026-06-19",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "workshop",
+      "follow-up",
+      "templates"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [
+      "time-consuming"
+    ],
+    "repetitive_tasks_identified": [
+      "Email drafting",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [
+      "Template documents",
+      "Past workshop notes",
+      "Resource guides"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "AI-generated content requires human review"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "workshop",
+      "follow-up",
+      "templates"
+    ]
+  },
+  {
+    "summary_id": 24,
+    "interaction_id": 24,
+    "organization_id": 5,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Program Reporting Research at Region Youth Employment Network. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed program reporting research",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Program reporting identified as heavy manual compilation with data integration challenges"
+    ],
+    "action_items": [
+      "Audit data sources and explore integrated reporting approach"
+    ],
+    "risks_or_concerns": [],
+    "lessons_learned": [
+      {
+        "title": "Data fragmentation increases reporting effort",
+        "description": "When program data lives in disconnected spreadsheets, reporting requires significant manual compilation time."
+      }
+    ],
+    "reusable_insights": [
+      "Follow-up communication is a common high-effort pattern across programs that benefits from template support.",
+      "Grant reporting effort can be reduced through standardized data collection aligned with common metrics."
+    ],
+    "staff_concerns_or_adoption_concerns": [],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [
+      {
+        "title": "Follow-up Communication Workflow",
+        "when_to_use": "After any workshop, event, or meeting that requires participant follow-up",
+        "suggested_process": "1. Identify follow-up type (thank-you, resource share, next steps) 2. Select approved template 3. Personalize with participant-specific details 4. Human review 5. Send"
+      },
+      {
+        "title": "Grant Reporting Pipeline",
+        "when_to_use": "At the end of each reporting period or when grant report is due",
+        "suggested_process": "1. Extract data from program sources 2. Map to funder metrics 3. Draft narrative from structured inputs 4. Human review for context and accuracy 5. Submit"
+      }
+    ],
+    "recommended_follow_up": "Audit data sources and explore integrated reporting approach",
+    "suggested_follow_up_date": "2026-06-26",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "reporting",
+      "data",
+      "workflow"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [],
+    "repetitive_tasks_identified": [
+      "Report compilation",
+      "Follow-up email composition"
+    ],
+    "information_or_documents_used": [],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Community context awareness requires human oversight"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "reporting",
+      "data",
+      "workflow"
+    ]
+  },
+  {
+    "summary_id": 25,
+    "interaction_id": 25,
+    "organization_id": 5,
+    "created_at": "2026-06-23T13:52:32Z",
+    "updated_at": "2026-07-02T13:52:32Z",
+    "summary": "Summary of Youth Check-in Follow-up at Region Youth Employment Network. Key themes identified.",
+    "key_discussion_points": [
+      "Discussed youth check-in follow-up",
+      "Reviewed current workflow",
+      "Identified pain points and potential improvements"
+    ],
+    "decisions": [
+      "Check-in documentation identified as unstructured with knowledge-sharing gaps"
+    ],
+    "action_items": [
+      "Draft structured check-in template with privacy-aware fields"
+    ],
+    "risks_or_concerns": [
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Templates with human review balance efficiency and quality",
+        "description": "Approved templates with personalization fields reduce drafting time while maintaining quality through human review."
+      }
+    ],
+    "reusable_insights": [],
+    "staff_concerns_or_adoption_concerns": [
+      "Staff expressed concerns about AI impact",
+      "Privacy concerns about AI data handling"
+    ],
+    "human_judgment_points": [],
+    "knowledge_sharing_opportunities": [],
+    "playbook_candidates": [],
+    "recommended_follow_up": "Draft structured check-in template with privacy-aware fields",
+    "suggested_follow_up_date": "2026-07-03",
+    "suggested_next_email_type": "follow_up",
+    "suggested_tags": [
+      "check-in",
+      "documentation",
+      "privacy",
+      "knowledge-sharing"
+    ],
+    "follow_up_tasks": [],
+    "current_workflow": "Current workflow involves manual processes as described in the interaction notes.",
+    "workflow_pain_points": [],
+    "repetitive_tasks_identified": [],
+    "information_or_documents_used": [
+      "Template documents"
+    ],
+    "possible_ai_insertion_points": [],
+    "required_human_review": [
+      "Privacy and data handling requires human judgment"
+    ],
+    "missing_knowledge_or_data": [],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "AI may mishandle private or sensitive information",
+        "why": "AI cannot distinguish public vs internal-only information",
+        "missing_context": "AI lacks organization-specific operational context and edge-case knowledge",
+        "human_review_required": "Human must verify AI output before use or sharing",
+        "suggested_prevention": "Define data handling rules and require human review for privacy-sensitive content"
+      }
+    ],
+    "reusable_workflow_insights": [],
+    "workflow_tags": [
+      "check-in",
+      "documentation",
+      "privacy",
+      "knowledge-sharing"
+    ]
   }
 ]
