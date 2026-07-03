@@ -199,16 +199,14 @@ label { font-weight: 700; font-size: 14px; }
 .pq-filters label { font-size: 13px; color: #374151; display: flex; align-items: center; gap: 4px; }
 .pq-filters select { width: auto; margin: 0; padding: 6px; }
 .pq-table { table-layout: fixed; width: 100%; }
-.pq-table th:nth-child(1) { width: 13%; }
-.pq-table th:nth-child(2) { width: 8%; }
+.pq-table th:nth-child(1) { width: 15%; }
+.pq-table th:nth-child(2) { width: 7%; }
 .pq-table th:nth-child(3) { width: 8%; }
-.pq-table th:nth-child(4) { width: 7%; }
-.pq-table th:nth-child(5) { width: 5%; }
-.pq-table th:nth-child(6) { width: 7%; }
-.pq-table th:nth-child(7) { width: 18%; }
-.pq-table th:nth-child(8) { width: 8%; }
-.pq-table th:nth-child(9) { width: 26%; }
-.pq-table td, .pq-table th { word-wrap: break-word; }
+.pq-table th:nth-child(4) { width: 5%; }
+.pq-table th:nth-child(5) { width: 32%; }
+.pq-table th:nth-child(6) { width: 25%; }
+.pq-table th:nth-child(7) { width: 8%; }
+.pq-table td, .pq-table th { word-wrap: break-word; overflow-wrap: break-word; white-space: normal; }
 .pq-reason { font-size: 12px; color: #6b7280; }
 .fu-filters { display: flex; flex-wrap: wrap; gap: 12px; margin: 12px 0 16px; align-items: center; }
 .fu-filters label { font-size: 13px; color: #374151; display: flex; align-items: center; gap: 4px; }
@@ -259,14 +257,21 @@ label { font-weight: 700; font-size: 14px; }
 #lessons-section { margin-top: 20px; border-top: 2px solid #e5e7eb; padding-top: 12px; }
 #playbook-section { margin-top: 20px; border-top: 2px solid #e5e7eb; padding-top: 12px; }
 .lesson-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 8px 0; background: #fafafa; }
-.wf-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; margin: 10px 0; background: #fafafa; border-left: 3px solid #f59e0b; }
-.wf-header { display: flex; justify-content: space-between; align-items: start; gap: 8px; margin-bottom: 8px; }
-.wf-header strong { font-size: 15px; color: #1f2937; }
-.wf-status { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: #e5e7eb; color: #374151; white-space: nowrap; }
-.wf-section { margin: 6px 0; font-size: 14px; line-height: 1.5; color: #4b5563; }
-.wf-section strong { color: #374151; }
-.wf-section ul { margin: 4px 0; padding-left: 18px; }
-.wf-section li { margin: 2px 0; }
+/* ---- Workflow Opportunities Grid ---- */
+.wf-scroll { overflow-x: auto; margin: 10px 0; }
+.wf-table { display: grid; grid-template-columns: minmax(150px, 1.2fr) minmax(170px, 1.4fr) minmax(170px, 1.4fr) minmax(170px, 1.4fr) minmax(120px, 0.8fr) minmax(100px, 0.5fr) minmax(70px, 0.4fr) minmax(80px, 0.4fr); border: 1px solid #d1d5db; border-radius: 8px; background: #fafafa; min-width: 640px; }
+.wf-header-row { background: #f3f4f6; font-weight: 600; font-size: 13px; color: #374151; border-bottom: 2px solid #d1d5db; }
+.wf-row { display: contents; }
+.wf-row:not(.wf-header-row) .wf-cell { border-bottom: 1px solid #e5e7eb; }
+.wf-row:last-child .wf-cell { border-bottom: none; }
+.wf-cell { padding: 10px 8px; font-size: 13px; line-height: 1.5; color: #4b5563; word-wrap: break-word; overflow-wrap: break-word; }
+.wf-cell-title strong { font-size: 14px; color: #1f2937; }
+.wf-status { display: inline-block; font-size: 11px; font-weight: 600; padding: 1px 7px; border-radius: 10px; background: #e5e7eb; color: #374151; white-space: nowrap; vertical-align: middle; margin-left: 4px; }
+.wf-kv { margin: 2px 0; }
+.wf-kv-label { font-weight: 600; color: #374151; font-size: 12px; }
+.wf-kv-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 2px; }
+.wf-mini-list { margin: 2px 0; padding-left: 14px; font-size: 12px; }
+.wf-mini-list li { margin: 1px 0; }
 .ks-item { padding: 10px; margin: 6px 0; border: 1px solid #e5e7eb; border-radius: 6px; background: #fafafa; display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
 .ks-type-badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: #dbeafe; color: #1e40af; }
 .fc-card { border: 1px solid #e5e7eb; border-radius: 8px; padding: 14px; margin: 10px 0; background: #fafafa; border-left: 3px solid #ef4444; }
@@ -355,4 +360,7 @@ label { font-weight: 700; font-size: 14px; }
   .demo-draft-header, .demo-review-grid { display: block; }
   .discovery-form { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .pq-table { table-layout: auto; }
 }

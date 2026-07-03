@@ -320,30 +320,48 @@ async function loadWorkflowOpps() {
       renderOrgInsights();
       return;
     }
-    el.innerHTML = opps.map(o => `
-      <article class="wf-card">
-        <div class="wf-header">
-          <strong>${escapeHtml(o.title)}</strong>
-          <span class="wf-status ${o.status ? 'wf-status--' + o.status.replace(/\\s+/g, '-').toLowerCase() : ''}">${escapeHtml(o.status || "Identified")}</span>
+    const rows = opps.map(o => {
+      const statusClass = o.status ? 'wf-status--' + o.status.replace(/\s+/g, '-').toLowerCase() : '';
+      const knowledgeHtml = o.knowledge_sources_needed && o.knowledge_sources_needed.length
+        ? `<div class="wf-kv"><span class="wf-kv-label">Sources:</span><div class="wf-kv-tags">${o.knowledge_sources_needed.map(s => `<span class="int-tag">${escapeHtml(s)}</span>`).join(" ")}</div></div>` : "";
+      const reviewHtml = o.human_review_points && o.human_review_points.length
+        ? `<div class="wf-kv"><span class="wf-kv-label">Review:</span><ul class="wf-mini-list">${o.human_review_points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>` : "";
+      const risksHtml = o.risks_or_exceptions && o.risks_or_exceptions.length
+        ? `<div class="wf-kv"><span class="wf-kv-label">Risks:</span><ul class="wf-mini-list">${o.risks_or_exceptions.map(r => `<li>${escapeHtml(r)}</li>`).join("")}</ul></div>` : "";
+      const failuresHtml = o.known_failure_cases && o.known_failure_cases.length
+        ? `<div class="wf-kv"><span class="wf-kv-label">Failure cases:</span><ul class="wf-mini-list">${o.known_failure_cases.map(f => `<li>${escapeHtml(f)}</li>`).join("")}</ul></div>` : "";
+      const questionsHtml = o.next_discovery_questions && o.next_discovery_questions.length
+        ? `<ul class="wf-mini-list">${o.next_discovery_questions.map(q => `<li>${escapeHtml(q)}</li>`).join("")}</ul>` : '<span class="muted">—</span>';
+      const staffHtml = o.staff_impact ? escapeHtml(o.staff_impact) : '<span class="muted">—</span>';
+      const riskLevel = o.adoption_risk_level && o.adoption_risk_level !== 'Unknown' ? escapeHtml(o.adoption_risk_level) : '';
+      const evidenceHtml = o.evidence_count ? `<span class="muted">${o.evidence_count} interaction(s)</span>` : '';
+      return `<div class="wf-row">
+        <div class="wf-cell wf-cell-title"><strong>${escapeHtml(o.title)}</strong> <span class="wf-status ${statusClass}">${escapeHtml(o.status || "Identified")}</span></div>
+        <div class="wf-cell wf-cell-process">${escapeHtml(o.current_process)}</div>
+        <div class="wf-cell wf-cell-pain">${escapeHtml(o.pain_point)}</div>
+        <div class="wf-cell wf-cell-ai">${escapeHtml(o.possible_ai_support)}</div>
+        <div class="wf-cell wf-cell-questions">${questionsHtml}</div>
+        <div class="wf-cell wf-cell-details">${knowledgeHtml}${reviewHtml}${risksHtml}${failuresHtml}</div>
+        <div class="wf-cell wf-cell-staffrisk">${staffHtml}${riskLevel ? ` <span class="int-tag">${riskLevel}</span>` : ''}</div>
+        <div class="wf-cell wf-cell-meta">${evidenceHtml}${o.source_interaction_title ? `<br><span class="muted">${escapeHtml(o.source_interaction_title)}</span>` : ''}</div>
+      </div>`;
+    }).join("");
+    el.innerHTML = `
+      <div class="wf-scroll">
+        <div class="wf-table">
+          <div class="wf-row wf-header-row">
+            <div class="wf-cell">Title</div>
+            <div class="wf-cell">Current Process</div>
+            <div class="wf-cell">Pain Point</div>
+            <div class="wf-cell">AI Support</div>
+            <div class="wf-cell">Discovery Questions</div>
+            <div class="wf-cell">Knowledge &amp; Review</div>
+            <div class="wf-cell">Staff &amp; Risk</div>
+            <div class="wf-cell">Source &amp; Evidence</div>
+          </div>
+          ${rows}
         </div>
-        <div class="wf-section"><strong>Current process:</strong> ${escapeHtml(o.current_process)}</div>
-        <div class="wf-section"><strong>Pain point:</strong> ${escapeHtml(o.pain_point)}</div>
-        <div class="wf-section"><strong>Possible AI support:</strong> ${escapeHtml(o.possible_ai_support)}</div>
-        ${o.knowledge_sources_needed && o.knowledge_sources_needed.length ? `<div class="wf-section"><strong>Knowledge sources needed:</strong> ${o.knowledge_sources_needed.map(s => `<span class="int-tag">${escapeHtml(s)}</span>`).join(" ")}</div>` : ""}
-        ${o.human_review_points && o.human_review_points.length ? `<div class="wf-section"><strong>Human review points:</strong><ul>${o.human_review_points.map(p => `<li>${escapeHtml(p)}</li>`).join("")}</ul></div>` : ""}
-        ${o.risks_or_exceptions && o.risks_or_exceptions.length ? `<div class="wf-section"><strong>Risks / exceptions:</strong><ul>${o.risks_or_exceptions.map(r => `<li>${escapeHtml(r)}</li>`).join("")}</ul></div>` : ""}
-        ${o.staff_impact ? `<div class="wf-section"><strong>Staff impact:</strong> ${escapeHtml(o.staff_impact)}</div>` : ""}
-        ${o.adoption_risk_level && o.adoption_risk_level !== 'Unknown' ? `<div class="wf-section"><strong>Adoption risk level:</strong> <span class="int-tag">${escapeHtml(o.adoption_risk_level)}</span></div>` : ""}
-        ${o.next_discovery_questions && o.next_discovery_questions.length ? `<div class="wf-section"><strong>Next discovery questions:</strong><ul>${o.next_discovery_questions.map(q => `<li>${escapeHtml(q)}</li>`).join("")}</ul></div>` : ""}
-        ${o.known_failure_cases && o.known_failure_cases.length ? `<div class="wf-section"><strong>Known failure cases:</strong><ul>${o.known_failure_cases.map(f => `<li>${escapeHtml(f)}</li>`).join("")}</ul></div>` : ""}
-        <div class="lesson-meta">
-          <span class="muted">Source: ${escapeHtml(o.source_interaction_title)}</span>
-          ${o.evidence_count ? `<span class="muted">Seen in ${o.evidence_count} interaction(s)</span>` : ""}
-          <a href="/adoption-principles" class="ap-related-link" onclick="navigateTo('/adoption-principles'); return false;">Related principle</a>
-          ${o.tags && o.tags.length ? `<div class="lesson-tags">${o.tags.map(t => `<span class="int-tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
-        </div>
-      </article>
-    `).join("");
+      </div>`;
     renderOrgInsights();
   } catch (error) {
     el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
