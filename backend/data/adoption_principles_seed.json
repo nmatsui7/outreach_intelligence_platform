@@ -1,0 +1,122 @@
+[
+  {
+    "title": "Workload and Recognition Trap",
+    "summary": "AI adoption fails when efficiency gains increase workload without recognition, role redesign, or evaluation changes.",
+    "category": "incentives_and_evaluation",
+    "source_note_id": 1,
+    "source_note_title": "AI Adoption Note 1",
+    "evidence_excerpt": "Efficiency gains that merely increase workload without adjusting recognition or evaluation create resistance and burnout.",
+    "applies_to": ["workflow_opportunity_extraction", "human_system_notes", "future_adoption_planning"],
+    "recommended_use": "Consider when evaluating proposed workflow opportunities for their impact on staff workload and recognition."
+  },
+  {
+    "title": "Connect Improvement to Evaluation",
+    "summary": "AI-enabled improvement should be connected to evaluation, recognition, or knowledge-sharing value.",
+    "category": "incentives_and_evaluation",
+    "source_note_id": 1,
+    "source_note_title": "AI Adoption Note 1",
+    "evidence_excerpt": "Staff are more likely to adopt AI when improved outcomes are reflected in evaluations or shared as knowledge contributions.",
+    "applies_to": ["human_system_notes", "workflow_step_analysis", "future_adoption_planning"],
+    "recommended_use": "Reference when designing adoption risk notes or human-system notes that address incentives."
+  },
+  {
+    "title": "Train on Real Workflows, Not Tools",
+    "summary": "AI training should focus on changing real workflows, not only teaching tool usage.",
+    "category": "training_design",
+    "source_note_id": 1,
+    "source_note_title": "AI Adoption Note 1",
+    "evidence_excerpt": "Training that only teaches tool operation without addressing workflow changes has limited adoption impact.",
+    "applies_to": ["workflow_step_analysis", "future_adoption_planning"],
+    "recommended_use": "Reference when workflow opportunities include training recommendations."
+  },
+  {
+    "title": "Structured Knowledge Sources Required",
+    "summary": "Effective AI workflows require structured, searchable, reliable knowledge sources.",
+    "category": "knowledge_sources",
+    "source_note_id": 2,
+    "source_note_title": "AI Adoption Note 2",
+    "evidence_excerpt": "Without organized knowledge sources, AI-assisted workflows produce inconsistent or unreliable outputs.",
+    "applies_to": ["knowledge_source_extraction", "workflow_opportunity_extraction"],
+    "recommended_use": "Apply when extracting knowledge sources from interaction notes or evaluating workflow feasibility."
+  },
+  {
+    "title": "Document Failure Cases for Human Review Boundaries",
+    "summary": "Failure cases and exceptions should be documented because they define where human review is needed.",
+    "category": "failure_cases",
+    "source_note_id": 2,
+    "source_note_title": "AI Adoption Note 2",
+    "evidence_excerpt": "Known failure modes and edge cases clarify where automated processes require human judgment and oversight.",
+    "applies_to": ["failure_case_extraction", "human_system_notes"],
+    "recommended_use": "Reference when extracting failure cases from interaction notes or defining human review boundaries."
+  },
+  {
+    "title": "Start with Small Repeated Workflow Wins",
+    "summary": "AI adoption should usually start with small, repeated workflow-efficiency opportunities before broad automation or revenue-focused projects.",
+    "category": "pilot_selection",
+    "source_note_id": 2,
+    "source_note_title": "AI Adoption Note 2",
+    "evidence_excerpt": "Starting with small, repetitive, low-risk workflow improvements builds confidence and demonstrates value before scaling.",
+    "applies_to": ["workflow_opportunity_extraction", "workflow_step_analysis", "future_adoption_planning"],
+    "recommended_use": "Consider when prioritizing workflow opportunities or recommending pilot candidates."
+  },
+  {
+    "title": "Experienced Staff Guide AI Design",
+    "summary": "Experienced staff should guide AI workflow design because they can judge whether outputs are useful and correct.",
+    "category": "human_system",
+    "source_note_id": 3,
+    "source_note_title": "AI Adoption Note 3",
+    "evidence_excerpt": "Staff with deep domain knowledge are best positioned to evaluate AI outputs and guide workflow integration.",
+    "applies_to": ["workflow_opportunity_extraction", "human_system_notes", "future_adoption_planning"],
+    "recommended_use": "Reference when workflow opportunities include staff roles or when designing human-system notes."
+  },
+  {
+    "title": "AI Captures Experienced Staff Knowledge",
+    "summary": "AI should support experienced workers by helping turn their knowledge into repeatable workflows.",
+    "category": "workflow_analysis",
+    "source_note_id": 3,
+    "source_note_title": "AI Adoption Note 3",
+    "evidence_excerpt": "AI tools can help encode expert knowledge into standardized, repeatable processes that less experienced staff can follow.",
+    "applies_to": ["workflow_opportunity_extraction", "workflow_step_analysis"],
+    "recommended_use": "Reference when extracting workflow opportunities that involve knowledge capture or process documentation."
+  },
+  {
+    "title": "Scale Proven Patterns, Not Zero-to-Strategy",
+    "summary": "AI is better for scaling proven patterns than creating strategy from zero.",
+    "category": "human_system",
+    "source_note_id": 3,
+    "source_note_title": "AI Adoption Note 3",
+    "evidence_excerpt": "AI supplements rather than replaces human judgment for strategic or creative work that requires contextual understanding.",
+    "applies_to": ["workflow_opportunity_extraction", "human_system_notes", "future_adoption_planning"],
+    "recommended_use": "Consider when evaluating whether a proposed AI use case is appropriate for the current maturity level."
+  },
+  {
+    "title": "Decompose Workflows Before Choosing Tools",
+    "summary": "Workflows should be decomposed into smaller steps before deciding whether each step belongs to generative AI, browser automation, OCR, database search, templates, or human judgment.",
+    "category": "tool_selection",
+    "source_note_id": 4,
+    "source_note_title": "AI Adoption Note 4",
+    "evidence_excerpt": "Different workflow steps are best served by different tools — decomposition reveals which approach fits each step.",
+    "applies_to": ["workflow_step_analysis", "workflow_opportunity_extraction", "future_adoption_planning"],
+    "recommended_use": "Reference when analyzing workflow steps or designing AI-supported processes."
+  },
+  {
+    "title": "Generative AI Is Not Always the Right Tool",
+    "summary": "Generative AI is not always the right tool; some workflow steps may require non-AI automation or specialized tools.",
+    "category": "tool_selection",
+    "source_note_id": 4,
+    "source_note_title": "AI Adoption Note 4",
+    "evidence_excerpt": "Over-applying generative AI to steps better served by simpler automation creates unnecessary complexity and risk.",
+    "applies_to": ["workflow_opportunity_extraction", "workflow_step_analysis"],
+    "recommended_use": "Consider when evaluating proposed AI insertion points — not every workflow step needs generative AI."
+  },
+  {
+    "title": "Human Review for High-Stakes Work",
+    "summary": "Human review should remain explicit for externally visible, quality-sensitive, private, or judgment-heavy work.",
+    "category": "human_review",
+    "source_note_id": 4,
+    "source_note_title": "AI Adoption Note 4",
+    "evidence_excerpt": "Maintaining explicit human review for high-stakes decisions preserves quality, privacy, and accountability.",
+    "applies_to": ["failure_case_extraction", "human_system_notes", "knowledge_source_extraction", "future_adoption_planning"],
+    "recommended_use": "Reference when extracting failure cases, designing human-system notes, or defining human review requirements."
+  }
+]

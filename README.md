@@ -569,6 +569,37 @@ Each provider implements the same method interface. `LocalLlmProvider` uses `cal
 The `derive_status_from_interactions` function is purely rule-based and uses mock logic regardless of provider.
 
 
+## Adoption Principles Knowledge Base
+
+The app stores reusable AI adoption principles derived from research notes. These principles help frame how interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future adoption-planning inputs.
+
+The knowledge base is stored in `backend/data/adoption_principles.json` and seeded from `backend/data/adoption_principles_seed.json`. Principles are organized by category and tagged with the workflow areas they apply to.
+
+### Categories
+
+- **Workflow Analysis** — Principles for understanding and decomposing workflows
+- **Human System** — Principles about staff roles, expertise, and adoption readiness
+- **Incentives & Evaluation** — Principles connecting AI adoption to recognition and evaluation
+- **Knowledge Sources** — Principles about knowledge organization for AI workflows
+- **Failure Cases** — Principles about documenting exceptions and human review boundaries
+- **Pilot Selection** — Principles for choosing initial AI adoption opportunities
+- **Training Design** — Principles for effective AI training
+- **Tool Selection** — Principles for choosing between generative AI and other tools
+- **Human Review** — Principles about preserving human judgment for sensitive work
+
+### API
+
+- `GET /api/adoption-principles` — List all principles
+- `GET /api/adoption-principles?category=...` — Filter by category
+- `GET /api/adoption-principles/{id}` — Get a single principle
+
+### UI
+
+A dedicated **Adoption Principles** page displays all principles grouped by category. This page is mainly for transparency — it shows the logic the app uses when interpreting interaction notes.
+
+The principles are also referenced in workflow opportunity cards, knowledge source descriptions, failure case entries, and human-system notes where relevant, linking extracted intelligence back to the underlying adoption methodology.
+
+
 ## Future Development
 
 Future work should use the workflow transformation knowledge already captured by the app.

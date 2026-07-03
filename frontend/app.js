@@ -27,7 +27,7 @@ function showError(message) {
 }
 
 function setActivePage(pathname = window.location.pathname) {
-  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/workflow-opportunities", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox"];
+  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/workflow-opportunities", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox", "/adoption-principles"];
   const route = known.includes(pathname) ? pathname : "/";
   const pageMap = {
     "/": "crm-page",
@@ -41,6 +41,7 @@ function setActivePage(pathname = window.location.pathname) {
     "/follow-ups": "follow-ups-page",
     "/knowledge-search": "knowledge-search-page",
     "/demo-outbox": "demo-outbox-page",
+    "/adoption-principles": "adoption-principles-page",
   };
 
   Object.values(pageMap).forEach(pageId => {
@@ -329,6 +330,8 @@ async function loadWorkflowOpps() {
         ${o.known_failure_cases && o.known_failure_cases.length ? `<div class="wf-section"><strong>Known failure cases:</strong><ul>${o.known_failure_cases.map(f => `<li>${escapeHtml(f)}</li>`).join("")}</ul></div>` : ""}
         <div class="lesson-meta">
           <span class="muted">Source: ${escapeHtml(o.source_interaction_title)}</span>
+          ${o.evidence_count ? `<span class="muted">Seen in ${o.evidence_count} interaction(s)</span>` : ""}
+          <a href="/adoption-principles" class="ap-related-link" onclick="navigateTo('/adoption-principles'); return false;">Related principle</a>
           ${o.tags && o.tags.length ? `<div class="lesson-tags">${o.tags.map(t => `<span class="int-tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
         </div>
       </article>
@@ -359,6 +362,8 @@ async function loadKnowledgeSources() {
         <strong>${escapeHtml(s.name)}</strong>
         ${s.description ? `<p class="muted">${escapeHtml(s.description)}</p>` : ""}
         ${s.location_note ? `<p class="muted">${escapeHtml(s.location_note)}</p>` : ""}
+        ${s.evidence_count ? `<span class="muted">Seen in ${s.evidence_count} interaction(s)</span>` : ""}
+        <a href="/adoption-principles" class="ap-related-link" onclick="navigateTo('/adoption-principles'); return false;">Related principle</a>
       </div>
     `).join("");
     renderOrgInsights();
@@ -392,6 +397,8 @@ async function loadFailureCases() {
         <div class="fc-section"><strong>Suggested prevention:</strong> ${escapeHtml(fc.suggested_prevention)}</div>
         <div class="lesson-meta">
           <span class="muted">Source: ${escapeHtml(fc.source_interaction_title)}</span>
+          ${fc.evidence_count ? `<span class="muted">Seen in ${fc.evidence_count} interaction(s)</span>` : ""}
+          <a href="/adoption-principles" class="ap-related-link" onclick="navigateTo('/adoption-principles'); return false;">Related principle</a>
           ${fc.tags && fc.tags.length ? `<div class="lesson-tags">${fc.tags.map(t => `<span class="int-tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
         </div>
       </article>
@@ -427,6 +434,8 @@ async function loadAdoptionRisks() {
         ${ar.suggested_mitigation ? `<div class="ar-section"><strong>Suggested mitigation:</strong> ${escapeHtml(ar.suggested_mitigation)}</div>` : ""}
         <div class="lesson-meta">
           <span class="muted">Source: ${escapeHtml(ar.source_interaction_title)}</span>
+          ${ar.evidence_count ? `<span class="muted">Seen in ${ar.evidence_count} interaction(s)</span>` : ""}
+          <a href="/adoption-principles" class="ap-related-link" onclick="navigateTo('/adoption-principles'); return false;">Related principle</a>
           ${ar.tags && ar.tags.length ? `<div class="lesson-tags">${ar.tags.map(t => `<span class="int-tag">${escapeHtml(t)}</span>`).join("")}</div>` : ""}
         </div>
       </article>
@@ -587,7 +596,86 @@ function renderOrganizationalKnowledge(knowledge) {
 }
 
 function dispatchPage(route) {
-  document.querySelectorAll(".main-nav a").forEach(link => {
+// ---- Adoption Principles ----
+
+async function loadAdoptionPrinciples() {
+  const contentEl = document.getElementById("adoption-principles-content");
+  const loadingEl = document.getElementById("adoption-principles-loading");
+  const errorEl = document.getElementById("adoption-principles-error");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  errorEl.classList.add("hidden");
+  try {
+    const data = await api("/api/adoption-principles");
+    renderAdoptionPrinciples(data);
+  } catch (err) {
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  } finally {
+    loadingEl.classList.add("hidden");
+  }
+}
+
+function renderAdoptionPrinciples(principles) {
+  const el = document.getElementById("adoption-principles-content");
+  if (!principles.length) {
+    el.innerHTML = '<p class="muted">No adoption principles loaded yet.</p>';
+    return;
+  }
+
+  const categories = {};
+  const labels = {
+    workflow_analysis: "Workflow Analysis",
+    human_system: "Human System",
+    incentives_and_evaluation: "Incentives & Evaluation",
+    knowledge_sources: "Knowledge Sources",
+    failure_cases: "Failure Cases",
+    pilot_selection: "Pilot Selection",
+    training_design: "Training Design",
+    tool_selection: "Tool Selection",
+    human_review: "Human Review",
+  };
+
+  for (const p of principles) {
+    const cat = p.category || "uncategorized";
+    if (!categories[cat]) categories[cat] = [];
+    categories[cat].push(p);
+  }
+
+  let html = "";
+  const catOrder = [
+    "workflow_analysis", "human_system", "incentives_and_evaluation",
+    "knowledge_sources", "failure_cases", "pilot_selection",
+    "training_design", "tool_selection", "human_review",
+  ];
+
+  for (const cat of catOrder) {
+    const items = categories[cat];
+    if (!items || !items.length) continue;
+    const label = labels[cat] || cat;
+    html += `<section class="ap-category"><h3>${escapeHtml(label)}</h3>`;
+    for (const p of items) {
+      const appliesTo = (p.applies_to || []).join(", ");
+      html += `<article class="ap-card">
+        <h4>${escapeHtml(p.title)}</h4>
+        <p class="ap-summary">${escapeHtml(p.summary)}</p>
+        ${p.evidence_excerpt ? `<blockquote class="ap-excerpt">${escapeHtml(p.evidence_excerpt)}</blockquote>` : ""}
+        <div class="ap-meta">
+          ${p.recommended_use ? `<span class="ap-use"><strong>Use:</strong> ${escapeHtml(p.recommended_use)}</span>` : ""}
+          ${appliesTo ? `<span class="ap-applies"><strong>Applies to:</strong> ${escapeHtml(appliesTo)}</span>` : ""}
+          ${p.source_note_title ? `<span class="ap-source"><strong>Source:</strong> ${escapeHtml(p.source_note_title)}</span>` : ""}
+        </div>
+      </article>`;
+    }
+    html += `</section>`;
+  }
+
+  el.innerHTML = html;
+}
+
+// ---- End Adoption Principles ----
+
+document.querySelectorAll(".main-nav a").forEach(link => {
     link.classList.toggle("active", link.dataset.route === route);
   });
 
@@ -608,6 +696,9 @@ function dispatchPage(route) {
   }
   if (route === "/demo-outbox") {
     loadDemoOutboxPage();
+  }
+  if (route === "/adoption-principles") {
+    loadAdoptionPrinciples();
   }
 }
 

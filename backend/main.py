@@ -85,6 +85,11 @@ try:
         delete_adoption_risk_note,
         auto_save_adoption_risk_notes_from_summary,
     )
+    from app.services.adoption_principles import (
+        get_all as get_principles_all,
+        get_by_id as get_principles_by_id,
+        get_by_category as get_principles_by_category,
+    )
 except ModuleNotFoundError:
     from backend.app.connectors.local_json import LocalJsonCRMConnector
     from backend.app.models import (
@@ -164,6 +169,11 @@ except ModuleNotFoundError:
         update_adoption_risk_note,
         delete_adoption_risk_note,
         auto_save_adoption_risk_notes_from_summary,
+    )
+    from backend.app.services.adoption_principles import (
+        get_all as get_principles_all,
+        get_by_id as get_principles_by_id,
+        get_by_category as get_principles_by_category,
     )
 
 app = FastAPI(title="Outreach Intelligence Platform")
@@ -944,6 +954,21 @@ def outreach_recommendation(organization_id: int):
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
     return compute_outreach_recommendation(org)
+
+
+@app.get("/api/adoption-principles")
+def list_principles(category: str = None):
+    if category:
+        return get_principles_by_category(category)
+    return get_principles_all()
+
+
+@app.get("/api/adoption-principles/{principle_id}")
+def get_principle(principle_id: int):
+    p = get_principles_by_id(principle_id)
+    if not p:
+        raise HTTPException(status_code=404, detail="Principle not found")
+    return p
 
 
 @app.get("/api/tasks")
