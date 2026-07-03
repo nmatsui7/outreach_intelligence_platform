@@ -1259,6 +1259,11 @@ INDEX_FILE = FRONTEND_DIR / "index.html"
 @app.get("/adoption-planner")
 @app.get("/pilot-plans")
 @app.get("/success-metrics")
+@app.get("/adoption-principles")
+@app.get("/research")
+@app.get("/intelligence")
+@app.get("/adoption")
+@app.get("/queue")
 def serve_frontend_page():
     return FileResponse(INDEX_FILE, headers={"Cache-Control": "no-cache"})
 

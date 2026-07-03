@@ -14,19 +14,13 @@
     <span class="safe">Demo mode: no real email sending</span>
     <nav class="main-nav" aria-label="Main navigation">
       <a href="/" data-route="/">CRM Workspace</a>
-      <a href="/research-intake" data-route="/research-intake">Research Intake</a>
-      <a href="/organization-discovery" data-route="/organization-discovery">Organization Discovery</a>
-      <a href="/knowledge-search" data-route="/knowledge-search">Knowledge Search</a>
-      <a href="/workflow-opportunities" data-route="/workflow-opportunities">Workflow Opportunities</a>
+      <a href="/research" data-route="/research">Research</a>
+      <a href="/intelligence" data-route="/intelligence">Intelligence</a>
+      <a href="/adoption" data-route="/adoption">Adoption Planning</a>
+      <a href="/analytics" data-route="/analytics">Insights</a>
       <a href="/demo-outbox" data-route="/demo-outbox">Demo Outbox</a>
-      <a href="/analytics" data-route="/analytics">Workflow Insights</a>
-      <a href="/data-tools" data-route="/data-tools">Data Tools</a>
-      <a href="/adoption-principles" data-route="/adoption-principles">Adoption Principles</a>
-      <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
-      <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
-      <a href="/adoption-planner" data-route="/adoption-planner">Adoption Planner</a>
-      <a href="/pilot-plans" data-route="/pilot-plans">Pilot Plans</a>
-      <a href="/success-metrics" data-route="/success-metrics">Success Metrics</a>
+      <a href="/queue" data-route="/queue">Queue</a>
+      <a href="/data-tools" data-route="/data-tools">Data</a>
       <a href="/integrations" data-route="/integrations">Settings</a>
     </nav>
   </header>
@@ -45,7 +39,7 @@
 
         <section class="panel detail-panel">
           <h2 id="detail-title">Select an organization</h2>
-          <div id="details-empty" class="muted">Choose a target organization to view outreach intelligence.</div>
+          <div id="details-empty" class="muted">Choose an organization to view details and AI-assisted insights.</div>
 
           <div id="organization-detail-tabs" class="org-tabs hidden">
             <div class="tab-list" role="tablist" aria-label="Organization detail sections">
@@ -55,7 +49,7 @@
               <button class="tab-button" data-org-tab="workflow" onclick="showOrgTab('workflow')">Workflow Opportunities</button>
               <button class="tab-button" data-org-tab="knowledge" onclick="showOrgTab('knowledge')">Knowledge Sources</button>
               <button class="tab-button" data-org-tab="failure" onclick="showOrgTab('failure')">Failure Cases</button>
-              <button class="tab-button" data-org-tab="human" onclick="showOrgTab('human')">Human System</button>
+              <button class="tab-button" data-org-tab="human" onclick="showOrgTab('human')">Adoption Risks</button>
               <button class="tab-button" data-org-tab="adoption-plan" onclick="showOrgTab('adoption-plan')">Adoption Plan</button>
               <button class="tab-button" data-org-tab="insights" onclick="showOrgTab('insights')">Insights</button>
             </div>
@@ -73,21 +67,21 @@
             <section id="org-tab-ai-assistant" class="tab-panel">
               <div class="ai-safety-note">AI-assisted outputs are drafts or recommendations only. Human review is required before any outreach or implementation decision.</div>
 
-              <div class="ai-action-groups">
+                <div class="ai-action-groups">
                 <div class="ai-action-group">
                   <h3>Organization Analysis</h3>
                   <div class="ai-action-cards">
-                    <button class="ai-action-card" onclick="loadSummary()">
+                    <button class="ai-action-card" data-tool="summary" onclick="loadSummary()">
                       <span class="ai-action-icon">&#x1F4CB;</span>
                       <span class="ai-action-label">AI Summary</span>
                       <span class="ai-action-desc">Generate structured summary from latest interactions</span>
                     </button>
-                    <button class="ai-action-card" onclick="loadOpportunities()">
+                    <button class="ai-action-card" data-tool="opportunities" onclick="loadOpportunities()">
                       <span class="ai-action-icon">&#x1F50D;</span>
                       <span class="ai-action-label">AI Opportunity Analysis</span>
                       <span class="ai-action-desc">Identify workflow opportunities and AI support areas</span>
                     </button>
-                    <button class="ai-action-card" onclick="loadReadinessAssessment()">
+                    <button class="ai-action-card" data-tool="readiness" onclick="loadReadinessAssessment()">
                       <span class="ai-action-icon">&#x1F9E0;</span>
                       <span class="ai-action-label">AI Readiness Assessment</span>
                       <span class="ai-action-desc">Evaluate organization readiness for AI adoption</span>
@@ -98,12 +92,12 @@
                 <div class="ai-action-group">
                   <h3>Outreach Support</h3>
                   <div class="ai-action-cards">
-                    <button class="ai-action-card" onclick="generateNextBestEmail()">
+                    <button class="ai-action-card" data-tool="email" onclick="generateNextBestEmail()">
                       <span class="ai-action-icon">&#x2709;&#xFE0F;</span>
                       <span class="ai-action-label">Next Best Email</span>
                       <span class="ai-action-desc">Generate a context-aware email draft for human review</span>
                     </button>
-                    <button class="ai-action-card" onclick="loadOutreachRecommendation()">
+                    <button class="ai-action-card" data-tool="outreach_recommendation" onclick="loadOutreachRecommendation()">
                       <span class="ai-action-icon">&#x1F4AC;</span>
                       <span class="ai-action-label">Outreach Recommendation</span>
                       <span class="ai-action-desc">Get recommended next action and collaboration angles</span>
@@ -114,7 +108,7 @@
                 <div class="ai-action-group">
                   <h3>Meeting Support</h3>
                   <div class="ai-action-cards">
-                    <button class="ai-action-card" onclick="loadMeetingBrief()">
+                    <button class="ai-action-card" data-tool="meeting_brief" onclick="loadMeetingBrief()">
                       <span class="ai-action-icon">&#x1F4DD;</span>
                       <span class="ai-action-label">Meeting Brief</span>
                       <span class="ai-action-desc">Prepare a brief with context, discussion points, and questions</span>
@@ -123,54 +117,9 @@
                 </div>
               </div>
 
+              <div id="ai-assistant-empty" class="ai-assistant-empty">Select an AI Assistant tool to generate or view a result for this organization.</div>
+
               <div id="ai-output" class="output"></div>
-
-              <section id="knowledge-summary-section" class="hidden">
-                <h3>Workflow Intelligence Summary</h3>
-                <button onclick="loadKnowledgeSummary()">Refresh Workflow Intelligence</button>
-                <div id="knowledge-summary-output" class="output"></div>
-              </section>
-
-              <section id="readiness-section" class="hidden">
-                <h3>AI Readiness Assessment</h3>
-                <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
-                <div id="readiness-output" class="output"></div>
-              </section>
-
-              <section id="draft-section" class="hidden">
-                <h3>Next Best Email</h3>
-                <div id="email-type-badge" class="email-type-badge"></div>
-                <span id="email-detected-stage" class="email-detected-stage"></span>
-                <p id="email-reason" class="email-reason muted"></p>
-                <div id="email-missing-context" class="missing-context hidden"></div>
-                <label>To</label>
-                <input id="draft-to" />
-                <label>Subject</label>
-                <input id="draft-subject" />
-                <label>Body</label>
-                <textarea id="draft-body" rows="12"></textarea>
-                <div id="email-next-action-section" class="hidden">
-                  <label>Suggested Next Action</label>
-                  <input id="draft-next-action" readonly />
-                  <label>Suggested Follow-up Date</label>
-                  <input id="draft-follow-up-date" readonly />
-                </div>
-                <div id="draft-attachments-section">
-                  <h4>Attachments</h4>
-                  <p class="muted">Attachments are saved locally with this demo draft. No email is sent.</p>
-                  <div id="draft-attachment-list"></div>
-                  <div class="file-attach-row">
-                    <input id="draft-file-input" type="file" multiple onchange="onAttachFilesSelected()" />
-                    <button onclick="uploadAttachments()">Attach Files</button>
-                  </div>
-                </div>
-                <button onclick="saveDraft()">Save to Demo Outbox</button>
-                <p class="muted">This saves locally only. It does not send email.</p>
-                <details id="email-context-details" class="context-details hidden">
-                  <summary>View Context Used</summary>
-                  <div id="email-context-used" class="context-used"></div>
-                </details>
-              </section>
             </section>
 
             <section id="org-tab-interactions" class="tab-panel">
@@ -255,7 +204,7 @@
 
             <section id="org-tab-failure" class="tab-panel">
               <section id="failure-cases-section" class="hidden">
-                <h3>Failure Cases / Exceptions</h3>
+                <h3>Failure Cases</h3>
                 <button onclick="loadFailureCases()">Refresh</button>
                 <div id="failure-cases-output" class="output"></div>
               </section>
@@ -270,7 +219,7 @@
 
             <section id="org-tab-human" class="tab-panel">
               <section id="adoption-risk-section" class="hidden">
-                <h3>Human System Notes</h3>
+                <h3>Adoption Risk Notes</h3>
                 <button onclick="loadAdoptionRisks()">Refresh</button>
                 <div id="adoption-risk-output" class="output"></div>
               </section>
@@ -288,12 +237,107 @@
       </div>
     </section>
 
+    <section id="research-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <h2>Research</h2>
+          <p class="muted">Add new organizations to the CRM or discover candidates from directory context.</p>
+          <div class="nav-card-grid">
+            <div class="nav-card" onclick="navigateTo('/research-intake')">
+              <div class="nav-card-icon">&#x1F4DD;</div>
+              <div class="nav-card-title">Manual Entry</div>
+              <div class="nav-card-desc">Add an organization directly to the demo CRM with full profile details.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/organization-discovery')">
+              <div class="nav-card-icon">&#x1F50D;</div>
+              <div class="nav-card-title">AI Discovery</div>
+              <div class="nav-card-desc">Discover new organization candidates from a research theme, then review and approve.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="intelligence-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <h2>Intelligence</h2>
+          <p class="muted">Search across project knowledge, review cross-organization workflow opportunities, and browse adoption guidelines.</p>
+          <div class="nav-card-grid">
+            <div class="nav-card" onclick="navigateTo('/knowledge-search')">
+              <div class="nav-card-icon">&#x1F50E;</div>
+              <div class="nav-card-title">Knowledge Search</div>
+              <div class="nav-card-desc">Search across organizations, interactions, notes, tasks, and drafts.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/workflow-opportunities')">
+              <div class="nav-card-icon">&#x1F4CA;</div>
+              <div class="nav-card-title">Workflow Opportunities</div>
+              <div class="nav-card-desc">Cross-organization opportunities and information gaps.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/adoption-principles')">
+              <div class="nav-card-icon">&#x1F4D6;</div>
+              <div class="nav-card-title">Adoption Guidelines</div>
+              <div class="nav-card-desc">Base guidelines that shape how interaction notes are interpreted.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="adoption-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <h2>Adoption Planning</h2>
+          <p class="muted">Generate structured adoption plans, recommend low-risk AI pilots, and define success measurements.</p>
+          <div class="ai-safety-note" style="margin-bottom:12px">All plans are advisory only. Human review is required before sharing externally or using for implementation decisions.</div>
+          <div class="nav-card-grid">
+            <div class="nav-card" onclick="navigateTo('/adoption-planner')">
+              <div class="nav-card-icon">&#x1F9E0;</div>
+              <div class="nav-card-title">Adoption Plans</div>
+              <div class="nav-card-desc">Full adoption plans with opportunity catalogs, roadmaps, training, and risk mitigation.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/pilot-plans')">
+              <div class="nav-card-icon">&#x2708;&#xFE0F;</div>
+              <div class="nav-card-title">Pilot Plans</div>
+              <div class="nav-card-desc">Low-risk AI pilot plans with scope, roles, and stop/revise criteria.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/success-metrics')">
+              <div class="nav-card-icon">&#x1F4C8;</div>
+              <div class="nav-card-title">Success Metrics</div>
+              <div class="nav-card-desc">Baseline measurements, targets, and review methods for AI pilots.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="queue-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <h2>Queue</h2>
+          <p class="muted">Priority-ranked organizations and pending follow-up tasks across the CRM.</p>
+          <div class="nav-card-grid">
+            <div class="nav-card" onclick="navigateTo('/priority-queue')">
+              <div class="nav-card-icon">&#x1F4CB;</div>
+              <div class="nav-card-title">Priority Queue</div>
+              <div class="nav-card-desc">All organizations ranked by outreach priority score.</div>
+            </div>
+            <div class="nav-card" onclick="navigateTo('/follow-ups')">
+              <div class="nav-card-icon">&#x1F4C5;</div>
+              <div class="nav-card-title">Follow-ups</div>
+              <div class="nav-card-desc">Pending follow-up tasks across all organizations.</div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
     <section id="research-intake-page" class="page hidden">
       <div class="single-page">
         <section class="panel">
           <div class="panel-title-row">
-            <h2>Research Intake</h2>
-            <span class="muted">Manual entry only</span>
+            <h2>Manual Entry</h2>
+            <span class="muted">Add organizations directly</span>
           </div>
           <form id="research-intake-form" class="intake-form" onsubmit="saveResearchIntake(event)">
             <label for="intake-organization-name">Organization name</label>
@@ -330,10 +374,10 @@
             <textarea id="intake-notes" rows="4"></textarea>
 
             <div class="actions">
-              <button type="submit">Save to Local CRM</button>
+                <button type="submit">Save to CRM</button>
               <button type="reset">Clear</button>
             </div>
-            <p class="muted">Use general contact emails only. This does not send email or scrape websites.</p>
+            <p class="muted">Use general contact emails only. This app does not send email or scrape websites.</p>
           </form>
           <div id="intake-result"></div>
         </section>
@@ -375,10 +419,10 @@
       <div class="single-page">
         <section class="panel discovery-panel">
           <div class="panel-title-row">
-            <h2>Organization Discovery</h2>
-            <span class="muted">Human review required</span>
+            <h2>AI Discovery</h2>
+            <span class="muted">Review required before saving</span>
           </div>
-          <p class="muted">Review candidate organizations before saving them to the local CRM. Discovery uses mock or manually entered directory context only; it does not scrape sites or send outreach.</p>
+          <p class="muted">Review candidate organizations before saving them to the CRM. Discovery uses mock or manually entered directory context only. It does not scrape sites or send outreach.</p>
           <label for="research-theme">Research Theme</label>
           <div class="discovery-form">
             <input id="research-theme" placeholder="Example: public AI literacy workshops for community organizations" />
@@ -571,11 +615,11 @@
   </div>
 </section>
 
-<section id="data-tools-page" class="page hidden">
-  <div class="single-page">
-    <section class="panel">
-      <div class="panel-title-row">
-        <h2>Data Import / Export</h2>
+    <section id="data-tools-page" class="page hidden">
+      <div class="single-page">
+        <section class="panel">
+          <div class="panel-title-row">
+            <h2>Import / Export</h2>
         <span class="muted">Local file import and export only</span>
       </div>
       <p class="muted">Import organizations from CSV or export project data to CSV or JSON. No external systems are contacted.</p>
@@ -610,7 +654,7 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 
 <section id="analytics-page" class="page hidden">
   <h2>Workflow Insights</h2>
-  <p class="muted">Summary of local CRM, research, AI assessment, interaction, workflow intelligence, and demo outbox data.</p>
+  <p class="muted">Summary of CRM, research, AI assessment, interaction, workflow intelligence, and demo outbox data.</p>
   <div id="analytics-error" class="error hidden"></div>
   <div id="analytics-loading" class="muted">Loading workflow insights...</div>
   <div id="analytics-content"></div>
@@ -618,7 +662,7 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 
 <section id="workflow-opportunities-page" class="page hidden">
   <h2>Workflow Opportunities</h2>
-  <p class="muted">Cross-organization workflow opportunities and next discovery gaps. Recommendations require human review.</p>
+  <p class="muted">Cross-organization workflow opportunities and information needs. Recommendations require human review.</p>
   <div id="workflow-opportunities-error" class="error hidden"></div>
   <div id="workflow-opportunities-loading" class="muted">Loading workflow opportunities...</div>
   <div id="workflow-opportunities-content"></div>
@@ -705,8 +749,8 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 
 <section id="adoption-principles-page" class="page hidden">
   <h2>Adoption Principles</h2>
-  <p class="muted">Initial seed information that guides how interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, and human-system risks.</p>
-  <p class="muted" style="margin-top: 8px;">The app includes initial seed information that helps guide workflow intelligence extraction. This seed information provides reusable principles for interpreting future interaction notes, but organization-specific workflow intelligence comes from actual interactions.</p>
+  <p class="muted">Base guidelines that shape how interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, and adoption risks.</p>
+  <p class="muted" style="margin-top: 8px;">These are base guidelines that provide a consistent framework for interpreting interaction notes. Organization-specific intelligence is derived from actual interactions, not from these guidelines.</p>
   <div id="adoption-principles-error" class="error hidden"></div>
   <div id="adoption-principles-loading" class="muted">Loading adoption principles...</div>
   <div id="adoption-principles-content"></div>
@@ -734,11 +778,11 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
           <option value="task">Tasks</option>
           <option value="draft">Drafts</option>
           <option value="lesson">Lessons Learned</option>
-          <option value="insight">Reusable Insights</option>
+          <option value="insight">Cross-Organization Insights</option>
           <option value="playbook">Playbook Candidates</option>
           <option value="workflow-opportunity">Workflow Opportunities</option>
           <option value="knowledge-source">Knowledge Sources</option>
-          <option value="failure-case">Failure Cases / Exceptions</option>
+          <option value="failure-case">Failure Cases</option>
           <option value="adoption-risk">Adoption Risk Notes</option>
         </select>
       </label>
@@ -752,7 +796,7 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 
 <section id="adoption-planner-page" class="page hidden">
   <h2>Adoption Planner</h2>
-  <p class="muted">Generate and review AI-assisted adoption plans for each organization. Plans include opportunity catalogs, roadmaps, pilot recommendations, training plans, and success metrics.</p>
+  <p class="muted">Generate and review AI-assisted adoption plans for each organization. Plans include opportunity catalogs, roadmaps, pilot plans, training plans, and success metrics.</p>
   <div class="ai-safety-note" style="margin-bottom:12px">All plans are advisory only. Human review is required before sharing externally or using for implementation decisions.</div>
 
   <div class="outbox-filters">

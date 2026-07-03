@@ -154,6 +154,330 @@
       "status": "Draft",
       "created_at": "2026-06-28T10:00:00Z",
       "updated_at": "2026-06-28T10:00:00Z"
+    },
+    {
+      "organization": "Kitchener Community Food Centre",
+      "organization_id": 2,
+      "executive_summary": "Kitchener Community Food Centre shows potential for AI-assisted workflow improvement, particularly in documentation and follow-up tasks. A structured adoption approach starting with a limited pilot and strong human-review processes is recommended.",
+      "current_workflow_context": [
+        "Manual volunteer scheduling and coordination",
+        "Donation intake tracking requires repetitive data entry",
+        "Client communication is handled ad-hoc without templates",
+        "Grant reporting requires manual data compilation from multiple spreadsheets"
+      ],
+      "top_ai_opportunities": [
+        {
+          "category": "Documentation Support",
+          "opportunities": [
+            {
+              "name": "Volunteer Schedule Matching and Communication",
+              "current_workflow": "Volunteer scheduling managed through shared spreadsheet. Coordinator spends 4-6 hours per week on schedule matching and email confirmations.",
+              "pain_point": "Manual schedule matching and individual confirmation emails for 40+ active volunteers",
+              "possible_ai_support": "AI-assisted schedule matching based on availability, skills, and program needs with automated confirmation draft generation",
+              "required_knowledge_sources": [
+                "Volunteer availability records",
+                "Program schedules",
+                "Volunteer skill profiles"
+              ],
+              "required_human_review": [
+                "Schedule changes and volunteer preference exceptions require human handling"
+              ],
+              "risks_or_exceptions": [
+                "Some volunteers may struggle with technology changes"
+              ],
+              "adoption_concern_level": "Medium",
+              "estimated_effort": "Low",
+              "expected_benefit": "Reduced time on routine documentation",
+              "recommended_status": "candidate_for_pilot"
+            },
+            {
+              "name": "Donation Intake Logging and Receipt Generation",
+              "current_workflow": "Donations logged manually into a tracking spreadsheet. Staff spend 8-10 hours per week on data entry and receipt generation.",
+              "pain_point": "Time-consuming manual data entry for donation tracking and tax receipt lookups",
+              "possible_ai_support": "Structured donation intake form with automated logging and receipt generation, OCR for handwritten donation notes",
+              "required_knowledge_sources": [
+                "Donation intake forms",
+                "Food safety policy documents",
+                "Donor records"
+              ],
+              "required_human_review": [
+                "Food quality notes and special handling requirements need human review"
+              ],
+              "risks_or_exceptions": [
+                "OCR may inaccurately capture handwritten donation details",
+                "Food quality context may be lost in structured fields"
+              ],
+              "adoption_concern_level": "Medium",
+              "estimated_effort": "Low",
+              "expected_benefit": "Reduced time on routine documentation",
+              "recommended_status": "needs_validation"
+            },
+            {
+              "name": "Multi-Funder Grant Report Compilation",
+              "current_workflow": "Data extracted manually from donation logs, volunteer hours, and attendance records for each funder's specific format. 6-8 hours per quarter per grant.",
+              "pain_point": "Each funder requires different metrics and formats, requiring manual data extraction from multiple sources",
+              "possible_ai_support": "Standardized data collection with AI-assisted report drafting that adapts content to each funder's required format and metrics",
+              "required_knowledge_sources": [
+                "Donation logs",
+                "Volunteer hours records",
+                "Program attendance records",
+                "Past grant reports"
+              ],
+              "required_human_review": [
+                "Program impact context requires human narrative input that structured data may not capture"
+              ],
+              "risks_or_exceptions": [
+                "AI may miss important program impact context not in structured data"
+              ],
+              "adoption_concern_level": "Medium",
+              "estimated_effort": "Low",
+              "expected_benefit": "Reduced time on routine documentation",
+              "recommended_status": "needs_validation"
+            }
+          ]
+        },
+        {
+          "category": "Meeting Summary Workflows",
+          "opportunities": [
+            {
+              "name": "Automated Meeting Notes & Action Items",
+              "current_workflow": "Staff take notes during meetings, then manually extract action items",
+              "pain_point": "Notes are inconsistent; action items get lost",
+              "possible_ai_support": "Convert rough notes into structured summaries with action items",
+              "required_knowledge_sources": [
+                "Meeting notes",
+                "Project plans"
+              ],
+              "required_human_review": [
+                "Review before sharing",
+                "Verify action items"
+              ],
+              "risks_or_exceptions": [
+                "May miss context-specific details"
+              ],
+              "adoption_concern_level": "Low",
+              "estimated_effort": "Low",
+              "expected_benefit": "Consistent follow-up and fewer missed items",
+              "recommended_status": "candidate_for_pilot"
+            }
+          ]
+        }
+      ],
+      "recommended_first_pilot": {
+        "organization": "Kitchener Community Food Centre",
+        "pilot_title": "Volunteer Schedule Matching and Communication",
+        "problem_statement": "Manual schedule matching and individual confirmation emails for 40+ active volunteers",
+        "current_process": "Volunteer scheduling managed through shared spreadsheet. Coordinator spends 4-6 hours per week on schedule matching and email confirmations.",
+        "proposed_ai_assisted_process": "AI-assisted schedule matching based on availability, skills, and program needs with automated confirmation draft generation",
+        "scope_limit": "Limited to one workflow area and 2-3 participating staff members. No external-facing AI-generated content without human approval.",
+        "participating_roles": [
+          "Program coordinator",
+          "Staff member performing the workflow"
+        ],
+        "required_inputs": [
+          "Sample documents or notes from the selected workflow",
+          "Existing templates or formatting guides",
+          "Access to knowledge sources used in the workflow"
+        ],
+        "human_review_checkpoints": [
+          "Before AI output is shared externally",
+          "Before AI-generated follow-ups are sent",
+          "Weekly review of AI output quality by coordinator"
+        ],
+        "privacy_or_quality_risks": [
+          "AI may generate plausible-sounding but incorrect information",
+          "Staff may over-rely on AI output without critical review",
+          "Privacy if client data is used in prompts"
+        ],
+        "success_metrics": [
+          "Time spent on the workflow task (before vs. during pilot)",
+          "Number of AI outputs requiring significant revision",
+          "Staff confidence rating (survey before and after)",
+          "Number of follow-ups completed on time"
+        ],
+        "stop_or_revise_criteria": [
+          "Staff report increased workload instead of reduction",
+          "AI output quality is consistently poor despite adjustments",
+          "Privacy concerns emerge that cannot be addressed",
+          "Staff feedback indicates loss of confidence or trust"
+        ],
+        "status": "Draft"
+      },
+      "required_knowledge_sources": [
+        "Donation Intake Forms",
+        "Food Safety Policy Document",
+        "Volunteer Hours and Donation Logs",
+        "Past Grant Reports"
+      ],
+      "human_review_model": "All AI outputs require human review before external use. Designate a staff reviewer for each workflow area.",
+      "change_management_checklist": {
+        "organization": "Kitchener Community Food Centre",
+        "items": [
+          {
+            "question": "Have staff concerns been recorded and addressed?",
+            "status": "needs_review",
+            "notes": "Review adoption risk notes for staff concerns"
+          },
+          {
+            "question": "Does the pilot reduce workload rather than simply increase output expectations?",
+            "status": "not_started",
+            "notes": "Define baseline workload before pilot"
+          },
+          {
+            "question": "Are human-review responsibilities clearly defined?",
+            "status": "not_started",
+            "notes": "Document who reviews what and when"
+          },
+          {
+            "question": "Are staff expected to share useful workflows or prompts?",
+            "status": "not_started",
+            "notes": "Consider recognition for knowledge sharing"
+          },
+          {
+            "question": "Is knowledge sharing recognized?",
+            "status": "not_started",
+            "notes": "Consider including in performance conversations"
+          },
+          {
+            "question": "Is there a plan to explain how performance will be evaluated during the pilot?",
+            "status": "not_started",
+            "notes": "Pilot is for learning, not evaluation"
+          },
+          {
+            "question": "Are employees protected from being penalized for using AI responsibly?",
+            "status": "not_started",
+            "notes": "Clarify responsible use boundaries"
+          },
+          {
+            "question": "Are failure cases and exceptions documented?",
+            "status": "not_started",
+            "notes": "Review existing failure case records"
+          },
+          {
+            "question": "Is there a safe feedback loop during the pilot?",
+            "status": "not_started",
+            "notes": "Anonymous or direct feedback channel"
+          },
+          {
+            "question": "Is there a decision process for expanding or stopping the pilot?",
+            "status": "not_started",
+            "notes": "Define criteria and who decides"
+          }
+        ],
+        "status": "Draft"
+      },
+      "training_plan": {
+        "organization": "Kitchener Community Food Centre",
+        "training_plan": [
+          {
+            "topic": "Basic AI Literacy",
+            "description": "How AI assistance works, its limitations, and responsible use boundaries",
+            "tied_to_pilot": true,
+            "recommended_format": "Interactive workshop with hands-on demo",
+            "duration": "2 hours"
+          },
+          {
+            "topic": "Prompt Crafting for the Selected Workflow",
+            "description": "How to write effective prompts for Volunteer Schedule Matching and Communication",
+            "tied_to_pilot": true,
+            "recommended_format": "Hands-on session with real workflow examples",
+            "duration": "1.5 hours"
+          },
+          {
+            "topic": "Human Review Practices",
+            "description": "How to critically evaluate AI output, what to check, and when to override",
+            "tied_to_pilot": true,
+            "recommended_format": "Guide + practice session",
+            "duration": "1 hour"
+          },
+          {
+            "topic": "Privacy and Confidentiality Awareness",
+            "description": "What data can be used in AI prompts, privacy boundaries, and confidentiality requirements",
+            "tied_to_pilot": true,
+            "recommended_format": "Briefing + reference document",
+            "duration": "1 hour"
+          }
+        ],
+        "additional_topics": [
+          {
+            "topic": "Workflow Documentation",
+            "description": "Documenting new AI-assisted workflows for team sharing",
+            "tied_to_pilot": false,
+            "recommended_format": "Template + guide",
+            "duration": "Self-paced"
+          },
+          {
+            "topic": "Exception Handling",
+            "description": "How to identify and document cases where AI output is incorrect or insufficient",
+            "tied_to_pilot": false,
+            "recommended_format": "Reference guide",
+            "duration": "Self-paced"
+          }
+        ],
+        "note": "Training should be tied to the actual pilot workflow, not delivered as generic tool instruction. Focus on practical application."
+      },
+      "success_metrics": {
+        "organization": "Kitchener Community Food Centre",
+        "metrics": [
+          {
+            "name": "Time spent on workflow task",
+            "baseline": "Measure current time before pilot starts",
+            "target": "Reduction of 20-30%",
+            "measurement_method": "Self-reported time tracking + coordinator observation",
+            "review_frequency": "Weekly during pilot"
+          },
+          {
+            "name": "Output quality / revision rate",
+            "baseline": "All outputs are currently manual (100% human effort)",
+            "target": "Less than 30% of AI outputs require major revision",
+            "measurement_method": "Track revision rate of AI-assisted outputs",
+            "review_frequency": "Weekly"
+          },
+          {
+            "name": "Staff confidence with AI tools",
+            "baseline": "Pre-pilot survey",
+            "target": "70% of staff report increased confidence",
+            "measurement_method": "Pre- and post-pilot survey",
+            "review_frequency": "Before and after pilot"
+          },
+          {
+            "name": "Follow-up completion rate",
+            "baseline": "Current follow-up completion rate (estimated)",
+            "target": "Improvement of at least 15%",
+            "measurement_method": "Track follow-ups completed vs. planned",
+            "review_frequency": "Weekly"
+          },
+          {
+            "name": "Reusable workflow documentation",
+            "baseline": "0 documented AI-assisted workflows",
+            "target": "At least 1 documented workflow shared with the team",
+            "measurement_method": "Count of documented and shared workflows",
+            "review_frequency": "End of pilot"
+          }
+        ]
+      },
+      "risks_and_mitigation": [
+        {
+          "risk": "Staff worry AI-generated communications may feel impersonal for clients in vulnerable situations",
+          "type": "Staff Concern",
+          "mitigation": "Develop flexible templates with tone options and require staff personalization review before sending to clients"
+        },
+        {
+          "risk": "Staff evaluation criteria do not account for improved reporting efficiency, only program outcomes",
+          "type": "Evaluation Risk",
+          "mitigation": "Update evaluation criteria to recognize administrative improvements and efficiency gains from AI-assisted workflows"
+        }
+      ],
+      "recommended_next_meeting_questions": [
+        "Which workflow would your team most like to test with AI assistance?",
+        "What would make you feel confident in AI-assisted output quality?",
+        "What concerns do you have about how AI might affect your team's workflow?"
+      ],
+      "status": "Draft",
+      "plan_id": 2,
+      "roadmap_steps": [],
+      "created_at": "2026-07-03T16:25:42Z",
+      "updated_at": "2026-07-03T16:25:42Z"
     }
   ],
   "pilot_plans": [
