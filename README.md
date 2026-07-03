@@ -618,7 +618,7 @@ AI_PROVIDER=mock
 | **Local LLM** | `local_llm` | Calls `tools/llm.py` → llama.cpp `llama-server` running on `localhost:8082`. Returns structured JSON from a real model. | llama-server binary, GGUF model file |
 | **OpenAI (placeholder)** | `openai` | Falls back to mock. Ready for future implementation. | Not yet implemented |
 
-All AI-powered features are developed, tested, and debugged using the local LLM provider (`AI_PROVIDER=local_llm` with a llama.cpp server). Mock mode provides identical output shapes for development environments without a model server.
+AI-powered features can run in either mock mode or local LLM mode. Mock mode is the safest default for reviewers because it requires no model server, no API key, and no external service.
 
 **Mock mode is the safest default.** It requires no model files, no running server, no network access, and no external dependencies. All AI features return realistic structured responses immediately.
 
