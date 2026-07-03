@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Outreach Intelligence Platform</title>
   <link rel="icon" href="data:," />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260703" />
 </head>
 <body>
   <header>
@@ -18,6 +18,7 @@
       <a href="/organization-discovery" data-route="/organization-discovery">Organization Discovery</a>
       <a href="/integrations" data-route="/integrations">Integrations</a>
       <a href="/data-tools" data-route="/data-tools">Data Tools</a>
+      <a href="/workflow-opportunities" data-route="/workflow-opportunities">Workflow Opportunities</a>
       <a href="/analytics" data-route="/analytics">Workflow Insights</a>
       <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
       <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
@@ -319,11 +320,68 @@
             <h2>Organization Discovery</h2>
             <span class="muted">Human review required</span>
           </div>
+          <p class="muted">Review candidate organizations before saving them to the local CRM. Discovery uses mock or manually entered directory context only; it does not scrape sites or send outreach.</p>
           <label for="research-theme">Research Theme</label>
           <div class="discovery-form">
             <input id="research-theme" placeholder="Example: public AI literacy workshops for community organizations" />
             <button onclick="discoverOrganizations()">Discover</button>
           </div>
+          <details class="manual-candidate">
+            <summary>Add Directory-Assisted Candidate</summary>
+            <form class="manual-candidate-form" onsubmit="addManualCandidate(event)">
+              <div class="form-grid">
+                <label for="candidate-organization-name">Organization name</label>
+                <input id="candidate-organization-name" required />
+
+                <label for="candidate-organization-type">Organization type</label>
+                <input id="candidate-organization-type" />
+
+                <label for="candidate-website">Website</label>
+                <input id="candidate-website" placeholder="https://example.org" />
+
+                <label for="candidate-contact-email">General contact email</label>
+                <input id="candidate-contact-email" type="email" placeholder="info@example.org" />
+
+                <label for="candidate-phone-number">Phone number</label>
+                <input id="candidate-phone-number" />
+
+                <label for="candidate-program-area">Program area</label>
+                <input id="candidate-program-area" />
+
+                <label for="candidate-source-type">Source type</label>
+                <input id="candidate-source-type" placeholder="Directory, referral, public list" />
+
+                <label for="candidate-source-name">Source name</label>
+                <input id="candidate-source-name" placeholder="Name of source or directory" />
+
+                <label for="candidate-source-url">Source URL</label>
+                <input id="candidate-source-url" placeholder="https://example.org/source" />
+              </div>
+
+              <label for="candidate-source-notes">Structured source notes</label>
+              <textarea id="candidate-source-notes" rows="3"></textarea>
+
+              <label for="candidate-why-selected">Why selected for review</label>
+              <textarea id="candidate-why-selected" rows="3"></textarea>
+
+              <label for="candidate-first-question">Suggested first discovery question</label>
+              <textarea id="candidate-first-question" rows="2"></textarea>
+
+              <label for="candidate-workflow-pain-points">Likely workflow pain points</label>
+              <textarea id="candidate-workflow-pain-points" rows="3" placeholder="One per line"></textarea>
+
+              <label for="candidate-ai-support-areas">Possible AI support areas</label>
+              <textarea id="candidate-ai-support-areas" rows="3" placeholder="One per line"></textarea>
+
+              <label for="candidate-adoption-risk-notes">Adoption risk notes</label>
+              <textarea id="candidate-adoption-risk-notes" rows="3" placeholder="One per line"></textarea>
+
+              <div class="actions">
+                <button type="submit">Add Candidate</button>
+                <button type="reset">Clear</button>
+              </div>
+            </form>
+          </details>
           <div id="discovery-results" class="candidate-grid"></div>
         </section>
       </div>
@@ -497,6 +555,14 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
   <div id="analytics-content"></div>
 </section>
 
+<section id="workflow-opportunities-page" class="page hidden">
+  <h2>Workflow Opportunities</h2>
+  <p class="muted">Cross-organization workflow opportunities and next discovery gaps. Recommendations require human review.</p>
+  <div id="workflow-opportunities-error" class="error hidden"></div>
+  <div id="workflow-opportunities-loading" class="muted">Loading workflow opportunities...</div>
+  <div id="workflow-opportunities-content"></div>
+</section>
+
 <section id="priority-queue-page" class="page hidden">
   <h2>Priority Queue</h2>
   <p class="muted">All organizations ranked by outreach priority score. Recommendations require human review.</p>
@@ -615,6 +681,6 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
 </section>
 </main>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=20260703"></script>
 </body>
 </html>

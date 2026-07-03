@@ -606,5 +606,142 @@
       "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
     ],
     "human_system_notes": "Pilot interest suggests organizational openness to experimentation with appropriate safeguards."
+  },
+  {
+    "summary_id": 6,
+    "interaction_id": 1,
+    "organization_id": 1,
+    "created_at": "2026-07-03T12:08:00Z",
+    "updated_at": "2026-07-03T12:08:00Z",
+    "summary": "Mock AI summary of meeting notes.",
+    "key_discussion_points": [
+      "AI workflow potential discussed",
+      "Documentation challenges identified",
+      "Follow-up timeline agreed upon"
+    ],
+    "decisions": [
+      "Schedule follow-up meeting in two weeks",
+      "Prepare a single pilot proposal for review"
+    ],
+    "action_items": [
+      "Send meeting summary to stakeholders",
+      "Prepare pilot proposal document",
+      "Identify key staff for pilot participation"
+    ],
+    "risks_or_concerns": [
+      "Staff readiness for new tools",
+      "Data privacy considerations",
+      "Change management effort may be underestimated"
+    ],
+    "lessons_learned": [
+      {
+        "title": "Grant-funded initiatives need early alignment on outcomes",
+        "description": "Clear outcome metrics agreed at the start make grant reporting easier and strengthen case for continued funding."
+      }
+    ],
+    "reusable_insights": [
+      "Grant funding conversations are most productive when framed around measurable outcomes rather than technology features."
+    ],
+    "staff_concerns_or_adoption_concerns": [
+      "No specific adoption concerns raised \u2014 monitor during next interaction."
+    ],
+    "human_judgment_points": [
+      "Grant applications and budget justifications must be written or substantially edited by a human grant writer.",
+      "AI recommendations are starting points \u2014 all relationship decisions require human judgment and context awareness."
+    ],
+    "knowledge_sharing_opportunities": [
+      "Initial engagement insights may be useful as a baseline reference for future comparisons."
+    ],
+    "playbook_candidates": [
+      {
+        "title": "Grant-Funded Initiative Scoping",
+        "when_to_use": "When an organization wants to explore AI adoption through grant-funded projects and needs help structuring the proposal.",
+        "suggested_process": "1. Identify the grant program requirements and timeline. 2. Map proposed outcomes to the organization's pain points. 3. Draft measurable success indicators. 4. Outline the pilot timeline with human oversight checkpoints. 5. Review with the organization before submission."
+      }
+    ],
+    "recommended_follow_up": "Follow up within one week.",
+    "suggested_follow_up_date": "2026-07-17",
+    "suggested_next_email_type": "General Check-In",
+    "suggested_tags": [
+      "evaluation-concern"
+    ],
+    "follow_up_tasks": [
+      {
+        "title": "Prepare pilot proposal document",
+        "description": "Draft and share a pilot proposal based on the discussion.",
+        "due_date": "2026-07-17",
+        "priority": "High",
+        "organization_id": 1,
+        "source_interaction_id": 1
+      },
+      {
+        "title": "Schedule follow-up meeting",
+        "description": "Book a follow-up meeting to continue the discussion.",
+        "due_date": "2026-07-17",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 1
+      },
+      {
+        "title": "Research grant opportunities",
+        "description": "Identify potential funding sources for AI adoption initiatives.",
+        "due_date": "2026-08-02",
+        "priority": "Medium",
+        "organization_id": 1,
+        "source_interaction_id": 1
+      }
+    ],
+    "current_workflow": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
+    "workflow_pain_points": [
+      "Community engagement tracking is fragmented \u2014 no single view of outreach activities."
+    ],
+    "repetitive_tasks_identified": [
+      "General administrative coordination \u2014 further observation needed"
+    ],
+    "information_or_documents_used": [
+      "General organizational documentation \u2014 not yet inventoried"
+    ],
+    "possible_ai_insertion_points": [
+      "AI-assisted scheduling and engagement pattern analysis"
+    ],
+    "required_human_review": [
+      "All AI-generated summaries must be reviewed by a staff member before saving to records.",
+      "AI-drafted communications must be approved by a human before sending.",
+      "Final decisions on workflow changes require human approval."
+    ],
+    "missing_knowledge_or_data": [
+      "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session.",
+      "Quantitative data on time spent per task is not yet available \u2014 time tracking observation could help.",
+      "Policy and compliance requirements are not documented in accessible formats.",
+      "Staff training needs and digital literacy levels are not fully assessed."
+    ],
+    "failure_cases_or_exceptions": [
+      {
+        "what_failed": "No specific failure cases documented yet",
+        "why": "Interaction notes do not describe past failures or exceptions",
+        "missing_context": "Failure mode analysis has not been conducted",
+        "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
+        "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors"
+      }
+    ],
+    "reusable_workflow_insights": [
+      "Community-facing organizations typically have undocumented workflows that rely heavily on staff relationships \u2014 process documentation is a prerequisite for AI adoption."
+    ],
+    "workflow_tags": [
+      "follow-up"
+    ],
+    "staff_concerns": [
+      "No specific staff concerns raised \u2014 monitor during next interaction."
+    ],
+    "evaluation_or_recognition_risks": [
+      "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
+    ],
+    "training_or_followup_needs": [
+      "No specific training needs identified \u2014 monitor as engagement deepens."
+    ],
+    "adoption_safeguards": [
+      "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+    ],
+    "human_system_notes": "Human system assessment not yet available \u2014 further interaction needed."
   }
 ]

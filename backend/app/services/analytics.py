@@ -5,7 +5,7 @@ import json
 
 from .interactions import get_all_interactions, get_interactions_for_org
 from .outbox import read_outbox
-from .ai_mock import summarize_organization, generate_readiness_assessment, discover_opportunities
+from .ai_provider import get_ai_provider
 from .outreach_recommendation import compute_outreach_recommendation
 from .tasks import get_all_tasks, get_tasks_for_org
 from .knowledge import compute_knowledge_analytics
@@ -55,12 +55,13 @@ def compute_analytics_summary(crm) -> Dict[str, Any]:
         ]
         org_interactions.sort(key=lambda x: x.get("date", ""), reverse=True)
 
-        ai_summary = summarize_organization(org)
+        provider = get_ai_provider()
+        ai_summary = provider.summarize_organization(org)
         if ai_summary.get("outreach_priority") == "High":
             high_priority_count += 1
 
-        opportunities = discover_opportunities(org)
-        assessment = generate_readiness_assessment(org, org_interactions, opportunities)
+        opportunities = provider.discover_opportunities(org)
+        assessment = provider.generate_readiness_assessment(org, org_interactions, opportunities)
 
         readiness_entries.append({
             "org_id": org_id,

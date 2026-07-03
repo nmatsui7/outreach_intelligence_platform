@@ -1,12 +1,7 @@
 from typing import Dict, List, Any, Optional
 from datetime import date, timedelta
 
-from .ai_mock import (
-    summarize_organization,
-    generate_next_best_email,
-    generate_readiness_assessment,
-    discover_opportunities,
-)
+from .ai_provider import get_ai_provider
 from .interactions import get_all_interactions
 from .outbox import read_outbox
 from .tasks import get_tasks_for_org
@@ -314,10 +309,11 @@ def compute_outreach_recommendation(org: Dict) -> Dict[str, Any]:
         if t.get("status") == "Open" and t.get("due_date") and t["due_date"] < date.today().isoformat()
     ]
 
-    ai_summary = summarize_organization(org)
-    opportunities = discover_opportunities(org)
-    readiness = generate_readiness_assessment(org, org_interactions, opportunities)
-    next_best_email = generate_next_best_email(org, org_interactions, ai_summary, org_outbox)
+    provider = get_ai_provider()
+    ai_summary = provider.summarize_organization(org)
+    opportunities = provider.discover_opportunities(org)
+    readiness = provider.generate_readiness_assessment(org, org_interactions, opportunities)
+    next_best_email = provider.generate_next_best_email(org, org_interactions, ai_summary, org_outbox)
 
     readiness_score = readiness.get("total_score", 50)
     ai_summary_score = ai_summary.get("ai_readiness_score", 50)

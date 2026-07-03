@@ -133,6 +133,47 @@ def discover_research_candidates(research_theme: str) -> Dict[str, Any]:
                     "program planning, documentation, knowledge access, or follow-up coordination."
                 ),
                 "source_note": "Mock local candidate list for demo review only; not web-scraped.",
+                "source_type": "mock_directory",
+                "source_name": "Local demo candidate directory",
+                "source_url": candidate["website"],
+                "source_notes": (
+                    "Directory-style mock entry for human review. Verify contact details, "
+                    "program fit, and consent before outreach."
+                ),
+                "why_user_selected_this_candidate": (
+                    f"Potential match for {theme} based on public-facing program area."
+                ),
+                "suggested_first_discovery_question": (
+                    "Which recurring outreach, documentation, or follow-up workflow is taking "
+                    "the most staff time right now?"
+                ),
+                "likely_workflow_pain_points": [
+                    "Program planning and intake coordination",
+                    "Reusable workshop or service documentation",
+                    "Follow-up tracking after public interactions",
+                ],
+                "possible_ai_support_areas": [
+                    "Drafting human-reviewed outreach and follow-up notes",
+                    "Summarizing interaction notes into next steps",
+                    "Finding reusable knowledge sources for staff workflows",
+                ],
+                "required_human_review": [
+                    "Confirm organization fit and contact path",
+                    "Review all AI-assisted draft language before sending",
+                ],
+                "required_knowledge_sources": [
+                    "Current program descriptions",
+                    "Staff workflow notes or service documentation",
+                ],
+                "adoption_risk_notes": [
+                    "Avoid positioning AI as replacing staff judgment",
+                    "Keep early pilots small, opt-in, and easy to review",
+                ],
+                "suggested_discovery_questions": [
+                    "Where do staff currently repeat the same explanation or document?",
+                    "What information would need to be verified before AI could assist?",
+                    "Who should review outputs before they are used externally?",
+                ],
             }
         )
 

@@ -242,7 +242,7 @@ Initial principles include:
 - **No real email sending.** Drafts are saved locally to `backend/app/data/outbox.json`. No SMTP, Gmail API, or Outlook API is configured or called.
 - **No SMS or phone automation.** Phone numbers are stored as informational strings only. No Twilio, no calling, no texting.
 - **No web scraping.** Research Intake requires manual entry. Organization Discovery uses local mock data only.
-- **No external API calls.** All AI responses are mocked locally. No OpenAI, no external CRM APIs, no cloud services.
+- **No external API calls by default.** All AI responses use the configured provider (mock or local LLM via llama.cpp). No OpenAI, no external CRM APIs, no cloud services by default. See [AI Provider](#ai-provider) for switching modes.
 - **No OAuth.** No OAuth flows are configured for any connector.
 - **All Salesforce, HubSpot, Gmail, Outlook, Google Drive, Dropbox, SharePoint, OneDrive, and OpenText files are stubs only.** No credentials are stored, no tokens are requested, and no external systems are contacted.
 - **Human review required before any action.** All recommendations, assessments, tasks, and drafts are informational. No auto-creation or auto-sending of any kind.
@@ -383,6 +383,7 @@ outreach_intelligence_platform/
 │       │   └── hubspot_stub.py
 │       ├── services/
 │       │   ├── ai_mock.py
+│       │   ├── ai_provider.py
 │       │   ├── analytics.py
 │       │   ├── attachments.py
 │       │   ├── data_tools.py
@@ -516,6 +517,56 @@ curl http://127.0.0.1:8000/api/tasks
 ```
 
 The browser UI should load all frontend pages at their respective routes. The CRM workspace should preserve all Phase 1 and Phase 2 features.
+
+
+## AI Provider
+
+The platform uses an **AI provider abstraction** (`backend/app/services/ai_provider.py`) to route all AI-assisted features through a configurable backend. This keeps AI logic interchangeable without changing the rest of the codebase.
+
+### Provider Modes
+
+Set `AI_PROVIDER` in your environment or `.env` file:
+
+| Mode | Value | Backend | Requirements |
+|---|---|---|---|
+| Mock (default) | `mock` | Rule-based responses in `ai_mock.py` | None |
+| Local LLM | `local_llm` | llama.cpp via `tools/llm.py` | llama-server binary, GGUF model file, `httpx` |
+| OpenAI (placeholder) | `openai` | Falls back to mock | Not yet implemented |
+
+### Local LLM Setup
+
+1. Install [llama.cpp](https://github.com/ggerganov/llama.cpp) and build `llama-server`
+2. Download a GGUF model (e.g., Gemma 4 4B IT)
+3. Set environment variables in `.env` at the project root:
+
+```env
+AI_PROVIDER=local_llm
+LLAMA_BIN=/path/to/llama-server
+MODEL_PATH=/path/to/model.gguf
+CHAT_TEMPLATE=/path/to/chat_template.jinja  # optional
+LLAMA_PORT=8082
+LLAMA_CTX_SIZE=8192
+LLAMA_THREADS=6
+```
+
+The server auto-starts when the first AI call is made and stops on exit.
+
+### Architecture
+
+```text
+main.py / analytics.py / outreach_recommendation.py
+  │
+  └── get_ai_provider()       ← factory, reads AI_PROVIDER env var
+        │
+        ├── MockProvider        ← delegates to ai_mock.py (default)
+        ├── LocalLlmProvider    ← calls tools/llm.py → llama.cpp
+        │     └── fallback      ← MockProvider on error
+        └── OpenAiProvider      ← placeholder, falls back to mock
+```
+
+Each provider implements the same method interface. `LocalLlmProvider` uses `call_llm_json()` from `tools/llm.py` for structured JSON extraction. If the LLM fails (timeout, invalid JSON, etc.), it falls back to the mock implementation and logs the failure.
+
+The `derive_status_from_interactions` function is purely rule-based and uses mock logic regardless of provider.
 
 
 ## Future Development

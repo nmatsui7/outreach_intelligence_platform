@@ -28,6 +28,10 @@ header p { margin: 0 0 12px; color: #d1d5db; }
 .discovery-panel { grid-column: 1 / -1; min-height: 0; }
 .discovery-form { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; }
 .discovery-form input { margin-top: 0; }
+.manual-candidate { border: 1px solid #e5e7eb; border-radius: 8px; background: #f8fafc; padding: 12px; margin-top: 14px; }
+.manual-candidate summary { cursor: pointer; font-weight: 700; color: #374151; }
+.manual-candidate-form { margin-top: 12px; }
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 12px; }
 input, textarea, select { width: 100%; padding: 9px; margin: 6px 0 12px; border: 1px solid #cbd5e1; border-radius: 6px; font: inherit; }
 button { padding: 8px 10px; border: 1px solid #9ca3af; background: #fff; border-radius: 6px; cursor: pointer; }
 button:hover { background: #f3f4f6; }
@@ -83,6 +87,8 @@ button:disabled { color: #9ca3af; cursor: not-allowed; }
 .fit-score { flex: 0 0 auto; display: inline-block; padding: 4px 8px; border-radius: 999px; background: #eef2ff; font-size: 12px; }
 .candidate-field { margin: 0 0 10px; line-height: 1.45; }
 .candidate-field strong { display: block; font-size: 13px; color: #374151; margin-bottom: 2px; }
+.candidate-list { margin: 0; padding-left: 18px; }
+.candidate-list li { margin: 3px 0; }
 .candidate-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .hidden { display: none; }
 label { font-weight: 700; font-size: 14px; }
@@ -316,4 +322,5 @@ label { font-weight: 700; font-size: 14px; }
   .org-overview-grid { grid-template-columns: 1fr; }
   .demo-draft-header, .demo-review-grid { display: block; }
   .discovery-form { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
 }

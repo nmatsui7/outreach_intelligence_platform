@@ -21,17 +21,7 @@ try:
         ResearchIntakeRequest,
         StatusUpdate,
     )
-    from app.services.ai_mock import (
-        summarize_organization,
-        discover_opportunities,
-        generate_next_best_email,
-        derive_status_from_interactions,
-        generate_readiness_assessment,
-        meeting_brief,
-        summarize_notes,
-        summarize_interaction_notes,
-        generate_knowledge_summary,
-    )
+    from app.services.ai_provider import get_ai_provider
     from app.services.attachments import (
         save_attachment,
         list_attachments,
@@ -74,7 +64,7 @@ try:
         get_lessons_for_org,
         get_playbook_candidates_for_org,
     )
-    from app.services.interaction_summaries import save_summary
+    from app.services.interaction_summaries import save_summary, get_summaries_for_org as get_summaries
     from app.services.workflow import (
         get_workflow_opportunities_for_org,
         save_workflow_opportunity,
@@ -110,17 +100,7 @@ except ModuleNotFoundError:
         ResearchIntakeRequest,
         StatusUpdate,
     )
-    from backend.app.services.ai_mock import (
-        summarize_organization,
-        discover_opportunities,
-        generate_next_best_email,
-        derive_status_from_interactions,
-        generate_readiness_assessment,
-        meeting_brief,
-        summarize_notes,
-        summarize_interaction_notes,
-        generate_knowledge_summary,
-    )
+    from backend.app.services.ai_provider import get_ai_provider
     from backend.app.services.attachments import (
         save_attachment,
         list_attachments,
@@ -164,7 +144,7 @@ except ModuleNotFoundError:
         get_lessons_for_org,
         get_playbook_candidates_for_org,
     )
-    from backend.app.services.interaction_summaries import save_summary
+    from backend.app.services.interaction_summaries import save_summary, get_summaries_for_org as get_summaries
     from backend.app.services.workflow import (
         get_workflow_opportunities_for_org,
         save_workflow_opportunity,
@@ -306,7 +286,7 @@ def organization_summary(organization_id: int):
     org = crm.get_organization(organization_id)
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
-    return summarize_organization(org)
+    return get_ai_provider().summarize_organization(org)
 
 
 @app.get("/api/organizations/{organization_id}/opportunities")
@@ -314,7 +294,7 @@ def organization_opportunities(organization_id: int):
     org = crm.get_organization(organization_id)
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
-    return discover_opportunities(org)
+    return get_ai_provider().discover_opportunities(org)
 
 
 @app.post("/api/drafts/generate")
@@ -322,11 +302,92 @@ def create_draft(payload: DraftRequest):
     org = crm.get_organization(payload.organization_id)
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
+
+    provider = get_ai_provider()
     interactions = get_interactions_for_org(payload.organization_id)
-    ai_summary = summarize_organization(org)
+    ai_summary = provider.summarize_organization(org)
     all_outbox = read_outbox()
     org_outbox = [d for d in all_outbox if d.get("organization_id") == payload.organization_id]
-    return generate_next_best_email(org, interactions, ai_summary, org_outbox)
+
+    opportunities = provider.discover_opportunities(org)
+    outreach_rec = compute_outreach_recommendation(org)
+    workflow_summaries = get_summaries(payload.organization_id)
+    follow_up_tasks = get_tasks_for_org(payload.organization_id)
+    adoption_risks = get_adoption_risk_notes_for_org(payload.organization_id)
+
+    extra_context = {
+        "readiness_level": outreach_rec.get("context_used", {}).get("AI Readiness Level"),
+        "outreach_priority": outreach_rec.get("outreach_priority"),
+        "recommended_next_action": outreach_rec.get("recommended_next_action"),
+        "recommended_follow_up_date": outreach_rec.get("recommended_follow_up_date"),
+        "collaboration_angles": outreach_rec.get("recommended_collaboration_angles", []),
+        "risks_or_concerns": outreach_rec.get("risks_or_concerns", []),
+        "missing_information": outreach_rec.get("missing_information", []),
+        "workflow_summaries": [
+            {
+                "summary_id": s.get("summary_id"),
+                "summary": s.get("summary", "")[:500],
+                "workflow_fields": s.get("workflow_fields", {}),
+                "tags": s.get("suggested_tags", []),
+                "human_judgment_points": s.get("human_judgment_points", []),
+            }
+            for s in workflow_summaries[-5:]
+        ],
+        "opportunities": [
+            {
+                "name": o.get("name"),
+                "benefit": o.get("benefit"),
+                "effort": o.get("effort"),
+            }
+            for o in opportunities.get("opportunities", [])
+        ],
+        "follow_up_tasks": [
+            {
+                "title": t.get("title"),
+                "description": t.get("description", ""),
+                "due_date": t.get("due_date"),
+                "priority": t.get("priority"),
+                "status": t.get("status"),
+            }
+            for t in follow_up_tasks
+        ],
+        "adoption_risks": [
+            {
+                "risk_type": r.get("risk_type"),
+                "description": r.get("description"),
+                "severity": r.get("severity"),
+                "related_staff_role": r.get("related_staff_role"),
+                "suggested_mitigation": r.get("suggested_mitigation"),
+            }
+            for r in adoption_risks
+        ],
+        "candidate_source_notes": {
+            "program_area": org.get("mission_notes", ""),
+            "pain_points": org.get("pain_points", []),
+            "outreach_goal": payload.outreach_goal,
+        },
+    }
+
+    draft = provider.generate_next_best_email(
+        org, interactions, ai_summary, org_outbox,
+        extra_context=extra_context,
+    )
+    draft["organization_id"] = payload.organization_id
+    draft["ai_generated"] = True
+    draft["human_review_required"] = True
+    draft["status"] = "needs_review"
+    draft["draft_type"] = "ai_assisted"
+    draft.setdefault("to", org.get("contact_email", ""))
+    draft.setdefault("subject", "")
+    draft.setdefault("body", "")
+    draft.setdefault("tone", "professional")
+    draft.setdefault("reasoning_summary", "")
+    draft.setdefault("human_review_notes", [])
+    draft.setdefault("missing_context", [])
+    draft.setdefault("suggested_edits", [])
+
+    saved = save_demo_draft(draft)
+    return saved
 
 
 @app.post("/api/outbox")
@@ -381,12 +442,12 @@ def get_meeting_brief(organization_id: int):
     org = crm.get_organization(organization_id)
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
-    return meeting_brief(org)
+    return get_ai_provider().meeting_brief(org)
 
 
 @app.post("/api/meeting-notes/summarize")
 def summarize_meeting_notes(payload: MeetingNotesRequest):
-    return summarize_notes(payload.notes)
+    return get_ai_provider().summarize_notes(payload.notes)
 
 
 @app.post("/api/research/discover")
@@ -444,28 +505,113 @@ def save_research_intake(payload: ResearchIntakeRequest):
 @app.post("/api/research/approve")
 def approve_research_candidate(payload: ResearchApproveRequest):
     candidate = payload.candidate
+    normalized_name = candidate.organization_name.strip().lower()
+    existing = next(
+        (
+            org
+            for org in crm.list_organizations()
+            if org.get("name", "").strip().lower() == normalized_name
+        ),
+        None,
+    )
+    if existing:
+        raise HTTPException(
+            status_code=409,
+            detail=f"{candidate.organization_name} already exists in the CRM.",
+        )
+
+    source_parts = [
+        f"Source type: {candidate.source_type}" if candidate.source_type else "",
+        f"Source name: {candidate.source_name}" if candidate.source_name else "",
+        f"Source URL: {candidate.source_url}" if candidate.source_url else "",
+        f"Source notes: {candidate.source_notes}" if candidate.source_notes else "",
+        f"Source note: {candidate.source_note}" if candidate.source_note else "",
+    ]
+    workflow_parts = [
+        (
+            "Likely workflow pain points: "
+            + "; ".join(candidate.likely_workflow_pain_points)
+            if candidate.likely_workflow_pain_points
+            else ""
+        ),
+        (
+            "Possible AI support areas: "
+            + "; ".join(candidate.possible_ai_support_areas)
+            if candidate.possible_ai_support_areas
+            else ""
+        ),
+        (
+            "Required human review: "
+            + "; ".join(candidate.required_human_review)
+            if candidate.required_human_review
+            else ""
+        ),
+        (
+            "Required knowledge sources: "
+            + "; ".join(candidate.required_knowledge_sources)
+            if candidate.required_knowledge_sources
+            else ""
+        ),
+        (
+            "Adoption risk notes: "
+            + "; ".join(candidate.adoption_risk_notes)
+            if candidate.adoption_risk_notes
+            else ""
+        ),
+        (
+            "Suggested discovery questions: "
+            + "; ".join(candidate.suggested_discovery_questions)
+            if candidate.suggested_discovery_questions
+            else ""
+        ),
+        (
+            f"Suggested first discovery question: "
+            f"{candidate.suggested_first_discovery_question}"
+            if candidate.suggested_first_discovery_question
+            else ""
+        ),
+    ]
+    mission_notes = " ".join(
+        note
+        for note in [
+            candidate.program_area,
+            candidate.why_it_may_be_relevant,
+            (
+                f"Why selected: {candidate.why_user_selected_this_candidate}"
+                if candidate.why_user_selected_this_candidate
+                else ""
+            ),
+            (
+                f"Suggested outreach angle: {candidate.suggested_outreach_angle}"
+                if candidate.suggested_outreach_angle
+                else ""
+            ),
+            *workflow_parts,
+            *source_parts,
+        ]
+        if note
+    ).strip()
     # Field mapping note (see app/services/field_mapper.py):
     #   candidate.organization_type → internal "category"
     #   candidate.program_area      embedded in mission_notes below
     organization = {
         "name": candidate.organization_name,
-        "category": candidate.organization_type,
+        "category": candidate.organization_type or "Research approved",
         "website": candidate.website,
         "contact_name": "General Inquiries",
         "contact_email": candidate.general_contact_email or "",
         "phone_number": candidate.phone_number or "",
         "status": "Research Approved",
-        "mission_notes": (
-            f"{candidate.program_area}. {candidate.why_it_may_be_relevant} "
-            f"Suggested outreach angle: {candidate.suggested_outreach_angle}"
-        ),
-        "pain_points": [
+        "mission_notes": mission_notes or "Added from Organization Discovery.",
+        "pain_points": candidate.likely_workflow_pain_points
+        or [
             "Program planning",
             "Documentation support",
             "Follow-up coordination",
         ],
         "last_interaction": (
-            f"Added from Organization Discovery. Source note: {candidate.source_note}"
+            "Added from Organization Discovery. "
+            + " ".join(note for note in source_parts if note)
         ),
     }
     return crm.add_organization(organization)
@@ -478,7 +624,7 @@ def _sync_org_metadata(organization_id: int) -> None:
     interactions = get_interactions_for_org(organization_id)
 
     updates = {}
-    new_status = derive_status_from_interactions(interactions, org.get("status", ""))
+    new_status = get_ai_provider().derive_status_from_interactions(interactions, org.get("status", ""))
     if org["status"] != new_status:
         updates["status"] = new_status
 
@@ -547,7 +693,7 @@ def summarize_interaction(organization_id: int, interaction_id: int):
     interaction = next((i for i in interactions if i["id"] == interaction_id), None)
     if not interaction:
         raise HTTPException(status_code=404, detail="Interaction not found")
-    result = summarize_interaction_notes(interaction.get("notes", ""), interaction.get("interaction_type", ""))
+    result = get_ai_provider().summarize_interaction_notes(interaction.get("notes", ""), interaction.get("interaction_type", ""))
     # Attach suggested tasks with org/interaction context for frontend review
     if "follow_up_tasks" in result:
         for t in result["follow_up_tasks"]:
@@ -587,7 +733,7 @@ def knowledge_summary(organization_id: int):
         raise HTTPException(status_code=404, detail="Organization not found")
     interactions = get_interactions_for_org(organization_id)
     interactions.sort(key=lambda r: r.get("date", ""), reverse=True)
-    return generate_knowledge_summary(org, interactions)
+    return get_ai_provider().generate_knowledge_summary(org, interactions)
 
 
 @app.get("/api/organizations/{organization_id}/timeline")
@@ -788,8 +934,8 @@ def readiness_assessment(organization_id: int):
     if not org:
         raise HTTPException(status_code=404, detail="Organization not found")
     interactions = get_interactions_for_org(organization_id)
-    opportunities = discover_opportunities(org)
-    return generate_readiness_assessment(org, interactions, opportunities)
+    opportunities = get_ai_provider().discover_opportunities(org)
+    return get_ai_provider().generate_readiness_assessment(org, interactions, opportunities)
 
 
 @app.get("/api/organizations/{organization_id}/outreach-recommendation")
@@ -843,11 +989,12 @@ INDEX_FILE = FRONTEND_DIR / "index.html"
 @app.get("/data-tools")
 @app.get("/analytics")
 @app.get("/priority-queue")
+@app.get("/workflow-opportunities")
 @app.get("/follow-ups")
 @app.get("/knowledge-search")
 @app.get("/demo-outbox")
 def serve_frontend_page():
-    return FileResponse(INDEX_FILE)
+    return FileResponse(INDEX_FILE, headers={"Cache-Control": "no-cache"})
 
 
 if FRONTEND_DIR.exists():

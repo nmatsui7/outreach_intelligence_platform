@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import List, Optional
 
 
@@ -79,15 +79,27 @@ class ResearchIntakeRequest(BaseModel):
 
 class ResearchCandidate(BaseModel):
     organization_name: str
-    organization_type: str
-    website: str
+    organization_type: str = ""
+    website: str = ""
     general_contact_email: Optional[str] = None
     phone_number: str = ""
-    program_area: str
-    fit_score: int
-    why_it_may_be_relevant: str
-    suggested_outreach_angle: str
-    source_note: str
+    program_area: str = ""
+    fit_score: int = 0
+    why_it_may_be_relevant: str = ""
+    suggested_outreach_angle: str = ""
+    source_note: str = ""
+    source_type: str = ""
+    source_name: str = ""
+    source_url: str = ""
+    source_notes: str = ""
+    why_user_selected_this_candidate: str = ""
+    suggested_first_discovery_question: str = ""
+    likely_workflow_pain_points: List[str] = Field(default_factory=list)
+    possible_ai_support_areas: List[str] = Field(default_factory=list)
+    required_human_review: List[str] = Field(default_factory=list)
+    required_knowledge_sources: List[str] = Field(default_factory=list)
+    adoption_risk_notes: List[str] = Field(default_factory=list)
+    suggested_discovery_questions: List[str] = Field(default_factory=list)
 
 
 class ResearchApproveRequest(BaseModel):

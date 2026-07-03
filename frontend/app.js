@@ -27,7 +27,7 @@ function showError(message) {
 }
 
 function setActivePage(pathname = window.location.pathname) {
-  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox"];
+  const known = ["/research-intake", "/organization-discovery", "/integrations", "/data-tools", "/analytics", "/workflow-opportunities", "/priority-queue", "/follow-ups", "/knowledge-search", "/demo-outbox"];
   const route = known.includes(pathname) ? pathname : "/";
   const pageMap = {
     "/": "crm-page",
@@ -36,6 +36,7 @@ function setActivePage(pathname = window.location.pathname) {
     "/integrations": "integrations-page",
     "/data-tools": "data-tools-page",
     "/analytics": "analytics-page",
+    "/workflow-opportunities": "workflow-opportunities-page",
     "/priority-queue": "priority-queue-page",
     "/follow-ups": "follow-ups-page",
     "/knowledge-search": "knowledge-search-page",
@@ -593,6 +594,9 @@ function dispatchPage(route) {
   if (route === "/analytics") {
     loadAnalytics();
   }
+  if (route === "/workflow-opportunities") {
+    loadWorkflowOpportunitiesPage();
+  }
   if (route === "/priority-queue") {
     loadPriorityQueue();
   }
@@ -707,14 +711,80 @@ function candidateFieldId(index, key) {
   return `candidate-${index}-${key}`;
 }
 
+const candidateListFields = new Set([
+  "likely_workflow_pain_points",
+  "possible_ai_support_areas",
+  "required_human_review",
+  "required_knowledge_sources",
+  "adoption_risk_notes",
+  "suggested_discovery_questions",
+]);
+
+const candidateEditableFields = [
+  "organization_name",
+  "fit_score",
+  "organization_type",
+  "website",
+  "general_contact_email",
+  "phone_number",
+  "program_area",
+  "why_it_may_be_relevant",
+  "suggested_outreach_angle",
+  "source_note",
+  "source_type",
+  "source_name",
+  "source_url",
+  "source_notes",
+  "why_user_selected_this_candidate",
+  "suggested_first_discovery_question",
+  "likely_workflow_pain_points",
+  "possible_ai_support_areas",
+  "required_human_review",
+  "required_knowledge_sources",
+  "adoption_risk_notes",
+  "suggested_discovery_questions",
+];
+
+function normalizeCandidateList(value) {
+  if (Array.isArray(value)) return value.filter(Boolean);
+  if (!value) return [];
+  return String(value)
+    .split(/\n|;/)
+    .map(item => item.trim())
+    .filter(Boolean);
+}
+
+function candidateEditValue(value) {
+  return Array.isArray(value) ? value.join("\n") : (value || "");
+}
+
+function renderCandidateDisplayValue(value) {
+  if (Array.isArray(value)) {
+    if (!value.length) return "Not available";
+    return `<ul class="candidate-list">${value.map(item => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  }
+  return escapeHtml(value || "Not available");
+}
+
 function renderCandidateValue(index, key, value, multiline = false) {
   if (!discoveryCandidates[index].editing) {
-    return escapeHtml(value || "Not available");
+    return renderCandidateDisplayValue(value);
   }
+  const editValue = candidateEditValue(value);
   if (multiline) {
-    return `<textarea id="${candidateFieldId(index, key)}" rows="3">${escapeHtml(value)}</textarea>`;
+    return `<textarea id="${candidateFieldId(index, key)}" rows="3">${escapeHtml(editValue)}</textarea>`;
   }
-  return `<input id="${candidateFieldId(index, key)}" value="${escapeHtml(value)}" />`;
+  return `<input id="${candidateFieldId(index, key)}" value="${escapeHtml(editValue)}" />`;
+}
+
+function renderCandidateField(index, key, label, multiline = false) {
+  const candidate = discoveryCandidates[index];
+  return `
+    <div class="candidate-field">
+      <strong>${escapeHtml(label)}</strong>
+      <div>${renderCandidateValue(index, key, candidate[key], multiline)}</div>
+    </div>
+  `;
 }
 
 function renderCandidateCard(candidate, index) {
@@ -739,38 +809,26 @@ function renderCandidateCard(candidate, index) {
           <div>${renderCandidateValue(index, "fit_score", candidate.fit_score)}</div>
         </div>
       ` : ""}
-      <div class="candidate-field">
-        <strong>Organization Type</strong>
-        <div>${renderCandidateValue(index, "organization_type", candidate.organization_type)}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Website</strong>
-        <div>${renderCandidateValue(index, "website", candidate.website)}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>General Contact Email</strong>
-        <div>${renderCandidateValue(index, "general_contact_email", candidate.general_contact_email || "")}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Phone Number</strong>
-        <div>${renderCandidateValue(index, "phone_number", candidate.phone_number || "")}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Program Area</strong>
-        <div>${renderCandidateValue(index, "program_area", candidate.program_area)}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Why It May Be Relevant</strong>
-        <div>${renderCandidateValue(index, "why_it_may_be_relevant", candidate.why_it_may_be_relevant, true)}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Suggested Outreach Angle</strong>
-        <div>${renderCandidateValue(index, "suggested_outreach_angle", candidate.suggested_outreach_angle, true)}</div>
-      </div>
-      <div class="candidate-field">
-        <strong>Source Note</strong>
-        <div>${renderCandidateValue(index, "source_note", candidate.source_note, true)}</div>
-      </div>
+      ${renderCandidateField(index, "organization_type", "Organization Type")}
+      ${renderCandidateField(index, "website", "Website")}
+      ${renderCandidateField(index, "general_contact_email", "General Contact Email")}
+      ${renderCandidateField(index, "phone_number", "Phone Number")}
+      ${renderCandidateField(index, "program_area", "Program Area")}
+      ${renderCandidateField(index, "why_it_may_be_relevant", "Why It May Be Relevant", true)}
+      ${renderCandidateField(index, "suggested_outreach_angle", "Suggested Outreach Angle", true)}
+      ${renderCandidateField(index, "source_note", "Source Note", true)}
+      ${renderCandidateField(index, "source_type", "Source Type")}
+      ${renderCandidateField(index, "source_name", "Source Name")}
+      ${renderCandidateField(index, "source_url", "Source URL")}
+      ${renderCandidateField(index, "source_notes", "Structured Source Notes", true)}
+      ${renderCandidateField(index, "why_user_selected_this_candidate", "Why Selected For Review", true)}
+      ${renderCandidateField(index, "suggested_first_discovery_question", "Suggested First Discovery Question", true)}
+      ${renderCandidateField(index, "likely_workflow_pain_points", "Likely Workflow Pain Points", true)}
+      ${renderCandidateField(index, "possible_ai_support_areas", "Possible AI Support Areas", true)}
+      ${renderCandidateField(index, "required_human_review", "Required Human Review", true)}
+      ${renderCandidateField(index, "required_knowledge_sources", "Required Knowledge Sources", true)}
+      ${renderCandidateField(index, "adoption_risk_notes", "Adoption Risk Notes", true)}
+      ${renderCandidateField(index, "suggested_discovery_questions", "Suggested Discovery Questions", true)}
       <div class="candidate-actions">
         ${candidate.editing
           ? `<button onclick="saveCandidateEdits(${index})">Save Edits</button>`
@@ -831,22 +889,66 @@ function editCandidate(index) {
 }
 
 function saveCandidateEdits(index) {
-  [
-    "organization_name",
-    "fit_score",
-    "organization_type",
-    "website",
-    "general_contact_email",
-    "phone_number",
-    "program_area",
-    "why_it_may_be_relevant",
-    "suggested_outreach_angle",
-    "source_note",
-  ].forEach(key => {
-    discoveryCandidates[index][key] = document.getElementById(candidateFieldId(index, key)).value.trim();
+  candidateEditableFields.forEach(key => {
+    const value = document.getElementById(candidateFieldId(index, key)).value.trim();
+    discoveryCandidates[index][key] = candidateListFields.has(key)
+      ? normalizeCandidateList(value)
+      : value;
   });
   discoveryCandidates[index].fit_score = Number(discoveryCandidates[index].fit_score) || 0;
   discoveryCandidates[index].editing = false;
+  renderDiscoveryResults();
+}
+
+function manualCandidateValue(id) {
+  return document.getElementById(id).value.trim();
+}
+
+function addManualCandidate(event) {
+  event.preventDefault();
+  const organizationName = manualCandidateValue("candidate-organization-name");
+  const sourceNotes = manualCandidateValue("candidate-source-notes");
+  const whySelected = manualCandidateValue("candidate-why-selected");
+  const firstQuestion = manualCandidateValue("candidate-first-question");
+  const workflowPainPoints = normalizeCandidateList(manualCandidateValue("candidate-workflow-pain-points"));
+  const aiSupportAreas = normalizeCandidateList(manualCandidateValue("candidate-ai-support-areas"));
+  const adoptionRiskNotes = normalizeCandidateList(manualCandidateValue("candidate-adoption-risk-notes"));
+
+  discoveryCandidates.unshift({
+    organization_name: organizationName,
+    organization_type: manualCandidateValue("candidate-organization-type"),
+    website: manualCandidateValue("candidate-website"),
+    general_contact_email: manualCandidateValue("candidate-contact-email"),
+    phone_number: manualCandidateValue("candidate-phone-number"),
+    program_area: manualCandidateValue("candidate-program-area"),
+    fit_score: 70,
+    why_it_may_be_relevant: whySelected || "Manually added for human review.",
+    suggested_outreach_angle: "Use a low-pressure discovery message and confirm whether workflow support would be useful.",
+    source_note: sourceNotes || "Directory-assisted manual candidate.",
+    source_type: manualCandidateValue("candidate-source-type"),
+    source_name: manualCandidateValue("candidate-source-name"),
+    source_url: manualCandidateValue("candidate-source-url"),
+    source_notes: sourceNotes,
+    why_user_selected_this_candidate: whySelected,
+    suggested_first_discovery_question: firstQuestion,
+    likely_workflow_pain_points: workflowPainPoints,
+    possible_ai_support_areas: aiSupportAreas,
+    required_human_review: [
+      "Confirm candidate fit and contact path before outreach",
+      "Review all draft language before manual sending",
+    ],
+    required_knowledge_sources: [
+      "Public program description",
+      "Staff-confirmed workflow notes",
+    ],
+    adoption_risk_notes: adoptionRiskNotes,
+    suggested_discovery_questions: firstQuestion ? [firstQuestion] : [],
+    approved: false,
+    editing: false,
+    rejected: false,
+    error: "",
+  });
+  event.target.reset();
   renderDiscoveryResults();
 }
 
@@ -2441,6 +2543,76 @@ async function loadPriorityQueue() {
     errorEl.textContent = "Failed to load priority queue: " + error.message;
     errorEl.classList.remove("hidden");
   }
+}
+
+async function loadWorkflowOpportunitiesPage() {
+  const contentEl = document.getElementById("workflow-opportunities-content");
+  const errorEl = document.getElementById("workflow-opportunities-error");
+  const loadingEl = document.getElementById("workflow-opportunities-loading");
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+
+  try {
+    const [priorityRows, orgRows] = await Promise.all([
+      api("/api/analytics/priority-queue"),
+      api("/api/organizations"),
+    ]);
+    const orgById = new Map(orgRows.map(org => [org.id, org]));
+    const rows = priorityRows
+      .map(row => ({ ...row, organization: orgById.get(row.organization_id || row.id) }))
+      .sort((a, b) => (b.priority_score || 0) - (a.priority_score || 0));
+
+    loadingEl.classList.add("hidden");
+    renderWorkflowOpportunitiesPage(rows);
+  } catch (error) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = "Failed to load workflow opportunities: " + error.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+function renderWorkflowOpportunitiesPage(rows) {
+  const contentEl = document.getElementById("workflow-opportunities-content");
+  if (!rows.length) {
+    contentEl.innerHTML = '<p class="muted">No workflow opportunities are available yet.</p>';
+    return;
+  }
+
+  contentEl.innerHTML = `
+    <table class="analytics-table pq-table">
+      <thead>
+        <tr>
+          <th>Organization</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th class="num">Score</th>
+          <th>Workflow Signals</th>
+          <th>Recommended Discovery Gap</th>
+          <th>Review</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(row => {
+          const org = row.organization || {};
+          const painPoints = Array.isArray(org.pain_points) ? org.pain_points : [];
+          const priority = row.outreach_priority || "Medium";
+          const badgeClass = priority === "High" ? "badge-high" : priority === "Low" ? "badge-low" : "badge-moderate";
+          return `
+            <tr>
+              <td><strong>${escapeHtml(row.name)}</strong><br><span class="muted">${escapeHtml(row.category || "")}</span></td>
+              <td>${escapeHtml(row.status || "")}</td>
+              <td><span class="badge ${badgeClass}">${escapeHtml(priority)}</span></td>
+              <td class="num">${row.priority_score || 0}</td>
+              <td>${painPoints.length ? renderList(painPoints) : '<span class="muted">No workflow signals recorded.</span>'}</td>
+              <td>${escapeHtml(row.recommended_next_action || "Confirm current workflow pain points and knowledge sources.")}</td>
+              <td><button onclick="navigateTo('/?org=${row.organization_id || row.id}')">Open Org</button></td>
+            </tr>
+          `;
+        }).join("")}
+      </tbody>
+    </table>
+  `;
 }
 
 function populateFilters(data) {
