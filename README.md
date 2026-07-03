@@ -76,6 +76,16 @@ Interactions are the main source of workflow intelligence.
 - Extract summary, discussion points, decisions, action items, risks, recommended follow-up, tags, and suggested follow-up tasks
 - Use local mock AI logic only — no external API calls
 
+### 2a. AI Assistant Tab
+
+Each organization detail view includes a dedicated **AI Assistant** tab containing all AI-powered action cards, grouped into:
+
+- **Organization Analysis** — AI Summary, AI Opportunity Analysis, AI Readiness Assessment
+- **Outreach Support** — Next Best Email, Outreach Recommendation
+- **Meeting Support** — Meeting Brief
+
+A safety note at the top of the tab reads: *"AI-assisted outputs are drafts or recommendations only. Human review is required before any outreach or implementation decision."*
+
 ### 3. Workflow Opportunities
 
 Workflow Opportunities capture possible AI-use cases discovered from interaction notes.
@@ -259,7 +269,7 @@ Initial principles include:
 /knowledge-search         Search across organizations, interactions, tasks, drafts, workflow opportunities,
                           knowledge sources, failure cases, and adoption risk notes
 /demo-outbox              Separate local draft review queue; no sending
-/integrations             Read-only architecture overview with connector stubs and import/export notes
+/integrations             Settings page: local demo config, connector stubs (labeled "Settings" in nav)
 /data-tools               CSV import with preview-then-confirm flow, CSV export, and JSON export
 /analytics                Workflow Insights and analytics: overview metrics, outreach pipeline,
                           readiness summary, follow-up workload, draft activity, and workflow intelligence
@@ -269,10 +279,11 @@ Initial principles include:
 
 ## Organization Detail Tabs
 
-The organization detail view should keep organization-specific data separated into readable tabs:
+The organization detail view keeps organization-specific data separated into readable tabs:
 
 ```text
 Overview
+AI Assistant
 Interactions
 Workflow Opportunities
 Knowledge Sources
@@ -371,9 +382,14 @@ Deduplication should be organization-specific, not global.
 
 ```text
 outreach_intelligence_platform/
+├── .env.example              # Template — copy to .env, never commit .env
+├── tools/
+│   └── llm.py                # llama.cpp client, auto-starts server
 ├── backend/
-│   ├── main.py
+│   ├── main.py               # FastAPI routes
 │   ├── requirements.txt
+│   ├── scripts/
+│   │   └── seed_demo_data.py # Populates demo data
 │   └── app/
 │       ├── models.py
 │       ├── connectors/
@@ -383,7 +399,8 @@ outreach_intelligence_platform/
 │       │   └── hubspot_stub.py
 │       ├── services/
 │       │   ├── ai_mock.py
-│       │   ├── ai_provider.py
+│       │   ├── ai_provider.py        # Provider abstraction & factory
+│       │   ├── adoption_principles.py # Knowledge base service
 │       │   ├── analytics.py
 │       │   ├── attachments.py
 │       │   ├── data_tools.py
@@ -395,12 +412,17 @@ outreach_intelligence_platform/
 │       │   ├── outreach_recommendation.py
 │       │   ├── research_mock.py
 │       │   ├── tasks.py
-│       │   └── workflow.py
+│       │   └── workflow.py           # Dedup-aware workflow intelligence
 │       └── data/
-│           ├── interactions.json
 │           ├── organizations.json
+│           ├── interactions.json
+│           ├── interaction_summaries.json
+│           ├── workflow_knowledge.json
 │           ├── outbox.json
-│           └── tasks.json
+│           ├── tasks.json
+│           ├── adoption_principles.json         # Auto-seeded
+│           ├── adoption_principles_seed.json    # Seed data
+│           └── attachments/            # Local attachment storage
 └── frontend/
     ├── index.html
     ├── styles.css
@@ -533,78 +555,95 @@ DELETE /api/organizations/{id}/adoption-risk-notes/{ar_id}  (internal roadmap: w
 After setup, these checks should pass:
 
 ```bash
-python -m compileall backend
+python -m compileall backend tools
 python -m pip check
 node --check frontend/app.js
 curl http://127.0.0.1:8000/api/health
 curl http://127.0.0.1:8000/api/organizations
-curl http://127.0.0.1:8000/api/organizations/1
-curl http://127.0.0.1:8000/api/organizations/1/summary
-curl http://127.0.0.1:8000/api/organizations/1/opportunities
-curl http://127.0.0.1:8000/api/organizations/1/meeting-brief
-curl -X POST http://127.0.0.1:8000/api/research/intake \
-  -H "Content-Type: application/json" \
-  -d '{"organization_name":"Example Community Org","organization_type":"Community nonprofit","program_area":"Digital literacy"}'
-curl -X POST http://127.0.0.1:8000/api/research/discover \
-  -H "Content-Type: application/json" \
-  -d '{"research_theme":"public AI literacy workshops"}'
 curl http://127.0.0.1:8000/api/analytics/summary
-curl http://127.0.0.1:8000/api/analytics/priority-queue
-curl http://127.0.0.1:8000/api/organizations/1/outreach-recommendation
 curl http://127.0.0.1:8000/api/tasks
 ```
 
-The browser UI should load all frontend pages at their respective routes. The CRM workspace should preserve all Phase 1 and Phase 2 features.
+All browser routes should return HTTP 200:
+
+```text
+/                     CRM Workspace
+/organization-discovery
+/research-intake
+/knowledge-search
+/demo-outbox
+/analytics
+/priority-queue
+/follow-ups
+/data-tools
+/integrations          (labeled "Settings" in nav)
+```
+
+Note: In `AI_PROVIDER=local_llm` mode, `analytics/summary` and `priority-queue` make sequential LLM calls per organization and may be slow. The mock mode renders these instantly.
 
 
-## AI Provider
+## AI Provider Configuration
 
-The platform uses an **AI provider abstraction** (`backend/app/services/ai_provider.py`) to route all AI-assisted features through a configurable backend. This keeps AI logic interchangeable without changing the rest of the codebase.
+All AI-assisted features route through a provider abstraction (`backend/app/services/ai_provider.py`), making the AI backend interchangeable without changing the rest of the codebase.
+
+Set `AI_PROVIDER` in your `.env` file (project root):
+
+```env
+AI_PROVIDER=mock
+```
 
 ### Provider Modes
 
-Set `AI_PROVIDER` in your environment or `.env` file:
-
-| Mode | Value | Backend | Requirements |
+| Mode | Value | Behavior | Requirements |
 |---|---|---|---|
-| Mock (default) | `mock` | Rule-based responses in `ai_mock.py` | None |
-| Local LLM | `local_llm` | llama.cpp via `tools/llm.py` | llama-server binary, GGUF model file, `httpx` |
-| OpenAI (placeholder) | `openai` | Falls back to mock | Not yet implemented |
+| **Mock (default)** | `mock` | Rule-based responses from `ai_mock.py`. Fast, deterministic, no external dependencies. | None |
+| **Local LLM** | `local_llm` | Calls `tools/llm.py` → llama.cpp `llama-server` running on `localhost:8082`. Returns structured JSON from a real model. | llama-server binary, GGUF model file |
+| **OpenAI (placeholder)** | `openai` | Falls back to mock. Ready for future implementation. | Not yet implemented |
 
-### Local LLM Setup
-
-1. Install [llama.cpp](https://github.com/ggerganov/llama.cpp) and build `llama-server`
-2. Download a GGUF model (e.g., Gemma 4 4B IT)
-3. Set environment variables in `.env` at the project root:
-
-```env
-AI_PROVIDER=local_llm
-LLAMA_BIN=/path/to/llama-server
-MODEL_PATH=/path/to/model.gguf
-CHAT_TEMPLATE=/path/to/chat_template.jinja  # optional
-LLAMA_PORT=8082
-LLAMA_CTX_SIZE=8192
-LLAMA_THREADS=6
-```
-
-The server auto-starts when the first AI call is made and stops on exit.
+**Mock mode is the safest default.** It requires no model files, no running server, no network access, and no external dependencies. All AI features return realistic structured responses immediately.
 
 ### Architecture
 
 ```text
-main.py / analytics.py / outreach_recommendation.py
-  │
-  └── get_ai_provider()       ← factory, reads AI_PROVIDER env var
-        │
-        ├── MockProvider        ← delegates to ai_mock.py (default)
-        ├── LocalLlmProvider    ← calls tools/llm.py → llama.cpp
-        │     └── fallback      ← MockProvider on error
-        └── OpenAiProvider      ← placeholder, falls back to mock
+get_ai_provider()        ← factory, reads AI_PROVIDER env var
+  ├── MockProvider       ← delegates to ai_mock.py (default, no dependencies)
+  ├── LocalLlmProvider   ← calls tools/llm.py → llama.cpp server
+  │     └── fallback     ← MockProvider on any error (logged)
+  └── OpenAiProvider     ← placeholder, falls back to mock
 ```
 
-Each provider implements the same method interface. `LocalLlmProvider` uses `call_llm_json()` from `tools/llm.py` for structured JSON extraction. If the LLM fails (timeout, invalid JSON, etc.), it falls back to the mock implementation and logs the failure.
+Each provider implements the same method interface. If the LLM fails (timeout, invalid JSON, connection refused, etc.), the error is logged and a safe mock fallback is served — the app never crashes.
 
-The `derive_status_from_interactions` function is purely rule-based and uses mock logic regardless of provider.
+### Local LLM Setup
+
+1. Install [llama.cpp](https://github.com/ggerganov/llama.cpp) and build `llama-server`
+2. Download a GGUF model (e.g., Gemma 4 4B IT Q8)
+3. Create `.env` at the project root with these variables:
+
+| Variable | Purpose | Example |
+|---|---|---|
+| `AI_PROVIDER` | Set to `local_llm` | `AI_PROVIDER=local_llm` |
+| `LLAMA_BIN` | Path to llama-server binary | `LLAMA_BIN=/opt/homebrew/bin/llama-server` |
+| `MODEL_PATH` | Path to your GGUF model file | `MODEL_PATH=/path/to/model.gguf` |
+| `CHAT_TEMPLATE` | Jinja chat template (optional; relative to project root) | `CHAT_TEMPLATE=gemma4_official.jinja` |
+| `LLAMA_PORT` | Port for llama-server (default `8082`) | `LLAMA_PORT=8082` |
+| `LLAMA_CTX_SIZE` | Context window size in tokens | `LLAMA_CTX_SIZE=8192` |
+| `LLAMA_THREADS` | CPU threads for inference | `LLAMA_THREADS=6` |
+| `LLAMA_MODEL` | Model name sent in API requests | `LLAMA_MODEL=gemma-4-E4B-it` |
+| `LLAMA_TIMEOUT` | HTTP timeout in seconds for LLM calls | `LLAMA_TIMEOUT=180` |
+
+**Ports:** FastAPI serves on `:8000`, llama-server listens on `:8082`.
+
+**Auto-start:** When `_is_server_running()` detects no server on `:8082`, `tools/llm.py` auto-starts llama-server with your configured `LLAMA_BIN`, `MODEL_PATH`, and `CHAT_TEMPLATE`. The server stops on process exit.
+
+**Keep machine-specific paths in `.env` only.** Never commit `.env`. Commit only `.env.example` with placeholder values.
+
+### Behavior Summary
+
+- `AI_PROVIDER=mock` (or unset) → fast, deterministic, no model required
+- `AI_PROVIDER=local_llm` → real LLM inference via llama.cpp, with auto-start and fallback
+- All modes return the same response shapes — the frontend never needs to know which provider is active
+- The `derive_status_from_interactions` function is purely rule-based and uses mock logic regardless of provider
 
 
 ## Adoption Principles Knowledge Base
@@ -636,6 +675,52 @@ The knowledge base is stored in `backend/data/adoption_principles.json` and seed
 A dedicated **Adoption Principles** page displays all principles grouped by category. This page is mainly for transparency — it shows the logic the app uses when interpreting interaction notes.
 
 The principles are also referenced in workflow opportunity cards, knowledge source descriptions, failure case entries, and human-system notes where relevant, linking extracted intelligence back to the underlying adoption methodology.
+
+
+## AI-Powered Email Drafting
+
+Email drafts are generated by the configured AI provider through `POST /api/drafts/generate`.
+
+### Context Used
+
+When generating a draft, the provider receives:
+
+- **Organization profile** — name, category, mission, status, contact
+- **Interaction history** — past meetings, calls, emails, and notes
+- **Follow-up tasks** — open and pending tasks for the organization
+- **Workflow opportunities** — presented as possible areas to explore, not confirmed conclusions
+- **Adoption risk notes** — used to keep the draft cautious, human-reviewed, and discovery-oriented
+- **Outreach recommendation** — priority, readiness level, and next action
+- **Candidate source notes** — program area, pain points, and outreach goal
+
+### Output Fields
+
+Every generated draft includes:
+
+| Field | Description |
+|---|---|
+| `subject` | Suggested email subject line |
+| `body` | Draft email body |
+| `tone` | Detected tone (e.g., "Empathetic and Collaborative") |
+| `reasoning_summary` | Why the draft was written this way |
+| `human_review_notes` | Specific items a reviewer should verify |
+| `missing_context` | Information that would improve the draft |
+| `suggested_edits` | Concrete editorial suggestions |
+
+### Safety
+
+- Drafts are saved to the local **Demo Outbox** only — `status=needs_review`, `ai_generated=True`, `draft_type=ai_assisted`
+- No email is sent. No SMTP, Gmail, Outlook, or OAuth is involved.
+- The draft uses interaction history naturally, does not imply prior contact when none exists, and does not claim knowledge of internal workflows unless supported by notes.
+- Organization-specific pain points and program details are referenced appropriately without sounding intrusive.
+
+
+## Environment File
+
+- **`.env`** — local-only, never committed. Contains `AI_PROVIDER`, model paths, and port settings specific to your machine.
+- **`.env.example`** — committed template with placeholder values. Copy to `.env` and adjust.
+
+Keep machine-specific paths (`LLAMA_BIN`, `MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/model.gguf`.
 
 
 ## Future Development
