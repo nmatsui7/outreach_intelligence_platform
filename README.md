@@ -451,6 +451,25 @@ outreach_intelligence_platform/
     └── app.js
 ```
 
+## Clone and Run
+
+```bash
+git clone https://github.com/nmatsui7/outreach_intelligence_platform.git
+cd outreach_intelligence_platform
+python3.13 -m venv .venv
+source .venv/bin/activate
+pip install -r backend/requirements.txt
+uvicorn backend.main:app --reload
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000
+```
+
+The app runs in mock mode by default and does not require a local LLM, OpenAI API key, or external service.
+
 ## Running Without a Local LLM
 
 The app does not require a local LLM to run. By default, AI-powered features use local mock AI logic and local demo data. This allows the portfolio demo to run without OpenAI API keys, Ollama, llama.cpp, LM Studio, or any external AI provider.
