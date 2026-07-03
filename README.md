@@ -4,8 +4,6 @@ A portfolio demo for **AI-assisted outreach and workflow intelligence**. The pla
 
 This project is intentionally safe: **it does not send real emails**. AI-assisted drafts are saved to a local **Demo Outbox** for human review and manual sending outside the app.
 
-![CRM Workspace Overview](docs/screenshots/crm-overview.png)
-
 ## Product Thesis
 
 Successful AI adoption is not only a technical problem. Organizations also need to understand workflow pain points, knowledge sources, human-review requirements, failure cases, staff concerns, evaluation ambiguity, recognition gaps, and training needs.
@@ -23,6 +21,28 @@ Organization profile + interaction notes
   → human-system and adoption-risk notes
   → workflow insights for future adoption planning
 ```
+
+## Screenshots
+
+### CRM Workspace
+
+![CRM Workspace](docs/screenshots/crm-overview.png)
+
+### AI Assistant
+
+![AI Assistant](docs/screenshots/ai-assistant.png)
+
+### Workflow Opportunities
+
+![Workflow Opportunities](docs/screenshots/workflow-opportunities.png)
+
+### AI Adoption Planner
+
+![AI Adoption Planner](docs/screenshots/adoption-planner.png)
+
+### Settings Placeholders
+
+![Settings Placeholders](docs/screenshots/settings-placeholders.png)
 
 ## What This Is
 
