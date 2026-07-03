@@ -4,29 +4,66 @@
       "id": 1,
       "organization_id": 1,
       "source_interaction_id": 4,
-      "source_interaction_title": "Internal Staff Readiness Check-in",
+      "source_interaction_title": "Initial AI Literacy Discussion",
       "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
       "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
       "pain_point": "No specific pain points documented \u2014 further discussion needed to identify workflow friction.",
       "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
       "knowledge_sources_needed": [
-        "Volunteer schedules and contact information"
+        "Volunteer schedules and contact information",
+        "Meeting notes and minutes",
+        "Reports and program documentation",
+        "Policy and compliance documents",
+        "Spreadsheets or databases with program data",
+        "General organizational documentation \u2014 not yet inventoried"
       ],
       "human_review_points": [
         "All AI-generated summaries must be reviewed by a staff member before saving to records.",
         "AI-drafted communications must be approved by a human before sending.",
         "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
+        "Final decisions on workflow changes require human approval.",
+        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only."
       ],
       "risks_or_exceptions": [
-        "No specific failure cases documented yet"
+        "No specific failure cases documented yet",
+        "Key information from meetings is lost or not shared with relevant staff",
+        "Manual data entry errors lead to incorrect reports and rework",
+        "Policy updates are not consistently communicated or applied across the team"
       ],
       "tags": [
-        "pilot-idea"
+        "pilot-idea",
+        "documentation",
+        "human-review",
+        "workflow-improvement",
+        "follow-up"
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:53:12Z",
-      "updated_at": "2026-07-02T19:53:12Z"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "source_interaction_ids": [
+        4,
+        6,
+        1
+      ],
+      "evidence_count": 3,
+      "evidence_excerpts": [
+        "AI-assisted scheduling and engagement pattern analysis"
+      ],
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "staff_impact": "No specific staff concerns raised \u2014 monitor during next interaction.",
+      "adoption_risk_level": "Unknown",
+      "next_discovery_questions": [
+        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
+      ],
+      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Final decisions on workflow changes require human approval.",
+      "required_knowledge_sources": [
+        "General organizational documentation \u2014 not yet inventoried"
+      ],
+      "known_failure_cases": [
+        "No specific failure cases documented yet"
+      ],
+      "canonical_title": "AI-assisted scheduling and engagement pattern analysis",
+      "normalized_key": "aiassisted scheduling engagement pattern analysis"
     },
     {
       "id": 2,
@@ -62,7 +99,17 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
+      ],
+      "canonical_title": "AI-assisted meeting note summarization and action item extraction",
+      "normalized_key": "aiassisted meeting note summarization action item extraction",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "AI-assisted meeting note summarization and action item extraction"
+      ],
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 3,
@@ -98,43 +145,17 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
-    },
-    {
-      "id": 4,
-      "organization_id": 1,
-      "source_interaction_id": 6,
-      "source_interaction_title": "Staff Workflow Review",
-      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
-      "current_process": "Staff manually enter data into spreadsheets or forms, produce recurring reports, and store documents in shared folders. There is no automated workflow.",
-      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
-      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
-      "knowledge_sources_needed": [
-        "Meeting notes and minutes",
-        "Reports and program documentation",
-        "Policy and compliance documents",
-        "Spreadsheets or databases with program data"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
       ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Policy compliance decisions require human judgment \u2014 AI suggestions are advisory only.",
-        "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
+      "canonical_title": "Automated data extraction and report generation from structured inputs",
+      "normalized_key": "automated data extraction report generation structured inputs",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Automated data extraction and report generation from structured inputs"
       ],
-      "risks_or_exceptions": [
-        "Key information from meetings is lost or not shared with relevant staff",
-        "Manual data entry errors lead to incorrect reports and rework",
-        "Policy updates are not consistently communicated or applied across the team"
-      ],
-      "tags": [
-        "documentation",
-        "human-review",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 5,
@@ -170,7 +191,17 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
+      ],
+      "canonical_title": "AI-assisted compliance checking against policy documents",
+      "normalized_key": "aiassisted compliance checking against policy documents",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "AI-assisted compliance checking against policy documents"
+      ],
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 6,
@@ -212,7 +243,17 @@
         "No specific failure cases documented yet"
       ],
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-02T20:07:11Z",
+      "source_interaction_ids": [
+        7
+      ],
+      "canonical_title": "General workflow mapping to identify highest-impact AI insertion points",
+      "normalized_key": "general workflow mapping identify highestimpact insertion points",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "General workflow mapping to identify highest-impact AI insertion points"
+      ],
+      "last_seen_at": "2026-07-02T20:07:11Z"
     },
     {
       "id": 7,
@@ -252,85 +293,17 @@
         "Follow-ups are missed when staff are absent or overwhelmed"
       ],
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
-    },
-    {
-      "id": 8,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
-      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
-      "knowledge_sources_needed": [
-        "General organizational documentation \u2014 not yet inventoried"
+      "updated_at": "2026-07-02T22:03:52Z",
+      "source_interaction_ids": [
+        5
       ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Final decisions on workflow changes require human approval."
+      "canonical_title": "Automated follow-up reminders and status tracking",
+      "normalized_key": "automated followup reminders status tracking",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Automated follow-up reminders and status tracking"
       ],
-      "risks_or_exceptions": [
-        "No specific failure cases documented yet"
-      ],
-      "tags": [
-        "follow-up"
-      ],
-      "status": "Identified",
-      "staff_impact": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "General organizational documentation \u2014 not yet inventoried"
-      ],
-      "known_failure_cases": [
-        "No specific failure cases documented yet"
-      ],
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 9,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
-      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
-      "knowledge_sources_needed": [
-        "General organizational documentation \u2014 not yet inventoried"
-      ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Final decisions on workflow changes require human approval."
-      ],
-      "risks_or_exceptions": [
-        "No specific failure cases documented yet"
-      ],
-      "tags": [
-        "follow-up"
-      ],
-      "status": "Identified",
-      "staff_impact": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "General organizational documentation \u2014 not yet inventoried"
-      ],
-      "known_failure_cases": [
-        "No specific failure cases documented yet"
-      ],
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
+      "last_seen_at": "2026-07-02T22:03:52Z"
     }
   ],
   "knowledge_sources": [
@@ -342,7 +315,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T19:53:12Z",
-      "updated_at": "2026-07-02T19:53:12Z"
+      "updated_at": "2026-07-02T19:53:12Z",
+      "normalized_key": "volunteer schedules contact information",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T19:53:12Z"
     },
     {
       "id": 2,
@@ -352,7 +328,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past meeting notes'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "normalized_key": "meeting notes minutes",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 3,
@@ -362,7 +341,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "normalized_key": "reports program documentation",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 4,
@@ -372,7 +354,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'FAQ documents'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "normalized_key": "policy compliance documents",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 5,
@@ -382,7 +367,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "normalized_key": "spreadsheets databases program data",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 6,
@@ -392,7 +380,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-02T20:07:11Z",
+      "normalized_key": "training materials workshop guides",
+      "evidence_count": 1,
+      "last_seen_at": "2026-07-02T20:07:11Z"
     },
     {
       "id": 7,
@@ -402,27 +393,10 @@
       "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
       "location_note": "Local \u2014 no external storage accessed",
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
-    },
-    {
-      "id": 8,
-      "organization_id": 1,
-      "source_type": "Past emails or drafts",
-      "name": "General organizational documentation \u2014 not yet inventoried",
-      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
-      "location_note": "Local \u2014 no external storage accessed",
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 9,
-      "organization_id": 1,
-      "source_type": "Past emails or drafts",
-      "name": "General organizational documentation \u2014 not yet inventoried",
-      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
-      "location_note": "Local \u2014 no external storage accessed",
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "evidence_count": 3,
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "normalized_key": "general organizational documentation yet inventoried"
     }
   ],
   "failure_cases": [
@@ -430,18 +404,33 @@
       "id": 1,
       "organization_id": 1,
       "source_interaction_id": 4,
-      "source_interaction_title": "Internal Staff Readiness Check-in",
+      "source_interaction_title": "Initial AI Literacy Discussion",
       "what_failed": "No specific failure cases documented yet",
       "why_it_failed": "Interaction notes do not describe past failures or exceptions",
       "missing_context": "Failure mode analysis has not been conducted",
       "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
       "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
       "tags": [
-        "pilot-idea"
+        "pilot-idea",
+        "knowledge-sharing",
+        "staff-concern",
+        "training-need",
+        "follow-up"
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:53:12Z",
-      "updated_at": "2026-07-02T19:53:12Z"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "source_interaction_ids": [
+        4,
+        7,
+        1
+      ],
+      "evidence_count": 3,
+      "evidence_excerpts": [
+        "No specific failure cases documented yet"
+      ],
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "normalized_key": "specific failure cases documented yet"
     },
     {
       "id": 2,
@@ -460,7 +449,16 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
+      ],
+      "normalized_key": "key information meetings lost shared relevant staff",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Key information from meetings is lost or not shared with relevant staff"
+      ],
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 3,
@@ -479,7 +477,16 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
+      ],
+      "normalized_key": "manual data entry errors lead incorrect reports rework",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Manual data entry errors lead to incorrect reports and rework"
+      ],
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 4,
@@ -498,26 +505,16 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T19:54:42Z",
-      "updated_at": "2026-07-02T19:54:42Z"
-    },
-    {
-      "id": 5,
-      "organization_id": 1,
-      "source_interaction_id": 7,
-      "source_interaction_title": "Staff Adoption Concerns Meeting",
-      "what_failed": "No specific failure cases documented yet",
-      "why_it_failed": "Interaction notes do not describe past failures or exceptions",
-      "missing_context": "Failure mode analysis has not been conducted",
-      "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-      "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
-      "tags": [
-        "knowledge-sharing",
-        "staff-concern",
-        "training-need"
+      "updated_at": "2026-07-02T19:54:42Z",
+      "source_interaction_ids": [
+        6
       ],
-      "status": "Identified",
-      "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "normalized_key": "policy updates consistently communicated applied across team",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Policy updates are not consistently communicated or applied across the team"
+      ],
+      "last_seen_at": "2026-07-02T19:54:42Z"
     },
     {
       "id": 6,
@@ -535,41 +532,16 @@
       ],
       "status": "Identified",
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
-    },
-    {
-      "id": 7,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "what_failed": "No specific failure cases documented yet",
-      "why_it_failed": "Interaction notes do not describe past failures or exceptions",
-      "missing_context": "Failure mode analysis has not been conducted",
-      "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-      "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
-      "tags": [
-        "follow-up"
+      "updated_at": "2026-07-02T22:03:52Z",
+      "source_interaction_ids": [
+        5
       ],
-      "status": "Identified",
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 8,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "what_failed": "No specific failure cases documented yet",
-      "why_it_failed": "Interaction notes do not describe past failures or exceptions",
-      "missing_context": "Failure mode analysis has not been conducted",
-      "human_review_required": "Staff should reflect on past challenges to identify recurring failure patterns",
-      "suggested_prevention": "Schedule a retrospective session to document past workflow failures and contributing factors",
-      "tags": [
-        "follow-up"
+      "normalized_key": "followups missed staff absent overwhelmed",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Follow-ups are missed when staff are absent or overwhelmed"
       ],
-      "status": "Identified",
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
+      "last_seen_at": "2026-07-02T22:03:52Z"
     }
   ],
   "adoption_risk_notes": [
@@ -589,13 +561,22 @@
         "training-need"
       ],
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-02T20:07:11Z",
+      "source_interaction_ids": [
+        7
+      ],
+      "normalized_key": "adoption safeguard staff must consulted any workflow change adoption voluntary humanled",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led."
+      ],
+      "last_seen_at": "2026-07-02T20:07:11Z"
     },
     {
       "id": 2,
       "organization_id": 1,
       "source_interaction_id": 7,
-      "source_interaction_title": "Staff Adoption Concerns Meeting",
+      "source_interaction_title": "Initial AI Literacy Discussion",
       "risk_type": "Adoption Safeguard",
       "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
       "severity": "Low",
@@ -604,10 +585,23 @@
       "tags": [
         "knowledge-sharing",
         "staff-concern",
-        "training-need"
+        "training-need",
+        "follow-up",
+        "pilot-idea"
       ],
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "source_interaction_ids": [
+        7,
+        5,
+        1
+      ],
+      "evidence_count": 3,
+      "evidence_excerpts": [
+        "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
+      ],
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "normalized_key": "adoption safeguard recommendations advisory relationship workflow decisions require human judgment"
     },
     {
       "id": 3,
@@ -625,7 +619,16 @@
         "training-need"
       ],
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-02T20:07:11Z",
+      "source_interaction_ids": [
+        7
+      ],
+      "normalized_key": "staff concern staff fear replaces rather assists their work emphasize augmentation automation",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Staff may fear AI replaces rather than assists their work \u2014 emphasize augmentation, not automation."
+      ],
+      "last_seen_at": "2026-07-02T20:07:11Z"
     },
     {
       "id": 4,
@@ -643,7 +646,16 @@
         "training-need"
       ],
       "created_at": "2026-07-02T20:07:11Z",
-      "updated_at": "2026-07-02T20:07:11Z"
+      "updated_at": "2026-07-02T20:07:11Z",
+      "source_interaction_ids": [
+        7
+      ],
+      "normalized_key": "evaluation risk unclear aiassisted work evaluated against current performance criteria",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Unclear how AI-assisted work would be evaluated against current performance criteria."
+      ],
+      "last_seen_at": "2026-07-02T20:07:11Z"
     },
     {
       "id": 5,
@@ -660,30 +672,22 @@
         "pilot-idea"
       ],
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
-    },
-    {
-      "id": 6,
-      "organization_id": 1,
-      "source_interaction_id": 5,
-      "source_interaction_title": "AI pilot discussion",
-      "risk_type": "Adoption Safeguard",
-      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "tags": [
-        "follow-up",
-        "pilot-idea"
+      "updated_at": "2026-07-02T22:03:52Z",
+      "source_interaction_ids": [
+        5
       ],
-      "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
+      "normalized_key": "adoption safeguard pilots start small lowrisk scope clear success criteria human oversight checkpoints",
+      "evidence_count": 1,
+      "evidence_excerpts": [
+        "Pilots should start with a small, low-risk scope with clear success criteria and human oversight checkpoints."
+      ],
+      "last_seen_at": "2026-07-02T22:03:52Z"
     },
     {
       "id": 7,
       "organization_id": 1,
       "source_interaction_id": 5,
-      "source_interaction_title": "AI pilot discussion",
+      "source_interaction_title": "Initial AI Literacy Discussion",
       "risk_type": "Staff Concern",
       "description": "No specific staff concerns raised \u2014 monitor during next interaction.",
       "severity": "Low",
@@ -694,13 +698,23 @@
         "pilot-idea"
       ],
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "source_interaction_ids": [
+        5,
+        1
+      ],
+      "evidence_count": 2,
+      "evidence_excerpts": [
+        "No specific staff concerns raised \u2014 monitor during next interaction."
+      ],
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "normalized_key": "staff concern specific staff concerns raised monitor next interaction"
     },
     {
       "id": 8,
       "organization_id": 1,
       "source_interaction_id": 5,
-      "source_interaction_title": "AI pilot discussion",
+      "source_interaction_title": "Initial AI Literacy Discussion",
       "risk_type": "Evaluation Risk",
       "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
       "severity": "Medium",
@@ -711,103 +725,17 @@
         "pilot-idea"
       ],
       "created_at": "2026-07-02T22:03:52Z",
-      "updated_at": "2026-07-02T22:03:52Z"
-    },
-    {
-      "id": 9,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Adoption Safeguard",
-      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "tags": [
-        "follow-up"
+      "updated_at": "2026-07-03T13:22:37Z",
+      "source_interaction_ids": [
+        5,
+        1
       ],
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 10,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Staff Concern",
-      "description": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "tags": [
-        "follow-up"
+      "evidence_count": 2,
+      "evidence_excerpts": [
+        "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
       ],
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 11,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Evaluation Risk",
-      "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
-      "severity": "Medium",
-      "related_staff_role": "Program leads",
-      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
-      "tags": [
-        "follow-up"
-      ],
-      "created_at": "2026-07-03T12:08:00Z",
-      "updated_at": "2026-07-03T12:08:00Z"
-    },
-    {
-      "id": 12,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Adoption Safeguard",
-      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "tags": [
-        "follow-up"
-      ],
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
-    },
-    {
-      "id": 13,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Staff Concern",
-      "description": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "No specific staff concerns raised \u2014 monitor during next interaction.",
-      "tags": [
-        "follow-up"
-      ],
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
-    },
-    {
-      "id": 14,
-      "organization_id": 1,
-      "source_interaction_id": 1,
-      "source_interaction_title": "Initial AI Literacy Discussion",
-      "risk_type": "Evaluation Risk",
-      "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
-      "severity": "Medium",
-      "related_staff_role": "Program leads",
-      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
-      "tags": [
-        "follow-up"
-      ],
-      "created_at": "2026-07-03T13:16:48Z",
-      "updated_at": "2026-07-03T13:16:48Z"
+      "last_seen_at": "2026-07-03T13:22:37Z",
+      "normalized_key": "evaluation risk evaluation recognition risks identified discussion reveal concerns"
     }
   ]
 }
