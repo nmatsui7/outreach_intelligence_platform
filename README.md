@@ -98,6 +98,47 @@ Interactions are the main source of workflow intelligence.
 - Extract summary, discussion points, decisions, action items, risks, recommended follow-up, tags, and suggested follow-up tasks
 - Use local mock AI logic only — no external API calls
 
+### Knowledge Extraction Process
+
+Interactions are the raw input for workflow intelligence. When a user records an interaction and runs AI Note Summary, the app extracts structured information from the note and stores it in local JSON-backed records.
+
+```text
+Interaction note
+  → AI Note Summary
+  → structured extraction fields
+  → local JSON-backed knowledge records
+  → organization-level workflow intelligence
+  → search, analytics, and adoption planning inputs
+```
+
+The extraction produces the following kinds of knowledge, where supported:
+
+* summary and key discussion points
+* action items and follow-up tasks
+* workflow pain points
+* repeated manual tasks
+* possible AI-use opportunities
+* knowledge sources required for AI support
+* failure cases and exceptions
+* human-review requirements
+* staff concerns
+* evaluation or recognition risks
+* training or follow-up needs
+* adoption safeguards
+* reusable insights and playbook candidates
+
+Extracted records accumulate at the organization level. Repeated similar findings strengthen evidence rather than creating duplicates. Source evidence is preserved where practical through source interaction IDs, note summary IDs, evidence excerpts, evidence count, and last-seen timestamps.
+
+The following records are created or updated when AI Note Summary is run:
+
+* [Interaction summary](#2-interaction-notes-and-ai-summaries) — saved to `interaction_summaries.json`
+* [Follow-up tasks](#6-follow-up-tasks) — returned as suggestions for user review and manual creation
+* [Workflow opportunities](#3-workflow-opportunities) — auto-saved with deduplication and evidence tracking
+* [Knowledge sources](#5-knowledge-sources) — auto-saved per organization
+* [Failure cases](#failure-cases) — auto-saved with deduplication and evidence tracking
+* [Adoption risk notes](#adoption-risk-notes) — auto-saved with source interaction references
+* Lessons learned, reusable insights, and playbook candidates — included in the summary response and viewable per interaction
+
 ### 2a. AI Assistant Tab
 
 Each organization detail view includes a dedicated **AI Assistant** tab containing all AI-powered action cards, grouped into:
