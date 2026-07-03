@@ -47,6 +47,7 @@
           <div id="organization-detail-tabs" class="org-tabs hidden">
             <div class="tab-list" role="tablist" aria-label="Organization detail sections">
               <button class="tab-button active" data-org-tab="overview" onclick="showOrgTab('overview')">Overview</button>
+              <button class="tab-button" data-org-tab="ai-assistant" onclick="showOrgTab('ai-assistant')">AI Assistant</button>
               <button class="tab-button" data-org-tab="interactions" onclick="showOrgTab('interactions')">Interactions</button>
               <button class="tab-button" data-org-tab="workflow" onclick="showOrgTab('workflow')">Workflow Opportunities</button>
               <button class="tab-button" data-org-tab="knowledge" onclick="showOrgTab('knowledge')">Knowledge Sources</button>
@@ -58,16 +59,79 @@
             <section id="org-tab-overview" class="tab-panel active">
               <div id="details"></div>
 
-              <div class="actions">
-                <button onclick="loadSummary()">AI Summary</button>
-                <button onclick="loadOpportunities()">AI Opportunity Analysis</button>
-                <button onclick="loadReadinessAssessment()">AI Readiness Assessment</button>
-                <button onclick="generateNextBestEmail()">Next Best Email</button>
-                <button onclick="loadMeetingBrief()">Meeting Brief</button>
-                <button onclick="loadOutreachRecommendation()">Outreach Recommendation</button>
+              <section id="timeline-section" class="hidden">
+                <h3>Organization Timeline</h3>
+                <button onclick="loadTimeline()">Refresh Timeline</button>
+                <div id="timeline-output" class="output"></div>
+              </section>
+            </section>
+
+            <section id="org-tab-ai-assistant" class="tab-panel">
+              <div class="ai-safety-note">AI-assisted outputs are drafts or recommendations only. Human review is required before any outreach or implementation decision.</div>
+
+              <div class="ai-action-groups">
+                <div class="ai-action-group">
+                  <h3>Organization Analysis</h3>
+                  <div class="ai-action-cards">
+                    <button class="ai-action-card" onclick="loadSummary()">
+                      <span class="ai-action-icon">&#x1F4CB;</span>
+                      <span class="ai-action-label">AI Summary</span>
+                      <span class="ai-action-desc">Generate structured summary from latest interactions</span>
+                    </button>
+                    <button class="ai-action-card" onclick="loadOpportunities()">
+                      <span class="ai-action-icon">&#x1F50D;</span>
+                      <span class="ai-action-label">AI Opportunity Analysis</span>
+                      <span class="ai-action-desc">Identify workflow opportunities and AI support areas</span>
+                    </button>
+                    <button class="ai-action-card" onclick="loadReadinessAssessment()">
+                      <span class="ai-action-icon">&#x1F9E0;</span>
+                      <span class="ai-action-label">AI Readiness Assessment</span>
+                      <span class="ai-action-desc">Evaluate organization readiness for AI adoption</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ai-action-group">
+                  <h3>Outreach Support</h3>
+                  <div class="ai-action-cards">
+                    <button class="ai-action-card" onclick="generateNextBestEmail()">
+                      <span class="ai-action-icon">&#x2709;&#xFE0F;</span>
+                      <span class="ai-action-label">Next Best Email</span>
+                      <span class="ai-action-desc">Generate a context-aware email draft for human review</span>
+                    </button>
+                    <button class="ai-action-card" onclick="loadOutreachRecommendation()">
+                      <span class="ai-action-icon">&#x1F4AC;</span>
+                      <span class="ai-action-label">Outreach Recommendation</span>
+                      <span class="ai-action-desc">Get recommended next action and collaboration angles</span>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="ai-action-group">
+                  <h3>Meeting Support</h3>
+                  <div class="ai-action-cards">
+                    <button class="ai-action-card" onclick="loadMeetingBrief()">
+                      <span class="ai-action-icon">&#x1F4DD;</span>
+                      <span class="ai-action-label">Meeting Brief</span>
+                      <span class="ai-action-desc">Prepare a brief with context, discussion points, and questions</span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               <div id="ai-output" class="output"></div>
+
+              <section id="knowledge-summary-section" class="hidden">
+                <h3>Workflow Intelligence Summary</h3>
+                <button onclick="loadKnowledgeSummary()">Refresh Workflow Intelligence</button>
+                <div id="knowledge-summary-output" class="output"></div>
+              </section>
+
+              <section id="readiness-section" class="hidden">
+                <h3>AI Readiness Assessment</h3>
+                <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
+                <div id="readiness-output" class="output"></div>
+              </section>
 
               <section id="draft-section" class="hidden">
                 <h3>Next Best Email</h3>
@@ -102,24 +166,6 @@
                   <summary>View Context Used</summary>
                   <div id="email-context-used" class="context-used"></div>
                 </details>
-              </section>
-
-              <section id="knowledge-summary-section" class="hidden">
-                <h3>Workflow Intelligence Summary</h3>
-                <button onclick="loadKnowledgeSummary()">Refresh Workflow Intelligence</button>
-                <div id="knowledge-summary-output" class="output"></div>
-              </section>
-
-              <section id="readiness-section" class="hidden">
-                <h3>AI Readiness Assessment</h3>
-                <button onclick="loadReadinessAssessment()">Generate AI Readiness Assessment</button>
-                <div id="readiness-output" class="output"></div>
-              </section>
-
-              <section id="timeline-section" class="hidden">
-                <h3>Organization Timeline</h3>
-                <button onclick="loadTimeline()">Refresh Timeline</button>
-                <div id="timeline-output" class="output"></div>
               </section>
             </section>
 
