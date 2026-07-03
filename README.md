@@ -709,7 +709,7 @@ Mock mode uses local demo responses and does not require OpenAI, Ollama, LM Stud
 
 **Ports:** FastAPI serves on `:8000`, llama-server listens on `:8082`.
 
-**Auto-start:** When `_is_server_running()` detects no server on `:8082`, `tools/llm.py` auto-starts llama-server with your configured `MODEL_PATH` and `CHAT_TEMPLATE`. The server stops on process exit.
+**Auto-start:** When `_is_server_running()` detects no server on `:8082`, `tools/llm.py` auto-starts llama-server with your configured `MODEL_PATH` and an optional `CHAT_TEMPLATE` (a Jinja chat template file you download for your model). The server stops on process exit.
 
 **Keep machine-specific paths in `.env` only.** Never commit `.env`. Commit only `.env.example` with placeholder values.
 
@@ -796,7 +796,7 @@ Every generated draft includes:
 - **`.env`** — local-only, never committed. Contains `AI_PROVIDER`, model paths, and port settings specific to your machine.
 - **`.env.example`** — committed template with placeholder values. Copy to `.env` and adjust.
 
-Keep machine-specific paths (`MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/your/model.gguf`.
+Keep machine-specific paths (`MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/your/model.gguf`. You need to download a Jinja chat template file for your model — it is not included in this repository.
 
 
 ### AI Adoption Planning
