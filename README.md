@@ -833,15 +833,13 @@ Possible later upgrades:
 
 Avoid adding email delivery tracking or automated sending unless the project scope changes substantially. The current product principle is human-reviewed drafting, not outreach automation.
 
-## Portfolio Framing
+## Project Summary
 
-Suggested title:
+This project is a local demo application for exploring AI-assisted outreach, CRM-style interaction tracking, and workflow intelligence.
 
-**Outreach Intelligence Platform: Human-reviewed workflow intelligence for practical AI adoption**
+It uses local JSON data and mock or local-LLM AI responses to show how organization profiles and interaction notes can be turned into structured records such as workflow opportunities, knowledge sources, failure cases, adoption risk notes, follow-up tasks, and draft outreach messages.
 
-Suggested description:
-
-A local portfolio demo that combines lightweight CRM functions with AI-assisted outreach preparation, interaction summarization, workflow opportunity discovery, knowledge-source mapping, failure-case tracking, and human-system adoption-risk awareness. The system is designed as an intelligence layer that can eventually connect to Salesforce, HubSpot, or other CRM systems while preserving human review before external communication or implementation decisions.
+The app is intentionally limited to local, human-reviewed workflows. It does not send email, scrape the web, connect to external CRMs, or send organization data to external AI services by default.
 
 ## License
 
