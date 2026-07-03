@@ -27,7 +27,7 @@ function showError(message) {
 }
 
 function setActivePage(pathname = window.location.pathname) {
-  const known = ["/research-intake", "/organization-discovery", "/knowledge-search", "/workflow-opportunities", "/demo-outbox", "/analytics", "/data-tools", "/adoption-principles", "/priority-queue", "/follow-ups", "/integrations"];
+  const known = ["/research-intake", "/organization-discovery", "/knowledge-search", "/workflow-opportunities", "/demo-outbox", "/analytics", "/data-tools", "/adoption-principles", "/priority-queue", "/follow-ups", "/integrations", "/adoption-planner", "/pilot-plans", "/success-metrics"];
   const route = known.includes(pathname) ? pathname : "/";
   const pageMap = {
     "/": "crm-page",
@@ -42,6 +42,9 @@ function setActivePage(pathname = window.location.pathname) {
     "/knowledge-search": "knowledge-search-page",
     "/demo-outbox": "demo-outbox-page",
     "/adoption-principles": "adoption-principles-page",
+    "/adoption-planner": "adoption-planner-page",
+    "/pilot-plans": "pilot-plans-page",
+    "/success-metrics": "success-metrics-page",
   };
 
   Object.values(pageMap).forEach(pageId => {
@@ -368,7 +371,7 @@ async function loadKnowledgeSources() {
     `).join("");
     renderOrgInsights();
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Knowledge Sources: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -405,7 +408,7 @@ async function loadFailureCases() {
     `).join("");
     renderOrgInsights();
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Failure Cases: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -442,7 +445,7 @@ async function loadAdoptionRisks() {
     `).join("");
     renderOrgInsights();
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Adoption Risk Notes: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -699,6 +702,15 @@ document.querySelectorAll(".main-nav a").forEach(link => {
   }
   if (route === "/adoption-principles") {
     loadAdoptionPrinciples();
+  }
+  if (route === "/adoption-planner") {
+    loadAdoptionPlannerPage();
+  }
+  if (route === "/pilot-plans") {
+    loadPilotPlansPage();
+  }
+  if (route === "/success-metrics") {
+    loadSuccessMetrics();
   }
 }
 
@@ -1071,7 +1083,14 @@ async function api(path, options = {}) {
     headers: { "Content-Type": "application/json" },
     ...options,
   });
-  if (!response.ok) throw new Error(await response.text());
+  if (!response.ok) {
+    let msg = `Request failed (${response.status})`;
+    try {
+      const body = await response.json();
+      if (body.detail) msg = body.detail;
+    } catch (_) {}
+    throw new Error(msg);
+  }
   return response.json();
 }
 
@@ -1079,8 +1098,23 @@ async function loadOrganizations() {
   try {
     organizations = await api("/api/organizations");
     renderOrganizations();
+    populateOrgSelectors();
   } catch (error) {
     document.getElementById("organizations").innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+  }
+}
+
+function populateOrgSelectors() {
+  const selectors = ["ap-org-select", "pp-org-select", "sm-org-select"];
+  for (const id of selectors) {
+    const sel = document.getElementById(id);
+    if (!sel) continue;
+    const currentValue = sel.value;
+    sel.innerHTML = '<option value="">Select an organization...</option>';
+    for (const org of organizations) {
+      sel.innerHTML += `<option value="${org.id}">${escapeHtml(org.name)}</option>`;
+    }
+    if (currentValue) sel.value = currentValue;
   }
 }
 
@@ -1315,7 +1349,7 @@ async function loadSummary() {
     const data = await api(`/api/organizations/${selectedOrg.id}/summary`);
     renderAiResult("AI Summary", data);
   } catch (error) {
-    showError(error.message);
+    showError("AI Summary failed: " + error.message);
   }
 }
 
@@ -1325,7 +1359,7 @@ async function loadOpportunities() {
     const data = await api(`/api/organizations/${selectedOrg.id}/opportunities`);
     renderAiResult("AI Opportunity Analysis", data);
   } catch (error) {
-    showError(error.message);
+    showError("AI Opportunity Analysis failed: " + error.message);
   }
 }
 
@@ -1335,15 +1369,8 @@ async function loadMeetingBrief() {
     const data = await api(`/api/organizations/${selectedOrg.id}/meeting-brief`);
     renderAiResult("Meeting Brief", data);
   } catch (error) {
-    showError(error.message);
+    showError("Meeting Brief failed: " + error.message);
   }
-}
-
-function renderContextUsed(context) {
-  return Object.entries(context).map(([key, value]) => {
-    const display = Array.isArray(value) ? value.join(", ") : String(value);
-    return `<div class="context-row"><strong>${escapeHtml(key)}:</strong> <span>${escapeHtml(display)}</span></div>`;
-  }).join("");
 }
 
 async function generateNextBestEmail() {
@@ -1404,7 +1431,7 @@ async function generateNextBestEmail() {
 
     renderAiResult("Next Best Email", currentDraft);
   } catch (error) {
-    showError(error.message);
+    showError("Next Best Email failed: " + error.message);
   }
 }
 
@@ -1977,7 +2004,7 @@ async function summarizeInteractionNote(id) {
       </article>
     `;
   } catch (error) {
-    summaryEl.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    summaryEl.innerHTML = `<p class="error">AI Note Summary: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -1999,7 +2026,7 @@ async function loadKnowledgeSummary() {
     `;
     renderOrgInsights();
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Knowledge Summary: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -2095,7 +2122,7 @@ async function loadReadinessAssessment() {
     });
     el.innerHTML = renderReadinessAssessment(data);
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Readiness Assessment: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -2107,7 +2134,7 @@ async function loadOutreachRecommendation() {
     const data = await api(`/api/organizations/${selectedOrg.id}/outreach-recommendation`);
     el.innerHTML = renderOutreachRecommendation(data);
   } catch (error) {
-    el.innerHTML = `<p class="error">${escapeHtml(error.message)}</p>`;
+    el.innerHTML = `<p class="error">Outreach Recommendation: ${escapeHtml(error.message)}</p>`;
   }
 }
 
@@ -2822,6 +2849,512 @@ function renderPriorityAnalytics(pa) {
 
   html += `</section>`;
   return html;
+}
+
+// ---- Phase 4: Adoption Planner ----
+
+let apCurrentOrgId = null;
+
+async function loadAdoptionPlannerPage() {
+  const sel = document.getElementById("ap-org-select");
+  if (!sel) return;
+  sel.innerHTML = '<option value="">Select an organization...</option>';
+  for (const org of organizations) {
+    sel.innerHTML += `<option value="${org.id}">${escapeHtml(org.name)}</option>`;
+  }
+  const contentEl = document.getElementById("ap-content");
+  contentEl.innerHTML = '<p class="muted">Select an organization and click Load Plan to view or generate an adoption plan.</p>';
+}
+
+async function loadAdoptionPlanForOrg() {
+  const orgId = Number(document.getElementById("ap-org-select").value);
+  if (!orgId) return;
+  apCurrentOrgId = orgId;
+  const contentEl = document.getElementById("ap-content");
+  const errorEl = document.getElementById("ap-error");
+  const loadingEl = document.getElementById("ap-loading");
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  try {
+    const plan = await api(`/api/organizations/${orgId}/adoption-plan`);
+    loadingEl.classList.add("hidden");
+    renderAdoptionPlan(plan, organizations.find(o => o.id === orgId));
+  } catch (err) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+async function regenerateAdoptionPlan() {
+  const orgId = Number(document.getElementById("ap-org-select").value);
+  if (!orgId) return;
+  if (!confirm("Regenerate the adoption plan? This will replace the current plan with a new AI-generated version.")) return;
+  const contentEl = document.getElementById("ap-content");
+  const errorEl = document.getElementById("ap-error");
+  const loadingEl = document.getElementById("ap-loading");
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  try {
+    const plan = await api(`/api/organizations/${orgId}/adoption-plan/regenerate`, { method: "POST" });
+    loadingEl.classList.add("hidden");
+    renderAdoptionPlan(plan, organizations.find(o => o.id === orgId));
+  } catch (err) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+function renderAdoptionPlan(plan, org) {
+  const el = document.getElementById("ap-content");
+  const orgName = org ? escapeHtml(org.name) : "Organization";
+  let html = `<div class="ai-card">
+    <h3>${orgName} — AI Adoption Plan</h3>
+    <span class="status" style="margin-bottom:12px">Status: ${escapeHtml(plan.status || "Draft")}</span>`;
+
+  if (plan.executive_summary) {
+    html += `<div class="ai-field"><h4>Executive Summary</h4><div class="ai-value">${escapeHtml(plan.executive_summary)}</div></div>`;
+  }
+
+  if (plan.current_workflow_context && Array.isArray(plan.current_workflow_context) && plan.current_workflow_context.length) {
+    html += `<div class="ai-field"><h4>Current Workflow Context</h4>${renderList(plan.current_workflow_context)}</div>`;
+  }
+
+  if (plan.top_ai_opportunities && Array.isArray(plan.top_ai_opportunities) && plan.top_ai_opportunities.length) {
+    html += `<div class="ai-field"><h4>AI Opportunity Catalog</h4>`;
+    for (const group of plan.top_ai_opportunities) {
+      html += `<div class="ai-nested-card"><strong>${escapeHtml(group.category || "Use Case")}</strong>`;
+      const opps = group.opportunities || [];
+      for (const o of opps) {
+        html += `<div class="ai-nested-card">
+          <div class="ai-nested-row"><strong>${escapeHtml(o.name)}</strong></div>
+          <div class="ai-nested-row"><em>Pain point:</em> ${escapeHtml(o.pain_point || "")}</div>
+          <div class="ai-nested-row"><em>AI support:</em> ${escapeHtml(o.possible_ai_support || "")}</div>
+          <div class="ai-nested-row"><em>Effort:</em> ${escapeHtml(o.estimated_effort || "")} | <em>Benefit:</em> ${escapeHtml(o.expected_benefit || "")}</div>
+          <div class="ai-nested-row"><em>Status:</em> <span class="status">${escapeHtml(o.recommended_status || "")}</span></div>
+        </div>`;
+      }
+      html += `</div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.recommended_first_pilot) {
+    const p = plan.recommended_first_pilot;
+    html += `<div class="ai-field"><h4>Recommended First Pilot</h4><div class="ai-nested-card">
+      <div class="ai-nested-row"><strong>${escapeHtml(p.pilot_title || "")}</strong></div>
+      <div class="ai-nested-row"><em>Problem:</em> ${escapeHtml(p.problem_statement || "")}</div>
+      <div class="ai-nested-row"><em>Scope:</em> ${escapeHtml(p.scope_limit || "")}</div>
+      ${p.success_metrics && Array.isArray(p.success_metrics) && p.success_metrics.length ? `<div class="ai-nested-row"><em>Success Metrics:</em> ${renderList(p.success_metrics)}</div>` : ""}
+      ${p.stop_or_revise_criteria && Array.isArray(p.stop_or_revise_criteria) && p.stop_or_revise_criteria.length ? `<div class="ai-nested-row"><em>Stop/Revise Criteria:</em> ${renderList(p.stop_or_revise_criteria)}</div>` : ""}
+    </div></div>`;
+  }
+
+  if (plan.roadmap_steps && Array.isArray(plan.roadmap_steps) && plan.roadmap_steps.length) {
+    html += `<div class="ai-field"><h4>Suggested Timeline</h4>`;
+    for (const step of plan.roadmap_steps) {
+      html += `<div class="ai-nested-card">
+        <div class="ai-nested-row"><strong>${escapeHtml(step.stage || step.name || "")}</strong> — ${escapeHtml(step.duration || "")}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.change_management_checklist) {
+    const cl = plan.change_management_checklist;
+    html += `<div class="ai-field"><h4>Change Management Checklist</h4>`;
+    const items = cl.items || [];
+    for (const item of items) {
+      const statusClass = item.status === "not_started" ? "badge-low" : item.status === "needs_review" ? "badge-moderate" : "badge-high";
+      html += `<div class="ai-nested-card">
+        <div class="ai-nested-row">${escapeHtml(item.question || "")} <span class="badge ${statusClass}">${escapeHtml(item.status || "")}</span></div>
+        <div class="ai-nested-row muted">${escapeHtml(item.notes || "")}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.training_plan) {
+    const tp = plan.training_plan;
+    html += `<div class="ai-field"><h4>Training Recommendations</h4>`;
+    const sessions = tp.training_plan || [];
+    for (const s of sessions) {
+      html += `<div class="ai-nested-card">
+        <div class="ai-nested-row"><strong>${escapeHtml(s.topic || "")}</strong> (${escapeHtml(s.duration || "")})</div>
+        <div class="ai-nested-row">${escapeHtml(s.description || "")}</div>
+      </div>`;
+    }
+    if (tp.note) {
+      html += `<p class="muted" style="margin-top:8px">${escapeHtml(tp.note)}</p>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.success_metrics) {
+    const sm = plan.success_metrics;
+    html += `<div class="ai-field"><h4>Success Metrics</h4>`;
+    const metrics = sm.metrics || [];
+    for (const m of metrics) {
+      html += `<div class="ai-nested-card">
+        <div class="ai-nested-row"><strong>${escapeHtml(m.name || "")}</strong></div>
+        <div class="ai-nested-row"><em>Baseline:</em> ${escapeHtml(m.baseline || "")} → <em>Target:</em> ${escapeHtml(m.target || "")}</div>
+        <div class="ai-nested-row"><em>Review:</em> ${escapeHtml(m.review_frequency || "")}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.risks_and_mitigation && Array.isArray(plan.risks_and_mitigation) && plan.risks_and_mitigation.length) {
+    html += `<div class="ai-field"><h4>Risks & Mitigation</h4>`;
+    for (const r of plan.risks_and_mitigation) {
+      html += `<div class="ai-nested-card">
+        <div class="ai-nested-row"><strong>${escapeHtml(r.type || "Risk")}:</strong> ${escapeHtml(r.risk || r.description || "")}</div>
+        <div class="ai-nested-row"><em>Mitigation:</em> ${escapeHtml(r.mitigation || "")}</div>
+      </div>`;
+    }
+    html += `</div>`;
+  }
+
+  if (plan.recommended_next_meeting_questions && Array.isArray(plan.recommended_next_meeting_questions) && plan.recommended_next_meeting_questions.length) {
+    html += `<div class="ai-field"><h4>Recommended Next Meeting Questions</h4>${renderList(plan.recommended_next_meeting_questions)}</div>`;
+  }
+
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+async function exportAdoptionPlan() {
+  const orgId = Number(document.getElementById("ap-org-select").value);
+  if (!orgId) return;
+  try {
+    const resp = await fetch(`/api/adoption-plans/export/${orgId}`);
+    if (!resp.ok) {
+      const err = await resp.json();
+      alert(err.detail || "Export failed");
+      return;
+    }
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `adoption_plan_${orgId}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Phase 4: Pilot Plans ----
+
+async function loadPilotPlansPage() {
+  const sel = document.getElementById("pp-org-select");
+  if (!sel) return;
+  sel.innerHTML = '<option value="">All organizations</option>';
+  for (const org of organizations) {
+    sel.innerHTML += `<option value="${org.id}">${escapeHtml(org.name)}</option>`;
+  }
+  loadPilotPlans();
+}
+
+async function loadPilotPlans() {
+  const orgId = Number(document.getElementById("pp-org-select").value);
+  const contentEl = document.getElementById("pp-content");
+  const errorEl = document.getElementById("pp-error");
+  const loadingEl = document.getElementById("pp-loading");
+  if (!contentEl) return;
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  try {
+    const url = orgId ? `/api/organizations/${orgId}/pilot-plans` : "/api/pilot-plans";
+    const plans = await api(url);
+    loadingEl.classList.add("hidden");
+    renderPilotPlans(plans, orgId);
+  } catch (err) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+function renderPilotPlans(plans, orgId) {
+  const el = document.getElementById("pp-content");
+  if (!plans || !plans.length) {
+    el.innerHTML = '<p class="muted">No pilot plans yet. Click "Generate New Pilot Plan" to create one.</p>';
+    return;
+  }
+  let html = "";
+  for (const plan of plans) {
+    const orgName = plan.organization_name || "";
+    html += `<div class="ai-card">
+      <h3>${escapeHtml(plan.pilot_title || "Untitled Pilot")}</h3>
+      ${orgName ? `<p class="muted">${escapeHtml(orgName)}</p>` : ""}
+      <span class="status" style="margin-bottom:8px;display:inline-block">${escapeHtml(plan.status || "Draft")}</span>`;
+    if (plan.problem_statement) {
+      html += `<div class="ai-field"><h4>Problem</h4><div class="ai-value">${escapeHtml(plan.problem_statement)}</div></div>`;
+    }
+    if (plan.current_process) {
+      html += `<div class="ai-field"><h4>Current Process</h4><div class="ai-value">${escapeHtml(plan.current_process)}</div></div>`;
+    }
+    if (plan.proposed_ai_assisted_process) {
+      html += `<div class="ai-field"><h4>Proposed AI-Assisted Process</h4><div class="ai-value">${escapeHtml(plan.proposed_ai_assisted_process)}</div></div>`;
+    }
+    if (plan.scope_limit) {
+      html += `<div class="ai-field"><h4>Scope</h4><div class="ai-value">${escapeHtml(plan.scope_limit)}</div></div>`;
+    }
+    if (plan.participating_roles && Array.isArray(plan.participating_roles) && plan.participating_roles.length) {
+      html += `<div class="ai-field"><h4>Roles</h4>${renderList(plan.participating_roles)}</div>`;
+    }
+    if (plan.human_review_checkpoints && Array.isArray(plan.human_review_checkpoints) && plan.human_review_checkpoints.length) {
+      html += `<div class="ai-field"><h4>Human Review Checkpoints</h4>${renderList(plan.human_review_checkpoints)}</div>`;
+    }
+    if (plan.privacy_or_quality_risks && Array.isArray(plan.privacy_or_quality_risks) && plan.privacy_or_quality_risks.length) {
+      html += `<div class="ai-field"><h4>Risks</h4>${renderList(plan.privacy_or_quality_risks)}</div>`;
+    }
+    if (plan.success_metrics && Array.isArray(plan.success_metrics) && plan.success_metrics.length) {
+      html += `<div class="ai-field"><h4>Success Metrics</h4>${renderList(plan.success_metrics)}</div>`;
+    }
+    if (plan.stop_or_revise_criteria && Array.isArray(plan.stop_or_revise_criteria) && plan.stop_or_revise_criteria.length) {
+      html += `<div class="ai-field"><h4>Stop / Revise Criteria</h4>${renderList(plan.stop_or_revise_criteria)}</div>`;
+    }
+    if (plan.training_recommendations) {
+      const tr = plan.training_recommendations;
+      const sessions = tr.training_plan || [];
+      if (sessions.length) {
+        html += `<div class="ai-field"><h4>Training Recommendations</h4>`;
+        for (const s of sessions) {
+          html += `<div class="ai-nested-card"><strong>${escapeHtml(s.topic || "")}</strong> (${escapeHtml(s.duration || "")})<br>${escapeHtml(s.description || "")}</div>`;
+        }
+        html += `</div>`;
+      }
+    }
+    if (plan.required_inputs && Array.isArray(plan.required_inputs) && plan.required_inputs.length) {
+      html += `<div class="ai-field"><h4>Required Inputs</h4>${renderList(plan.required_inputs)}</div>`;
+    }
+    html += `<button onclick="deletePilotPlan(${plan.pilot_id}, ${plan.organization_id})" style="margin-top:8px">Delete Plan</button>`;
+    html += `</div>`;
+  }
+  el.innerHTML = html;
+}
+
+async function generatePilotPlan() {
+  const sel = document.getElementById("pp-org-select");
+  const orgId = Number(sel.value);
+  if (!orgId) {
+    alert("Please select an organization first.");
+    return;
+  }
+  if (!confirm("Generate a new AI-powered pilot plan for this organization?")) return;
+  const contentEl = document.getElementById("pp-content");
+  const errorEl = document.getElementById("pp-error");
+  const loadingEl = document.getElementById("pp-loading");
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  try {
+    await api(`/api/organizations/${orgId}/pilot-plans`, { method: "POST", body: "{}" });
+    loadingEl.classList.add("hidden");
+    loadPilotPlans();
+  } catch (err) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+async function deletePilotPlan(pilotId, orgId) {
+  if (!orgId) { alert("Cannot determine organization for this plan."); return; }
+  if (!confirm("Delete this pilot plan?")) return;
+  try {
+    await api(`/api/organizations/${orgId}/pilot-plans/${pilotId}`, { method: "DELETE" });
+    loadPilotPlans();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Phase 4: Success Metrics ----
+
+let smOrgData = [];
+
+async function loadSuccessMetrics() {
+  const sel = document.getElementById("sm-org-select");
+  if (!sel) {
+    setTimeout(loadSuccessMetrics, 100);
+    return;
+  }
+  const orgId = Number(sel.value);
+  const contentEl = document.getElementById("sm-content");
+  const errorEl = document.getElementById("sm-error");
+  const loadingEl = document.getElementById("sm-loading");
+  errorEl.classList.add("hidden");
+  contentEl.innerHTML = "";
+  loadingEl.classList.remove("hidden");
+  try {
+    const url = orgId ? `/api/organizations/${orgId}/success-metrics` : "/api/success-metrics";
+    const metrics = await api(url);
+    loadingEl.classList.add("hidden");
+    renderSuccessMetrics(metrics, orgId);
+  } catch (err) {
+    loadingEl.classList.add("hidden");
+    errorEl.textContent = err.message;
+    errorEl.classList.remove("hidden");
+  }
+}
+
+function renderSuccessMetrics(metrics, orgId) {
+  const el = document.getElementById("sm-content");
+  if (!Array.isArray(metrics) || !metrics.length) {
+    el.innerHTML = '<p class="muted">No success metrics yet. Click "Add Metric" to define one.</p>';
+    return;
+  }
+  smOrgData = metrics;
+  let html = `<table class="analytics-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Baseline</th>
+        <th>Target</th>
+        <th>Method</th>
+        <th>Review</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>`;
+  for (const m of metrics) {
+    html += `<tr>
+      <td><strong>${escapeHtml(m.name || "")}</strong></td>
+      <td>${escapeHtml(m.baseline || "")}</td>
+      <td>${escapeHtml(m.target || "")}</td>
+      <td>${escapeHtml(m.measurement_method || "")}</td>
+      <td>${escapeHtml(m.review_frequency || "")}</td>
+      <td><span class="status">${escapeHtml(m.status || "Proposed")}</span></td>
+      <td><button onclick="deleteMetric(${m.metric_id})">Delete</button></td>
+    </tr>`;
+  }
+  html += `</tbody></table>`;
+  el.innerHTML = html;
+}
+
+function showAddMetricForm() {
+  const sel = document.getElementById("sm-org-select");
+  if (!sel || !sel.value) {
+    alert("Please select an organization first.");
+    return;
+  }
+  document.getElementById("sm-add-form").classList.remove("hidden");
+}
+
+function hideAddMetricForm() {
+  document.getElementById("sm-add-form").classList.add("hidden");
+}
+
+async function saveNewMetric() {
+  const orgId = Number(document.getElementById("sm-org-select").value);
+  if (!orgId) { alert("Select an organization"); return; }
+  const payload = {
+    organization_id: orgId,
+    name: document.getElementById("sm-name").value.trim(),
+    baseline: document.getElementById("sm-baseline").value.trim(),
+    target: document.getElementById("sm-target").value.trim(),
+    measurement_method: document.getElementById("sm-method").value.trim(),
+    review_frequency: document.getElementById("sm-frequency").value,
+  };
+  if (!payload.name) { alert("Metric name is required"); return; }
+  try {
+    await api(`/api/organizations/${orgId}/success-metrics`, { method: "POST", body: JSON.stringify(payload) });
+    document.getElementById("sm-name").value = "";
+    document.getElementById("sm-baseline").value = "";
+    document.getElementById("sm-target").value = "";
+    document.getElementById("sm-method").value = "";
+    hideAddMetricForm();
+    loadSuccessMetrics();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+async function deleteMetric(metricId) {
+  if (!confirm("Delete this metric?")) return;
+  const orgId = Number(document.getElementById("sm-org-select").value);
+  try {
+    await api(`/api/organizations/${orgId}/success-metrics/${metricId}`, { method: "DELETE" });
+    loadSuccessMetrics();
+  } catch (err) {
+    alert(err.message);
+  }
+}
+
+// ---- Org Detail Tab: Adoption Plan ----
+
+async function loadOrgAdoptionPlan() {
+  if (!selectedOrg) return;
+  const el = document.getElementById("org-adoption-plan-output");
+  el.innerHTML = '<p class="muted">Generating adoption plan...</p>';
+  try {
+    const plan = await api(`/api/organizations/${selectedOrg.id}/adoption-plan`);
+    renderOrgAdoptionPlan(plan);
+  } catch (error) {
+    el.innerHTML = `<p class="error">Adoption Plan: ${escapeHtml(error.message)}</p>`;
+  }
+}
+
+function renderOrgAdoptionPlan(plan) {
+  const el = document.getElementById("org-adoption-plan-output");
+  let html = `<div class="ai-card">
+    <h3>Adoption Plan — ${escapeHtml(plan.organization || selectedOrg.name)}</h3>
+    <span class="status">Status: ${escapeHtml(plan.status || "Draft")}</span>`;
+
+  if (plan.executive_summary) {
+    html += `<div class="ai-field"><h4>Executive Summary</h4><div class="ai-value">${escapeHtml(plan.executive_summary)}</div></div>`;
+  }
+  if (plan.risks_and_mitigation && Array.isArray(plan.risks_and_mitigation) && plan.risks_and_mitigation.length) {
+    html += `<div class="ai-field"><h4>Risks & Mitigation</h4>`;
+    for (const r of plan.risks_and_mitigation) {
+      html += `<div class="ai-nested-card"><div class="ai-nested-row"><strong>${escapeHtml(r.type || "Risk")}:</strong> ${escapeHtml(r.risk || r.description || "")}</div><div class="ai-nested-row"><em>Mitigation:</em> ${escapeHtml(r.mitigation || "")}</div></div>`;
+    }
+    html += `</div>`;
+  }
+  if (plan.recommended_next_meeting_questions && Array.isArray(plan.recommended_next_meeting_questions) && plan.recommended_next_meeting_questions.length) {
+    html += `<div class="ai-field"><h4>Recommended Next Meeting Questions</h4>${renderList(plan.recommended_next_meeting_questions)}</div>`;
+  }
+  if (plan.roadmap_steps && Array.isArray(plan.roadmap_steps) && plan.roadmap_steps.length) {
+    html += `<div class="ai-field"><h4>Timeline</h4>`;
+    for (const step of plan.roadmap_steps) {
+      html += `<div class="ai-nested-card"><strong>${escapeHtml(step.stage || step.name || "")}</strong> — ${escapeHtml(step.duration || "")}</div>`;
+    }
+    html += `</div>`;
+  }
+
+  html += `<p class="muted" style="margin-top:12px">View full plan on the <a href="/adoption-planner" onclick="navigateTo('/adoption-planner')">Adoption Planner</a> page.</p>`;
+  html += `</div>`;
+  el.innerHTML = html;
+}
+
+async function exportAdoptionPlanFromOrg() {
+  if (!selectedOrg) return;
+  try {
+    const resp = await fetch(`/api/adoption-plans/export/${selectedOrg.id}`);
+    if (!resp.ok) {
+      const err = await resp.json();
+      alert(err.detail || "Export failed");
+      return;
+    }
+    const blob = await resp.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `adoption_plan_${selectedOrg.id}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  } catch (err) {
+    alert(err.message);
+  }
 }
 
 document.querySelectorAll(".main-nav a").forEach(link => {

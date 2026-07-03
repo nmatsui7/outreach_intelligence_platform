@@ -41,6 +41,11 @@ class AiProvider:
     def summarize_notes(self, notes: str) -> dict: ...
     def summarize_interaction_notes(self, notes: str, interaction_type: str) -> dict: ...
     def generate_knowledge_summary(self, org: dict, interactions: list) -> dict: ...
+    def generate_adoption_plan(self, org: dict, workflow_opps: list, knowledge_sources: list, adoption_risks: list) -> dict: ...
+    def generate_pilot_recommendation(self, org: dict, workflow_opps: list) -> dict: ...
+    def generate_change_management_checklist(self, org: dict, adoption_risks: list) -> dict: ...
+    def generate_training_recommendations(self, org: dict, pilot: dict, adoption_risks: list) -> dict: ...
+    def generate_success_metrics(self, org: dict, pilot: dict) -> dict: ...
 
 
 class MockProvider(AiProvider):
@@ -79,6 +84,21 @@ class MockProvider(AiProvider):
 
     def generate_knowledge_summary(self, org: dict, interactions: list) -> dict:
         return ai_mock.generate_knowledge_summary(org, interactions)
+
+    def generate_adoption_plan(self, org: dict, workflow_opps: list, knowledge_sources: list, adoption_risks: list) -> dict:
+        return ai_mock.generate_adoption_plan(org, workflow_opps, knowledge_sources, adoption_risks)
+
+    def generate_pilot_recommendation(self, org: dict, workflow_opps: list) -> dict:
+        return ai_mock.generate_pilot_recommendation(org, workflow_opps)
+
+    def generate_change_management_checklist(self, org: dict, adoption_risks: list) -> dict:
+        return ai_mock.generate_change_management_checklist(org, adoption_risks)
+
+    def generate_training_recommendations(self, org: dict, pilot: dict, adoption_risks: list) -> dict:
+        return ai_mock.generate_training_recommendations(org, pilot, adoption_risks)
+
+    def generate_success_metrics(self, org: dict, pilot: dict) -> dict:
+        return ai_mock.generate_success_metrics(org, pilot)
 
 
 class LocalLlmProvider(AiProvider):
@@ -299,6 +319,106 @@ class LocalLlmProvider(AiProvider):
         })
         return self._call_json(system, user, fallback)
 
+    def generate_adoption_plan(self, org: dict, workflow_opps: list, knowledge_sources: list, adoption_risks: list) -> dict:
+        def fallback() -> dict:
+            return ai_mock.generate_adoption_plan(org, workflow_opps, knowledge_sources, adoption_risks)
+        system = (
+            "You are an AI adoption planning consultant. Given organization data, "
+            "workflow opportunities, knowledge sources, and adoption risks, "
+            "produce a comprehensive AI Adoption Plan. "
+            "Return a JSON object with keys: "
+            "executive_summary (str), current_workflow_context (list), "
+            "top_ai_opportunities (list), recommended_first_pilot (dict), "
+            "required_knowledge_sources (list), human_review_model (str), "
+            "change_management_checklist (dict), training_plan (dict), "
+            "success_metrics (dict), risks_and_mitigation (list), "
+            "recommended_next_meeting_questions (list), "
+            "status (str). "
+            "Return ONLY valid JSON."
+        )
+        user = json.dumps({
+            "organization": {k: v for k, v in org.items() if k in ("name", "category", "mission_notes", "pain_points")},
+            "workflow_opportunities": [{"title": o.get("title"), "pain_point": o.get("pain_point"), "possible_ai_support": o.get("possible_ai_support")} for o in workflow_opps[:5]],
+            "knowledge_sources": [k.get("name") for k in knowledge_sources[:5]],
+            "adoption_risks": [{"risk_type": r.get("risk_type"), "description": r.get("description")} for r in adoption_risks[:5]],
+        })
+        return self._call_json(system, user, fallback)
+
+    def generate_pilot_recommendation(self, org: dict, workflow_opps: list) -> dict:
+        def fallback() -> dict:
+            return ai_mock.generate_pilot_recommendation(org, workflow_opps)
+        system = (
+            "You are an AI adoption consultant. Recommend a small, low-risk pilot project "
+            "for an organization based on their workflow opportunities. "
+            "Return a JSON object with keys: "
+            "pilot_title (str), problem_statement (str), current_process (str), "
+            "proposed_ai_assisted_process (str), scope_limit (str), "
+            "participating_roles (list), required_inputs (list), "
+            "human_review_checkpoints (list), privacy_or_quality_risks (list), "
+            "success_metrics (list), stop_or_revise_criteria (list), "
+            "status (str). "
+            "Return ONLY valid JSON."
+        )
+        user = json.dumps({
+            "organization": org.get("name"),
+            "workflow_opportunities": [{"title": o.get("title"), "pain_point": o.get("pain_point"), "possible_ai_support": o.get("possible_ai_support")} for o in workflow_opps[:3]],
+        })
+        return self._call_json(system, user, fallback)
+
+    def generate_change_management_checklist(self, org: dict, adoption_risks: list) -> dict:
+        def fallback() -> dict:
+            return ai_mock.generate_change_management_checklist(org, adoption_risks)
+        system = (
+            "You are an AI change management consultant. Produce a checklist for the "
+            "human system around AI adoption. "
+            "Return a JSON object with keys: "
+            "organization (str), items (list of dicts with question, status, notes), "
+            "status (str). "
+            "Return ONLY valid JSON."
+        )
+        user = json.dumps({
+            "organization": org.get("name"),
+            "adoption_risk_count": len(adoption_risks),
+            "has_staff_concerns": any(r.get("risk_type") == "Staff Concern" for r in adoption_risks),
+        })
+        return self._call_json(system, user, fallback)
+
+    def generate_training_recommendations(self, org: dict, pilot: dict, adoption_risks: list) -> dict:
+        def fallback() -> dict:
+            return ai_mock.generate_training_recommendations(org, pilot, adoption_risks)
+        system = (
+            "You are an AI training consultant. Generate organization-specific training "
+            "recommendations based on the selected pilot and staff concerns. "
+            "Return a JSON object with keys: "
+            "organization (str), training_plan (list of dicts with topic, description, "
+            "tied_to_pilot, recommended_format, duration), "
+            "additional_topics (list of dicts), note (str). "
+            "Return ONLY valid JSON."
+        )
+        user = json.dumps({
+            "organization": org.get("name"),
+            "pilot_title": pilot.get("pilot_title", ""),
+            "has_staff_concerns": any(r.get("risk_type") == "Staff Concern" for r in adoption_risks),
+        })
+        return self._call_json(system, user, fallback)
+
+    def generate_success_metrics(self, org: dict, pilot: dict) -> dict:
+        def fallback() -> dict:
+            return ai_mock.generate_success_metrics(org, pilot)
+        system = (
+            "You are an AI adoption metrics consultant. Suggest success metrics for "
+            "a proposed AI pilot. "
+            "Return a JSON object with keys: "
+            "organization (str), metrics (list of dicts with name, baseline, target, "
+            "measurement_method, review_frequency). "
+            "Return ONLY valid JSON."
+        )
+        user = json.dumps({
+            "organization": org.get("name"),
+            "pilot_title": pilot.get("pilot_title", ""),
+        })
+        return self._call_json(system, user, fallback)
+
 
 class OpenAiProvider(AiProvider):
     """Placeholder for future OpenAI integration. Falls back to mock."""
@@ -336,6 +456,21 @@ class OpenAiProvider(AiProvider):
 
     def generate_knowledge_summary(self, org: dict, interactions: list) -> dict:
         return ai_mock.generate_knowledge_summary(org, interactions)
+
+    def generate_adoption_plan(self, org: dict, workflow_opps: list, knowledge_sources: list, adoption_risks: list) -> dict:
+        return ai_mock.generate_adoption_plan(org, workflow_opps, knowledge_sources, adoption_risks)
+
+    def generate_pilot_recommendation(self, org: dict, workflow_opps: list) -> dict:
+        return ai_mock.generate_pilot_recommendation(org, workflow_opps)
+
+    def generate_change_management_checklist(self, org: dict, adoption_risks: list) -> dict:
+        return ai_mock.generate_change_management_checklist(org, adoption_risks)
+
+    def generate_training_recommendations(self, org: dict, pilot: dict, adoption_risks: list) -> dict:
+        return ai_mock.generate_training_recommendations(org, pilot, adoption_risks)
+
+    def generate_success_metrics(self, org: dict, pilot: dict) -> dict:
+        return ai_mock.generate_success_metrics(org, pilot)
 
 
 _provider: Optional[AiProvider] = None

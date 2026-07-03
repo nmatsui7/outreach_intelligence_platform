@@ -723,24 +723,45 @@ Every generated draft includes:
 Keep machine-specific paths (`LLAMA_BIN`, `MODEL_PATH`, `CHAT_TEMPLATE`) in your local `.env` only. The `.env.example` uses generic placeholders like `/path/to/model.gguf`.
 
 
-## Future Development
+### Phase 4: AI Adoption Planning (Current)
 
-Future work should use the workflow transformation knowledge already captured by the app.
+Phase 4 converts the workflow transformation knowledge captured in Phase 3 into practical AI adoption plans for each organization. The platform now generates structured adoption plans with AI Opportunity Catalogs, adoption roadmaps, pilot recommendations, training plans, success metrics, and change-management checklists.
 
-### AI Adoption Planning
+**Pages added:**
+- **Adoption Planner** (`/adoption-planner`) — organization-level adoption plan with executive summary, opportunity catalog, roadmap, training plan, metrics, and risk mitigation
+- **Pilot Plans** (`/pilot-plans`) — create and review low-risk AI pilot project recommendations
+- **Success Metrics** (`/success-metrics`) — define baseline, target, and review methods for pilots
+- **Adoption Plan tab** in org detail view — view generated plans per organization
 
-Future planning features may use workflow opportunities, failure cases, knowledge sources, adoption risk notes, and adoption principles to create:
+**Key features:**
+- AI-generated AI Opportunity Catalog per organization (grouped by use case)
+- Staged adoption roadmap with timeline estimates
+- Low-risk pilot project recommendations with clear scope, roles, human-review checkpoints, and stop/revise criteria
+- Change-management checklist reflecting human-system risks
+- Training recommendations tied to the selected pilot workflow
+- Success metrics with baselines, targets, and measurement methods
+- Export adoption plan as JSON
+- All plans are advisory and require human review before use
 
-- Adoption roadmaps
-- Pilot recommendations
-- Training suggestions
-- Success metrics
-- Human-review models
-- Change-management checklists
+### AI Feature Smoke Test
 
-These should remain editable planning drafts, not final automated recommendations.
+To verify all AI-powered features are working:
 
-### Production and Integration Work
+1. Start the server with mock mode: `AI_PROVIDER=mock uvicorn backend.main:app --reload`
+2. Open the CRM Workspace, select **Waterloo Public Library**
+3. Test each AI Assistant action: **AI Summary**, **AI Opportunity Analysis**, **AI Readiness Assessment**, **Meeting Brief**, **Outreach Recommendation**, **Next Best Email**
+4. Open the **Interactions** tab and click **AI Note Summary** on an interaction
+5. Open the **Adoption Plan** tab and click **Generate / Refresh Adoption Plan**
+6. Visit `/adoption-planner`, select an org, click **Load Plan**, then **Regenerate**, then **Export**
+7. Visit `/pilot-plans`, select an org — verify pilot plans load and delete works
+8. Visit `/success-metrics`, select an org — verify metrics load
+9. Visit `/demo-outbox` — verify drafts appear
+10. Visit `/knowledge-search` — search for "follow-up" (expect 40+ results)
+11. Run the curl smoke test: `bash scripts/smoke_test.sh` (see file for details)
+
+**Troubleshooting:** If any AI panel returns `Not Found`, ensure the server was started with `AI_PROVIDER=mock` and restart if needed. The adoption plan route auto-generates a plan on first access — it never returns 404 for a valid organization.
+
+### Phase 5: Production and Integration Work (Future)
 
 Possible later upgrades:
 

@@ -27,6 +27,7 @@ FILES = {
     "outbox": APP_DATA_DIR / "outbox.json",
     "tasks": APP_DATA_DIR / "tasks.json",
     "workflow_knowledge": APP_DATA_DIR / "workflow_knowledge.json",
+    "adoption_planning": APP_DATA_DIR / "adoption_planning.json",
 }
 
 
@@ -1422,6 +1423,169 @@ def _tasks():
 
 
 # ---------------------------------------------------------------------------
+# Phase 4: Adoption Planning Demo Data
+# ---------------------------------------------------------------------------
+
+def _adoption_plans() -> list[dict]:
+    return [
+        {
+            "plan_id": 1,
+            "organization_id": 1,
+            "organization": "Waterloo Public Library",
+            "executive_summary": "Waterloo Public Library shows strong potential for AI-assisted workflow improvement, particularly in follow-up coordination and program documentation. A structured adoption approach starting with a limited pilot and strong human-review processes is recommended. Staff concerns about workload and evaluation have been noted and should be addressed proactively.",
+            "current_workflow_context": [
+                "Manual follow-up email drafting for workshop participants is time-consuming",
+                "Program documentation is inconsistent across different staff members",
+                "Meeting notes are not consistently captured or shared",
+            ],
+            "top_ai_opportunities": [
+                {
+                    "category": "Documentation Support",
+                    "opportunities": [
+                        {
+                            "name": "AI-Assisted Program Documentation",
+                            "pain_point": "Time-consuming writing and formatting, inconsistent quality",
+                            "possible_ai_support": "Generate first drafts from bullet points, notes, or outlines",
+                            "estimated_effort": "Low",
+                            "expected_benefit": "Faster report preparation",
+                            "recommended_status": "candidate_for_pilot",
+                        },
+                    ],
+                },
+                {
+                    "category": "Meeting Summary Workflows",
+                    "opportunities": [
+                        {
+                            "name": "Automated Meeting Notes & Action Items",
+                            "pain_point": "Inconsistent notes, action items get lost",
+                            "possible_ai_support": "Convert rough notes into structured summaries with action items",
+                            "estimated_effort": "Low",
+                            "expected_benefit": "Consistent follow-up and fewer missed items",
+                            "recommended_status": "candidate_for_pilot",
+                        },
+                    ],
+                },
+            ],
+            "recommended_first_pilot": {
+                "pilot_title": "AI-Assisted Follow-Up Email Drafting",
+                "problem_statement": "Staff spend significant time drafting follow-up emails after workshops and programs, leading to delayed or inconsistent communication.",
+                "scope_limit": "Limited to follow-up emails for one program area with 2-3 participating staff.",
+                "success_metrics": ["Time spent drafting follow-ups per week", "Number of edits required per AI draft"],
+                "stop_or_revise_criteria": ["Staff report increased workload", "AI output quality is consistently poor"],
+            },
+            "roadmap_steps": [
+                {"stage": "Validate follow-up pain point with staff", "duration": "1-2 weeks"},
+                {"stage": "Define human-review process", "duration": "1 week"},
+                {"stage": "Train participating staff", "duration": "1-2 weeks"},
+                {"stage": "Run pilot with one program area", "duration": "4 weeks"},
+                {"stage": "Review results and staff feedback", "duration": "1-2 weeks"},
+            ],
+            "training_recommendations": {
+                "training_plan": [
+                    {"topic": "Basic AI Literacy", "description": "How AI assistance works and limitations", "duration": "2 hours"},
+                    {"topic": "Prompt Crafting for Follow-ups", "description": "Writing effective prompts for email drafting", "duration": "1.5 hours"},
+                    {"topic": "Human Review Practices", "description": "Evaluating AI output for email content", "duration": "1 hour"},
+                ],
+                "note": "Training should be tied to the actual pilot workflow, not delivered as generic tool instruction.",
+            },
+            "success_metrics": {
+                "metrics": [
+                    {"name": "Time spent drafting follow-ups", "baseline": "~3 hrs/week", "target": "~1.5 hrs/week", "measurement_method": "Self-reported", "review_frequency": "Weekly"},
+                    {"name": "AI output quality", "baseline": "All manual", "target": "< 30% major revisions", "measurement_method": "Track revision rate", "review_frequency": "Weekly"},
+                ],
+            },
+            "change_management_checklist": {
+                "items": [
+                    {"question": "Have staff concerns been recorded?", "status": "needs_review", "notes": "Some concerns noted in interactions"},
+                    {"question": "Does the pilot reduce workload?", "status": "not_started", "notes": "Define baseline before pilot"},
+                    {"question": "Are human-review responsibilities clear?", "status": "not_started", "notes": "Document who reviews what"},
+                    {"question": "Is there a safe feedback loop?", "status": "not_started", "notes": "Anonymous or direct feedback channel"},
+                ],
+            },
+            "risks_and_mitigation": [
+                {"risk": "Staff may feel AI adds to workload", "type": "Workload", "mitigation": "Set clear expectations that AI is assistive"},
+                {"risk": "Quality concerns with AI output", "type": "Quality Risk", "mitigation": "Strong human-review process"},
+            ],
+            "recommended_next_meeting_questions": [
+                "Which follow-up tasks take the most staff time each week?",
+                "What would make you feel confident in AI-generated email drafts?",
+            ],
+            "status": "Draft",
+            "created_at": "2026-06-28T10:00:00Z",
+            "updated_at": "2026-06-28T10:00:00Z",
+        },
+    ]
+
+
+def _pilot_plans() -> list[dict]:
+    return [
+        {
+            "pilot_id": 1,
+            "organization_id": 1,
+            "workflow_opportunity_id": 1,
+            "pilot_title": "AI-Assisted Follow-Up Email Drafting",
+            "problem_statement": "Staff at Waterloo Public Library spend significant time manually drafting follow-up emails after workshops.",
+            "current_process": "Staff manually compose individual follow-up emails, searching for past correspondence and program details.",
+            "proposed_ai_assisted_process": "AI generates first-draft follow-up emails from program notes. Staff review, edit, and approve before sending.",
+            "scope_limit": "Limited to follow-up emails for one program area with 2-3 participating staff.",
+            "participating_roles": ["Program coordinator", "Workshop facilitator"],
+            "required_inputs": ["Past follow-up email templates", "Program attendance records"],
+            "human_review_checkpoints": ["Before any email is sent", "Weekly review of AI output quality"],
+            "privacy_or_quality_risks": ["AI may generate incorrect details", "Participant data privacy"],
+            "success_metrics": ["Time drafting follow-ups per week", "Edits required per AI draft"],
+            "stop_or_revise_criteria": ["Increased workload", "Poor AI quality", "Privacy concerns"],
+            "status": "Draft",
+            "created_at": "2026-06-28T10:00:00Z",
+            "updated_at": "2026-06-28T10:00:00Z",
+        },
+    ]
+
+
+def _success_metrics() -> list[dict]:
+    return [
+        {
+            "metric_id": 1,
+            "organization_id": 1,
+            "pilot_id": 1,
+            "name": "Time spent drafting follow-up emails",
+            "baseline": "~3 hours per week (estimated)",
+            "target": "Reduction to ~1.5 hours per week",
+            "measurement_method": "Self-reported time tracking by participating staff",
+            "review_frequency": "Weekly",
+            "status": "Proposed",
+            "created_at": "2026-06-28T10:00:00Z",
+            "updated_at": "2026-06-28T10:00:00Z",
+        },
+        {
+            "metric_id": 2,
+            "organization_id": 1,
+            "pilot_id": 1,
+            "name": "AI draft quality / revision rate",
+            "baseline": "All drafts are currently manual (100% human effort)",
+            "target": "Less than 30% of AI-generated drafts require major revision",
+            "measurement_method": "Track number of AI drafts requiring significant edits",
+            "review_frequency": "Weekly",
+            "status": "Proposed",
+            "created_at": "2026-06-28T10:00:00Z",
+            "updated_at": "2026-06-28T10:00:00Z",
+        },
+        {
+            "metric_id": 3,
+            "organization_id": 1,
+            "pilot_id": 1,
+            "name": "Staff confidence with AI-assisted drafting",
+            "baseline": "Pre-pilot survey",
+            "target": "70% of participating staff report increased confidence",
+            "measurement_method": "Pre- and post-pilot survey",
+            "review_frequency": "Before and after pilot",
+            "status": "Proposed",
+            "created_at": "2026-06-28T10:00:00Z",
+            "updated_at": "2026-06-28T10:00:00Z",
+        },
+    ]
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -1447,6 +1611,11 @@ def main():
         "failure_cases": _failure_cases(),
         "adoption_risk_notes": _adoption_risk_notes(),
     })
+    write_json(FILES["adoption_planning"], {
+        "adoption_plans": _adoption_plans(),
+        "pilot_plans": _pilot_plans(),
+        "success_metrics": _success_metrics(),
+    })
 
     print()
     print("Done. Demo data seeded successfully.")
@@ -1460,6 +1629,9 @@ def main():
     print("Adoption Risks:  12 pre-generated human-system risk notes")
     print("Outbox Drafts:   8 drafts with varied statuses and types")
     print("Tasks:           15 follow-up tasks (open, completed, overdue, high-priority)")
+    print("Adoption Plans:  1 pre-generated adoption plan (Waterloo Public Library)")
+    print("Pilot Plans:     1 pre-generated pilot plan recommendation")
+    print("Success Metrics: 3 pre-defined success metrics")
     print()
     print("Dedup test:      Waterloo Public Library interactions 1, 2, 3 mention similar")
     print("                 follow-up email pain points with different wording.")

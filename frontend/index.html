@@ -24,6 +24,9 @@
       <a href="/adoption-principles" data-route="/adoption-principles">Adoption Principles</a>
       <a href="/priority-queue" data-route="/priority-queue">Priority Queue</a>
       <a href="/follow-ups" data-route="/follow-ups">Follow-ups</a>
+      <a href="/adoption-planner" data-route="/adoption-planner">Adoption Planner</a>
+      <a href="/pilot-plans" data-route="/pilot-plans">Pilot Plans</a>
+      <a href="/success-metrics" data-route="/success-metrics">Success Metrics</a>
       <a href="/integrations" data-route="/integrations">Settings</a>
     </nav>
   </header>
@@ -53,6 +56,7 @@
               <button class="tab-button" data-org-tab="knowledge" onclick="showOrgTab('knowledge')">Knowledge Sources</button>
               <button class="tab-button" data-org-tab="failure" onclick="showOrgTab('failure')">Failure Cases</button>
               <button class="tab-button" data-org-tab="human" onclick="showOrgTab('human')">Human System</button>
+              <button class="tab-button" data-org-tab="adoption-plan" onclick="showOrgTab('adoption-plan')">Adoption Plan</button>
               <button class="tab-button" data-org-tab="insights" onclick="showOrgTab('insights')">Insights</button>
             </div>
 
@@ -255,6 +259,13 @@
                 <button onclick="loadFailureCases()">Refresh</button>
                 <div id="failure-cases-output" class="output"></div>
               </section>
+            </section>
+
+            <section id="org-tab-adoption-plan" class="tab-panel">
+              <div class="ai-safety-note">Adoption plans are advisory only. Human review is required before sharing externally or using for implementation decisions.</div>
+              <button onclick="loadOrgAdoptionPlan()">Generate / Refresh Adoption Plan</button>
+              <button onclick="exportAdoptionPlanFromOrg()">Export Plan</button>
+              <div id="org-adoption-plan-output" class="output"></div>
             </section>
 
             <section id="org-tab-human" class="tab-panel">
@@ -737,6 +748,90 @@ Waterloo Community Arts Council,https://example-arts.org,Jane Smith,jane@example
   <div id="ks-loading" class="muted hidden">Searching...</div>
   <div id="ks-results"></div>
   <p id="ks-count" class="muted"></p>
+</section>
+
+<section id="adoption-planner-page" class="page hidden">
+  <h2>Adoption Planner</h2>
+  <p class="muted">Generate and review AI-assisted adoption plans for each organization. Plans include opportunity catalogs, roadmaps, pilot recommendations, training plans, and success metrics.</p>
+  <div class="ai-safety-note" style="margin-bottom:12px">All plans are advisory only. Human review is required before sharing externally or using for implementation decisions.</div>
+
+  <div class="outbox-filters">
+    <label>Organization
+      <select id="ap-org-select" onchange="loadAdoptionPlanForOrg()">
+        <option value="">Select an organization...</option>
+      </select>
+    </label>
+    <button onclick="loadAdoptionPlanForOrg()">Load Plan</button>
+    <button onclick="regenerateAdoptionPlan()">Regenerate Plan</button>
+    <button onclick="exportAdoptionPlan()">Export Plan</button>
+  </div>
+
+  <div id="ap-error" class="error hidden"></div>
+  <div id="ap-loading" class="muted hidden">Loading adoption plan...</div>
+  <div id="ap-content"></div>
+</section>
+
+<section id="pilot-plans-page" class="page hidden">
+  <h2>Pilot Plans</h2>
+  <p class="muted">Create and review low-risk AI pilot project recommendations for each organization.</p>
+  <div class="ai-safety-note" style="margin-bottom:12px">Pilot plans are recommendations only. Select a narrow, low-risk pilot and define clear stop/revise criteria before proceeding.</div>
+
+  <div class="outbox-filters">
+    <label>Organization
+      <select id="pp-org-select" onchange="loadPilotPlans()">
+        <option value="">All organizations</option>
+      </select>
+    </label>
+    <button onclick="loadPilotPlans()">Refresh</button>
+    <button onclick="generatePilotPlan()">Generate New Pilot Plan</button>
+  </div>
+
+  <div id="pp-error" class="error hidden"></div>
+  <div id="pp-loading" class="muted hidden">Loading pilot plans...</div>
+  <div id="pp-content"></div>
+</section>
+
+<section id="success-metrics-page" class="page hidden">
+  <h2>Success Metrics</h2>
+  <p class="muted">Define baseline measurements, targets, and review methods for AI pilots.</p>
+  <div class="ai-safety-note" style="margin-bottom:12px">Establish baseline measurements before any pilot begins. Review metrics regularly during the pilot.</div>
+
+  <div class="outbox-filters">
+    <label>Organization
+      <select id="sm-org-select" onchange="loadSuccessMetrics()">
+        <option value="">All organizations</option>
+      </select>
+    </label>
+    <button onclick="loadSuccessMetrics()">Refresh</button>
+    <button onclick="showAddMetricForm()">Add Metric</button>
+  </div>
+
+  <div id="sm-error" class="error hidden"></div>
+  <div id="sm-loading" class="muted hidden">Loading success metrics...</div>
+  <div id="sm-content"></div>
+
+  <div id="sm-add-form" class="hidden" style="margin-top:16px;border:1px solid #e5e7eb;border-radius:8px;padding:16px;background:#f9fafb">
+    <h3>New Success Metric</h3>
+    <label>Metric Name</label>
+    <input id="sm-name" placeholder="e.g. Time spent on documentation" />
+    <label>Baseline</label>
+    <input id="sm-baseline" placeholder="Current value before pilot" />
+    <label>Target</label>
+    <input id="sm-target" placeholder="Desired value after pilot" />
+    <label>Measurement Method</label>
+    <input id="sm-method" placeholder="e.g. Self-reported time tracking" />
+    <label>Review Frequency</label>
+    <select id="sm-frequency">
+      <option>Weekly</option>
+      <option>Bi-weekly</option>
+      <option>Monthly</option>
+      <option>End of pilot</option>
+    </select>
+    <div class="actions">
+      <button onclick="saveNewMetric()">Save Metric</button>
+      <button onclick="hideAddMetricForm()">Cancel</button>
+    </div>
+  </div>
 </section>
 </main>
 

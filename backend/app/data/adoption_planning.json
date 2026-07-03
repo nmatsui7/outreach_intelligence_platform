@@ -1,0 +1,368 @@
+{
+  "adoption_plans": [
+    {
+      "plan_id": 1,
+      "organization_id": 1,
+      "organization": "Waterloo Public Library",
+      "executive_summary": "Waterloo Public Library shows strong potential for AI-assisted workflow improvement, particularly in follow-up coordination and program documentation. A structured adoption approach starting with a limited pilot and strong human-review processes is recommended. Staff concerns about workload and evaluation have been noted and should be addressed proactively.",
+      "current_workflow_context": [
+        "Manual follow-up email drafting for workshop participants is time-consuming",
+        "Program documentation is inconsistent across different staff members",
+        "Meeting notes are not consistently captured or shared"
+      ],
+      "top_ai_opportunities": [
+        {
+          "category": "Documentation Support",
+          "opportunities": [
+            {
+              "name": "AI-Assisted Program Documentation",
+              "pain_point": "Time-consuming writing and formatting, inconsistent quality",
+              "possible_ai_support": "Generate first drafts from bullet points, notes, or outlines",
+              "estimated_effort": "Low",
+              "expected_benefit": "Faster report preparation",
+              "recommended_status": "candidate_for_pilot"
+            }
+          ]
+        },
+        {
+          "category": "Meeting Summary Workflows",
+          "opportunities": [
+            {
+              "name": "Automated Meeting Notes & Action Items",
+              "pain_point": "Inconsistent notes, action items get lost",
+              "possible_ai_support": "Convert rough notes into structured summaries with action items",
+              "estimated_effort": "Low",
+              "expected_benefit": "Consistent follow-up and fewer missed items",
+              "recommended_status": "candidate_for_pilot"
+            }
+          ]
+        }
+      ],
+      "recommended_first_pilot": {
+        "pilot_title": "AI-Assisted Follow-Up Email Drafting",
+        "problem_statement": "Staff spend significant time drafting follow-up emails after workshops and programs, leading to delayed or inconsistent communication.",
+        "scope_limit": "Limited to follow-up emails for one program area with 2-3 participating staff.",
+        "success_metrics": [
+          "Time spent drafting follow-ups per week",
+          "Number of edits required per AI draft"
+        ],
+        "stop_or_revise_criteria": [
+          "Staff report increased workload",
+          "AI output quality is consistently poor"
+        ]
+      },
+      "roadmap_steps": [
+        {
+          "stage": "Validate follow-up pain point with staff",
+          "duration": "1-2 weeks"
+        },
+        {
+          "stage": "Define human-review process",
+          "duration": "1 week"
+        },
+        {
+          "stage": "Train participating staff",
+          "duration": "1-2 weeks"
+        },
+        {
+          "stage": "Run pilot with one program area",
+          "duration": "4 weeks"
+        },
+        {
+          "stage": "Review results and staff feedback",
+          "duration": "1-2 weeks"
+        }
+      ],
+      "training_recommendations": {
+        "training_plan": [
+          {
+            "topic": "Basic AI Literacy",
+            "description": "How AI assistance works and limitations",
+            "duration": "2 hours"
+          },
+          {
+            "topic": "Prompt Crafting for Follow-ups",
+            "description": "Writing effective prompts for email drafting",
+            "duration": "1.5 hours"
+          },
+          {
+            "topic": "Human Review Practices",
+            "description": "Evaluating AI output for email content",
+            "duration": "1 hour"
+          }
+        ],
+        "note": "Training should be tied to the actual pilot workflow, not delivered as generic tool instruction."
+      },
+      "success_metrics": {
+        "metrics": [
+          {
+            "name": "Time spent drafting follow-ups",
+            "baseline": "~3 hrs/week",
+            "target": "~1.5 hrs/week",
+            "measurement_method": "Self-reported",
+            "review_frequency": "Weekly"
+          },
+          {
+            "name": "AI output quality",
+            "baseline": "All manual",
+            "target": "< 30% major revisions",
+            "measurement_method": "Track revision rate",
+            "review_frequency": "Weekly"
+          }
+        ]
+      },
+      "change_management_checklist": {
+        "items": [
+          {
+            "question": "Have staff concerns been recorded?",
+            "status": "needs_review",
+            "notes": "Some concerns noted in interactions"
+          },
+          {
+            "question": "Does the pilot reduce workload?",
+            "status": "not_started",
+            "notes": "Define baseline before pilot"
+          },
+          {
+            "question": "Are human-review responsibilities clear?",
+            "status": "not_started",
+            "notes": "Document who reviews what"
+          },
+          {
+            "question": "Is there a safe feedback loop?",
+            "status": "not_started",
+            "notes": "Anonymous or direct feedback channel"
+          }
+        ]
+      },
+      "risks_and_mitigation": [
+        {
+          "risk": "Staff may feel AI adds to workload",
+          "type": "Workload",
+          "mitigation": "Set clear expectations that AI is assistive"
+        },
+        {
+          "risk": "Quality concerns with AI output",
+          "type": "Quality Risk",
+          "mitigation": "Strong human-review process"
+        }
+      ],
+      "recommended_next_meeting_questions": [
+        "Which follow-up tasks take the most staff time each week?",
+        "What would make you feel confident in AI-generated email drafts?"
+      ],
+      "status": "Draft",
+      "created_at": "2026-06-28T10:00:00Z",
+      "updated_at": "2026-06-28T10:00:00Z"
+    }
+  ],
+  "pilot_plans": [
+    {
+      "pilot_id": 1,
+      "organization_id": 1,
+      "workflow_opportunity_id": 1,
+      "pilot_title": "AI-Assisted Follow-Up Email Drafting",
+      "problem_statement": "Staff at Waterloo Public Library spend significant time manually drafting follow-up emails after workshops.",
+      "current_process": "Staff manually compose individual follow-up emails, searching for past correspondence and program details.",
+      "proposed_ai_assisted_process": "AI generates first-draft follow-up emails from program notes. Staff review, edit, and approve before sending.",
+      "scope_limit": "Limited to follow-up emails for one program area with 2-3 participating staff.",
+      "participating_roles": [
+        "Program coordinator",
+        "Workshop facilitator"
+      ],
+      "required_inputs": [
+        "Past follow-up email templates",
+        "Program attendance records"
+      ],
+      "human_review_checkpoints": [
+        "Before any email is sent",
+        "Weekly review of AI output quality"
+      ],
+      "privacy_or_quality_risks": [
+        "AI may generate incorrect details",
+        "Participant data privacy"
+      ],
+      "success_metrics": [
+        "Time drafting follow-ups per week",
+        "Edits required per AI draft"
+      ],
+      "stop_or_revise_criteria": [
+        "Increased workload",
+        "Poor AI quality",
+        "Privacy concerns"
+      ],
+      "status": "Draft",
+      "created_at": "2026-06-28T10:00:00Z",
+      "updated_at": "2026-06-28T10:00:00Z"
+    },
+    {
+      "organization": "Kitchener Community Food Centre",
+      "pilot_title": "Volunteer Schedule Matching and Communication",
+      "problem_statement": "Manual schedule matching and individual confirmation emails for 40+ active volunteers",
+      "current_process": "Volunteer scheduling managed through shared spreadsheet. Coordinator spends 4-6 hours per week on schedule matching and email confirmations.",
+      "proposed_ai_assisted_process": "AI-assisted schedule matching based on availability, skills, and program needs with automated confirmation draft generation",
+      "scope_limit": "Limited to one workflow area and 2-3 participating staff members. No external-facing AI-generated content without human approval.",
+      "participating_roles": [
+        "Program coordinator",
+        "Staff member performing the workflow"
+      ],
+      "required_inputs": [
+        "Sample documents or notes from the selected workflow",
+        "Existing templates or formatting guides",
+        "Access to knowledge sources used in the workflow"
+      ],
+      "human_review_checkpoints": [
+        "Before AI output is shared externally",
+        "Before AI-generated follow-ups are sent",
+        "Weekly review of AI output quality by coordinator"
+      ],
+      "privacy_or_quality_risks": [
+        "AI may generate plausible-sounding but incorrect information",
+        "Staff may over-rely on AI output without critical review",
+        "Privacy if client data is used in prompts"
+      ],
+      "success_metrics": {
+        "organization": "Kitchener Community Food Centre",
+        "metrics": [
+          {
+            "name": "Time spent on workflow task",
+            "baseline": "Measure current time before pilot starts",
+            "target": "Reduction of 20-30%",
+            "measurement_method": "Self-reported time tracking + coordinator observation",
+            "review_frequency": "Weekly during pilot"
+          },
+          {
+            "name": "Output quality / revision rate",
+            "baseline": "All outputs are currently manual (100% human effort)",
+            "target": "Less than 30% of AI outputs require major revision",
+            "measurement_method": "Track revision rate of AI-assisted outputs",
+            "review_frequency": "Weekly"
+          },
+          {
+            "name": "Staff confidence with AI tools",
+            "baseline": "Pre-pilot survey",
+            "target": "70% of staff report increased confidence",
+            "measurement_method": "Pre- and post-pilot survey",
+            "review_frequency": "Before and after pilot"
+          },
+          {
+            "name": "Follow-up completion rate",
+            "baseline": "Current follow-up completion rate (estimated)",
+            "target": "Improvement of at least 15%",
+            "measurement_method": "Track follow-ups completed vs. planned",
+            "review_frequency": "Weekly"
+          },
+          {
+            "name": "Reusable workflow documentation",
+            "baseline": "0 documented AI-assisted workflows",
+            "target": "At least 1 documented workflow shared with the team",
+            "measurement_method": "Count of documented and shared workflows",
+            "review_frequency": "End of pilot"
+          }
+        ]
+      },
+      "stop_or_revise_criteria": [
+        "Staff report increased workload instead of reduction",
+        "AI output quality is consistently poor despite adjustments",
+        "Privacy concerns emerge that cannot be addressed",
+        "Staff feedback indicates loss of confidence or trust"
+      ],
+      "status": "Draft",
+      "organization_id": 2,
+      "training_recommendations": {
+        "organization": "Kitchener Community Food Centre",
+        "training_plan": [
+          {
+            "topic": "Basic AI Literacy",
+            "description": "How AI assistance works, its limitations, and responsible use boundaries",
+            "tied_to_pilot": true,
+            "recommended_format": "Interactive workshop with hands-on demo",
+            "duration": "2 hours"
+          },
+          {
+            "topic": "Prompt Crafting for the Selected Workflow",
+            "description": "How to write effective prompts for Volunteer Schedule Matching and Communication",
+            "tied_to_pilot": true,
+            "recommended_format": "Hands-on session with real workflow examples",
+            "duration": "1.5 hours"
+          },
+          {
+            "topic": "Human Review Practices",
+            "description": "How to critically evaluate AI output, what to check, and when to override",
+            "tied_to_pilot": true,
+            "recommended_format": "Guide + practice session",
+            "duration": "1 hour"
+          },
+          {
+            "topic": "Privacy and Confidentiality Awareness",
+            "description": "What data can be used in AI prompts, privacy boundaries, and confidentiality requirements",
+            "tied_to_pilot": true,
+            "recommended_format": "Briefing + reference document",
+            "duration": "1 hour"
+          }
+        ],
+        "additional_topics": [
+          {
+            "topic": "Workflow Documentation",
+            "description": "Documenting new AI-assisted workflows for team sharing",
+            "tied_to_pilot": false,
+            "recommended_format": "Template + guide",
+            "duration": "Self-paced"
+          },
+          {
+            "topic": "Exception Handling",
+            "description": "How to identify and document cases where AI output is incorrect or insufficient",
+            "tied_to_pilot": false,
+            "recommended_format": "Reference guide",
+            "duration": "Self-paced"
+          }
+        ],
+        "note": "Training should be tied to the actual pilot workflow, not delivered as generic tool instruction. Focus on practical application."
+      },
+      "pilot_id": 2,
+      "created_at": "2026-07-03T15:57:16Z",
+      "updated_at": "2026-07-03T15:57:16Z"
+    }
+  ],
+  "success_metrics": [
+    {
+      "metric_id": 1,
+      "organization_id": 1,
+      "pilot_id": 1,
+      "name": "Time spent drafting follow-up emails",
+      "baseline": "~3 hours per week (estimated)",
+      "target": "Reduction to ~1.5 hours per week",
+      "measurement_method": "Self-reported time tracking by participating staff",
+      "review_frequency": "Weekly",
+      "status": "Proposed",
+      "created_at": "2026-06-28T10:00:00Z",
+      "updated_at": "2026-06-28T10:00:00Z"
+    },
+    {
+      "metric_id": 2,
+      "organization_id": 1,
+      "pilot_id": 1,
+      "name": "AI draft quality / revision rate",
+      "baseline": "All drafts are currently manual (100% human effort)",
+      "target": "Less than 30% of AI-generated drafts require major revision",
+      "measurement_method": "Track number of AI drafts requiring significant edits",
+      "review_frequency": "Weekly",
+      "status": "Proposed",
+      "created_at": "2026-06-28T10:00:00Z",
+      "updated_at": "2026-06-28T10:00:00Z"
+    },
+    {
+      "metric_id": 3,
+      "organization_id": 1,
+      "pilot_id": 1,
+      "name": "Staff confidence with AI-assisted drafting",
+      "baseline": "Pre-pilot survey",
+      "target": "70% of participating staff report increased confidence",
+      "measurement_method": "Pre- and post-pilot survey",
+      "review_frequency": "Before and after pilot",
+      "status": "Proposed",
+      "created_at": "2026-06-28T10:00:00Z",
+      "updated_at": "2026-06-28T10:00:00Z"
+    }
+  ]
+}

@@ -5,6 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
+from datetime import datetime, timezone
 
 try:
     from app.connectors.local_json import LocalJsonCRMConnector
@@ -90,6 +91,29 @@ try:
         get_by_id as get_principles_by_id,
         get_by_category as get_principles_by_category,
     )
+    from app.services.adoption_planning import (
+        get_adoption_plan_for_org,
+        save_adoption_plan,
+        update_adoption_plan,
+        get_all_adoption_plans,
+        get_all_pilot_plans,
+        get_pilot_plans_for_org,
+        get_pilot_plan,
+        save_pilot_plan,
+        update_pilot_plan,
+        delete_pilot_plan,
+        get_success_metrics_for_org,
+        get_success_metrics_for_pilot,
+        get_all_success_metrics,
+        save_success_metric,
+        update_success_metric,
+        delete_success_metric,
+    )
+    from app.services.workflow import (
+        get_workflow_opportunities_for_org,
+        get_knowledge_sources_for_org,
+        get_adoption_risk_notes_for_org,
+    )
 except ModuleNotFoundError:
     from backend.app.connectors.local_json import LocalJsonCRMConnector
     from backend.app.models import (
@@ -174,6 +198,29 @@ except ModuleNotFoundError:
         get_all as get_principles_all,
         get_by_id as get_principles_by_id,
         get_by_category as get_principles_by_category,
+    )
+    from backend.app.services.adoption_planning import (
+        get_adoption_plan_for_org,
+        save_adoption_plan,
+        update_adoption_plan,
+        get_all_adoption_plans,
+        get_all_pilot_plans,
+        get_pilot_plans_for_org,
+        get_pilot_plan,
+        save_pilot_plan,
+        update_pilot_plan,
+        delete_pilot_plan,
+        get_success_metrics_for_org,
+        get_success_metrics_for_pilot,
+        get_all_success_metrics,
+        save_success_metric,
+        update_success_metric,
+        delete_success_metric,
+    )
+    from backend.app.services.workflow import (
+        get_workflow_opportunities_for_org,
+        get_knowledge_sources_for_org,
+        get_adoption_risk_notes_for_org,
     )
 
 app = FastAPI(title="Outreach Intelligence Platform")
@@ -971,6 +1018,197 @@ def get_principle(principle_id: int):
     return p
 
 
+# ---- Phase 4: Adoption Planning Routes ----
+
+@app.get("/api/organizations/{organization_id}/adoption-plan")
+def get_adoption_plan(organization_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    existing = get_adoption_plan_for_org(organization_id)
+    if existing:
+        return existing
+    provider = get_ai_provider()
+    workflow_opps = get_workflow_opportunities_for_org(organization_id)
+    knowledge_sources = get_knowledge_sources_for_org(organization_id)
+    adoption_risks = get_adoption_risk_notes_for_org(organization_id)
+    plan = provider.generate_adoption_plan(org, workflow_opps, knowledge_sources, adoption_risks)
+    plan["organization_id"] = organization_id
+    plan["plan_id"] = 0
+    plan["roadmap_steps"] = plan.pop("suggested_timeline", [])
+    return save_adoption_plan(plan)
+
+
+@app.post("/api/organizations/{organization_id}/adoption-plan/regenerate")
+def regenerate_adoption_plan(organization_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    provider = get_ai_provider()
+    workflow_opps = get_workflow_opportunities_for_org(organization_id)
+    knowledge_sources = get_knowledge_sources_for_org(organization_id)
+    adoption_risks = get_adoption_risk_notes_for_org(organization_id)
+    plan = provider.generate_adoption_plan(org, workflow_opps, knowledge_sources, adoption_risks)
+    plan["organization_id"] = organization_id
+    plan["roadmap_steps"] = plan.pop("suggested_timeline", [])
+    existing = get_adoption_plan_for_org(organization_id)
+    if existing:
+        plan["plan_id"] = existing["plan_id"]
+        return update_adoption_plan(existing["plan_id"], plan)
+    return save_adoption_plan(plan)
+
+
+@app.patch("/api/organizations/{organization_id}/adoption-plan")
+def edit_adoption_plan(organization_id: int, payload: dict):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    existing = get_adoption_plan_for_org(organization_id)
+    if not existing:
+        raise HTTPException(status_code=404, detail="No adoption plan found for this organization")
+    result = update_adoption_plan(existing["plan_id"], payload)
+    if not result:
+        raise HTTPException(status_code=404, detail="Adoption plan not found")
+    return result
+
+
+@app.get("/api/organizations/{organization_id}/pilot-plans")
+def list_pilot_plans(organization_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    return get_pilot_plans_for_org(organization_id)
+
+
+@app.post("/api/organizations/{organization_id}/pilot-plans")
+def create_pilot_plan(organization_id: int, payload: dict):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    provider = get_ai_provider()
+    workflow_opps = get_workflow_opportunities_for_org(organization_id)
+    generated = provider.generate_pilot_recommendation(org, workflow_opps)
+    generated["organization_id"] = organization_id
+    generated.update({k: v for k, v in payload.items() if v})
+    adoption_risks = get_adoption_risk_notes_for_org(organization_id)
+    generated["training_recommendations"] = provider.generate_training_recommendations(org, generated, adoption_risks)
+    generated["success_metrics"] = provider.generate_success_metrics(org, generated)
+    saved = save_pilot_plan(generated)
+    return saved
+
+
+@app.patch("/api/organizations/{organization_id}/pilot-plans/{pilot_id}")
+def edit_pilot_plan(organization_id: int, pilot_id: int, payload: dict):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    result = update_pilot_plan(pilot_id, payload)
+    if not result:
+        raise HTTPException(status_code=404, detail="Pilot plan not found")
+    return result
+
+
+@app.delete("/api/organizations/{organization_id}/pilot-plans/{pilot_id}")
+def remove_pilot_plan(organization_id: int, pilot_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    if not delete_pilot_plan(pilot_id):
+        raise HTTPException(status_code=404, detail="Pilot plan not found")
+    return {"deleted": True}
+
+
+@app.get("/api/organizations/{organization_id}/success-metrics")
+def list_success_metrics(organization_id: int, pilot_id: int = None):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    if pilot_id:
+        return get_success_metrics_for_pilot(pilot_id)
+    return get_success_metrics_for_org(organization_id)
+
+
+@app.post("/api/organizations/{organization_id}/success-metrics")
+def create_success_metric(organization_id: int, payload: dict):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    payload["organization_id"] = organization_id
+    return save_success_metric(payload)
+
+
+@app.patch("/api/organizations/{organization_id}/success-metrics/{metric_id}")
+def edit_success_metric(organization_id: int, metric_id: int, payload: dict):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    result = update_success_metric(metric_id, payload)
+    if not result:
+        raise HTTPException(status_code=404, detail="Success metric not found")
+    return result
+
+
+@app.delete("/api/organizations/{organization_id}/success-metrics/{metric_id}")
+def remove_success_metric(organization_id: int, metric_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    if not delete_success_metric(metric_id):
+        raise HTTPException(status_code=404, detail="Success metric not found")
+    return {"deleted": True}
+
+
+@app.get("/api/success-metrics")
+def list_all_success_metrics(organization_id: int = None, pilot_id: int = None):
+    if organization_id:
+        return get_success_metrics_for_org(organization_id)
+    if pilot_id:
+        return get_success_metrics_for_pilot(pilot_id)
+    return get_all_success_metrics()
+
+
+@app.get("/api/pilot-plans")
+def list_all_pilot_plans():
+    plans = get_all_pilot_plans()
+    orgs = {o["id"]: o for o in crm.list_organizations()}
+    for p in plans:
+        o = orgs.get(p.get("organization_id"))
+        p["organization_name"] = o.get("name", "Unknown") if o else "Unknown"
+    return plans
+
+
+@app.get("/api/adoption-plans")
+def list_all_adoption_plans():
+    plans = get_all_adoption_plans()
+    orgs = {o["id"]: o for o in crm.list_organizations()}
+    for p in plans:
+        o = orgs.get(p.get("organization_id"))
+        p["organization_name"] = o.get("name", "Unknown") if o else "Unknown"
+    return plans
+
+
+@app.get("/api/adoption-plans/export/{organization_id}")
+def export_adoption_plan(organization_id: int):
+    org = crm.get_organization(organization_id)
+    if not org:
+        raise HTTPException(status_code=404, detail="Organization not found")
+    plan = get_adoption_plan_for_org(organization_id)
+    if not plan:
+        raise HTTPException(status_code=404, detail="No adoption plan found. Generate one first.")
+    pilot_plans = get_pilot_plans_for_org(organization_id)
+    metrics = get_success_metrics_for_org(organization_id)
+    export = dict(plan)
+    export["pilot_plans"] = pilot_plans
+    export["success_metrics"] = metrics
+    export["organization"] = org
+    export["exported_at"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return StreamingResponse(
+        iter([json.dumps(export, indent=2)]),
+        media_type="application/json",
+        headers={"Content-Disposition": f"attachment; filename=adoption_plan_{organization_id}.json"},
+    )
+
+
 @app.get("/api/tasks")
 def list_tasks(organization_id: int = None, status: str = None):
     if organization_id:
@@ -1018,6 +1256,9 @@ INDEX_FILE = FRONTEND_DIR / "index.html"
 @app.get("/follow-ups")
 @app.get("/knowledge-search")
 @app.get("/demo-outbox")
+@app.get("/adoption-planner")
+@app.get("/pilot-plans")
+@app.get("/success-metrics")
 def serve_frontend_page():
     return FileResponse(INDEX_FILE, headers={"Cache-Control": "no-cache"})
 

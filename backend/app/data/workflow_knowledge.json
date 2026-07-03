@@ -51,14 +51,14 @@
         "Post-workshop follow-up messages are repetitive and time-consuming",
         "Program follow-up emails could use approved templates and human review"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z",
+      "last_seen_at": "2026-06-26T15:57:12Z",
       "required_human_review": "Program lead review required for all AI-generated content before sending",
       "known_failure_cases": [
         "Generic-sounding messages may lose personal connection",
         "Outdated program dates or resource links may be included"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z"
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z"
     },
     {
       "id": 2,
@@ -106,13 +106,13 @@
       "evidence_excerpts": [
         "Program coordinator spends approximately 5 hours per quarter compiling grant reports from three separate spreadsheets"
       ],
-      "last_seen_at": "2026-06-25T13:52:32Z",
+      "last_seen_at": "2026-06-25T15:57:12Z",
       "required_human_review": "Program manager review required for narrative accuracy and context",
       "known_failure_cases": [
         "AI may miss important qualitative context not captured in structured data fields"
       ],
-      "created_at": "2026-06-18T13:52:32Z",
-      "updated_at": "2026-06-25T13:52:32Z"
+      "created_at": "2026-06-18T15:57:12Z",
+      "updated_at": "2026-06-25T15:57:12Z"
     },
     {
       "id": 3,
@@ -157,11 +157,11 @@
       "evidence_excerpts": [
         "Past workshop attendance data could help plan appropriate content levels but requires manual analysis"
       ],
-      "last_seen_at": "2026-06-21T13:52:32Z",
+      "last_seen_at": "2026-06-21T15:57:12Z",
       "required_human_review": "Program lead review of data-driven recommendations",
       "known_failure_cases": [],
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-06-21T13:52:32Z"
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-06-21T15:57:12Z"
     },
     {
       "id": 4,
@@ -205,13 +205,13 @@
       "evidence_excerpts": [
         "Coordinator spends 4-6 hours per week on schedule matching and sending individual emails"
       ],
-      "last_seen_at": "2026-06-12T13:52:32Z",
+      "last_seen_at": "2026-06-12T15:57:12Z",
       "required_human_review": "Coordinator review for schedule exceptions and volunteer preferences",
       "known_failure_cases": [
         "Volunteers may find automated scheduling difficult to adapt to"
       ],
-      "created_at": "2026-06-03T13:52:32Z",
-      "updated_at": "2026-06-12T13:52:32Z"
+      "created_at": "2026-06-03T15:57:12Z",
+      "updated_at": "2026-06-12T15:57:12Z"
     },
     {
       "id": 5,
@@ -256,14 +256,14 @@
       "evidence_excerpts": [
         "Staff estimate 8-10 hours per week on donation data entry and receipt generation"
       ],
-      "last_seen_at": "2026-06-19T13:52:32Z",
+      "last_seen_at": "2026-06-19T15:57:12Z",
       "required_human_review": "Staff review for food quality context and special handling notes",
       "known_failure_cases": [
         "OCR may inaccurately capture handwritten information",
         "Structured fields may miss important food quality context"
       ],
-      "created_at": "2026-06-05T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z"
+      "created_at": "2026-06-05T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 6,
@@ -310,13 +310,13 @@
         "Program manager estimates 6-8 hours per quarter on each grant report",
         "Each funder requires different metrics and reporting formats"
       ],
-      "last_seen_at": "2026-06-29T13:52:32Z",
+      "last_seen_at": "2026-06-29T15:57:12Z",
       "required_human_review": "Program manager review for narrative context and impact description",
       "known_failure_cases": [
         "Automation may miss important qualitative program impact context"
       ],
-      "created_at": "2026-06-13T13:52:32Z",
-      "updated_at": "2026-06-29T13:52:32Z"
+      "created_at": "2026-06-13T15:57:12Z",
+      "updated_at": "2026-06-29T15:57:12Z"
     },
     {
       "id": 7,
@@ -359,13 +359,13 @@
       "evidence_excerpts": [
         "Coordinator spends 3-4 hours per week reconciling intake information from multiple sources"
       ],
-      "last_seen_at": "2026-06-22T13:52:32Z",
+      "last_seen_at": "2026-06-22T15:57:12Z",
       "required_human_review": "Coordinator review for nuanced founder context",
       "known_failure_cases": [
         "AI may miss subtle signals about founder readiness that are apparent in conversation"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-22T13:52:32Z"
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-22T15:57:12Z"
     },
     {
       "id": 8,
@@ -409,13 +409,13 @@
       "evidence_excerpts": [
         "Mentor matching relies on director's personal knowledge with no structured backup system"
       ],
-      "last_seen_at": "2026-06-27T13:52:32Z",
+      "last_seen_at": "2026-06-27T15:57:12Z",
       "required_human_review": "Director review of AI-suggested matches before confirmation",
       "known_failure_cases": [
         "AI may suggest matches that look good on paper but miss important interpersonal dynamics"
       ],
-      "created_at": "2026-06-13T13:52:32Z",
-      "updated_at": "2026-06-27T13:52:32Z"
+      "created_at": "2026-06-13T15:57:12Z",
+      "updated_at": "2026-06-27T15:57:12Z"
     },
     {
       "id": 9,
@@ -459,13 +459,13 @@
       "evidence_excerpts": [
         "Coordinator spends 1-2 days per event composing individual follow-up emails"
       ],
-      "last_seen_at": "2026-07-02T13:52:32Z",
+      "last_seen_at": "2026-07-02T15:57:12Z",
       "required_human_review": "Experienced staff review all event communications before sending",
       "known_failure_cases": [
         "Templated messages may feel impersonal if not properly customized"
       ],
-      "created_at": "2026-06-18T13:52:32Z",
-      "updated_at": "2026-07-02T13:52:32Z"
+      "created_at": "2026-06-18T15:57:12Z",
+      "updated_at": "2026-07-02T15:57:12Z"
     },
     {
       "id": 10,
@@ -509,14 +509,14 @@
       "evidence_excerpts": [
         "Staff member estimates spending 5 hours per week scanning funding websites and checking eligibility"
       ],
-      "last_seen_at": "2026-06-23T13:52:32Z",
+      "last_seen_at": "2026-06-23T15:57:12Z",
       "required_human_review": "Staff review of AI-matched opportunities before presenting to founders",
       "known_failure_cases": [
         "Browser automation may fail on website layout changes",
         "AI may not catch subtle eligibility exceptions"
       ],
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-06-23T13:52:32Z"
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-06-23T15:57:12Z"
     },
     {
       "id": 11,
@@ -559,13 +559,13 @@
       "evidence_excerpts": [
         "Staff estimate 3-4 hours per workshop series on scheduling coordination alone"
       ],
-      "last_seen_at": "2026-06-07T13:52:32Z",
+      "last_seen_at": "2026-06-07T15:57:12Z",
       "required_human_review": "Program lead review for artist relationship considerations",
       "known_failure_cases": [
         "AI may not understand artist availability nuances and relationship dynamics"
       ],
-      "created_at": "2026-05-29T13:52:32Z",
-      "updated_at": "2026-06-07T13:52:32Z"
+      "created_at": "2026-05-29T15:57:12Z",
+      "updated_at": "2026-06-07T15:57:12Z"
     },
     {
       "id": 12,
@@ -609,13 +609,13 @@
       "evidence_excerpts": [
         "Team spends 5-6 hours per week on email communication with approximately 30 active artists"
       ],
-      "last_seen_at": "2026-06-14T13:52:32Z",
+      "last_seen_at": "2026-06-14T15:57:12Z",
       "required_human_review": "Experienced staff review for tone and relationship appropriateness",
       "known_failure_cases": [
         "Templated messages may feel impersonal to artists"
       ],
-      "created_at": "2026-06-03T13:52:32Z",
-      "updated_at": "2026-06-14T13:52:32Z"
+      "created_at": "2026-06-03T15:57:12Z",
+      "updated_at": "2026-06-14T15:57:12Z"
     },
     {
       "id": 13,
@@ -658,13 +658,13 @@
       "evidence_excerpts": [
         "Staff estimate 40% of grant application time is spent formatting and adapting existing content"
       ],
-      "last_seen_at": "2026-06-19T13:52:32Z",
+      "last_seen_at": "2026-06-19T15:57:12Z",
       "required_human_review": "Program lead review for narrative accuracy and funder alignment",
       "known_failure_cases": [
         "AI may misrepresent organizational priorities when adapting content"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z"
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 14,
@@ -707,13 +707,13 @@
       "evidence_excerpts": [
         "Editor estimates 6-8 hours per month on content gathering, formatting, and editing"
       ],
-      "last_seen_at": "2026-06-25T13:52:32Z",
+      "last_seen_at": "2026-06-25T15:57:12Z",
       "required_human_review": "Editor review for voice, accuracy, and quality",
       "known_failure_cases": [
         "AI-generated content may lose organizational voice and sound generic"
       ],
-      "created_at": "2026-06-11T13:52:32Z",
-      "updated_at": "2026-06-25T13:52:32Z"
+      "created_at": "2026-06-11T15:57:12Z",
+      "updated_at": "2026-06-25T15:57:12Z"
     },
     {
       "id": 15,
@@ -756,13 +756,13 @@
       "evidence_excerpts": [
         "Staff spend 2-3 hours per week transcribing paper intake forms into digital spreadsheet"
       ],
-      "last_seen_at": "2026-06-03T13:52:32Z",
+      "last_seen_at": "2026-06-03T15:57:12Z",
       "required_human_review": "Case worker review for contextual notes preservation",
       "known_failure_cases": [
         "OCR may inaccurately capture handwritten margin notes that contain important context"
       ],
-      "created_at": "2026-05-24T13:52:32Z",
-      "updated_at": "2026-06-03T13:52:32Z"
+      "created_at": "2026-05-24T15:57:12Z",
+      "updated_at": "2026-06-03T15:57:12Z"
     },
     {
       "id": 16,
@@ -805,13 +805,13 @@
       "evidence_excerpts": [
         "Specialist spends 3-4 hours per week on employer follow-up coordination with 50+ active relationships"
       ],
-      "last_seen_at": "2026-06-12T13:52:32Z",
+      "last_seen_at": "2026-06-12T15:57:12Z",
       "required_human_review": "Specialist review for tone and relationship appropriateness",
       "known_failure_cases": [
         "Automated follow-ups may feel impersonal to established employer partners"
       ],
-      "created_at": "2026-05-29T13:52:32Z",
-      "updated_at": "2026-06-12T13:52:32Z"
+      "created_at": "2026-05-29T15:57:12Z",
+      "updated_at": "2026-06-12T15:57:12Z"
     },
     {
       "id": 17,
@@ -855,233 +855,13 @@
       "evidence_excerpts": [
         "Staff compose individual follow-up emails for 15-20 participants per workshop with resources and feedback"
       ],
-      "last_seen_at": "2026-06-19T13:52:32Z",
+      "last_seen_at": "2026-06-19T15:57:12Z",
       "required_human_review": "Staff review for feedback specificity and accuracy",
       "known_failure_cases": [
         "AI-generated feedback may be too generic to address individual participant needs"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z"
-    },
-    {
-      "id": 18,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "canonical_title": "Automated data extraction and report generation from structured inputs",
-      "normalized_key": "automated data extraction report generation structured inputs",
-      "title": "AI Support: Automated data extraction and report generation from structured inputs",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Repetitive data entry tasks consume staff time that could be spent on direct service.",
-      "possible_ai_support": "Automated data extraction and report generation from structured inputs",
-      "knowledge_sources_needed": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
-      ],
-      "risks_or_exceptions": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "known_failure_cases": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Automated data extraction and report generation from structured inputs"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 19,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "canonical_title": "AI-drafted follow-up emails and outreach templates with human review",
-      "normalized_key": "aidrafted followup emails outreach templates human review",
-      "title": "AI Support: AI-drafted follow-up emails and outreach templates with human review",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Follow-up tracking is ad-hoc \u2014 items are easily missed with no centralized system.",
-      "possible_ai_support": "AI-drafted follow-up emails and outreach templates with human review",
-      "knowledge_sources_needed": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
-      ],
-      "risks_or_exceptions": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "known_failure_cases": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "AI-drafted follow-up emails and outreach templates with human review"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 20,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "canonical_title": "Automated follow-up reminders and status tracking",
-      "normalized_key": "automated followup reminders status tracking",
-      "title": "AI Support: Automated follow-up reminders and status tracking",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Staff capacity is a recurring constraint \u2014 there is no buffer for process improvement work.",
-      "possible_ai_support": "Automated follow-up reminders and status tracking",
-      "knowledge_sources_needed": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
-      ],
-      "risks_or_exceptions": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "known_failure_cases": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Automated follow-up reminders and status tracking"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 21,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "canonical_title": "AI-assisted scheduling and engagement pattern analysis",
-      "normalized_key": "aiassisted scheduling engagement pattern analysis",
-      "title": "AI Support: AI-assisted scheduling and engagement pattern analysis",
-      "current_process": "Staff coordinate volunteer shifts, track community engagement manually, and produce program reports using spreadsheets and shared documents.",
-      "pain_point": "Community engagement tracking is fragmented \u2014 no single view of outreach activities.",
-      "possible_ai_support": "AI-assisted scheduling and engagement pattern analysis",
-      "knowledge_sources_needed": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "human_review_points": [
-        "All AI-generated summaries must be reviewed by a staff member before saving to records.",
-        "AI-drafted communications must be approved by a human before sending.",
-        "Staff capacity decisions must be made by program leads, not automated.",
-        "Final decisions on workflow changes require human approval."
-      ],
-      "risks_or_exceptions": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "staff_impact": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "adoption_risk_level": "Low",
-      "next_discovery_questions": [
-        "Formal documentation of current workflows is not available \u2014 would benefit from a workflow mapping session."
-      ],
-      "human_review_required": "All AI-generated summaries must be reviewed by a staff member before saving to records., AI-drafted communications must be approved by a human before sending., Staff capacity decisions must be made by program leads, not automated., Final decisions on workflow changes require human approval.",
-      "required_knowledge_sources": [
-        "Email correspondence and contact lists",
-        "Training materials and workshop guides"
-      ],
-      "known_failure_cases": [
-        "Follow-ups are missed when staff are absent or overwhelmed",
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "AI-assisted scheduling and engagement pattern analysis"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z"
     }
   ],
   "knowledge_sources": [
@@ -1092,11 +872,11 @@
       "name": "Digital Literacy FAQ",
       "description": "FAQ document for common digital literacy questions asked by workshop participants",
       "location_note": "Local - shared drive",
-      "created_at": "2026-05-04T13:52:32Z",
-      "updated_at": "2026-06-03T13:52:32Z",
+      "created_at": "2026-05-04T15:57:12Z",
+      "updated_at": "2026-06-03T15:57:12Z",
       "normalized_key": "faq documents digital literacy faq",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-03T13:52:32Z"
+      "last_seen_at": "2026-06-03T15:57:12Z"
     },
     {
       "id": 2,
@@ -1105,11 +885,11 @@
       "name": "Workshop Program Notes Archive",
       "description": "Past workshop planning notes and program documentation",
       "location_note": "Local - program team shared folder",
-      "created_at": "2026-05-14T13:52:32Z",
-      "updated_at": "2026-06-12T13:52:32Z",
+      "created_at": "2026-05-14T15:57:12Z",
+      "updated_at": "2026-06-12T15:57:12Z",
       "normalized_key": "past meeting notes workshop program notes archive",
       "evidence_count": 2,
-      "last_seen_at": "2026-06-15T13:52:32Z"
+      "last_seen_at": "2026-06-15T15:57:12Z"
     },
     {
       "id": 3,
@@ -1118,11 +898,11 @@
       "name": "Follow-up Email Draft Templates",
       "description": "Approved follow-up email templates for workshop communications under development",
       "location_note": "Local - program team workspace",
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "normalized_key": "approved email templates follow up email draft templates",
       "evidence_count": 3,
-      "last_seen_at": "2026-06-26T13:52:32Z"
+      "last_seen_at": "2026-06-26T15:57:12Z"
     },
     {
       "id": 4,
@@ -1131,11 +911,11 @@
       "name": "Program Calendar and Schedule",
       "description": "Workshop schedule and program calendar used for content planning",
       "location_note": "Local - shared calendar",
-      "created_at": "2026-05-04T13:52:32Z",
-      "updated_at": "2026-06-21T13:52:32Z",
+      "created_at": "2026-05-04T15:57:12Z",
+      "updated_at": "2026-06-21T15:57:12Z",
       "normalized_key": "program calendars program calendar and schedule",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-21T13:52:32Z"
+      "last_seen_at": "2026-06-21T15:57:12Z"
     },
     {
       "id": 5,
@@ -1144,11 +924,11 @@
       "name": "Past Grant Report Library",
       "description": "Previous grant reports in shared folder that could serve as templates for formatting",
       "location_note": "Local - grants shared drive",
-      "created_at": "2026-04-04T13:52:32Z",
-      "updated_at": "2026-06-25T13:52:32Z",
+      "created_at": "2026-04-04T15:57:12Z",
+      "updated_at": "2026-06-25T15:57:12Z",
       "normalized_key": "previous grant reports past grant report library",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-25T13:52:32Z"
+      "last_seen_at": "2026-06-25T15:57:12Z"
     },
     {
       "id": 6,
@@ -1157,11 +937,11 @@
       "name": "Donation Intake Forms",
       "description": "Standard forms used for logging incoming food donations",
       "location_note": "Local - operations binder",
-      "created_at": "2026-04-14T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z",
+      "created_at": "2026-04-14T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z",
       "normalized_key": "intake forms donation intake forms",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-19T13:52:32Z"
+      "last_seen_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 7,
@@ -1170,11 +950,11 @@
       "name": "Food Safety Policy Document",
       "description": "Policy document outlining food safety and special handling requirements",
       "location_note": "Local - shared drive",
-      "created_at": "2026-04-14T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z",
+      "created_at": "2026-04-14T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z",
       "normalized_key": "policy documents food safety policy document",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-19T13:52:32Z"
+      "last_seen_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 8,
@@ -1183,11 +963,11 @@
       "name": "Volunteer Hours and Donation Logs",
       "description": "Spreadsheets tracking volunteer hours and incoming donations for reporting",
       "location_note": "Local - operations team workspace",
-      "created_at": "2026-04-24T13:52:32Z",
-      "updated_at": "2026-06-29T13:52:32Z",
+      "created_at": "2026-04-24T15:57:12Z",
+      "updated_at": "2026-06-29T15:57:12Z",
       "normalized_key": "spreadsheet trackers volunteer hours and donation logs",
       "evidence_count": 2,
-      "last_seen_at": "2026-06-29T13:52:32Z"
+      "last_seen_at": "2026-06-29T15:57:12Z"
     },
     {
       "id": 9,
@@ -1196,11 +976,11 @@
       "name": "Past Grant Reports",
       "description": "Previous grant reports stored in shared drive used as reference for formatting and metrics",
       "location_note": "Local - grants shared drive",
-      "created_at": "2026-05-04T13:52:32Z",
-      "updated_at": "2026-06-29T13:52:32Z",
+      "created_at": "2026-05-04T15:57:12Z",
+      "updated_at": "2026-06-29T15:57:12Z",
       "normalized_key": "previous grant reports past grant reports",
       "evidence_count": 2,
-      "last_seen_at": "2026-06-29T13:52:32Z"
+      "last_seen_at": "2026-06-29T15:57:12Z"
     },
     {
       "id": 10,
@@ -1209,11 +989,11 @@
       "name": "Founder Intake Forms and Records",
       "description": "Web forms and structured records for founder intake information",
       "location_note": "Local - intake system",
-      "created_at": "2026-05-14T13:52:32Z",
-      "updated_at": "2026-06-22T13:52:32Z",
+      "created_at": "2026-05-14T15:57:12Z",
+      "updated_at": "2026-06-22T15:57:12Z",
       "normalized_key": "intake forms founder intake forms and records",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-22T13:52:32Z"
+      "last_seen_at": "2026-06-22T15:57:12Z"
     },
     {
       "id": 11,
@@ -1222,11 +1002,11 @@
       "name": "Event Q&A Records",
       "description": "Q&A records from past events used to inform follow-up content",
       "location_note": "Local - event team folder",
-      "created_at": "2026-06-03T13:52:32Z",
-      "updated_at": "2026-07-02T13:52:32Z",
+      "created_at": "2026-06-03T15:57:12Z",
+      "updated_at": "2026-07-02T15:57:12Z",
       "normalized_key": "qa records event qa records",
       "evidence_count": 1,
-      "last_seen_at": "2026-07-02T13:52:32Z"
+      "last_seen_at": "2026-07-02T15:57:12Z"
     },
     {
       "id": 12,
@@ -1235,11 +1015,11 @@
       "name": "Past Match Records",
       "description": "Historical records of mentor-founder matches and outcomes",
       "location_note": "Local - program team shared folder",
-      "created_at": "2026-05-19T13:52:32Z",
-      "updated_at": "2026-06-27T13:52:32Z",
+      "created_at": "2026-05-19T15:57:12Z",
+      "updated_at": "2026-06-27T15:57:12Z",
       "normalized_key": "past meeting notes past match records",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-27T13:52:32Z"
+      "last_seen_at": "2026-06-27T15:57:12Z"
     },
     {
       "id": 13,
@@ -1248,11 +1028,11 @@
       "name": "Past Workshop Notes",
       "description": "Individual workshop notes stored in program files",
       "location_note": "Local - program team files",
-      "created_at": "2026-05-04T13:52:32Z",
-      "updated_at": "2026-06-07T13:52:32Z",
+      "created_at": "2026-05-04T15:57:12Z",
+      "updated_at": "2026-06-07T15:57:12Z",
       "normalized_key": "past meeting notes past workshop notes",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-07T13:52:32Z"
+      "last_seen_at": "2026-06-07T15:57:12Z"
     },
     {
       "id": 14,
@@ -1261,11 +1041,11 @@
       "name": "Past Grant Documents",
       "description": "Previous grant applications and supporting materials organized by year",
       "location_note": "Local - grants shared folder",
-      "created_at": "2026-05-14T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z",
+      "created_at": "2026-05-14T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z",
       "normalized_key": "previous grant reports past grant documents",
       "evidence_count": 2,
-      "last_seen_at": "2026-06-19T13:52:32Z"
+      "last_seen_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 15,
@@ -1274,11 +1054,11 @@
       "name": "Youth Intake Forms",
       "description": "Paper and digital intake forms for youth participant information",
       "location_note": "Local - intake binder and digital records",
-      "created_at": "2026-05-14T13:52:32Z",
-      "updated_at": "2026-06-03T13:52:32Z",
+      "created_at": "2026-05-14T15:57:12Z",
+      "updated_at": "2026-06-03T15:57:12Z",
       "normalized_key": "intake forms youth intake forms",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-03T13:52:32Z"
+      "last_seen_at": "2026-06-03T15:57:12Z"
     },
     {
       "id": 16,
@@ -1287,37 +1067,11 @@
       "name": "Employer Contact Spreadsheet",
       "description": "Spreadsheet tracking employer contacts, outreach history, and placement outcomes",
       "location_note": "Local - employment team workspace",
-      "created_at": "2026-05-14T13:52:32Z",
-      "updated_at": "2026-06-12T13:52:32Z",
+      "created_at": "2026-05-14T15:57:12Z",
+      "updated_at": "2026-06-12T15:57:12Z",
       "normalized_key": "spreadsheet trackers employer contact spreadsheet",
       "evidence_count": 1,
-      "last_seen_at": "2026-06-12T13:52:32Z"
-    },
-    {
-      "id": 17,
-      "organization_id": 1,
-      "source_type": "Past emails or drafts",
-      "name": "Email correspondence and contact lists",
-      "normalized_key": "email correspondence contact lists",
-      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
-      "location_note": "Local \u2014 no external storage accessed",
-      "evidence_count": 1,
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 18,
-      "organization_id": 1,
-      "source_type": "Past emails or drafts",
-      "name": "Training materials and workshop guides",
-      "normalized_key": "training materials workshop guides",
-      "description": "Automatically identified from interaction notes \u2014 organized as 'Past emails or drafts'",
-      "location_note": "Local \u2014 no external storage accessed",
-      "evidence_count": 1,
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
+      "last_seen_at": "2026-06-12T15:57:12Z"
     }
   ],
   "failure_cases": [
@@ -1337,8 +1091,8 @@
         "community-context"
       ],
       "status": "Identified",
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "source_interaction_ids": [
         1,
         2,
@@ -1350,7 +1104,7 @@
         "Templated messages need to accommodate participant-specific situations",
         "Staff emphasized human review for all external communications"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z",
+      "last_seen_at": "2026-06-26T15:57:12Z",
       "normalized_key": "ai generated follow up email may sound too generic for community context"
     },
     {
@@ -1369,8 +1123,8 @@
         "accuracy"
       ],
       "status": "Identified",
-      "created_at": "2026-06-18T13:52:32Z",
-      "updated_at": "2026-06-25T13:52:32Z",
+      "created_at": "2026-06-18T15:57:12Z",
+      "updated_at": "2026-06-25T15:57:12Z",
       "source_interaction_ids": [
         5
       ],
@@ -1378,7 +1132,7 @@
       "evidence_excerpts": [
         "Staff concerned that automation may introduce errors in data transcription"
       ],
-      "last_seen_at": "2026-06-25T13:52:32Z",
+      "last_seen_at": "2026-06-25T15:57:12Z",
       "normalized_key": "ai may introduce data errors when transcribing or compiling reporting data"
     },
     {
@@ -1397,8 +1151,8 @@
         "context"
       ],
       "status": "Identified",
-      "created_at": "2026-06-05T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z",
+      "created_at": "2026-06-05T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z",
       "source_interaction_ids": [
         7
       ],
@@ -1406,7 +1160,7 @@
       "evidence_excerpts": [
         "Staff concerned that automating donation tracking may not capture important food quality context"
       ],
-      "last_seen_at": "2026-06-19T13:52:32Z",
+      "last_seen_at": "2026-06-19T15:57:12Z",
       "normalized_key": "automated donation tracking may miss important food quality context"
     },
     {
@@ -1425,8 +1179,8 @@
         "tone"
       ],
       "status": "Identified",
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-23T13:52:32Z",
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-23T15:57:12Z",
       "source_interaction_ids": [
         8
       ],
@@ -1434,7 +1188,7 @@
       "evidence_excerpts": [
         "Staff worry standardized templates may make communications feel impersonal for vulnerable clients"
       ],
-      "last_seen_at": "2026-06-23T13:52:32Z",
+      "last_seen_at": "2026-06-23T15:57:12Z",
       "normalized_key": "ai generated client communications may use inappropriate language for vulnerable situations"
     },
     {
@@ -1453,8 +1207,8 @@
         "website"
       ],
       "status": "Identified",
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-06-23T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-06-23T15:57:12Z",
       "source_interaction_ids": [
         14
       ],
@@ -1462,7 +1216,7 @@
       "evidence_excerpts": [
         "Browser automation may help monitor funding website updates but may break when layouts change"
       ],
-      "last_seen_at": "2026-06-23T13:52:32Z",
+      "last_seen_at": "2026-06-23T15:57:12Z",
       "normalized_key": "browser automation for grant website monitoring may break on layout changes"
     },
     {
@@ -1481,8 +1235,8 @@
         "accuracy"
       ],
       "status": "Identified",
-      "created_at": "2026-06-19T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-19T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "source_interaction_ids": [
         15
       ],
@@ -1490,7 +1244,7 @@
       "evidence_excerpts": [
         "Staff are worried that AI may overpromise services to founders"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z",
+      "last_seen_at": "2026-06-26T15:57:12Z",
       "normalized_key": "ai generated follow up may overpromise services to founders"
     },
     {
@@ -1509,8 +1263,8 @@
         "public-vs-internal"
       ],
       "status": "Identified",
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-07-01T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-07-01T15:57:12Z",
       "source_interaction_ids": [
         20
       ],
@@ -1518,7 +1272,7 @@
       "evidence_excerpts": [
         "Uncertainty about what information should be public vs internal-only when using AI to draft promotional content"
       ],
-      "last_seen_at": "2026-07-01T13:52:32Z",
+      "last_seen_at": "2026-07-01T15:57:12Z",
       "normalized_key": "ai may not distinguish between public information and internal only notes"
     },
     {
@@ -1537,8 +1291,8 @@
         "accuracy"
       ],
       "status": "Identified",
-      "created_at": "2026-05-24T13:52:32Z",
-      "updated_at": "2026-06-03T13:52:32Z",
+      "created_at": "2026-05-24T15:57:12Z",
+      "updated_at": "2026-06-03T15:57:12Z",
       "source_interaction_ids": [
         21
       ],
@@ -1546,62 +1300,8 @@
       "evidence_excerpts": [
         "Staff concerned that digitization may lose important contextual notes that case workers write in margins"
       ],
-      "last_seen_at": "2026-06-03T13:52:32Z",
+      "last_seen_at": "2026-06-03T15:57:12Z",
       "normalized_key": "ocr may inaccurately capture handwritten intake notes with important context"
-    },
-    {
-      "id": 9,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "what_failed": "Follow-ups are missed when staff are absent or overwhelmed",
-      "normalized_key": "followups missed staff absent overwhelmed",
-      "why_it_failed": "No centralized tracking system \u2014 relies on individual memory and email inbox",
-      "missing_context": "No automated reminders or shared task list",
-      "human_review_required": "Follow-up assignments need human judgment on priority and timing",
-      "suggested_prevention": "Implement a shared follow-up tracking system with automated reminders and weekly review",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Follow-ups are missed when staff are absent or overwhelmed"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 10,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "what_failed": "Manual data entry errors lead to incorrect reports and rework",
-      "normalized_key": "manual data entry errors lead incorrect reports rework",
-      "why_it_failed": "No validation checks or automated data entry \u2014 entirely dependent on human accuracy",
-      "missing_context": "No audit trail for data entry \u2014 errors are hard to trace",
-      "human_review_required": "Data quality checks need human judgment to distinguish genuine errors from edge cases",
-      "suggested_prevention": "Introduce input validation, automated data checks, and regular audit reviews",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "status": "Identified",
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Manual data entry errors lead to incorrect reports and rework"
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
     }
   ],
   "adoption_risk_notes": [
@@ -1619,8 +1319,8 @@
         "staff-concern",
         "workload"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "source_interaction_ids": [
         1,
         2
@@ -1631,7 +1331,7 @@
         "Staff spend significant time on repetitive follow-up emails",
         "Team worried that efficiency gains may not reduce overall workload"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z"
+      "last_seen_at": "2026-06-26T15:57:12Z"
     },
     {
       "id": 2,
@@ -1647,8 +1347,8 @@
         "staff-concern",
         "quality"
       ],
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-06-21T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-06-21T15:57:12Z",
       "source_interaction_ids": [
         4
       ],
@@ -1657,7 +1357,7 @@
       "evidence_excerpts": [
         "Staff are concerned AI could create content mismatched for audience needs without human oversight"
       ],
-      "last_seen_at": "2026-06-21T13:52:32Z"
+      "last_seen_at": "2026-06-21T15:57:12Z"
     },
     {
       "id": 3,
@@ -1673,8 +1373,8 @@
         "privacy",
         "data-protection"
       ],
-      "created_at": "2026-06-12T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-12T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "source_interaction_ids": [
         2
       ],
@@ -1683,7 +1383,7 @@
       "evidence_excerpts": [
         "Program leads concerned about data privacy when using AI tools to draft messages with participant details"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z"
+      "last_seen_at": "2026-06-26T15:57:12Z"
     },
     {
       "id": 4,
@@ -1699,8 +1399,8 @@
         "staff-concern",
         "client-services"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-23T13:52:32Z",
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-23T15:57:12Z",
       "source_interaction_ids": [
         8
       ],
@@ -1709,7 +1409,7 @@
       "evidence_excerpts": [
         "Staff worry standardized templates may make communications feel impersonal for clients in vulnerable situations"
       ],
-      "last_seen_at": "2026-06-23T13:52:32Z"
+      "last_seen_at": "2026-06-23T15:57:12Z"
     },
     {
       "id": 5,
@@ -1725,8 +1425,8 @@
         "evaluation",
         "recognition"
       ],
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-07-03T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-07-03T15:57:12Z",
       "source_interaction_ids": [
         10
       ],
@@ -1735,7 +1435,7 @@
       "evidence_excerpts": [
         "Staff are evaluated on program outcomes rather than administrative improvements"
       ],
-      "last_seen_at": "2026-07-03T13:52:32Z"
+      "last_seen_at": "2026-07-03T15:57:12Z"
     },
     {
       "id": 6,
@@ -1751,8 +1451,8 @@
         "staff-concern",
         "accuracy"
       ],
-      "created_at": "2026-06-19T13:52:32Z",
-      "updated_at": "2026-06-26T13:52:32Z",
+      "created_at": "2026-06-19T15:57:12Z",
+      "updated_at": "2026-06-26T15:57:12Z",
       "source_interaction_ids": [
         15
       ],
@@ -1761,7 +1461,7 @@
       "evidence_excerpts": [
         "Staff want to ensure AI-assisted resource recommendations are accurate and up to date"
       ],
-      "last_seen_at": "2026-06-26T13:52:32Z"
+      "last_seen_at": "2026-06-26T15:57:12Z"
     },
     {
       "id": 7,
@@ -1777,8 +1477,8 @@
         "evaluation",
         "mentoring"
       ],
-      "created_at": "2026-06-13T13:52:32Z",
-      "updated_at": "2026-06-27T13:52:32Z",
+      "created_at": "2026-06-13T15:57:12Z",
+      "updated_at": "2026-06-27T15:57:12Z",
       "source_interaction_ids": [
         12
       ],
@@ -1787,7 +1487,7 @@
       "evidence_excerpts": [
         "Staff unsure how to evaluate whether a mentorship match is successful"
       ],
-      "last_seen_at": "2026-06-27T13:52:32Z"
+      "last_seen_at": "2026-06-27T15:57:12Z"
     },
     {
       "id": 8,
@@ -1803,8 +1503,8 @@
         "knowledge-sharing",
         "onboarding"
       ],
-      "created_at": "2026-06-03T13:52:32Z",
-      "updated_at": "2026-06-14T13:52:32Z",
+      "created_at": "2026-06-03T15:57:12Z",
+      "updated_at": "2026-06-14T15:57:12Z",
       "source_interaction_ids": [
         17
       ],
@@ -1813,7 +1513,7 @@
       "evidence_excerpts": [
         "Experienced team members carry most of the relationship knowledge informally with no easy way to share"
       ],
-      "last_seen_at": "2026-06-14T13:52:32Z"
+      "last_seen_at": "2026-06-14T15:57:12Z"
     },
     {
       "id": 9,
@@ -1830,8 +1530,8 @@
         "voice",
         "quality"
       ],
-      "created_at": "2026-06-11T13:52:32Z",
-      "updated_at": "2026-06-25T13:52:32Z",
+      "created_at": "2026-06-11T15:57:12Z",
+      "updated_at": "2026-06-25T15:57:12Z",
       "source_interaction_ids": [
         19
       ],
@@ -1840,7 +1540,7 @@
       "evidence_excerpts": [
         "Staff are concerned AI-assisted drafting may produce content that sounds generic and misses the unique organizational voice"
       ],
-      "last_seen_at": "2026-06-25T13:52:32Z"
+      "last_seen_at": "2026-06-25T15:57:12Z"
     },
     {
       "id": 10,
@@ -1857,8 +1557,8 @@
         "intake",
         "context"
       ],
-      "created_at": "2026-05-24T13:52:32Z",
-      "updated_at": "2026-06-03T13:52:32Z",
+      "created_at": "2026-05-24T15:57:12Z",
+      "updated_at": "2026-06-03T15:57:12Z",
       "source_interaction_ids": [
         21
       ],
@@ -1867,7 +1567,7 @@
       "evidence_excerpts": [
         "Staff concerned digitization may lose important contextual notes that case workers write in margins"
       ],
-      "last_seen_at": "2026-06-03T13:52:32Z"
+      "last_seen_at": "2026-06-03T15:57:12Z"
     },
     {
       "id": 11,
@@ -1884,8 +1584,8 @@
         "feedback",
         "quality"
       ],
-      "created_at": "2026-06-08T13:52:32Z",
-      "updated_at": "2026-06-19T13:52:32Z",
+      "created_at": "2026-06-08T15:57:12Z",
+      "updated_at": "2026-06-19T15:57:12Z",
       "source_interaction_ids": [
         23
       ],
@@ -1894,7 +1594,7 @@
       "evidence_excerpts": [
         "Staff worry AI-generated feedback may not be specific enough to be useful for job seekers"
       ],
-      "last_seen_at": "2026-06-19T13:52:32Z"
+      "last_seen_at": "2026-06-19T15:57:12Z"
     },
     {
       "id": 12,
@@ -1911,8 +1611,8 @@
         "youth",
         "data-protection"
       ],
-      "created_at": "2026-06-15T13:52:32Z",
-      "updated_at": "2026-07-03T13:52:32Z",
+      "created_at": "2026-06-15T15:57:12Z",
+      "updated_at": "2026-07-03T15:57:12Z",
       "source_interaction_ids": [
         25
       ],
@@ -1921,111 +1621,7 @@
       "evidence_excerpts": [
         "Staff concerned about privacy when recording sensitive youth information in shared or AI-processed systems"
       ],
-      "last_seen_at": "2026-07-03T13:52:32Z"
-    },
-    {
-      "id": 13,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "risk_type": "Adoption Safeguard",
-      "description": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
-      "normalized_key": "adoption safeguard staff must consulted any workflow change adoption voluntary humanled",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led.",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Staff must be consulted before any workflow change \u2014 adoption is voluntary and human-led."
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 14,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "risk_type": "Adoption Safeguard",
-      "description": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "normalized_key": "adoption safeguard recommendations advisory relationship workflow decisions require human judgment",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment.",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "AI recommendations are advisory \u2014 all relationship and workflow decisions require human judgment."
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 15,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "risk_type": "Staff Concern",
-      "description": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "normalized_key": "staff concern staff already capacity any initiative must demonstrate time savings add overhead",
-      "severity": "Low",
-      "related_staff_role": "All staff",
-      "suggested_mitigation": "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead.",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "Staff already at capacity \u2014 any AI initiative must demonstrate time savings, not add overhead."
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
-    },
-    {
-      "id": 16,
-      "organization_id": 1,
-      "source_interaction_ids": [
-        1
-      ],
-      "source_interaction_title": "Digital Literacy Program Planning",
-      "risk_type": "Evaluation Risk",
-      "description": "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns.",
-      "normalized_key": "evaluation risk evaluation recognition risks identified discussion reveal concerns",
-      "severity": "Medium",
-      "related_staff_role": "Program leads",
-      "suggested_mitigation": "Review evaluation criteria to include AI-assisted workflows.",
-      "tags": [
-        "follow-up",
-        "training-need",
-        "workflow-improvement"
-      ],
-      "evidence_count": 1,
-      "evidence_excerpts": [
-        "No evaluation or recognition risks identified \u2014 further discussion may reveal concerns."
-      ],
-      "last_seen_at": "2026-07-03T14:23:33Z",
-      "created_at": "2026-07-03T14:23:33Z",
-      "updated_at": "2026-07-03T14:23:33Z"
+      "last_seen_at": "2026-07-03T15:57:12Z"
     }
   ]
 }

@@ -147,3 +147,68 @@ class AttachmentMetadata(BaseModel):
     mime_type: str
     size_bytes: int
     uploaded_at: str
+
+
+class AdoptionPlanCreate(BaseModel):
+    organization_id: int
+    summary: str = ""
+    recommended_starting_point: str = ""
+    selected_pilot_id: int | None = None
+    roadmap_steps: List[dict] = []
+    training_recommendations: List[dict] = []
+    success_metrics: List[dict] = []
+    change_management_notes: List[str] = []
+    human_review_model: str = ""
+    risk_summary: str = ""
+
+
+class PilotPlanCreate(BaseModel):
+    organization_id: int
+    workflow_opportunity_id: int | None = None
+    title: str = ""
+    problem_statement: str = ""
+    current_process: str = ""
+    proposed_ai_assisted_process: str = ""
+    scope_limit: str = ""
+    required_knowledge_sources: List[str] = []
+    human_review_checkpoints: List[str] = []
+    participating_roles: List[str] = []
+    risks: List[str] = []
+    success_metrics: List[str] = []
+    stop_or_revise_criteria: List[str] = []
+    status: str = "Draft"
+
+
+class PilotPlanUpdate(BaseModel):
+    title: str | None = None
+    problem_statement: str | None = None
+    current_process: str | None = None
+    proposed_ai_assisted_process: str | None = None
+    scope_limit: str | None = None
+    required_knowledge_sources: List[str] | None = None
+    human_review_checkpoints: List[str] | None = None
+    participating_roles: List[str] | None = None
+    risks: List[str] | None = None
+    success_metrics: List[str] | None = None
+    stop_or_revise_criteria: List[str] | None = None
+    status: str | None = None
+
+
+class SuccessMetricCreate(BaseModel):
+    organization_id: int
+    pilot_id: int | None = None
+    name: str = ""
+    baseline: str = ""
+    target: str = ""
+    measurement_method: str = ""
+    review_frequency: str = ""
+    status: str = "Proposed"
+
+
+class SuccessMetricUpdate(BaseModel):
+    name: str | None = None
+    baseline: str | None = None
+    target: str | None = None
+    measurement_method: str | None = None
+    review_frequency: str | None = None
+    status: str | None = None

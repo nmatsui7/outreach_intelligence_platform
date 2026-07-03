@@ -1337,3 +1337,352 @@ def _suggested_questions(has_staff_concern, has_pilot_mention, has_digital, num_
     if has_pilot_mention:
         questions.append("What would a successful pilot look like from your perspective?")
     return questions
+
+
+# ---- Phase 4: Adoption Planning Mocks ----
+
+def generate_ai_opportunity_catalog(org: Dict[str, Any], workflow_opps: List[Dict[str, Any]]) -> Dict[str, Any]:
+    pain_points = org.get("pain_points", [])
+    opps = workflow_opps or []
+    catalog = {
+        "organization": org["name"],
+        "use_case_groups": [
+            {
+                "category": "Documentation Support",
+                "opportunities": [
+                    {
+                        "name": opp.get("title", "AI-Assisted Documentation"),
+                        "current_workflow": opp.get("current_process", "Manual documentation"),
+                        "pain_point": opp.get("pain_point", p) if (p := (pain_points[i] if i < len(pain_points) else "")) else "Repetitive documentation work",
+                        "possible_ai_support": opp.get("possible_ai_support", "Generate drafts from notes and templates"),
+                        "required_knowledge_sources": opp.get("knowledge_sources_needed", ["Past documents", "Policy files"]),
+                        "required_human_review": opp.get("human_review_points", ["Review before external use"]),
+                        "risks_or_exceptions": opp.get("risks_or_exceptions", ["Incorrect information", "Privacy concerns"]),
+                        "adoption_concern_level": opp.get("adoption_risk_level", "Low"),
+                        "estimated_effort": "Low",
+                        "expected_benefit": "Reduced time on routine documentation",
+                        "recommended_status": "candidate_for_pilot" if i == 0 else "needs_validation",
+                    }
+                    for i, opp in enumerate(opps[:3])
+                ] or [
+                    {
+                        "name": "Documentation Drafting Assistant",
+                        "current_workflow": "Staff manually write reports, meeting notes, and program materials",
+                        "pain_point": "Time-consuming writing and formatting",
+                        "possible_ai_support": "Generate first drafts from bullet points or notes",
+                        "required_knowledge_sources": ["Past reports", "Templates", "Style guides"],
+                        "required_human_review": ["Fact-check before use", "Format review"],
+                        "risks_or_exceptions": ["AI may generate plausible-sounding errors"],
+                        "adoption_concern_level": "Low",
+                        "estimated_effort": "Low",
+                        "expected_benefit": "Faster draft preparation, more time for program work",
+                        "recommended_status": "candidate_for_pilot",
+                    }
+                ],
+            },
+            {
+                "category": "Meeting Summary Workflows",
+                "opportunities": [
+                    {
+                        "name": "Automated Meeting Notes & Action Items",
+                        "current_workflow": "Staff take notes during meetings, then manually extract action items",
+                        "pain_point": "Notes are inconsistent; action items get lost",
+                        "possible_ai_support": "Convert rough notes into structured summaries with action items",
+                        "required_knowledge_sources": ["Meeting notes", "Project plans"],
+                        "required_human_review": ["Review before sharing", "Verify action items"],
+                        "risks_or_exceptions": ["May miss context-specific details"],
+                        "adoption_concern_level": "Low",
+                        "estimated_effort": "Low",
+                        "expected_benefit": "Consistent follow-up and fewer missed items",
+                        "recommended_status": "candidate_for_pilot",
+                    }
+                ],
+            },
+        ],
+    }
+    return catalog
+
+
+def generate_adoption_roadmap(org: Dict[str, Any], opportunities: Dict[str, Any], knowledge_sources: List[Dict[str, Any]]) -> Dict[str, Any]:
+    opps = opportunities.get("opportunities", []) or opportunities.get("use_case_groups", [])
+    return {
+        "organization": org["name"],
+        "starting_point": "Review existing workflow pain points and identify one area for initial testing",
+        "recommended_first_workflow": opps[0].get("name", "Documentation Assistant") if opps and isinstance(opps[0], dict) else "Documentation Assistant",
+        "required_knowledge_preparation": [
+            "Identify existing documents and templates related to the selected workflow",
+            "Confirm knowledge sources are complete and up-to-date",
+            "Define human-review checkpoints before AI output is used externally",
+            "Establish privacy boundaries for any data used in the pilot",
+        ],
+        "human_review_design": "Designate a staff reviewer for all AI-assisted outputs. Define what requires review (all external communications, program materials, reports) vs. internal drafts only.",
+        "staff_training_needs": [
+            "Basic AI literacy — how AI assistance works and its limitations",
+            "Prompt crafting for the specific workflow",
+            "Review and revision practices",
+            "Privacy and confidentiality awareness",
+        ],
+        "adoption_risks": [
+            "Staff may feel AI adds to workload rather than reducing it",
+            "Evaluation criteria may not account for AI-assisted work",
+            "Knowledge sources may be incomplete or outdated",
+            "Staff may not feel comfortable sharing prompts or workflows",
+        ],
+        "change_management_notes": [
+            "Communicate that the pilot is a learning exercise, not a performance evaluation",
+            "Ensure staff understand AI is assistive, not evaluative",
+            "Create a safe feedback channel during the pilot",
+            "Recognize staff who contribute useful workflows or improvements",
+        ],
+        "suggested_timeline": [
+            {"stage": "Validate workflow pain point", "duration": "2-3 weeks"},
+            {"stage": "Confirm knowledge sources", "duration": "1-2 weeks"},
+            {"stage": "Define human-review process", "duration": "1 week"},
+            {"stage": "Select low-risk pilot", "duration": "1 week"},
+            {"stage": "Train participating staff", "duration": "1-2 weeks"},
+            {"stage": "Run pilot with limited scope", "duration": "4-6 weeks"},
+            {"stage": "Review results and staff feedback", "duration": "1-2 weeks"},
+            {"stage": "Decide whether to expand, revise, or stop", "duration": "1 week"},
+        ],
+        "next_decision_point": "After the pilot review, decide: expand scope, revise approach, run a different pilot, or stop.",
+        "status": "Draft",
+    }
+
+
+def generate_pilot_recommendation(org: Dict[str, Any], workflow_opps: List[Dict[str, Any]]) -> Dict[str, Any]:
+    opp = workflow_opps[0] if workflow_opps else {}
+    pain_points = org.get("pain_points", [])
+    return {
+        "organization": org["name"],
+        "pilot_title": opp.get("title", "Documentation Workflow Assistant Pilot"),
+        "problem_statement": opp.get("pain_point", "Staff spend significant time on routine documentation tasks that could be partially automated with AI assistance under human review.") if opp.get("pain_point") else "Repetitive documentation and follow-up tasks consume staff time that could be redirected to program delivery.",
+        "current_process": opp.get("current_process", "Staff manually write, format, and review documents without AI assistance. Follow-ups are tracked manually."),
+        "proposed_ai_assisted_process": opp.get("possible_ai_support", "AI assists with first drafts, summaries, and follow-up suggestions. All outputs require human review before use."),
+        "scope_limit": "Limited to one workflow area and 2-3 participating staff members. No external-facing AI-generated content without human approval.",
+        "participating_roles": ["Program coordinator", "Staff member performing the workflow"],
+        "required_inputs": [
+            "Sample documents or notes from the selected workflow",
+            "Existing templates or formatting guides",
+            "Access to knowledge sources used in the workflow",
+        ],
+        "human_review_checkpoints": [
+            "Before AI output is shared externally",
+            "Before AI-generated follow-ups are sent",
+            "Weekly review of AI output quality by coordinator",
+        ],
+        "privacy_or_quality_risks": [
+            "AI may generate plausible-sounding but incorrect information",
+            "Staff may over-rely on AI output without critical review",
+            "Privacy if client data is used in prompts",
+        ],
+        "success_metrics": [
+            "Time spent on the workflow task (before vs. during pilot)",
+            "Number of AI outputs requiring significant revision",
+            "Staff confidence rating (survey before and after)",
+            "Number of follow-ups completed on time",
+        ],
+        "stop_or_revise_criteria": [
+            "Staff report increased workload instead of reduction",
+            "AI output quality is consistently poor despite adjustments",
+            "Privacy concerns emerge that cannot be addressed",
+            "Staff feedback indicates loss of confidence or trust",
+        ],
+        "status": "Draft",
+    }
+
+
+def generate_change_management_checklist(org: Dict[str, Any], adoption_risks: List[Dict[str, Any]]) -> Dict[str, Any]:
+    has_staff_concern = any(r.get("risk_type") == "Staff Concern" for r in adoption_risks) if adoption_risks else False
+    return {
+        "organization": org["name"],
+        "items": [
+            {
+                "question": "Have staff concerns been recorded and addressed?",
+                "status": "needs_review" if has_staff_concern else "not_started",
+                "notes": "Review adoption risk notes for staff concerns" if has_staff_concern else "Not yet documented",
+            },
+            {
+                "question": "Does the pilot reduce workload rather than simply increase output expectations?",
+                "status": "not_started",
+                "notes": "Define baseline workload before pilot",
+            },
+            {
+                "question": "Are human-review responsibilities clearly defined?",
+                "status": "not_started",
+                "notes": "Document who reviews what and when",
+            },
+            {
+                "question": "Are staff expected to share useful workflows or prompts?",
+                "status": "not_started",
+                "notes": "Consider recognition for knowledge sharing",
+            },
+            {
+                "question": "Is knowledge sharing recognized?",
+                "status": "not_started",
+                "notes": "Consider including in performance conversations",
+            },
+            {
+                "question": "Is there a plan to explain how performance will be evaluated during the pilot?",
+                "status": "not_started",
+                "notes": "Pilot is for learning, not evaluation",
+            },
+            {
+                "question": "Are employees protected from being penalized for using AI responsibly?",
+                "status": "not_started",
+                "notes": "Clarify responsible use boundaries",
+            },
+            {
+                "question": "Are failure cases and exceptions documented?",
+                "status": "needs_review" if any(f.get("what_failed") for f in (org.get("_failure_cases") or [])) else "not_started",
+                "notes": "Review existing failure case records",
+            },
+            {
+                "question": "Is there a safe feedback loop during the pilot?",
+                "status": "not_started",
+                "notes": "Anonymous or direct feedback channel",
+            },
+            {
+                "question": "Is there a decision process for expanding or stopping the pilot?",
+                "status": "not_started",
+                "notes": "Define criteria and who decides",
+            },
+        ],
+        "status": "Draft",
+    }
+
+
+def generate_training_recommendations(org: Dict[str, Any], pilot: Dict[str, Any], adoption_risks: List[Dict[str, Any]]) -> Dict[str, Any]:
+    has_staff_concern = any(r.get("risk_type") == "Staff Concern" for r in adoption_risks) if adoption_risks else False
+    return {
+        "organization": org["name"],
+        "training_plan": [
+            {
+                "topic": "Basic AI Literacy",
+                "description": "How AI assistance works, its limitations, and responsible use boundaries",
+                "tied_to_pilot": True,
+                "recommended_format": "Interactive workshop with hands-on demo",
+                "duration": "2 hours",
+            },
+            {
+                "topic": "Prompt Crafting for the Selected Workflow",
+                "description": f"How to write effective prompts for {pilot.get('pilot_title', 'the selected workflow')}",
+                "tied_to_pilot": True,
+                "recommended_format": "Hands-on session with real workflow examples",
+                "duration": "1.5 hours",
+            },
+            {
+                "topic": "Human Review Practices",
+                "description": "How to critically evaluate AI output, what to check, and when to override",
+                "tied_to_pilot": True,
+                "recommended_format": "Guide + practice session",
+                "duration": "1 hour",
+            },
+            {
+                "topic": "Privacy and Confidentiality Awareness",
+                "description": "What data can be used in AI prompts, privacy boundaries, and confidentiality requirements",
+                "tied_to_pilot": True,
+                "recommended_format": "Briefing + reference document",
+                "duration": "1 hour",
+            },
+        ],
+        "additional_topics": [
+            {
+                "topic": "Workflow Documentation",
+                "description": "Documenting new AI-assisted workflows for team sharing",
+                "tied_to_pilot": False,
+                "recommended_format": "Template + guide",
+                "duration": "Self-paced",
+            },
+            {
+                "topic": "Exception Handling",
+                "description": "How to identify and document cases where AI output is incorrect or insufficient",
+                "tied_to_pilot": False,
+                "recommended_format": "Reference guide",
+                "duration": "Self-paced",
+            },
+        ],
+        "note": "Training should be tied to the actual pilot workflow, not delivered as generic tool instruction. Focus on practical application.",
+    }
+
+
+def generate_success_metrics(org: Dict[str, Any], pilot: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "organization": org["name"],
+        "metrics": [
+            {
+                "name": "Time spent on workflow task",
+                "baseline": "Measure current time before pilot starts",
+                "target": "Reduction of 20-30%",
+                "measurement_method": "Self-reported time tracking + coordinator observation",
+                "review_frequency": "Weekly during pilot",
+            },
+            {
+                "name": "Output quality / revision rate",
+                "baseline": "All outputs are currently manual (100% human effort)",
+                "target": "Less than 30% of AI outputs require major revision",
+                "measurement_method": "Track revision rate of AI-assisted outputs",
+                "review_frequency": "Weekly",
+            },
+            {
+                "name": "Staff confidence with AI tools",
+                "baseline": "Pre-pilot survey",
+                "target": "70% of staff report increased confidence",
+                "measurement_method": "Pre- and post-pilot survey",
+                "review_frequency": "Before and after pilot",
+            },
+            {
+                "name": "Follow-up completion rate",
+                "baseline": "Current follow-up completion rate (estimated)",
+                "target": "Improvement of at least 15%",
+                "measurement_method": "Track follow-ups completed vs. planned",
+                "review_frequency": "Weekly",
+            },
+            {
+                "name": "Reusable workflow documentation",
+                "baseline": "0 documented AI-assisted workflows",
+                "target": "At least 1 documented workflow shared with the team",
+                "measurement_method": "Count of documented and shared workflows",
+                "review_frequency": "End of pilot",
+            },
+        ],
+    }
+
+
+def generate_adoption_plan(org: Dict[str, Any], workflow_opps: List[Dict[str, Any]], knowledge_sources: List[Dict[str, Any]], adoption_risks: List[Dict[str, Any]]) -> Dict[str, Any]:
+    catalog = generate_ai_opportunity_catalog(org, workflow_opps)
+    pilot = generate_pilot_recommendation(org, workflow_opps)
+    roadmap = generate_adoption_roadmap(org, catalog, knowledge_sources)
+    checklist = generate_change_management_checklist(org, adoption_risks)
+    training = generate_training_recommendations(org, pilot, adoption_risks)
+    metrics = generate_success_metrics(org, pilot)
+
+    return {
+        "organization": org["name"],
+        "organization_id": org.get("id"),
+        "executive_summary": f"{org['name']} shows potential for AI-assisted workflow improvement, particularly in documentation and follow-up tasks. A structured adoption approach starting with a limited pilot and strong human-review processes is recommended.",
+        "current_workflow_context": org.get("pain_points", []),
+        "top_ai_opportunities": catalog.get("use_case_groups", []),
+        "recommended_first_pilot": pilot,
+        "required_knowledge_sources": [k.get("name", "") for k in knowledge_sources] if knowledge_sources else ["Existing documents and templates"],
+        "human_review_model": "All AI outputs require human review before external use. Designate a staff reviewer for each workflow area.",
+        "change_management_checklist": checklist,
+        "training_plan": training,
+        "success_metrics": metrics,
+        "risks_and_mitigation": [
+            {
+                "risk": r.get("description", ""),
+                "type": r.get("risk_type", "General"),
+                "mitigation": r.get("suggested_mitigation", "Review and address proactively"),
+            }
+            for r in adoption_risks[:5]
+        ] if adoption_risks else [
+            {"risk": "Staff may feel increased workload", "type": "Workload", "mitigation": "Set clear expectations that AI is assistive"},
+            {"risk": "Quality concerns with AI output", "type": "Quality Risk", "mitigation": "Strong human-review process"},
+        ],
+        "recommended_next_meeting_questions": [
+            "Which workflow would your team most like to test with AI assistance?",
+            "What would make you feel confident in AI-assisted output quality?",
+            "What concerns do you have about how AI might affect your team's workflow?",
+        ],
+        "status": "Draft",
+    }
