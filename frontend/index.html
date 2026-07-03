@@ -501,9 +501,7 @@
             No external systems are connected.
           </p>
           <p class="muted" style="margin-top: 8px;">
-            <strong>Safety:</strong> No credentials are stored. No OAuth flow is active. No Salesforce, HubSpot,
-            Gmail, or Google connectors are live. All connectors are local stubs or future placeholders.
-            The app does not send email.
+            <strong>Safety:</strong> No credentials are stored. No OAuth flow is active. All connector settings are disabled demo placeholders. The app does not send email, sync records, or connect to any external service.
           </p>
 
           <h3 class="connector-section-title">Active Local Connector</h3>
@@ -520,94 +518,275 @@
 
           <h3 class="connector-section-title">CRM Connectors</h3>
           <div class="connector-grid">
-            <article class="connector-card status-stub">
-              <div class="connector-header">
-                <h3>Salesforce</h3>
-                <span class="connector-status status-stub">Future Stub</span>
-              </div>
-              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
-              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
-            </article>
-
-            <article class="connector-card status-stub">
-              <div class="connector-header">
-                <h3>HubSpot CRM</h3>
-                <span class="connector-status status-stub">Future Stub</span>
-              </div>
-              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
-              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
-            </article>
-
-            <article class="connector-card status-stub">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>Microsoft Dynamics 365</h3>
-                <span class="connector-status status-stub">Future Stub</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No credentials required. No external API calls made.</p>
-              <div class="connector-details"><strong>Potential future sync:</strong> Organizations/accounts, contacts, email addresses, phone numbers, activities, interactions, notes, outreach status</div>
+              <p class="connector-desc">Dynamics 365 settings are shown as a future CRM connector placeholder. This local demo does not request OAuth access, store credentials, sync CRM records, or connect to Microsoft Dynamics 365.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Dynamics 365</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
           </div>
 
           <h3 class="connector-section-title">Document / Content Connectors</h3>
           <div class="connector-grid">
-            <article class="connector-card status-concept">
-              <div class="connector-header">
-                <h3>Google Drive</h3>
-                <span class="connector-status status-concept">Conceptual Future</span>
-              </div>
-              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
-              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
-            </article>
-
-            <article class="connector-card status-concept">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>Dropbox</h3>
-                <span class="connector-status status-concept">Conceptual Future</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
-              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+              <p class="connector-desc">Dropbox settings are shown as a future content connector placeholder. This local demo does not request OAuth access, store tokens, sync files, or connect to Dropbox.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Folder selection</span>
+                  <input type="text" value="/Apps/OutreachIntelligence" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Dropbox</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
 
-            <article class="connector-card status-concept">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>SharePoint / OneDrive</h3>
-                <span class="connector-status status-concept">Conceptual Future</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
-              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+              <p class="connector-desc">SharePoint and OneDrive settings are shown as a future content connector placeholder. This local demo does not request OAuth access, store tokens, sync files, or connect to Microsoft 365.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Site URL</span>
+                  <input type="text" value="https://example.sharepoint.com/sites/Outreach" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect SharePoint</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
 
-            <article class="connector-card status-concept">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>OpenText Extended ECM</h3>
-                <span class="connector-status status-concept">Conceptual Future</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No files accessed. No OAuth configured.</p>
-              <div class="connector-details"><strong>Potential future use:</strong> Link meeting notes, proposals, workshop materials, and adoption roadmap documents to organization records. Support knowledge management.</div>
+              <p class="connector-desc">OpenText settings are shown as a future content connector placeholder. This local demo does not request OAuth access, store credentials, sync documents, or connect to OpenText Extended ECM.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>Server host</span>
+                  <input type="text" value="ecm.example.com" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Port</span>
+                  <input type="text" value="443" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect OpenText</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
           </div>
 
           <h3 class="connector-section-title">Communication Connectors</h3>
           <div class="connector-grid">
-            <article class="connector-card status-stub">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>Gmail</h3>
-                <span class="connector-status status-stub">Future Stub</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No real email sending. Future use should default to draft-only mode with human review required before sending.</p>
-              <div class="connector-details"><strong>Safety:</strong> No OAuth configured. No emails sent. Draft-only when implemented.</div>
+              <p class="connector-desc">Gmail settings are shown as a future communication connector placeholder. This local demo does not request OAuth access, store credentials, send email, or connect to Gmail.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Gmail</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
 
-            <article class="connector-card status-stub">
+            <article class="connector-card status-disabled">
               <div class="connector-header">
                 <h3>Outlook</h3>
-                <span class="connector-status status-stub">Future Stub</span>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
               </div>
-              <p class="connector-desc">Not implemented. No real email sending. Future use should default to draft-only mode with human review required before sending.</p>
-              <div class="connector-details"><strong>Safety:</strong> No OAuth configured. No emails sent. Draft-only when implemented.</div>
+              <p class="connector-desc">Outlook settings are shown as a future communication connector placeholder. This local demo does not request OAuth access, store credentials, send email, or connect to Microsoft Outlook.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Outlook</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
             </article>
           </div>
 
+          <h3 class="connector-section-title">AI Provider Connectors</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-disabled">
+              <div class="connector-header">
+                <h3>OpenAI Connection</h3>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
+              </div>
+              <p class="connector-desc">OpenAI settings are shown as a future AI provider placeholder. This local demo does not store API keys, call the OpenAI API, or send organization data to external AI services.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>API key</span>
+                  <input type="password" value="sk-••••••••••••••••" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Model</span>
+                  <select disabled><option>gpt-4</option></select>
+                </label>
+                <label class="connector-field">
+                  <span>Usage mode</span>
+                  <input type="text" value="Disabled" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Provider status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
+            </article>
+          </div>
+
+          <h3 class="connector-section-title">Future Connectors</h3>
+          <div class="connector-grid">
+            <article class="connector-card status-disabled">
+              <div class="connector-header">
+                <h3>Salesforce</h3>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
+              </div>
+              <p class="connector-desc">Salesforce settings are shown as a future CRM connector placeholder. This local demo does not request OAuth access, store credentials, sync CRM records, or connect to Salesforce.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Salesforce</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
+            </article>
+
+            <article class="connector-card status-disabled">
+              <div class="connector-header">
+                <h3>HubSpot</h3>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
+              </div>
+              <p class="connector-desc">HubSpot settings are shown as a future CRM connector placeholder. This local demo does not request OAuth access, store credentials, sync CRM records, or connect to HubSpot.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>OAuth status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync mode</span>
+                  <select disabled><option>Disabled</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect HubSpot</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
+            </article>
+
+            <article class="connector-card status-disabled">
+              <div class="connector-header">
+                <h3>Mail Server Connection</h3>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
+              </div>
+              <p class="connector-desc">Mail server settings are shown as a future connector placeholder. This demo does not send email, store mail credentials, or connect to SMTP/IMAP.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>Server host</span>
+                  <input type="text" value="smtp.example.com" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Port</span>
+                  <input type="text" value="587" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Username</span>
+                  <input type="text" value="user@example.com" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Authentication method</span>
+                  <select disabled><option>STARTTLS</option></select>
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
+            </article>
+
+            <article class="connector-card status-disabled">
+              <div class="connector-header">
+                <h3>Google Drive</h3>
+                <span class="connector-status status-disabled">Disabled demo placeholder</span>
+              </div>
+              <p class="connector-desc">Google Drive settings are shown as a future connector placeholder. This demo does not request OAuth access, store tokens, or read files from Google Drive.</p>
+              <div class="connector-details" style="margin-bottom:10px"><strong>Status:</strong> Not connected</div>
+              <div class="connector-form">
+                <label class="connector-field">
+                  <span>Folder selection</span>
+                  <input type="text" value="Outreach Intelligence / Documents" disabled />
+                </label>
+                <label class="connector-field">
+                  <span>Sync status</span>
+                  <input type="text" value="Not configured" disabled />
+                </label>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Connect Google Drive</button>
+                <button class="connector-btn" disabled onclick="alert('This connector is disabled in the local demo.')">Test Connection</button>
+              </div>
+            </article>
+          </div>
 
         </section>
       </div>

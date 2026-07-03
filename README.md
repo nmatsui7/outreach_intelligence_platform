@@ -254,7 +254,7 @@ Initial principles include:
 - **No web scraping.** Research Intake requires manual entry. Organization Discovery uses local mock data only.
 - **No external API calls by default.** All AI responses use the configured provider (mock or local LLM via llama.cpp). No OpenAI, no external CRM APIs, no cloud services by default. See [AI Provider](#ai-provider) for switching modes.
 - **No OAuth.** No OAuth flows are configured for any connector.
-- **All Salesforce, HubSpot, Gmail, Outlook, Google Drive, Dropbox, SharePoint, OneDrive, and OpenText files are stubs only.** No credentials are stored, no tokens are requested, and no external systems are contacted.
+- **All connector settings are disabled demo placeholders.** Salesforce, HubSpot, Microsoft Dynamics 365, Gmail, Outlook, Google Drive, Dropbox, SharePoint/OneDrive, OpenText, Mail Server, and OpenAI — none request OAuth access, store credentials, sync records/files, make API calls, or connect to any external service.
 - **Human review required before any action.** All recommendations, assessments, tasks, and drafts are informational. No auto-creation or auto-sending of any kind.
 - **Attachments are stored locally only.** Uploaded files stay in `backend/data/attachments/`. No file is sent or shared externally.
 - **Knowledge sources are metadata only.** No external files or cloud repositories are accessed.
@@ -429,23 +429,41 @@ outreach_intelligence_platform/
     └── app.js
 ```
 
-## Setup
+## Running Without a Local LLM
 
-From the project root:
+The app does not require a local LLM to run. By default, AI-powered features use local mock AI logic and local demo data. This allows the portfolio demo to run without OpenAI API keys, Ollama, llama.cpp, LM Studio, or any external AI provider.
+
+- **No OpenAI API key** is required.
+- **No local LLM server** is required.
+- **No Ollama / llama.cpp / LM Studio setup** is required.
+- **No external AI service** is called.
+- AI-powered buttons use local mock responses from the backend.
+- Demo data can be seeded locally (see [Loading Demo Data](#loading-demo-data)).
+- The Settings page shows disabled connector placeholders — they are not active.
+
+### Quick Start
 
 ```bash
+cd outreach_intelligence_platform
 python3.13 -m venv .venv
 source .venv/bin/activate  # macOS/Linux
-# .venv\Scripts\activate   # Windows
 pip install -r backend/requirements.txt
 uvicorn backend.main:app --reload
 ```
 
-Open:
+Then open:
 
 ```text
 http://127.0.0.1:8000
 ```
+
+### Troubleshooting
+
+If AI-powered features appear empty, make sure demo data has been seeded or that the local JSON files under `backend/app/data/` are present.
+
+Do not configure OpenAI, mail server, Google Drive, Salesforce, or HubSpot settings for the local demo. These are disabled placeholders.
+
+## Setup
 
 Notes:
 
@@ -600,6 +618,8 @@ AI_PROVIDER=mock
 | **Local LLM** | `local_llm` | Calls `tools/llm.py` → llama.cpp `llama-server` running on `localhost:8082`. Returns structured JSON from a real model. | llama-server binary, GGUF model file |
 | **OpenAI (placeholder)** | `openai` | Falls back to mock. Ready for future implementation. | Not yet implemented |
 
+All AI-powered features are developed, tested, and debugged using the local LLM provider (`AI_PROVIDER=local_llm` with a llama.cpp server). Mock mode provides identical output shapes for development environments without a model server.
+
 **Mock mode is the safest default.** It requires no model files, no running server, no network access, and no external dependencies. All AI features return realistic structured responses immediately.
 
 ### Architecture
@@ -711,6 +731,7 @@ Every generated draft includes:
 
 - Drafts are saved to the local **Demo Outbox** only — `status=needs_review`, `ai_generated=True`, `draft_type=ai_assisted`
 - No email is sent. No SMTP, Gmail, Outlook, or OAuth is involved.
+- All connector settings are disabled demo placeholders — no credentials, tokens, or external access is active.
 - The draft uses interaction history naturally, does not imply prior contact when none exists, and does not claim knowledge of internal workflows unless supported by notes.
 - Organization-specific pain points and program details are referenced appropriately without sounding intrusive.
 

@@ -1,0 +1,68 @@
+{
+  "salesforce": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "hubspot": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "dynamics_365": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "mail_server": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "google_drive": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "dropbox": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "sharepoint": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "opentext": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "gmail": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "outlook": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  },
+  "openai": {
+    "enabled": false,
+    "available_to_user": false,
+    "status": "not_connected",
+    "mode": "disabled_demo_placeholder"
+  }
+}
