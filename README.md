@@ -1,12 +1,30 @@
 # Outreach Intelligence Platform
 
-A portfolio demo showing how AI can improve outreach planning, relationship intelligence, and practical AI adoption work while keeping humans in control.
+A portfolio demo for **AI-assisted outreach and workflow intelligence**. The platform turns organization profiles and interaction notes into structured knowledge about practical AI adoption opportunities, required knowledge sources, failure cases, human-review needs, and human-system adoption risks.
 
-This project is intentionally safe: **it does not send real emails**. Drafts are saved to a local Demo Outbox only.
+This project is intentionally safe: **it does not send real emails**. AI-assisted drafts are saved to a local **Demo Outbox** for human review and manual sending outside the app.
+
+## Product Thesis
+
+Successful AI adoption is not only a technical problem. Organizations also need to understand workflow pain points, knowledge sources, human-review requirements, failure cases, staff concerns, evaluation ambiguity, recognition gaps, and training needs.
+
+The platform therefore treats **adoption risk as part of workflow intelligence**, not as a final afterthought. When interaction notes are entered, the system does not only look for possible AI-use opportunities. It also captures human-system risks that could affect whether an opportunity is realistic, trusted, and sustainable.
+
+The core product idea is:
+
+```text
+Organization profile + interaction notes
+  → AI-assisted note summary
+  → workflow opportunities
+  → knowledge sources
+  → failure cases / exceptions
+  → human-system and adoption-risk notes
+  → workflow insights for future adoption planning
+```
 
 ## What This Is
 
-This is not meant to replace a CRM. It is an AI layer that can sit above different data sources.
+This is not meant to replace a CRM. It is an **AI intelligence layer** that can sit above different data sources.
 
 Current data source:
 
@@ -20,219 +38,204 @@ Future data sources:
 - Zoho CRM
 - CSV import/export
 
-## Phase 1 — Foundation Features
+## What Makes This Project Different
 
-### 1. Demo CRM
+Many AI demos focus on prompt writing, generic productivity, or automated outreach. This project focuses on the earlier discovery stage of practical AI adoption:
+
+- What workflow pain points are visible from real interactions?
+- Which repeated tasks may be suitable for AI assistance?
+- What knowledge sources would AI need before it could help safely?
+- Where is human judgment still required?
+- What could fail, and what exceptions need to be captured?
+- Are there staff concerns around workload, trust, evaluation, or recognition?
+- Which opportunities are low-risk enough to validate before broader planning?
+
+The project is designed to show **human-reviewed AI adoption discovery**, not autonomous outreach or full automation.
+
+## Current Feature Areas
+
+### 1. CRM Workspace
+
+The CRM Workspace provides the local organization directory and relationship context.
 
 - Organization directory
-- Contact name, general contact email, and phone number
+- Contact name, general contact email, phone number, and website
 - Outreach status
 - Last interaction notes
-- **Editable contact fields** — click "Edit Contact" in the detail panel to update name, email, phone number, or website after intake
-- Local data storage
+- Editable contact fields
+- Local JSON data storage
+- Connector-agnostic service layer
 
-### 2. Outreach Intelligence
+### 2. Interaction Notes and AI Summaries
 
-- AI-style organization summaries
-- Outreach priority
-- AI readiness score
-- Suggested discovery questions
-- AI Opportunity Analysis
-
-### 3. AI Adoption Planning
-
-The system suggests practical AI opportunities such as:
-
-- Internal knowledge assistant
-- Meeting summary workflow
-- Workshop planning assistant
-- Documentation support
-- Follow-up preparation
-
-Each opportunity includes:
-
-- Expected benefit
-- Estimated effort
-- Human review requirement
-
-### 4. Context-Aware Email Drafting ("Next Best Email")
-
-- Generates the "Next Best Email" based on full organization context
-- **Relationship stage detection** — email type is determined by outreach status and interaction history
-- Context gathered includes: organization profile, status, interaction history (type, notes, outcome, next action, follow-up date), AI Summary / Readiness Score, and previous outbox drafts
-- Displays "Context Used" panel and "Missing Context" warnings
-- Editable subject, body, and recipient before saving
-- Save to Demo Outbox only — no send button, no SMTP, no Gmail API
-
-### 5. Meeting Support
-
-- Meeting preparation brief
-- Suggested discussion topics
-- Desired meeting outcome
-- Meeting notes summarization
-- Action items
-- Risks
-- Follow-up recommendation
-
-### 6. Research Intake
-
-- Manually enter or paste researched organization information
-- Save reviewed records directly to the Local JSON CRM
-- Supports organization name, website, general contact email, organization type, program area, description, relevance notes, outreach angle, source URL, and notes
-- No browsing, scraping, private personal email collection, or automated outreach
-
-### 7. Organization Discovery
-
-- Enter a research theme
-- Review 5-10 mock candidate organizations
-- Inspect organization type, website, general contact email, program area, fit score, relevance notes, outreach angle, and source note
-- Approve, edit, or reject each candidate
-- Save approved candidates to the Local JSON CRM only
-- No browsing, scraping, private personal email collection, or automated outreach
-
-### Organization Discovery vs AI Opportunity Analysis
-
-These two features serve different stages of the research workflow:
-
-- **Organization Discovery** (page at `/organization-discovery`): Find *new* candidate organizations based on a research theme. The user enters a theme, reviews 5–10 mock candidates, and approves/edits/rejects each one before saving to the CRM. This is a **top-of-funnel** research workflow — finding who to talk to.
-
-- **AI Opportunity Analysis** (button in the CRM detail panel): Analyze a *specific saved organization* for practical AI adoption opportunities. The user selects an organization from the CRM list and clicks "AI Opportunity Analysis" to see suggested opportunities, benefits, effort estimates, and human review notes. This is a **deeper analysis** workflow — understanding what to propose to an organization already in the CRM.
-
-In short: Organization Discovery finds organizations; AI Opportunity Analysis analyzes an organization that has already been found.
-
-### 8. Interaction History
+Interactions are the main source of workflow intelligence.
 
 - Record interactions per organization: Meeting, Call, Email, Research Note, Follow-up, or Other
-- Each interaction includes date, title, notes, outcome, next action, follow-up date, and tags
-- Add, edit, and delete interactions directly from the organization detail page
-- Interactions appear in reverse chronological order
-- Stored locally in `backend/app/data/interactions.json`
+- Store date, title, notes, outcome, next action, follow-up date, and tags
+- Run **AI Note Summary** on an interaction to extract structured knowledge
+- Extract summary, discussion points, decisions, action items, risks, recommended follow-up, tags, and suggested follow-up tasks
+- Use local mock AI logic only — no external API calls
 
-### 9. AI Note Summary
+### 3. Workflow Opportunities
 
-- Click "AI Note Summary" on any interaction to extract structured knowledge
-- Extracts: summary, key discussion points, decisions, action items, risks or concerns, recommended follow-up, suggested tags, and suggested follow-up tasks
-- Uses local mock AI logic only — no external API calls
+Workflow Opportunities capture possible AI-use cases discovered from interaction notes.
 
-### 10. Organization Knowledge Summary
+Each opportunity may include:
 
-- Summarizes across all interactions for a given organization
-- Shows: relationship status, main interests, known concerns, previous outreach attempts, current opportunities, and recommended next step
-- Updates automatically when interactions are added, edited, or deleted
-- Uses local mock AI logic only
+- Current process
+- Pain point
+- Possible AI support
+- Repetitive task pattern
+- Human review requirement
+- Required knowledge sources
+- Known failure cases
+- Staff impact
+- Adoption risk level
+- Next discovery questions
+- Source interaction or note summary
+- Status: `Identified`, `Needs Validation`, `Candidate for Pilot`, or `Not Suitable`
 
-### 11. AI Readiness Assessment
+Workflow opportunities should behave as **organization-level accumulated knowledge**. If similar opportunities appear across multiple interactions, they should be merged or treated as stronger evidence rather than displayed as duplicates.
 
-- Dedicated assessment of how ready an organization is for AI adoption
-- **Six-category transparent scoring model** (each 0–20 or 0–10):
-  - Workflow Repetition — does the org have repetitive tasks AI could help with?
-  - Documentation Maturity — how much documentation/note-taking is part of their workflow?
-  - Digital Maturity — existing comfort with digital tools and technology
-  - Staff Capacity Benefit — would AI meaningfully reduce administrative burden?
-  - Low-Risk Pilot Suitability — can they start with a small, contained pilot?
-  - Human Oversight Clarity — is the need for human review understood?
-- Total score maps to: **Low** (0–33), **Moderate** (34–66), **High** (67–100)
-- Output includes: overall level, score, category breakdowns with explanations, best starting use case, why ready, gaps, risks, recommended pilot, human oversight requirements, and suggested questions for the next meeting
-- Uses only existing organization profile + interaction data — no web scraping or external APIs
-- Displays "Context Used" panel showing which fields influenced each score
-- Requires human review before any outreach or implementation decisions
+### 4. Knowledge Sources
 
-### 12. Demos, Data Tools, and Analytics
+Knowledge Sources record where required information lives.
 
-- **Demo Outbox** — save email drafts locally; no sending
-- **CSV/JSON Import/Export** at `/data-tools` — import organizations from CSV with preview-then-confirm flow; export to CSV or JSON
-- **Analytics Dashboard** at `/analytics` — overview metrics, outreach pipeline, organization breakdown by type/program area, AI readiness summary, follow-up workload, draft activity, and priority analytics
+Examples:
 
-## Phase 2 — Outreach Intelligence
+- FAQ documents
+- Past meeting notes
+- Past emails or drafts
+- Policies
+- Templates
+- Q&A records
+- Training materials
+- Reports
+- Public website content
+- Staff expertise
 
-### 13. Outreach Recommendation
+Knowledge sources are metadata only. The app does not access external files or cloud storage.
 
-Each organization gets a structured recommendation accessed via `GET /api/organizations/{id}/outreach-recommendation` or the "Outreach Recommendation" button in the CRM workspace detail panel.
+### 5. Failure Cases and Exceptions
 
-The recommendation includes:
-- **outreach_priority**: High / Medium / Low (computed from priority score)
-- **priority_score**: 0–100 composite score
-- **recommended_next_action**: Status-derived action, adjusted for any open or overdue follow-up tasks
-- **recommended_follow_up_date**: Inferred from last interaction and next action
-- **recommended_email_type**: From context-aware draft analysis
-- **recommended_collaboration_angles**: 1–3 practical ideas with title, description, effort, value, and human oversight
-- **reasoning**: Explanation of the recommendation
-- **risks_or_concerns**: Organization-specific risks (missing contact, low readiness, no pain points)
-- **missing_information**: Gaps that would improve future recommendations
-- **context_used**: All data that informed the recommendation
+Failure cases capture what could go wrong before an AI-supported workflow is proposed too confidently.
 
-### Priority Score Calculation (0–100)
+Each failure case may include:
 
-| Factor | Weight | Source |
-|--------|--------|--------|
-| AI Readiness Score | 0–30 | Readiness assessment total_score × 0.30 |
-| Outreach Status | 0–20 | Status-based: Pilot Discussion (20), Draft Ready (18), Meeting Scheduled (16), etc. |
-| Interaction Recency | 0–25 | Higher for recent interactions (within 7 days = 25, 30 days = 20, 90 days = 12) |
-| Pain Points | 0–15 | 5 points per identified pain point (max 3) |
-| Data Completeness | 0–10 | Points for contact email, name, phone, mission notes |
+- What failed or may fail
+- Why it failed
+- Missing context
+- Human review requirement
+- Suggested prevention step
+- Related workflow opportunity
+- Source interaction
 
-### Priority Queue
+This supports the project’s human-in-the-loop design: failure cases define where review, safeguards, or more knowledge are required.
 
-The `/priority-queue` page shows all organizations ranked by priority score descending. The queue supports filtering by:
-- Priority level (High / Medium / Low)
-- CRM status
-- Readiness level
-- Organization type
+### 6. Human System and Adoption Risks
 
-Sorting can be changed to name, readiness score, or priority score.
+Human-system risks are part of the core product model.
 
-### 14. Meeting Intelligence and Follow-up Task Generation
+Each organization can have **Adoption Risk Notes** that capture risks such as:
 
-When a user clicks "AI Note Summary" on any interaction, the system:
+- Workload increase risk
+- Staff trust concerns
+- Unclear evaluation criteria
+- Lack of recognition for AI-enabled efficiency
+- Role confusion
+- Training gaps
+- Knowledge-sharing gaps
+- Quality or privacy concerns
+- Missing adoption safeguards
 
-1. Extracts structured knowledge (summary, discussion points, decisions, action items)
-2. Suggests a follow-up date (typically 14 days out)
-3. Suggests a next email type based on keywords in the notes
-4. Generates 2–3 **suggested follow-up tasks** based on keyword matching:
-   - "pilot" or "proposal" → "Prepare pilot proposal document"
-   - "follow-up" or "next steps" → "Send follow-up summary"
-   - "documentation" or "records" → "Review documentation workflow"
-   - "meeting" or "schedule" → "Schedule follow-up meeting"
-   - "training" or "workshop" → "Prepare AI literacy workshop materials"
-   - "grant" or "funding" → "Research grant opportunities"
-   - "staff" or "capacity" → "Assess staff readiness for AI tools"
-   - "outreach" or "community" → "Plan community outreach strategy"
+Each risk note may include risk type, description, severity, related staff role, suggested mitigation, source interaction, and tags.
 
-Suggested tasks appear in the **Follow-up Tasks** section of the organization detail panel with Save, Edit, and Reject actions. Tasks are not auto-created — the user must click "Save" to create them.
+This section reflects the idea that AI adoption can fail if people, incentives, workflows, and leadership practices are not ready.
 
-### 15. Follow-up Tasks
+### 7. Workflow Insights
 
-- **CRUD via REST API**: `GET /api/tasks`, `POST /api/tasks`, `PATCH /api/tasks/{task_id}`, `DELETE /api/tasks/{task_id}`
-- Tasks stored in `backend/app/data/tasks.json`
-- Each task has: `task_id`, `organization_id`, `source_interaction_id`, `title`, `description`, `due_date`, `priority`, `status` (Open/Completed), `created_at`, `updated_at`
-- The organization detail panel shows open tasks (with Complete/Delete actions), overdue tasks highlighted in red, and completed tasks in a collapsible section
-- The global **Follow-ups page** at `/follow-ups` shows all tasks across organizations with filters by status (Open/Completed/Overdue/Due This Week), priority (High/Medium/Low), and organization
+Workflow Insights aggregate the structured knowledge created from interactions.
 
-### 16. Outreach Recommendation with Task Awareness
+Tracked patterns may include:
 
-The Outreach Recommendation checks for open and overdue follow-up tasks for the organization:
+- Total searchable knowledge items
+- Organizations with or without interaction history
+- Workflow opportunities identified
+- Opportunities requiring human review
+- Organizations missing knowledge source notes
+- Failure cases recorded
+- Candidate pilot workflows
+- Adoption risk notes recorded
+- Staff concern notes
+- Evaluation or recognition risk notes
+- High-severity adoption risks
 
-- If **overdue tasks** exist, the recommended next action starts with "Attention needed: [task title] is overdue."
-- If **open tasks** exist (but none overdue), the next action starts with "Complete open task: [task title]."
-- Task counts (open and overdue) appear in the `context_used` section of the recommendation
+The UI should use product-facing labels such as **Workflow Insights** or **Workflow Intelligence** rather than user-facing “Phase 3” wording.
 
-### 17. Analytics with Task Stats
+### 8. Knowledge Search
 
-The analytics dashboard includes task statistics in the "Follow-up Workload" section:
-- `open_tasks`, `completed_tasks`, `overdue_tasks`, `tasks_due_this_week`, `high_priority_open_tasks`
+Route: `/knowledge-search`
+
+Knowledge Search indexes local data including:
+
+- Organizations
+- Interactions
+- Follow-up tasks
+- Demo Outbox drafts
+- Lessons learned
+- Reusable insights
+- Playbook candidates
+- Workflow opportunities
+- Knowledge sources
+- Failure cases
+- Human-system and adoption-risk notes
+
+Search supports keyword search, organization filtering, and content-type filtering.
+
+### 9. Demo Outbox
+
+The Demo Outbox is a separate human-review queue for AI-assisted outreach drafts.
+
+- Saves generated email drafts locally
+- Does not send emails
+- Does not use SMTP, Gmail, Outlook, or OAuth
+- Allows review before a human manually sends outside the app
+- Keeps draft review separate from CRM relationship tracking
+
+Preferred product model:
+
+```text
+CRM Workspace = organization and relationship context
+Demo Outbox = human-reviewed draft queue
+```
+
+### 10. Adoption Principles / Method Knowledge
+
+The project can store reusable AI adoption principles derived from research notes. These principles guide how future interaction notes are interpreted into workflow opportunities, knowledge sources, failure cases, human-system risks, and future planning inputs.
+
+Initial principles include:
+
+- AI adoption should start with small, repeatable workflow-efficiency wins before larger revenue or automation projects.
+- AI training should focus on changing real workflows, not only teaching tool usage.
+- Effective AI workflows require structured, searchable, reliable knowledge sources.
+- Failure cases and exceptions should be documented because they define where human review is needed.
+- Experienced staff should guide AI workflow design because they can judge output quality.
+- AI should support experienced workers by helping turn their knowledge into repeatable workflows.
+- Workflows should be decomposed into smaller steps before deciding whether each step belongs to generative AI, browser automation, OCR, search, templates, or human judgment.
+- Human review should remain explicit for externally visible, quality-sensitive, private, or judgment-heavy work.
 
 ## Demo Workflow
 
 1. **Research Intake** → fill in organization details → save to CRM
-2. **Organization Discovery** → enter a research theme → review candidates → approve one → it joins the CRM
-3. Open **CRM Workspace** → select the organization → click "AI Summary" → "AI Opportunity Analysis" → "AI Readiness Assessment" → "Outreach Recommendation"
-4. Click **Next Best Email** → review the generated draft → edit if needed → "Save to Demo Outbox"
-5. Add an **Interaction** (e.g., Meeting with notes containing "pilot") → click "AI Note Summary" → review suggested tasks → "Save Task"
-6. Open the **Priority Queue** to see all organizations ranked by priority
-7. Open the **Follow-ups page** to see all tasks across organizations
-8. Open the **Analytics Dashboard** to see metrics updated with task data
-9. Open the **Demo Outbox** to see saved drafts with attachments
-10. Export data via **CSV or JSON** at the Data Tools page
+2. **Organization Discovery** → enter a research theme → review mock candidates → approve one → it joins the CRM
+3. Open **CRM Workspace** → select an organization → review summary, readiness, outreach recommendation, and interaction history
+4. Add an **Interaction** with meeting or research notes
+5. Run **AI Note Summary** → extract follow-up tasks and workflow intelligence
+6. Review generated **Workflow Opportunities**, **Knowledge Sources**, **Failure Cases**, and **Human System / Adoption Risk Notes**
+7. Use **Knowledge Search** to find relevant lessons, risks, sources, or opportunities across organizations
+8. Use **Workflow Insights** to review patterns across the local dataset
+9. Generate **Next Best Email** → review and edit the draft → save to **Demo Outbox**
+10. Export data via CSV or JSON at the Data Tools page
 
 ## Safety Boundaries
 
@@ -242,26 +245,127 @@ The analytics dashboard includes task statistics in the "Follow-up Workload" sec
 - **No external API calls.** All AI responses are mocked locally. No OpenAI, no external CRM APIs, no cloud services.
 - **No OAuth.** No OAuth flows are configured for any connector.
 - **All Salesforce, HubSpot, Gmail, Outlook, Google Drive, Dropbox, SharePoint, OneDrive, and OpenText files are stubs only.** No credentials are stored, no tokens are requested, and no external systems are contacted.
-- **Human review required before any action.** All recommendations, assessments, and tasks are informational. No auto-creation or auto-sending of any kind.
+- **Human review required before any action.** All recommendations, assessments, tasks, and drafts are informational. No auto-creation or auto-sending of any kind.
 - **Attachments are stored locally only.** Uploaded files stay in `backend/data/attachments/`. No file is sent or shared externally.
+- **Knowledge sources are metadata only.** No external files or cloud repositories are accessed.
 
 ## Frontend Pages
 
 ```text
-/                         CRM workspace with organization list, details, AI actions, Interaction History,
-                          Knowledge Summary, meeting notes, Follow-up Tasks, and Demo Outbox
+/                         CRM workspace with organization list, organization detail, AI actions,
+                          interaction history, knowledge summary, meeting notes, and follow-up tasks
 /research-intake          Manual research intake form for saving reviewed organizations to the Local CRM
 /organization-discovery   Mock candidate discovery workflow with Approve, Edit, and Reject review actions
-/integrations             Read-only architecture overview with Active Local Connector, CRM Connectors,
-                          Document/Content Connectors, Communication Connectors, and Data Import/Export
+/knowledge-search         Search across organizations, interactions, tasks, drafts, workflow opportunities,
+                          knowledge sources, failure cases, and adoption risk notes
+/demo-outbox              Separate local draft review queue; no sending
+/integrations             Read-only architecture overview with connector stubs and import/export notes
 /data-tools               CSV import with preview-then-confirm flow, CSV export, and JSON export
-/analytics                Analytics dashboard with overview metrics, pipeline breakdowns,
-                          AI readiness summary, follow-up workload, draft activity, priority analytics,
-                          and task statistics
+/analytics                Workflow Insights and analytics: overview metrics, outreach pipeline,
+                          readiness summary, follow-up workload, draft activity, and workflow intelligence
 /priority-queue           All organizations ranked by outreach priority score with filtering
-                          by priority level, status, readiness level, and organization type
 /follow-ups               Global follow-up task list with filters by status, priority, and organization
 ```
+
+## Organization Detail Tabs
+
+The organization detail view should keep organization-specific data separated into readable tabs:
+
+```text
+Overview
+Interactions
+Workflow Opportunities
+Knowledge Sources
+Failure Cases
+Human System
+Insights
+```
+
+This reinforces the product flow: interactions are the raw source, while the other tabs show structured workflow-transformation knowledge derived from those interactions.
+
+## Development Roadmap
+
+The app currently includes features that correspond to three internal development stages. These stage labels are useful for the README and developer planning, but the app UI should use product-facing labels such as **Workflow Intelligence** and **Workflow Insights**.
+
+### Foundation Features
+
+- Local demo CRM
+- Research Intake
+- Organization Discovery
+- Organization summaries
+- AI Opportunity Analysis
+- Context-aware email drafting
+- Demo Outbox
+- Meeting support
+- Interaction history
+- Organization Knowledge Summary
+- AI Readiness Assessment
+- CSV/JSON import and export
+- Analytics dashboard
+
+### Outreach Intelligence
+
+- Outreach Recommendation
+- Priority Queue
+- Meeting Intelligence
+- Suggested follow-up task generation
+- Follow-up Tasks page
+- Outreach Recommendation with task awareness
+- Analytics with task statistics
+
+### Workflow Transformation Knowledge
+
+This layer captures structured knowledge about workflows, human systems, and adoption readiness from interactions. It prepares the information needed for future AI adoption planning, but does not generate final adoption plans.
+
+Implemented or planned items include:
+
+- Organization Timeline
+- Lessons Learned
+- Reusable Insights
+- Playbook Candidates
+- Global Knowledge Search
+- Enhanced Knowledge Summary
+- Workflow Opportunity Records
+- Knowledge Source Tracking
+- Failure Case / Exception Tracking
+- Human System / Adoption Risk Notes
+- Workflow Insights analytics
+- Optional Adoption Principles / Method Knowledge
+- Source-aware links back to the interaction or note summary that produced each record
+
+## Source-Aware Interaction-Derived Data
+
+Workflow intelligence should be evidence-based. Records created from AI Note Summary should preserve source references where practical:
+
+```text
+source_interaction_id or source_interaction_ids
+source_note_summary_id or source_note_summary_ids
+evidence_excerpt or evidence_excerpts
+evidence_count
+last_seen_at
+```
+
+This allows the app to show why a workflow opportunity, knowledge source, failure case, or adoption risk exists.
+
+## Duplicate Handling
+
+Workflow opportunities, knowledge sources, failure cases, and adoption risk notes should avoid unnecessary duplicates.
+
+For example, if three Waterloo Public Library interactions mention variants of “follow-up email drafting,” the app should show one accumulated opportunity with stronger evidence, not three duplicate cards.
+
+Suggested deduplication fields:
+
+```text
+canonical_title
+normalized_key
+evidence_count
+source_interaction_ids
+source_note_summary_ids
+evidence_excerpts
+last_seen_at
+```
+
+Deduplication should be organization-specific, not global.
 
 ## Project Structure
 
@@ -278,19 +382,19 @@ outreach_intelligence_platform/
 │       │   ├── salesforce_stub.py
 │       │   └── hubspot_stub.py
 │       ├── services/
-│   │   ├── ai_mock.py
-│   │   ├── analytics.py
-│   │   ├── attachments.py
-│   │   ├── data_tools.py
-│   │   ├── field_mapper.py
-│   │   ├── interaction_summaries.py
-│   │   ├── interactions.py
-│   │   ├── knowledge.py
-│   │   ├── outbox.py
-│   │   ├── outreach_recommendation.py
-│   │   ├── research_mock.py
-│   │   ├── tasks.py
-│   │   └── workflow.py
+│       │   ├── ai_mock.py
+│       │   ├── analytics.py
+│       │   ├── attachments.py
+│       │   ├── data_tools.py
+│       │   ├── field_mapper.py
+│       │   ├── interaction_summaries.py
+│       │   ├── interactions.py
+│       │   ├── knowledge.py
+│       │   ├── outbox.py
+│       │   ├── outreach_recommendation.py
+│       │   ├── research_mock.py
+│       │   ├── tasks.py
+│       │   └── workflow.py
 │       └── data/
 │           ├── interactions.json
 │           ├── organizations.json
@@ -341,14 +445,14 @@ PATCH  /api/organizations/{id}  (update contact name, email, phone number, websi
 GET    /api/organizations/{id}/summary
 GET    /api/organizations/{id}/opportunities
 POST   /api/organizations/{id}/readiness-assessment
-GET    /api/organizations/{id}/outreach-recommendation  (Phase 2)
+GET    /api/organizations/{id}/outreach-recommendation  (internal roadmap: outreach intelligence)
 GET    /api/organizations/{id}/knowledge-summary
 GET    /api/organizations/{id}/meeting-brief
 GET    /api/organizations/{id}/interactions
 POST   /api/organizations/{id}/interactions
 PATCH  /api/organizations/{id}/interactions/{interaction_id}
 DELETE /api/organizations/{id}/interactions/{interaction_id}
-POST   /api/organizations/{id}/interactions/{interaction_id}/summarize  (Phase 2)
+POST   /api/organizations/{id}/interactions/{interaction_id}/summarize  (internal roadmap: outreach intelligence)
 POST   /api/drafts/generate
 POST   /api/outbox
 GET    /api/outbox
@@ -364,25 +468,25 @@ POST   /api/data/import/csv/confirm
 GET    /api/data/export/csv
 GET    /api/data/export/json
 GET    /api/analytics/summary
-GET    /api/analytics/priority-queue  (Phase 2)
-GET    /api/tasks  (Phase 2)
-POST   /api/tasks  (Phase 2)
-PATCH  /api/tasks/{task_id}  (Phase 2)
-DELETE /api/tasks/{task_id}  (Phase 2)
-GET    /api/organizations/{id}/workflow-opportunities  (Phase 3)
-POST   /api/organizations/{id}/workflow-opportunities  (Phase 3)
-PATCH  /api/organizations/{id}/workflow-opportunities/{opp_id}  (Phase 3)
-GET    /api/organizations/{id}/knowledge-sources  (Phase 3)
-POST   /api/organizations/{id}/knowledge-sources  (Phase 3)
-PATCH  /api/organizations/{id}/knowledge-sources/{ks_id}  (Phase 3)
-DELETE /api/organizations/{id}/knowledge-sources/{ks_id}  (Phase 3)
-GET    /api/organizations/{id}/failure-cases  (Phase 3)
-POST   /api/organizations/{id}/failure-cases  (Phase 3)
-PATCH  /api/organizations/{id}/failure-cases/{fc_id}  (Phase 3)
-GET    /api/organizations/{id}/adoption-risk-notes  (Phase 3)
-POST   /api/organizations/{id}/adoption-risk-notes  (Phase 3)
-PATCH  /api/organizations/{id}/adoption-risk-notes/{ar_id}  (Phase 3)
-DELETE /api/organizations/{id}/adoption-risk-notes/{ar_id}  (Phase 3)
+GET    /api/analytics/priority-queue  (internal roadmap: outreach intelligence)
+GET    /api/tasks  (internal roadmap: outreach intelligence)
+POST   /api/tasks  (internal roadmap: outreach intelligence)
+PATCH  /api/tasks/{task_id}  (internal roadmap: outreach intelligence)
+DELETE /api/tasks/{task_id}  (internal roadmap: outreach intelligence)
+GET    /api/organizations/{id}/workflow-opportunities  (internal roadmap: workflow transformation knowledge)
+POST   /api/organizations/{id}/workflow-opportunities  (internal roadmap: workflow transformation knowledge)
+PATCH  /api/organizations/{id}/workflow-opportunities/{opp_id}  (internal roadmap: workflow transformation knowledge)
+GET    /api/organizations/{id}/knowledge-sources  (internal roadmap: workflow transformation knowledge)
+POST   /api/organizations/{id}/knowledge-sources  (internal roadmap: workflow transformation knowledge)
+PATCH  /api/organizations/{id}/knowledge-sources/{ks_id}  (internal roadmap: workflow transformation knowledge)
+DELETE /api/organizations/{id}/knowledge-sources/{ks_id}  (internal roadmap: workflow transformation knowledge)
+GET    /api/organizations/{id}/failure-cases  (internal roadmap: workflow transformation knowledge)
+POST   /api/organizations/{id}/failure-cases  (internal roadmap: workflow transformation knowledge)
+PATCH  /api/organizations/{id}/failure-cases/{fc_id}  (internal roadmap: workflow transformation knowledge)
+GET    /api/organizations/{id}/adoption-risk-notes  (internal roadmap: workflow transformation knowledge)
+POST   /api/organizations/{id}/adoption-risk-notes  (internal roadmap: workflow transformation knowledge)
+PATCH  /api/organizations/{id}/adoption-risk-notes/{ar_id}  (internal roadmap: workflow transformation knowledge)
+DELETE /api/organizations/{id}/adoption-risk-notes/{ar_id}  (internal roadmap: workflow transformation knowledge)
 ```
 
 ## Verification Checklist
@@ -413,268 +517,62 @@ curl http://127.0.0.1:8000/api/tasks
 
 The browser UI should load all frontend pages at their respective routes. The CRM workspace should preserve all Phase 1 and Phase 2 features.
 
-## Phase 3 — Workflow Transformation Knowledge
 
-Phase 3 captures structured knowledge about workflows, human-systems, and adoption readiness from interactions — storing it for future Phase 4 adoption plan generation. All data stays local.
+## Future Development
 
-### 1. Organization Timeline
+Future work should use the workflow transformation knowledge already captured by the app.
 
-Each organization detail page includes a **Timeline** section that combines events in chronological order:
+### AI Adoption Planning
 
-- Organization created (from `created_at` timestamp)
-- Interactions added (from interaction dates)
-- Follow-up tasks created and completed (from task timestamps)
-- Drafts saved to Demo Outbox (from draft timestamps)
+Future planning features may use workflow opportunities, failure cases, knowledge sources, adoption risk notes, and adoption principles to create:
 
-Each event shows the date/time, event type badge, a short title, and a description excerpt.
+- Adoption roadmaps
+- Pilot recommendations
+- Training suggestions
+- Success metrics
+- Human-review models
+- Change-management checklists
 
-### 2. Lessons Learned, Reusable Insights, and Playbook Candidates
+These should remain editable planning drafts, not final automated recommendations.
 
-When a user runs **AI Note Summary** on an interaction, the system extracts organizational knowledge beyond immediate follow-up tasks.
+### Production and Integration Work
 
-**Lessons Learned** — Practically useful takeaways from each interaction:
-- Displayed in a dedicated **Lessons Learned** section on each organization detail page
-- Each lesson shows: title, description, source interaction, date, and tags
-- Stored persistently in `backend/app/data/interaction_summaries.json`
+Possible later upgrades:
 
-**Reusable Insights** — Generalizable observations that apply across organizations:
-- Indexed and searchable via Knowledge Search
-- Included in the Knowledge Summary
-
-**Playbook Candidates** — Repeatable processes extracted from interaction notes:
-- Displayed in a dedicated **Playbook Candidates** section on each org detail page
-- Each playbook includes: title, when to use it, suggested process, source interaction, and tags
-- Filterable in Knowledge Search by content type "playbook" or "lesson"
-
-**Additional fields extracted per interaction:**
-- Staff concerns or adoption concerns
-- Human judgment / human review points
-- Knowledge-sharing opportunities
-- Suggested tags from a controlled vocabulary: `workflow-improvement`, `staff-concern`, `human-review`, `knowledge-sharing`, `training-need`, `evaluation-concern`, `pilot-idea`, `documentation`, `follow-up`
-
-### 3. Global Knowledge Search
-
-Route: `/knowledge-search`
-
-Navigation label: **Knowledge Search**
-
-Allows keyword search across local project data including:
-
-- Organization names, descriptions (mission_notes), category, status
-- Interaction titles, notes, outcomes, next actions
-- Follow-up task titles and descriptions
-- Draft subjects and bodies
-- Lessons learned, reusable insights, playbook candidates
-- Staff concerns, human judgment points, knowledge-sharing opportunities
-- Workflow opportunities, knowledge sources, failure cases
-- Current workflows and reusable workflow insights
-- Adoption risk notes
-
-Search supports:
-- **Keyword search** (required)
-- **Organization filter** — limit results to a specific org
-- **Content type filter** — narrow by organizations, interactions, tasks, drafts, lessons, insights, playbooks, workflow opportunities, knowledge sources, failure cases, or adoption risk notes
-
-Results appear as cards showing content type, organization name, a matching excerpt, date, and a "View Organization" button that navigates to the CRM workspace and selects the organization.
-
-### 4. Enhanced Knowledge Summary
-
-The Knowledge Summary section (on each org detail page) now includes:
-
-- Relationship status, main interests, known concerns
-- Previous outreach attempts (interaction history)
-- Active opportunities (open tasks), completed follow-ups count
-- Interaction history (last 5), follow-up task history, draft history
-- Timeline events summary
-- Main lessons learned, recurring concerns, reusable outreach insights
-- Knowledge-sharing opportunities, recommended knowledge item to preserve
-- **Workflow transformation fields:** main workflow opportunities, repeated workflow pain points, important knowledge sources, known failure cases, human review requirements, best candidate workflow for AI
-- **Human-system fields:** staff concerns, evaluation or recognition risks, training or follow-up needs, adoption safeguards, human system notes
-
-### 5. Phase 3 Analytics
-
-The Analytics dashboard now includes a **Workflow Transformation Knowledge** section:
-
-- Total searchable knowledge items (orgs + interactions + tasks + drafts)
-- Organizations with/without interaction history
-- Most common tags from interactions
-- Recent knowledge activity (last 5 events)
-- **Workflow opportunities identified** — count of workflow opportunities across all orgs
-- **Workflow opps with human review** — opportunities that explicitly require human review
-- **Organizations with workflow opportunities** — unique orgs that have at least one
-- **Organizations missing knowledge source notes** — orgs without knowledge source records
-- **Failure cases recorded** — total failure cases across all orgs
-- **Candidate pilot workflows** — workflow opportunities with status "Candidate for Pilot" or "Needs Validation"
-- **Adoption risk notes recorded** — total adoption risk notes across all orgs
-- **Organizations with adoption risk notes** — unique orgs that have risk notes
-- **Staff concern notes** — risk notes categorized as staff concerns
-- **Evaluation risk notes** — risk notes categorized as evaluation risks
-- **High-severity adoption risks** — risk notes with Medium or High severity
-
-### 6. Extended AI Note Summary — Workflow & Human-System Fields
-
-When a user runs **AI Note Summary**, the following workflow-specific and human-system fields are extracted from the notes:
-
-**Workflow fields:**
-- **Current workflow described** — description of the organization's current process
-- **Workflow pain points** — specific friction points identified
-- **Repetitive tasks identified** — tasks that recur and could be automated or assisted
-- **Information or documents used** — documents, records, or knowledge sources referenced in the workflow
-- **Possible AI insertion point** — where AI could meaningfully assist
-- **Required human review** — points where human judgment is essential
-- **Missing knowledge or data** — gaps that would need to be filled for AI adoption
-- **Failure cases / exceptions** — what has failed or could fail, why, missing context, human review requirement, and suggested prevention steps
-- **Reusable workflow insights** — generalizable observations across organizations
-- **Workflow tags** — controlled vocabulary tags for workflow analysis
-
-**Human-system fields:**
-- **Staff concerns** — staff fears, capacity constraints, and data privacy concerns around AI adoption
-- **Evaluation or recognition risks** — risks around unclear evaluation criteria, lack of recognition for AI-assisted work
-- **Knowledge-sharing opportunities** — insights and materials that could be shared across organizations
-- **Training or follow-up needs** — AI literacy training needs, digital skill assessments, pilot preparation
-- **Adoption safeguards** — human oversight measures, staff consultation requirements, responsible deployment practices
-- **Human system notes** — overall assessment of the human system around workload, evaluation, recognition, and staff confidence
-
-All fields are optional — no breaking changes to existing data or interfaces.
-
-### 7. Workflow Opportunity Records
-
-Each organization can have **Workflow Opportunity** records that capture structured opportunities:
-
-- **Title** — descriptive name for the opportunity
-- **Current process** — how the work is done today
-- **Pain point** — the specific problem or friction
-- **Possible AI support** — how AI could address the pain point
-- **Knowledge sources needed** — documents or data required
-- **Human review points** — steps requiring human judgment
-- **Risks or exceptions** — what could go wrong
-- **Staff impact** — how the opportunity affects staff workload and confidence
-- **Adoption risk level** — Unknown, Low, or Medium based on staff concerns and evaluation risks
-- **Next discovery questions** — open questions to explore before adoption planning
-- **Human review required** — specific human oversight requirements
-- **Required knowledge sources** — knowledge sources needed for this opportunity
-- **Known failure cases** — failure cases linked to this opportunity
-- **Source interaction** — which interaction identified this opportunity
-- **Status** — `Identified`, `Needs Validation`, `Candidate for Pilot`, or `Not Suitable`
-- **Tags** — categorization tags
-
-Workflow opportunities are **auto-created** when a user runs AI Note Summary (one per AI insertion point). They can also be manually created or edited.
-
-CRUD endpoints:
-```
-GET    /api/organizations/{id}/workflow-opportunities
-POST   /api/organizations/{id}/workflow-opportunities
-PATCH  /api/organizations/{id}/workflow-opportunities/{opp_id}
-```
-
-### 8. Knowledge Source Tracking
-
-For each organization, the platform records **Knowledge Sources** — metadata about where information lives:
-
-- **FAQ documents, Past meeting notes, Past emails or drafts, Policies, Templates, Q&A records, Training materials, Reports, Public website content, Other**
-
-Each source stores: type, name, description, and a location note. Knowledge sources are **auto-created** from the "Information or documents used" field during AI Note Summary. Manual CRUD is also available.
-
-```
-GET    /api/organizations/{id}/knowledge-sources
-POST   /api/organizations/{id}/knowledge-sources
-PATCH  /api/organizations/{id}/knowledge-sources/{ks_id}
-DELETE /api/organizations/{id}/knowledge-sources/{ks_id}
-```
-
-No external files or cloud storage are accessed — this is local metadata only.
-
-### 9. Failure Case / Exception Tracking
-
-Each organization can record **Failure Cases or Exceptions** from interactions:
-
-- **What failed or may fail** — description of the failure
-- **Why it failed** — root cause
-- **Missing context** — what information was lacking
-- **Human review required** — why human judgment is needed
-- **Suggested prevention step** — how to avoid in the future
-
-Failure cases are **auto-created** from AI Note Summary. They can also be manually managed.
-
-```
-GET    /api/organizations/{id}/failure-cases
-POST   /api/organizations/{id}/failure-cases
-PATCH  /api/organizations/{id}/failure-cases/{fc_id}
-```
-
-### 10. Adoption Risk Notes
-
-Each organization can have **Adoption Risk Notes** — structured records of human-system risks that could affect AI adoption success.
-
-**Risk types:**
-- **Staff Concern** — staff fears, capacity constraints, data privacy concerns
-- **Evaluation Risk** — unclear evaluation criteria, lack of recognition
-- **Adoption Safeguard** — protective measures needed for responsible adoption
-
-Each risk note stores: risk type, description, severity (Low/Medium/High), related staff role, suggested mitigation, source interaction, and tags.
-
-Adoption Risk Notes are **auto-created** from AI Note Summary from the new human-system fields. Manual CRUD is also available.
-
-```
-GET    /api/organizations/{id}/adoption-risk-notes
-POST   /api/organizations/{id}/adoption-risk-notes
-PATCH  /api/organizations/{id}/adoption-risk-notes/{ar_id}
-DELETE /api/organizations/{id}/adoption-risk-notes/{ar_id}
-```
-
-### 11. Knowledge Search Extensions
-
-The Knowledge Search indexes the following content types:
-- `workflow-opportunity` — workflow opportunity titles, pain points, and AI support
-- `knowledge-source` — knowledge source names, types, descriptions
-- `failure-case` — failure case descriptions and root causes
-- `adoption-risk` — adoption risk descriptions and mitigations
-
-Search results show appropriate content-type badges (⚙️, 📚, ⚠️, 🛡️).
-
-### 12. How This Supports Phase 4 Adoption Planning
-
-Workflow transformation knowledge connects interaction-level data to organizational-level insights for future adoption planning:
-- Running AI Note Summary auto-creates structured workflow opportunities, knowledge sources, failure cases, and adoption risk notes
-- All knowledge is immediately searchable across all organizations via Knowledge Search
-- The Knowledge Summary surfaces the most important workflow and human-system insights per organization
-- Analytics tracks overall workflow knowledge maturity and human-system risk posture
-- This knowledge directly feeds **Phase 4 AI Adoption Planning**, which will use workflow opportunities, failure cases, knowledge sources, and adoption risk notes to create adoption roadmaps, pilot plans, and readiness recommendations
-
-### 13. Safety
-
-- No external APIs called
-- No web scraping
-- No credentials stored
-- Local search only — no external search services
-- Knowledge sources are metadata only — no external files accessed
-- All workflow recommendations require human review
-- No automated outreach, email sending, or external communication
-
-## Future Development (Phase 4)
-
-Phase 4 features are not yet implemented. The workflow transformation knowledge captured in Phase 3 will directly inform Phase 4:
-
-- **AI Adoption Planning** — use workflow opportunities, failure cases, knowledge sources, and adoption risk notes to create adoption roadmaps, pilot plans, and readiness recommendations for each organization
 - Replace mock AI with OpenAI API calls
 - Add SQLite or PostgreSQL database
 - Add authentication and user management
 - Add real Salesforce connector
 - Add real HubSpot connector
-- Add Gmail draft-only integration (no sending)
+- Add Gmail draft-only integration, with no sending
 - Add Google Calendar integration
 - Add Kanban outreach board
 - Add dashboard charts and visualizations
 - Replace mock Organization Discovery with an approved research integration
-- Add email delivery tracking (read receipts, click tracking)
-- Add team collaboration features (shared notes, task assignment)
+- Add team collaboration features such as shared notes and task assignment
+
+Avoid adding email delivery tracking or automated sending unless the project scope changes substantially. The current product principle is human-reviewed drafting, not outreach automation.
 
 ## Portfolio Framing
 
 Suggested title:
 
-**Outreach Intelligence Platform: AI-assisted outreach and adoption planning with human review**
+**Outreach Intelligence Platform: Human-reviewed workflow intelligence for practical AI adoption**
 
 Suggested description:
 
-A demo platform that combines lightweight CRM functions with AI-assisted opportunity discovery, outreach preparation, meeting support, and responsible AI adoption planning. The system is designed as an intelligence layer that can eventually connect to Salesforce, HubSpot, or other CRM systems while preserving human review before external communication.
+A local portfolio demo that combines lightweight CRM functions with AI-assisted outreach preparation, interaction summarization, workflow opportunity discovery, knowledge-source mapping, failure-case tracking, and human-system adoption-risk awareness. The system is designed as an intelligence layer that can eventually connect to Salesforce, HubSpot, or other CRM systems while preserving human review before external communication or implementation decisions.
+
+## License
+
+Recommended license: **Apache License 2.0**.
+
+```text
+Copyright © 2026 Nobuki Matsui
+```
+
+This portfolio project is provided for demonstration, learning, and review purposes. Reuse, modification, and distribution are permitted under the terms of the Apache License 2.0.
+
+References
+株式会社AX
+https://youtube.com/@ax_channel?si=jzQT6Rl-OVVY1sdU
