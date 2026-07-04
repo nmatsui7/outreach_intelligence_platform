@@ -897,7 +897,7 @@ To verify all AI-powered features are working:
 
 **Troubleshooting:** If any AI panel returns `Not Found`, ensure the server was started with `AI_PROVIDER=mock` and restart if needed. The adoption plan route auto-generates a plan on first access — it never returns 404 for a valid organization.
 
-### Phase 5: Production and Integration Work (Future)
+### Production and Integration Work (Future)
 
 Possible later upgrades:
 
@@ -914,6 +914,21 @@ Possible later upgrades:
 - Add team collaboration features such as shared notes and task assignment
 
 Avoid adding email delivery tracking or automated sending unless the project scope changes substantially. The current product principle is human-reviewed drafting, not outreach automation.
+
+## Evaluation Limitations
+
+This project does not include automated judge scripts or formal evaluation of AI suggestion quality.
+
+AI adoption in workplace settings is still an emerging field, and there is not always a stable ground truth for judging whether a suggested workflow opportunity, adoption risk, or pilot plan is correct. The quality of suggestions depends on the available interaction notes, the seed method knowledge, the AI provider, and human review.
+
+For that reason, AI-generated outputs in this demo should be treated as structured drafts for review, not as validated recommendations.
+
+The project focuses on the process of capturing interaction evidence, extracting possible workflow intelligence, preserving source context, and supporting human judgment. Future evaluation work could include reviewer scoring, comparison against expert-written recommendations, regression tests for structured output quality, and human-in-the-loop feedback records.
+
+Because AI tools and workplace adoption practices are changing quickly, the project treats its AI outputs as reviewable working drafts rather than fixed best-practice conclusions.
+
+The initial method knowledge used in this project was informed by public learning material, including notes taken from 株式会社AX videos about practical AI adoption, workflow transformation, human review, failure cases, and organizational change. These notes helped shape the project’s seed principles, but the app’s organization-specific workflow intelligence is intended to come from actual interaction notes and human-reviewed evidence.
+
 
 ## Project Summary
 
