@@ -96,7 +96,7 @@ Interactions are the main source of workflow intelligence.
 - Store date, title, notes, outcome, next action, follow-up date, and tags
 - Run **AI Note Summary** on an interaction to extract structured knowledge
 - Extract summary, discussion points, decisions, action items, risks, recommended follow-up, tags, and suggested follow-up tasks
-- Use local mock AI logic only — no external API calls
+- Use mock AI by default, with optional local LLM mode — no external API calls are required by default
 
 ### Knowledge Extraction Process
 
@@ -132,11 +132,11 @@ Extracted records accumulate at the organization level. Repeated similar finding
 The following records are created or updated when AI Note Summary is run:
 
 * [Interaction summary](#2-interaction-notes-and-ai-summaries) — saved to `interaction_summaries.json`
-* [Follow-up tasks](#6-follow-up-tasks) — returned as suggestions for user review and manual creation
+* Follow-up tasks — returned as suggestions for user review and manual creation
 * [Workflow opportunities](#3-workflow-opportunities) — auto-saved with deduplication and evidence tracking
-* [Knowledge sources](#5-knowledge-sources) — auto-saved per organization
-* [Failure cases](#failure-cases) — auto-saved with deduplication and evidence tracking
-* [Adoption risk notes](#adoption-risk-notes) — auto-saved with source interaction references
+* [Knowledge sources](#4-knowledge-sources) — auto-saved per organization
+* [Failure cases](#5-failure-cases-and-exceptions) — auto-saved with deduplication and evidence tracking
+* [Adoption risk notes](#6-human-system-and-adoption-risks) — auto-saved with source interaction references
 * Lessons learned, reusable insights, and playbook candidates — included in the summary response and viewable per interaction
 
 ### 2a. AI Assistant Tab
@@ -315,7 +315,7 @@ Initial principles include:
 - **No real email sending.** Drafts are saved locally to `backend/app/data/outbox.json`. No SMTP, Gmail API, or Outlook API is configured or called.
 - **No SMS or phone automation.** Phone numbers are stored as informational strings only. No Twilio, no calling, no texting.
 - **No web scraping.** Research Intake requires manual entry. Organization Discovery uses local mock data only.
-- **No external API calls by default.** All AI responses use the configured provider (mock or local LLM via llama.cpp). No OpenAI, no external CRM APIs, no cloud services by default. See [AI Provider](#ai-provider) for switching modes.
+- **No external API calls by default.** All AI responses use the configured provider (mock or local LLM via llama.cpp). No OpenAI, no external CRM APIs, no cloud services by default. See [AI Provider Configuration](#ai-provider-configuration) for switching modes.
 - **No OAuth.** No OAuth flows are configured for any connector.
 - **All connector settings are disabled demo placeholders.** Salesforce, HubSpot, Microsoft Dynamics 365, Gmail, Outlook, Google Drive, Dropbox, SharePoint/OneDrive, OpenText, Mail Server, and OpenAI — none request OAuth access, store credentials, sync records/files, make API calls, or connect to any external service.
 - **Human review required before any action.** All recommendations, assessments, tasks, and drafts are informational. No auto-creation or auto-sending of any kind.
@@ -522,22 +522,6 @@ The app does not require a local LLM to run. By default, AI-powered features use
 - AI-powered buttons use local mock responses from the backend.
 - Demo data can be seeded locally (see [Loading Demo Data](#loading-demo-data)).
 - The Settings page shows disabled connector placeholders — they are not active.
-
-### Quick Start
-
-```bash
-cd outreach_intelligence_platform
-python3.13 -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-pip install -r backend/requirements.txt
-uvicorn backend.main:app --reload
-```
-
-Then open:
-
-```text
-http://127.0.0.1:8000
-```
 
 ### Troubleshooting
 
@@ -929,6 +913,21 @@ Because AI tools and workplace adoption practices are changing quickly, the proj
 
 The initial method knowledge used in this project was informed by public learning material, including notes taken from 株式会社AX videos about practical AI adoption, workflow transformation, human review, failure cases, and organizational change. These notes helped shape the project’s seed principles, but the app’s organization-specific workflow intelligence is intended to come from actual interaction notes and human-reviewed evidence.
 
+## Knowledge Review and Representation
+
+The project treats accumulated workflow intelligence as reviewable knowledge, not as automatically validated truth.
+
+Over time, interaction-derived records may need periodic human review to decide which findings are reliable, outdated, duplicated, organization-specific, or reusable across future work. This review step is important because AI adoption practices and AI tool capabilities are changing quickly, and there may not be a stable ground truth for every suggested workflow opportunity or adoption risk.
+
+Reviewed knowledge could be represented in different forms depending on its purpose:
+
+* **Organization knowledge** — accumulated evidence about a specific organization’s workflows, risks, knowledge sources, and follow-up needs
+* **Reusable method knowledge** — stable principles or procedures that could be written as a playbook or `SKILL.md`
+* **Searchable evidence knowledge** — source-grounded records that could later support retrieval-augmented generation, semantic search, or case comparison
+* **Planning knowledge** — reviewed inputs used to generate draft adoption plans, pilot recommendations, success metrics, and human-review models
+
+In this demo, accumulated knowledge is stored locally and remains human-reviewed. Future work could add reviewer scoring, approval status, confidence levels, stale-date checks, promotion of reviewed knowledge into reusable playbooks, or RAG-style retrieval over approved source-grounded records.
+
 
 ## Project Summary
 
@@ -940,7 +939,7 @@ The app is intentionally limited to local, human-reviewed workflows. It does not
 
 ## License
 
-Recommended license: **Apache License 2.0**.
+This project is licensed under the Apache License 2.0.
 
 ```text
 Copyright © 2026 Nobuki Matsui
