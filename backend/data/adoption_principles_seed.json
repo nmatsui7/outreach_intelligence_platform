@@ -118,5 +118,15 @@
     "evidence_excerpt": "Maintaining explicit human review for high-stakes decisions preserves quality, privacy, and accountability.",
     "applies_to": ["failure_case_extraction", "human_system_notes", "knowledge_source_extraction", "future_adoption_planning"],
     "recommended_use": "Reference when extracting failure cases, designing human-system notes, or defining human review requirements."
+  },
+  {
+    "title": "AI Talent Develops Through Workflow Learning",
+    "summary": "Effective AI adoption should develop people who can identify inefficient workflows themselves, break those workflows into steps, test small AI-assisted improvements, and share the results as reusable organizational knowledge.",
+    "category": "training_design",
+    "source_note_id": 5,
+    "source_note_title": "AI Adoption Note 5",
+    "evidence_excerpt": "AI training should focus on workflow impact by helping staff identify inefficient processes, test small improvements, review results, and share examples internally.",
+    "applies_to": ["workflow_step_analysis", "future_adoption_planning", "human_system_notes", "knowledge_source_extraction"],
+    "recommended_use": "Reference when planning training, evaluating workflow opportunities, or turning reviewed automation examples into reusable organizational knowledge."
   }
 ]

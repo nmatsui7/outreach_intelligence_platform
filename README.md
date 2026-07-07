@@ -290,12 +290,32 @@ Initial principles include:
 
 - AI adoption should start with small, repeatable workflow-efficiency wins before larger revenue or automation projects.
 - AI training should focus on changing real workflows, not only teaching tool usage.
+- Effective AI adoption should develop people who can identify inefficient workflows themselves, break those workflows into steps, test small AI-assisted improvements, and share the results as reusable organizational knowledge.
 - Effective AI workflows require structured, searchable, reliable knowledge sources.
 - Failure cases and exceptions should be documented because they define where human review is needed.
 - Experienced staff should guide AI workflow design because they can judge output quality.
 - AI should support experienced workers by helping turn their knowledge into repeatable workflows.
 - Workflows should be decomposed into smaller steps before deciding whether each step belongs to generative AI, browser automation, OCR, search, templates, or human judgment.
 - Human review should remain explicit for externally visible, quality-sensitive, private, or judgment-heavy work.
+
+### AI Talent and Workflow Learning
+
+The seed method knowledge also reflects the idea that effective AI adoption depends on people who understand their work well enough to identify inefficient workflows, test small improvements, and share what they learn.
+
+Rather than treating AI training as only tool usage or prompt instruction, the project frames AI adoption as a workflow-learning cycle:
+
+```text
+identify a small inefficient workflow
+  → test an AI-assisted or automated improvement
+  → review the result
+  → share the example internally
+  → store the example as reusable knowledge
+  → use the accumulated examples to find the next improvement
+```
+
+Many AI training efforts may fail to produce measurable workflow impact when they focus only on tool usage rather than helping staff identify, test, and improve real business processes.
+
+This reinforces the project’s focus on experienced staff, fast iteration, internal knowledge sharing, human review, and incentives that recognize productivity improvements rather than simply increasing workload.
 
 ## Demo Workflow
 
@@ -893,6 +913,7 @@ Possible later upgrades:
 - Add Gmail draft-only integration, with no sending
 - Add Google Calendar integration
 - Add Kanban outreach board
+- Add an Automation Example Library for reviewed examples of small AI-assisted workflow improvements, including original process, improved process, tools used, human-review checkpoints, failure cases, and reusable lessons.
 - Add dashboard charts and visualizations
 - Replace mock Organization Discovery with an approved research integration
 - Add team collaboration features such as shared notes and task assignment
