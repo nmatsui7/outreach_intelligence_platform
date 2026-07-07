@@ -231,6 +231,9 @@ Each risk note may include risk type, description, severity, related staff role,
 
 This section reflects the idea that AI adoption can fail if people, incentives, workflows, and leadership practices are not ready.
 
+The project also treats AI adaptation discussions as part of adoption readiness. When AI improves efficiency, organizations may need explicit meetings to review how that change affects workload, evaluation, recognition, role clarity, and knowledge sharing.
+
+
 ### 7. Workflow Insights
 
 Workflow Insights aggregate the structured knowledge created from interactions.

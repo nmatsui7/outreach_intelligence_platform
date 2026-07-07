@@ -158,5 +158,15 @@
     "evidence_excerpt": "Before representing accumulated notes as reusable guidance or retrieval material, review them for quality, context, exceptions, and review boundaries.",
     "applies_to": ["knowledge_source_extraction", "failure_case_extraction", "workflow_step_analysis", "future_adoption_planning"],
     "recommended_use": "Reference when promoting informal workflow notes into reusable playbooks, SKILL.md guidance, or RAG-style knowledge sources."
+  },
+  {
+    "title": "Regular Forums for AI Efficiency Review",
+    "summary": "Organizations should create regular forums to review AI-driven efficiency improvements with employees so adoption does not become an invisible burden.",
+    "category": "human_system",
+    "source_note_id": 6,
+    "source_note_title": "AI Adoption Note 6",
+    "evidence_excerpt": "Review AI-driven efficiency improvements with employees, including workload changes, evaluation criteria, recognition, role clarity, knowledge sharing, and staff concerns.",
+    "applies_to": ["human_system_notes", "future_adoption_planning", "workflow_step_analysis", "knowledge_source_extraction"],
+    "recommended_use": "Reference when adoption planning needs a recurring review mechanism for workload, evaluation, recognition, role clarity, knowledge sharing, and staff concerns."
   }
 ]

@@ -35,6 +35,9 @@
 - Internal examples are useful because they make automation possibilities concrete and reusable for similar workflows.
 - Fast testing and feedback are more useful than waiting for a perfect first version.
 
+- Organizations may need recurring AI adaptation meetings where staff and managers discuss how AI-driven efficiency improvements affect workload, role expectations, evaluation, recognition, knowledge sharing, and trust. These meetings help ensure AI adoption is treated as organizational change, not just individual tool usage.
+
+
 ## Knowledge Review and Representation
 
 - Accumulated workflow notes should be reviewed periodically before they are reused as formal guidance.

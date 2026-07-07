@@ -270,5 +270,23 @@
     "recommended_use": "Reference when promoting informal workflow notes into reusable playbooks, SKILL.md guidance, or RAG-style knowledge sources.",
     "created_at": "2026-07-07T12:00:00Z",
     "updated_at": "2026-07-07T12:00:00Z"
+  },
+  {
+    "id": 17,
+    "title": "Regular Forums for AI Efficiency Review",
+    "summary": "Organizations should create regular forums to review AI-driven efficiency improvements with employees so adoption does not become an invisible burden.",
+    "category": "human_system",
+    "source_note_id": 6,
+    "source_note_title": "AI Adoption Note 6",
+    "evidence_excerpt": "Review AI-driven efficiency improvements with employees, including workload changes, evaluation criteria, recognition, role clarity, knowledge sharing, and staff concerns.",
+    "applies_to": [
+      "human_system_notes",
+      "future_adoption_planning",
+      "workflow_step_analysis",
+      "knowledge_source_extraction"
+    ],
+    "recommended_use": "Reference when adoption planning needs a recurring review mechanism for workload, evaluation, recognition, role clarity, knowledge sharing, and staff concerns.",
+    "created_at": "2026-07-07T12:00:00Z",
+    "updated_at": "2026-07-07T12:00:00Z"
   }
 ]
