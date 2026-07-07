@@ -128,5 +128,35 @@
     "evidence_excerpt": "AI training should focus on workflow impact by helping staff identify inefficient processes, test small improvements, review results, and share examples internally.",
     "applies_to": ["workflow_step_analysis", "future_adoption_planning", "human_system_notes", "knowledge_source_extraction"],
     "recommended_use": "Reference when planning training, evaluating workflow opportunities, or turning reviewed automation examples into reusable organizational knowledge."
+  },
+  {
+    "title": "Gather Workflow Evidence Before Proposing AI",
+    "summary": "AI adoption planning should use reviewed workflow evidence to understand how work actually happens before recommending tools or automation.",
+    "category": "workflow_analysis",
+    "source_note_id": 6,
+    "source_note_title": "AI Adoption Note 6",
+    "evidence_excerpt": "Use concrete workflow evidence, such as reviewed meeting or interaction notes, to understand real work before proposing AI support.",
+    "applies_to": ["workflow_opportunity_extraction", "knowledge_source_extraction", "failure_case_extraction", "future_adoption_planning"],
+    "recommended_use": "Reference when deciding whether an interaction contains enough evidence to create or strengthen workflow intelligence records."
+  },
+  {
+    "title": "Share Internal Automation Examples",
+    "summary": "Internal examples of small AI-assisted workflow improvements should be shared and stored so staff can recognize similar opportunities in their own work.",
+    "category": "training_design",
+    "source_note_id": 6,
+    "source_note_title": "AI Adoption Note 6",
+    "evidence_excerpt": "Reusable internal examples help staff connect AI adoption to familiar workflows and practical improvement patterns.",
+    "applies_to": ["workflow_step_analysis", "knowledge_source_extraction", "future_adoption_planning", "human_system_notes"],
+    "recommended_use": "Reference when turning successful pilots, reviewed automations, or lessons learned into reusable internal knowledge."
+  },
+  {
+    "title": "Review Knowledge Before Reuse",
+    "summary": "Accumulated workflow notes should be reviewed for quality, context, exceptions, and human-review boundaries before becoming playbooks, SKILL.md instructions, or retrieval sources.",
+    "category": "knowledge_sources",
+    "source_note_id": 6,
+    "source_note_title": "AI Adoption Note 6",
+    "evidence_excerpt": "Before representing accumulated notes as reusable guidance or retrieval material, review them for quality, context, exceptions, and review boundaries.",
+    "applies_to": ["knowledge_source_extraction", "failure_case_extraction", "workflow_step_analysis", "future_adoption_planning"],
+    "recommended_use": "Reference when promoting informal workflow notes into reusable playbooks, SKILL.md guidance, or RAG-style knowledge sources."
   }
 ]

@@ -44,6 +44,12 @@ Organization profile + interaction notes
 
 ![Settings Placeholders](docs/screenshots/settings-placeholders.png)
 
+## Method Notes
+
+This project was informed by summarized learning notes on practical AI adoption, workflow transformation, human review, failure cases, AI talent development, and organizational change.
+
+See [`docs/method-notes.md`](docs/method-notes.md) for the supporting method notes used to shape the seed adoption principles.
+
 ## What This Is
 
 This is not meant to replace a CRM. It is an **AI intelligence layer** that can sit above different data sources.
