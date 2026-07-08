@@ -231,6 +231,8 @@ Each risk note may include risk type, description, severity, related staff role,
 
 This section reflects the idea that AI adoption can fail if people, incentives, workflows, and leadership practices are not ready.
 
+The project also reflects my interest in fair recognition of employees who use AI responsibly to improve their work, instead of treating AI-enabled efficiency as a reason to simply increase workload.
+
 The project also treats AI adaptation discussions as part of adoption readiness. When AI improves efficiency, organizations may need explicit meetings to review how that change affects workload, evaluation, recognition, role clarity, and knowledge sharing.
 
 
@@ -984,3 +986,6 @@ The AI adoption principles used in this portfolio project were informed by notes
 株式会社AX YouTube Channel: https://youtube.com/@ax_channel?si=jzQT6Rl-OVVY1sdU
 
 These references were used as learning material for developing the project’s workflow-intelligence concepts, including practical AI adoption, workflow transformation, human review, adoption risks, incentives, and organizational change. This project is independent and is not affiliated with or endorsed by 株式会社AX.
+
+These references also influenced the project’s attention to fair recognition, evaluation design, and the human impact of AI-enabled workflow improvements.
+
