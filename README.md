@@ -8,6 +8,9 @@ This project is intentionally safe: **it does not send real emails**. AI-assiste
 
 Successful AI adoption is not only a technical problem. Organizations also need to understand workflow pain points, knowledge sources, human-review requirements, failure cases, staff concerns, evaluation ambiguity, recognition gaps, and training needs.
 
+AI adoption should be treated as workflow intelligence and organizational learning, not only as software deployment. Effective adoption begins with real workflow evidence: identifying where AI can safely support human work, documenting failure cases and review boundaries, and addressing the human systems that determine whether people will actually use and improve the process, including workload, trust, role clarity, incentives, recognition, leadership support, and shared learning.
+
+
 The platform therefore treats **adoption risk as part of workflow intelligence**, not as a final afterthought. When interaction notes are entered, the system does not only look for possible AI-use opportunities. It also captures human-system risks that could affect whether an opportunity is realistic, trusted, and sustainable.
 
 The core product idea is:
