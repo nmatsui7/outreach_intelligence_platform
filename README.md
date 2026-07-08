@@ -344,6 +344,14 @@ This reinforces the project’s focus on experienced staff, fast iteration, inte
 9. Generate **Next Best Email** → review and edit the draft → save to **Demo Outbox**
 10. Export data via CSV or JSON at the Data Tools page
 
+## Governance and Human Review
+
+AI-generated outputs are drafts or recommendations, not final decisions. Human review is required before outreach, adoption planning, pilot decisions, or workflow implementation.
+
+Workflow opportunities should be evidence-based and tied to interaction notes where practical. Failure cases, exceptions, and adoption risks are part of the product model because governance is treated as part of practical AI adoption, not as an afterthought.
+
+The demo is intentionally local and does not send emails, connect to external services, or automate outreach by default. See [`docs/governance.md`](docs/governance.md) for the project’s governance framing.
+
 ## Safety Boundaries
 
 - **No real email sending.** Drafts are saved locally to `backend/app/data/outbox.json`. No SMTP, Gmail API, or Outlook API is configured or called.
@@ -991,4 +999,3 @@ The AI adoption principles used in this portfolio project were informed by notes
 These references were used as learning material for developing the project’s workflow-intelligence concepts, including practical AI adoption, workflow transformation, human review, adoption risks, incentives, and organizational change. This project is independent and is not affiliated with or endorsed by 株式会社AX.
 
 These references also influenced the project’s attention to fair recognition, evaluation design, and the human impact of AI-enabled workflow improvements.
-
