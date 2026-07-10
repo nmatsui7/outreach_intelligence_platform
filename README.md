@@ -4,6 +4,10 @@ A portfolio demo for **AI-assisted outreach and workflow intelligence**. The pla
 
 This project is intentionally safe: **it does not send real emails**. AI-assisted drafts are saved to a local **Demo Outbox** for human review and manual sending outside the app.
 
+## Governance Reference
+
+See [Principles for AI Adoption and Governance.pdf](https://github.com/nmatsui7/outreach_intelligence_platform/blob/main/Principles%20for%20AI%20Adoption%20and%20Governance.pdf) for a concise reference on the project’s AI adoption and governance framing.
+
 ## Product Thesis
 
 Successful AI adoption is not only a technical problem. Organizations also need to understand workflow pain points, knowledge sources, human-review requirements, failure cases, staff concerns, evaluation ambiguity, recognition gaps, and training needs.
